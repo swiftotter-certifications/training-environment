@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference
+        for="SwiftOtter\EventQueue\QueueEventManagerInterface"
+        type="SwiftOtter\EventQueue\QueueEventManager"
+    />
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="TriggerEventQueue" xsi:type="object">SwiftOtter\EventQueue\Command\Trigger</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

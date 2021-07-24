@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SwiftOtter\Catalog\Api\Data\IncomingAddressInterface"
+                type="SwiftOtter\Catalog\Model\IncomingAddress"/>
+
+    <preference for="SwiftOtter\Catalog\Api\Data\IncomingOrderDetailsInterface"
+                type="SwiftOtter\Catalog\Model\IncomingOrder"/>
+
+    <preference for="SwiftOtter\Catalog\Api\Data\IncomingPaymentPayloadInterface"
+                type="SwiftOtter\Catalog\Model\IncomingPaymentPayload"/>
+
+    <preference for="SwiftOtter\Catalog\Api\Data\IncomingShareRequestInterface"
+                type="SwiftOtter\Catalog\Model\IncomingShareRequest"/>
+
+    <type name="SwiftOtter\Catalog\Service\Product">
+        <arguments>
+            <argument xsi:type="array" name="attributes">
+                <item name="price" xsi:type="string">price</item>
+                <item name="name" xsi:type="string">name</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Controller\Product\View">
+        <plugin name="RedirectToParentProduct" type="\SwiftOtter\Catalog\Plugin\RedirectToParentProduct"/>
+    </type>
+</config>
+
+

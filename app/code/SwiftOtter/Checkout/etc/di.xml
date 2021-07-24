@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SwiftOtter\Checkout\Api\AddToCartInterface" type="SwiftOtter\Checkout\Endpoint\AddToCart"/>
+    <preference for="SwiftOtter\Checkout\Api\Data\AddToCartDetailsInterface" type="SwiftOtter\Checkout\Model\AddToCartDetails"/>
+
+    <type name="Magento\Framework\View\Layout\Builder">
+        <plugin name="AddEmbeddedLayoutHandle" type="SwiftOtter\Checkout\Plugin\AddEmbeddedLayoutHandle" />
+        <plugin name="AddSuccessEmbeddedLayoutHandle" type="SwiftOtter\Checkout\Plugin\AddSuccessEmbeddedLayoutHandle" />
+    </type>
+
+    <type name="Magento\Checkout\Model\DefaultConfigProvider">
+        <plugin name="AddEmbeddedPathToSuccess" type="SwiftOtter\Checkout\Plugin\AddEmbeddedPathToSuccess" />
+    </type>
+
+    <type name="Magento\Quote\Model\Quote\Item">
+        <plugin name="ShareMakesDifferentQuoteItems" type="SwiftOtter\Checkout\Plugin\ShareMakesDifferentQuoteItems" />
+    </type>
+
+    <type name="Magento\Quote\Model\Quote\Payment">
+        <plugin name="CopyRegisterPassword" type="SwiftOtter\Checkout\Plugin\CopyRegisterPassword" />
+    </type>
+
+    <type name="Magento\Quote\Model\QuoteManagement">
+        <plugin name="EnsureDefaultAddressInformation" type="SwiftOtter\Checkout\Plugin\EnsureDefaultAddressInformation" />
+        <plugin name="RegisterCustomerInCheckout" type="SwiftOtter\Checkout\Plugin\RegisterCustomerInCheckout" />
+        <plugin name="PlaceOrderOnBehalfOfCustomer" type="SwiftOtter\Checkout\Plugin\PlaceOrderOnBehalfOfCustomer" />
+    </type>
+
+    <type name="Magento\Sales\Model\Service\OrderService">
+        <plugin name="TriggerOrderWebhook" type="SwiftOtter\Checkout\Plugin\TriggerOrderWebhook" />
+    </type>
+
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="ForceCurrencyForQuote" type="SwiftOtter\Checkout\Plugin\ForceCurrencyForQuote" />
+    </type>
+
+    <type name="Magento\Quote\Model\Quote\Address">
+        <plugin name="EnsureCountryIsSet" type="SwiftOtter\Checkout\Plugin\EnsureCountryIsSet" />
+    </type>
+
+    <type name="Magento\Quote\Model\Quote\Item\ToOrderItem">
+        <plugin name="CopyAllCustomOptionsFromQuoteItemToOrderItem" type="SwiftOtter\Checkout\Plugin\CopyAllCustomOptionsFromQuoteItemToOrderItem" />
+    </type>
+</config>

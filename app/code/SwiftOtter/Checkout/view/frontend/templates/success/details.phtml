@@ -1,0 +1,76 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 7/5/21
+ * @website https://swiftotter.com
+ **/
+
+/** @var \SwiftOtter\Checkout\ViewModel\Success $data */
+$data = $block->getData('data');
+?>
+
+<h3>Rocket ship: ready for takeoff!</h3><h5></h5>
+
+<?php if ($data->getOrderNumber()) :?>
+    <?php if ($data->isLoggedIn()) :?>
+        <h5><?= $escaper->escapeHtml(__('Your order number is %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $escaper->escapeUrl($data->getViewUrl()), $data->getOrderNumber())), ['a', 'strong']) ?></h5>
+    <?php  else :?>
+        <h5><?= $escaper->escapeHtml(__('Your order # is: <span>%1</span>.', $data->getOrderNumber()), ['span']) ?></h5>
+    <?php endif;?>
+<?php endif;?>
+
+<p><b>First, thank you.</b> Every order makes a difference. I'm able to continue building out these materials for you.</p>
+<p><b>Second, I invite you to join</b> my popular ecommerce slack channel. We talk about a lot of things, including Magento and certifications.
+    This is a great place to continue the conversation and ask questions.
+    <a href="https://join.slack.com/t/certifications-hq/shared_invite/zt-dhfoqfqv-Gbs972TAuMnakJK8Q8GWpw"
+       target="_blank">You can join it here.</a>
+</p>
+
+<?php foreach ($data->getMessages() as $message): ?>
+    <div class="order-message country-specific"><?= $escaper->escapeHtml($message) ?></div>
+<?php endforeach; ?>
+
+<?php foreach ($data->getPostPurchaseMessages() as $message): ?>
+<div class="order-message"><?= $escaper->escapeHtml($message) ?></div>
+<?php endforeach; ?>
+<br/>
+<h4><?= __('Access your purchases') ?>:</h4>
+<div class="purchases">
+    <?php foreach ($data->getOrderItems() as $productDetails): ?>
+    <div class="purchases__item purchase">
+        <?php if ($productDetails->getImage()): ?>
+        <div class="purchase__image">
+            <img src="<?=$productDetails->getImage() ?>"
+                alt="<?=$productDetails->getName()?>" />
+        </div>
+        <?php endif;?>
+        <span class="purchase__title"><?= $productDetails->getName() ?></span>
+        <span class="purchase__access">
+            <?php if ($productDetails->getType() === \SwiftOtter\DownloadProduct\Api\Data\ProductDetailInterface::TYPE_STUDY_GUIDE
+                || $productDetails->getType() === \Magento\Downloadable\Model\Product\Type::TYPE_DOWNLOADABLE): ?>
+            <a href="<?= $data->getDownloadableUrl()?>"
+               target="_parent"
+               title="Download the <?= $productDetails->getName()?>">Download</a>
+            <?php endif;?>
+
+            <?php if ($productDetails->getType() === \SwiftOtter\DownloadProduct\Api\Data\ProductDetailInterface::TYPE_PREP_COURSE): ?>
+                <a href="<?= $data->getDownloadableUrl()?>"
+                   target="_parent"
+                   title="Get access to the <?= $productDetails->getName()?>">Get Access</a><br/>
+                <small>To access your course, please <a href="https://learning.swiftotter.com">go here</a>. You should have already received an email with login instructions.</small>
+            <?php endif;?>
+
+            <?php if ($productDetails->getType() === \SwiftOtter\DownloadProduct\Api\Data\ProductDetailInterface::TYPE_STUDY_GUIDE): ?>
+                <a href="#/exam/<?= $productDetails->getTestId() ?>"
+                   target="_parent"
+                   title="Take the <?= $productDetails->getName()?> test">Take the Test</a>
+            <?php endif;?>
+        </span>
+    </div>
+    <?php endforeach; ?>
+</div>
+
+<h4>Financial details:</h4>
+<p><b>Total:</b> <?= $data->getOrderTotal() ?><br />
+    <b>Order #</b> <?= $data->getOrderNumber() ?></p>
+<p><a href="/customer/account">Visit my account</a></p>

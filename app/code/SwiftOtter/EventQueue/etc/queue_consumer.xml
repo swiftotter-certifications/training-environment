@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/consumer.xsd">
+    <consumer name="event_consumer"
+              queue="event_queue"
+              connection="amqp"
+              consumerInstance="Magento\Framework\MessageQueue\Consumer"
+              handler="SwiftOtter\EventQueue\Queue\TriggerEventsFromQueue::process"/>
+    <!-- note that we are using a virtualType above because the validation regex does not allow for numbers. Go figure. -->
+</config>

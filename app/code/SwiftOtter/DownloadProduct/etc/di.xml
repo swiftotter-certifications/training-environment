@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Config\Model\Config\TypePool">
+        <arguments>
+            <argument name="sensitive" xsi:type="array">
+                <item name="sales/braintree_api/tokenization_key" xsi:type="string">1</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Sales\Model\Order\ItemFactory">
+        <plugin name="OrderUserInformationInitialization" type="SwiftOtter\DownloadProduct\Plugin\OrderUserInformationInitialization"/>
+    </type>
+
+    <type name="Magento\Sales\Model\Order\ItemRepository">
+        <plugin name="OrderUserInformationLoadRepository" type="SwiftOtter\DownloadProduct\Plugin\OrderUserInformationLoadRepository"/>
+    </type>
+
+    <type name="Magento\Sales\Model\ResourceModel\Order\Item">
+        <plugin name="OrderUserInformationLoading" type="SwiftOtter\DownloadProduct\Plugin\OrderUserInformationSaving"/>
+    </type>
+
+    <type name="Magento\Sales\Model\ResourceModel\Order\Item">
+        <plugin name="OrderUserInformationLoading" type="SwiftOtter\DownloadProduct\Plugin\OrderUserInformationSaving"/>
+    </type>
+
+    <preference for="SwiftOtter\DownloadProduct\Api\Data\OrderUserInformationInterface" type="SwiftOtter\DownloadProduct\Model\OrderUserInformation" />
+</config>

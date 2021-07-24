@@ -1,0 +1,19 @@
+{
+  "name": "swiftotter/module-event-queue",
+  "description": "",
+  "type": "magento2-module",
+  "license": "proprietary",
+  "minimum-stability": "dev",
+  "require": {
+    "magento/framework": "^100.0",
+    "magento/module-catalog": "^100.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SwiftOtter\\EventQueue\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  }
+}

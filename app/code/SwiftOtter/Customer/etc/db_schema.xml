@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="test_ip_details" resource="default" engine="innodb" comment="IP Lookup">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varbinary" name="ip" nullable="true" length="50" comment="IP Address"/>
+        <column xsi:type="varbinary" name="country_code" nullable="true" length="10" comment="Country code"/>
+        <column xsi:type="varbinary" name="currency" nullable="true" length="5" comment="Currency"/>
+        <column xsi:type="text" name="response" nullable="true" comment="Response"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

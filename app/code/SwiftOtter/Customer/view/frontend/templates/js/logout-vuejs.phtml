@@ -1,0 +1,15 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 8/18/20
+ * @website https://swiftotter.com
+ **/
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+<script type="text/javascript">
+    (function() {
+        window.localStorage.removeItem('so-auth');
+        window.localStorage.removeItem('so-user');
+        document.cookie = "test_token=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT"
+    })();
+</script>

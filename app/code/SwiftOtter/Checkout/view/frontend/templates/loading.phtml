@@ -1,0 +1,17 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 7/6/21
+ * @website https://swiftotter.com
+ **/
+
+?>
+
+<p>&nbsp;</p>
+<div class="is-loading"></div>
+
+<script type="text/javascript">
+    setTimeout(() => {
+        window.location.href = '<?= $block->getUrl('checkout', ['_query' => ['embedded' => 1]]); ?>';
+    }, 500);
+</script>

@@ -1,0 +1,21 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 7/6/21
+ * @website https://swiftotter.com
+ **/
+
+/** @var \SwiftOtter\Checkout\ViewModel\EmailMessages $messages */
+$messages = $this->getData('messages');
+$orderId = (int)$this->getData('order_id');
+
+$available = $messages->getMessages($orderId);
+?>
+
+<?php if (count($available)): ?>
+<h4>Important messages:</h4>
+
+    <?php foreach ($available as $message): ?>
+    <p><?= $message ?></p>
+    <?php endforeach; ?>
+<?php endif; ?>

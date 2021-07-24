@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_order_user_information" resource="default" engine="innodb" comment="Test Directory">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="int" name="order_id" padding="10" unsigned="true" nullable="false" comment="ID"/>
+        <column xsi:type="int" name="order_item_id" padding="10" unsigned="true" nullable="false" comment="ID"/>
+        <column xsi:type="varbinary" name="name" nullable="true" length="255" comment="Name"/>
+        <column xsi:type="varbinary" name="email" nullable="true" length="255" comment="Email"/>
+        <column xsi:type="int" name="is_shared" padding="2" nullable="true" default="0" comment="Is Shared"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

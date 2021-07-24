@@ -1,0 +1,19 @@
+{
+    "name": "swiftotter/category-as-product-module",
+    "description": "The Category as Product module",
+    "require": {
+        "php": "~7.0.6",
+        "magento/framework": "100.1.*",
+        "magento/module-catalog": "101.0.*"
+    },
+    "type": "magento2-module",
+    "license": [
+        "GNU-3.0"
+    ],
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "SwiftOtter\\CategoryAsProduct\\": ""
+        }
+    }
+}

@@ -1,0 +1,8 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/topology.xsd">
+    <exchange name="magento" type="topic" connection="amqp">
+        <!-- id must be unique, match queue_consumer.xml > name -->
+        <!-- destination matches queue_consumer.xml > queue -->
+        <!-- topic matches queue_publisher.xml > topic -->
+        <binding id="event.cache.queue" topic="event.queue" destinationType="queue" destination="event_queue"/>
+    </exchange>
+</config>

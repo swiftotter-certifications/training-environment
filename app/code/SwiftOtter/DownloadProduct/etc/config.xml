@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sales>
+            <braintree_api>
+                <tokenization_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+            </braintree_api>
+        </sales>
+        <catalog>
+            <frontend_purchase>
+                <share_notification_email>catalog_frontend_purchase_share_notification_email</share_notification_email>
+            </frontend_purchase>
+        </catalog>
+    </default>
+</config>

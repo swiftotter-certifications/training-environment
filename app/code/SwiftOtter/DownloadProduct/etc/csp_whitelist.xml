@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="connect-src">
+            <values>
+                <value id="braintree" type="host">https://api.braintreegateway.com</value>
+                <value id="ga" type="host">https://www.google-analytics.com</value>
+                <value id="doubleclick" type="host">https://stats.g.doubleclick.net</value>
+            </values>
+        </policy>
+        <policy id="script-src">
+            <values>
+                <value id="google" type="host">https://www.google.com</value>
+                <value id="hs-scripts" type="host">https://js.hs-scripts.com</value>
+                <value id="hs-analytics" type="host">https://js.hs-analytics.net</value>
+                <value id="hs-analytics" type="host">https://js.hs-banner.com</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="hubspot" type="host">https://track.hubspot.com</value>
+                <value id="facebook" type="host">https://www.facebook.com</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="facebook" type="host">https://www.facebook.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>
