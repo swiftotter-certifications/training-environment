@@ -17,7 +17,6 @@ use SwiftOtter\Catalog\Service\Product as ProductService;
 use SwiftOtter\Checkout\Action\BuildBuyRequestFromDetails;
 use SwiftOtter\Checkout\Api\AddToCartInterface;
 use SwiftOtter\Checkout\Api\Data\AddToCartDetailsInterface;
-use SwiftOtter\Customer\Action\SetCurrencyCodeOnQuote;
 use SwiftOtter\Customer\Service\CustomerCountry;
 use SwiftOtter\DownloadProduct\Api\Data\ProductDetailInterface;
 use SwiftOtter\DownloadProduct\Model\ProductDetailFactory;
@@ -45,9 +44,6 @@ class AddToCart implements AddToCartInterface
     /** @var CustomerCountry */
     private $customerCountry;
 
-    /** @var SetCurrencyCodeOnQuote */
-    private $setCurrencyCodeOnQuote;
-
     public function __construct(
         Session $checkoutSession,
         QuoteRepository $quoteRepository,
@@ -55,8 +51,7 @@ class AddToCart implements AddToCartInterface
         AddressFactory $addressFactory,
         BuildBuyRequestFromDetails $buildBuyRequestFromDetails,
         ProductDetailFactory $productDetailFactory,
-        CustomerCountry $customerCountry,
-        SetCurrencyCodeOnQuote $setCurrencyCodeOnQuote
+        CustomerCountry $customerCountry
     ) {
         $this->checkoutSession = $checkoutSession;
         $this->quoteRepository = $quoteRepository;
@@ -65,7 +60,6 @@ class AddToCart implements AddToCartInterface
         $this->buildBuyRequestFromDetails = $buildBuyRequestFromDetails;
         $this->productDetailFactory = $productDetailFactory;
         $this->customerCountry = $customerCountry;
-        $this->setCurrencyCodeOnQuote = $setCurrencyCodeOnQuote;
     }
 
     public function execute(array $details, string $countryId): array
@@ -77,8 +71,6 @@ class AddToCart implements AddToCartInterface
             $this->quoteRepository->save($quote);
             $this->checkoutSession->setQuoteId((int)$quote->getId());
         }
-
-        $this->setCurrencyCodeOnQuote->execute($quote, $countryId);
 
         foreach ($details as $detail) {
             $this->addToCart($detail);

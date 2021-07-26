@@ -1,0 +1,15 @@
+<div class="block gift-card__wrapper" data-bind="mageInit: {'collapsible':{'openedState': 'active', 'active': false}}">
+    <div class="title" data-role="title">
+        <strong role="heading" aria-level="1">
+            <span data-bind="i18n:'Apply gift card'"></span>
+        </strong>
+    </div>
+
+    <div class="content gift-card" data-role="content">
+        <span data-bind="text: code" if="isApplied"></span>
+        <div class="gift-card__applied" ifnot="isApplied">
+            <input type="text" data-bind="value: code"/>
+            <button type="button" click="update"><span translate="'Apply it!'"></span></button>
+        </div>
+    </div>
+</div>

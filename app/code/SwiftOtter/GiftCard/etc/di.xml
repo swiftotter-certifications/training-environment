@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="SwiftOtter\GiftCard\Model\ResourceModel\Product\Indexer\Price\GiftCardProductPrice"
+                 type="Magento\Catalog\Model\ResourceModel\Product\Indexer\Price\SimpleProductPrice">
+        <arguments>
+            <argument name="productType" xsi:type="string">giftcard</argument>
+        </arguments>
+    </virtualType>
+
+    <type
+        name="Magento\InventorySales\Model\IsProductSalableForRequestedQtyCondition\IsProductSalableForRequestedQtyConditionChain">
+        <plugin name="PreventInventoryForGiftcard" type="SwiftOtter\GiftCard\Plugin\PreventInventoryForGiftcard"/>
+    </type>
+
+    <type name="Magento\CatalogInventory\Model\Quote\Item\QuantityValidator">
+        <plugin name="PreventQuantityLookupForGiftCard"
+                type="SwiftOtter\GiftCard\Plugin\PreventQuantityLookupForGiftCard"/>
+    </type>
+
+    <type name="Magento\Quote\Model\Quote\Item\ToOrderItem">
+        <plugin name="MoveQuoteItemOptionsToOrderItem"
+                type="SwiftOtter\GiftCard\Plugin\MoveQuoteItemOptionsToOrderItem"/>
+    </type>
+
+    <preference for="SwiftOtter\GiftCard\Api\GiftCardRepositoryInterface"
+                type="SwiftOtter\GiftCard\Model\Repository\GiftCardRepository"/>
+
+    <preference for="SwiftOtter\GiftCard\Api\Data\GiftCardInterface"
+                type="SwiftOtter\GiftCard\Model\GiftCard"/>
+
+    <preference for="SwiftOtter\GiftCard\Api\Data\GiftCardUsageInterface"
+                type="SwiftOtter\GiftCard\Model\GiftCardUsage"/>
+
+    <preference for="SwiftOtter\GiftCard\Api\Data\GiftCardSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults"/>
+
+    <preference for="SwiftOtter\GiftCard\Api\Data\GiftCardUsageSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults"/>
+
+    <virtualType name="SwiftOtter\GiftCard\Model\ResourceModel\GiftCard\Grid\VirtualCollection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">gift_card</argument>
+            <argument name="resourceModel" xsi:type="string">SwiftOtter\GiftCard\Model\ResourceModel\GiftCard</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="giftcards_view_grid_data_source" xsi:type="string">
+                    SwiftOtter\GiftCard\Model\ResourceModel\GiftCard\Grid\VirtualCollection
+                </item>
+                <item name="giftcards_view_form_data_source" xsi:type="string">
+                    SwiftOtter\GiftCard\Model\ResourceModel\GiftCard\Grid\VirtualCollection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Quote\Model\QuoteFactory">
+        <plugin name="EnsureQuoteExtensionAttributesExist"
+                type="SwiftOtter\GiftCard\Plugin\EnsureQuoteExtensionAttributesExist"/>
+    </type>
+
+    <type name="Magento\Quote\Api\CartRepositoryInterface">
+        <plugin name="AssignGiftCardIdToQuote" type="SwiftOtter\GiftCard\Plugin\AssignGiftCardIdToQuote"/>
+    </type>
+
+    <preference for="SwiftOtter\GiftCard\Api\GiftCardRetrieverInterface"
+                type="SwiftOtter\GiftCard\Model\Endpoint\GiftCardRetriever"/>
+
+    <type name="Magento\Sales\Model\Service\OrderService">
+        <plugin name="DecrementGiftCardValueAfterOrderPlace"
+                type="SwiftOtter\GiftCard\Plugin\DecrementGiftCardValueAfterOrderPlace"/>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="swiftotter_gcimport" xsi:type="object">SwiftOtter\GiftCard\Console\ImportGiftCards</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

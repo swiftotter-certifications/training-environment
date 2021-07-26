@@ -1,0 +1,17 @@
+<?php
+/** @var \SwiftOtter\GiftCard\ViewModel\Giftcard\View $viewModel */
+/** @var \Magento\Framework\View\Element\Template $block */
+$viewModel = $block->getData('view_model');
+?>
+
+<ul>
+    <?php if (count($viewModel->getGiftCards())) : ?>
+        <?php foreach ($viewModel->getGiftCards() as $giftCard): ?>
+            <a href="<?= $block->escapeUrl('details/index/id/'); ?><?= $giftCard->getId() ?>">
+                <li><?= $giftCard->getCode(); ?></li>
+            </a>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>There are currently no gift cards associated with your account.</p>
+    <?php endif; ?>
+</ul>

@@ -1,0 +1,13 @@
+<?php
+/** @var \SwiftOtter\GiftCard\ViewModel\Giftcard\Details\View $viewModel */
+/** @var \Magento\Framework\View\Element\Template $block */
+$viewModel = $block->getData('view_model');
+?>
+
+<ul>
+    <?php foreach ($viewModel->getGiftCard()->getData() as $key => $data): ?>
+        <li>
+            <?= ucwords(str_replace('_', ' ', $key)) ?>: <?= $data; ?>
+        </li>
+    <?php endforeach; ?>
+</ul>

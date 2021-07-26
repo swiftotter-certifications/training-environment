@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument name="title" translate="true" xsi:type="string">Gift Card Details</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block name="giftcards.details" template="SwiftOtter_GiftCard::giftcard/details.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">SwiftOtter\GiftCard\ViewModel\Giftcard\Details\View</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

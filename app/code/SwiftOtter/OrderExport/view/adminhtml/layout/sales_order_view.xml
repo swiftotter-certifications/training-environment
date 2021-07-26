@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="order_additional_info">
+            <block name="order.export.status" template="SwiftOtter_OrderExport::status.phtml" ifconfig="sales/order_export/enabled">
+                <arguments>
+                    <argument xsi:type="number" name="cache_lifetime">10000</argument>
+                    <argument xsi:type="object" name="details">SwiftOtter\OrderExport\ViewModel\HasBeenExported</argument>
+                </arguments>
+            </block>
+            <block name="order.export" template="SwiftOtter_OrderExport::export.phtml" ifconfig="sales/order_export/enabled">
+                <arguments>
+                    <argument xsi:type="object" name="details">SwiftOtter\OrderExport\ViewModel\OrderDetails</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,21 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 5/23/20
+ * @website https://swiftotter.com
+ **/
+
+/** @var $details \SwiftOtter\GiftCard\ViewModel\FrontendDetails */
+$details = $block->getData('details');
+?>
+
+<?php if ($details->getIsCustomAllowed()): ?>
+<label for="amount"><?= __('Amount') ?></label>
+<input type="number" min="0" name="amount" id="amount" value="" placeholder="Amount" />
+<?php endif;?>
+
+<label for="recipient-name"><?= __('Recipient name') ?></label>
+<input type="text" name="recipient_name" id="recipient-name" value="" placeholder="Recipient name" />
+
+<label for="recipient-email"><?= __('Recipient email') ?></label>
+<input type="email" name="recipient_email" id="recipient-email" value="" placeholder="Recipient email" />

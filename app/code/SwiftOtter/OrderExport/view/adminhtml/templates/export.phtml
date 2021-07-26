@@ -1,0 +1,107 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 12/28/19
+ * @website https://swiftotter.com
+ **/
+
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $view \SwiftOtter\OrderExport\ViewModel\OrderDetails */
+$view = $block->getData('details');
+?>
+
+<?php if ($view->isAllowed()): ?>
+    <section class="order-export admin__page-section">
+        <div class="admin__page-section-title">
+            <span class="title"><?= __('Export Order') ?></span>
+        </div>
+        <div class="admin__page-section-content">
+            <div class="order-export-ship-date-row order-export__row">
+                <div class="admin__field">
+                    <label class="admin__field-label" for="order-export-requested-date"><?= __('Requested Ship Date') ?>:</label>
+                    <div class="admin__field-control">
+                        <input type="text" name="export[ship_date]" id="order-export-requested-date" data-map="ship_date" class="admin__control-text datepicker">
+                        <script>
+                          require(["jquery", "mage/calendar"], function($) {
+                            $("#order-export-requested-date").datepicker({
+                              showMonthAfterYear: false,
+                              dateFormat: 'mm/dd/yy',
+                              changeMonth: true,
+                              changeYear: true,
+                              yearRange: '<?= (new \DateTime())->format('Y') . ':' . (new \DateTime())->add(new \DateInterval('P1Y'))->format('Y') ?>',
+                            })
+                          });
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-export-message-row order-export__row">
+                <div class="admin__field">
+                    <label class="admin__field-label" for="order-export-message"><?= __('Merchant Notes') ?>:</label>
+                    <div class="admin__field-control">
+                        <textarea name="export[merchant_notes]" id="order-export-message" data-map="order_note" class="admin__control-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-export__row order-export__actions">
+                <button id="submit-order-export" title="Submit" type="button" class="action-default scalable submit primary">
+                    <span><?= $view->getButtonMessage() ?></span>
+                </button>
+                <br/>
+                <div id="order-export-success" class="has-been-sent" style="display: none">
+                    <span><?= __('This has been successfully imported.') ?></span>
+                </div>
+                <div id="order-export-error" class="has-been-sent" style="display: none"></div>
+            </div>
+        </div>
+    </section>
+
+    <style type="text/css">
+        .order-export__row {
+            display: flex;
+            padding: 0.75rem 1rem;
+        }
+
+        .admin__field {
+            margin-top: 1.5rem;
+            margin-right: 1.5rem;
+        }
+
+        .order-export .order-export__row--alt {
+            background-color: #f6f6f6;
+        }
+
+        .order-export .admin__field {
+            margin-top: 0;
+        }
+
+        .order-export input[type="text"], .order-export select, .order-export textarea {
+            min-width: 250px;
+        }
+
+        .order-export button {
+            padding: 20px;
+            font-size: 1.75rem;
+        }
+
+        .order-export .has-been-sent {
+            margin-left: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .order-export .order-export__actions {
+            align-items: center;
+        }
+    </style>
+
+    <script type="text/x-magento-init">
+    {
+        ".order-export" : {
+            "SwiftOtter_OrderExport/js/upload-form": <?= json_encode($view->getConfig()) ?>
+        }
+    }
+</script>
+<?php endif; ?>

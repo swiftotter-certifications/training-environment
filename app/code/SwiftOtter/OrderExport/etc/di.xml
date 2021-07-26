@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="SwiftOtter\OrderExport\Action\TransformOrderToArray">
+        <arguments>
+            <argument name="collectors" xsi:type="array">
+                <item name="header_data" xsi:type="object">SwiftOtter\OrderExport\Collector\HeaderData</item>
+                <item name="item_data" xsi:type="object">SwiftOtter\OrderExport\Collector\ItemData</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="SwiftOtter\OrderExport\Collector\ItemData">
+        <arguments>
+            <argument name="allowedTypes" xsi:type="array">
+                <item name="simple" xsi:type="const">Magento\Catalog\Model\Product\Type::DEFAULT_TYPE</item>
+                <item name="virtual" xsi:type="const">Magento\Catalog\Model\Product\Type::TYPE_VIRTUAL</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="SwiftOtter\OrderExport\Api\Data\OrderExportDetailsSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <virtualType name="SwiftOtter\OrderExport\Model\Api\SearchCriteria\DetailsCollectionProcessor" type="Magento\Framework\Api\SearchCriteria\CollectionProcessor">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="filters" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\FilterProcessor</item>
+                <item name="sorting" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\SortingProcessor</item>
+                <item name="pagination" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\PaginationProcessor</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="SwiftOtter\OrderExport\Model\OrderExportDetailsRepository">
+        <arguments>
+            <argument name="collectionProcessor" xsi:type="object">SwiftOtter\OrderExport\Model\Api\SearchCriteria\DetailsCollectionProcessor</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="LoadExportDetailsIntoOrder" type="SwiftOtter\OrderExport\Plugin\LoadExportDetailsIntoOrder" />
+    </type>
+
+    <!-- uncomment to send requests to the web api -->
+<!--    <type name="SwiftOtter\OrderExport\ViewModel\OrderDetails">-->
+<!--        <plugin name="InjectAdminToken" type="SwiftOtter\OrderExport\Plugin\InjectAdminToken" />-->
+<!--    </type>-->
+
+    <preference for="SwiftOtter\OrderExport\Api\Data\IncomingHeaderDataInterface"
+                type="SwiftOtter\OrderExport\Model\IncomingHeaderData" />
+
+    <preference for="SwiftOtter\OrderExport\Api\ExportInterface"
+                type="SwiftOtter\OrderExport\Model\Endpoint\Export" />
+
+    <preference for="SwiftOtter\OrderExport\Api\Data\ResponseInterface"
+                type="SwiftOtter\OrderExport\Model\ResponseDetails" />
+</config>

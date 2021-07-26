@@ -31,10 +31,6 @@
         <plugin name="TriggerOrderWebhook" type="SwiftOtter\Checkout\Plugin\TriggerOrderWebhook" />
     </type>
 
-    <type name="Magento\Quote\Model\Quote">
-        <plugin name="ForceCurrencyForQuote" type="SwiftOtter\Checkout\Plugin\ForceCurrencyForQuote" />
-    </type>
-
     <type name="Magento\Quote\Model\Quote\Address">
         <plugin name="EnsureCountryIsSet" type="SwiftOtter\Checkout\Plugin\EnsureCountryIsSet" />
     </type>

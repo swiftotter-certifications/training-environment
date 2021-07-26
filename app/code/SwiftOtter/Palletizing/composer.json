@@ -1,0 +1,17 @@
+{
+  "name": "swiftotter/palletizing-group",
+  "description": "Palletizes orders",
+  "type": "magento2-module",
+  "require": {
+    "php": "^7.0",
+    "magento/framework": "^100.0"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "SwiftOtter\\Palletizing\\": ""
+    }
+  }
+}

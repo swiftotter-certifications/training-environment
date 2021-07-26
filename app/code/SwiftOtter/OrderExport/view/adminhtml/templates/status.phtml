@@ -1,0 +1,17 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 12/28/19
+ * @website https://swiftotter.com
+ **/
+
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $view \SwiftOtter\OrderExport\ViewModel\HasBeenExported */
+$view = $block->getData('details');
+?>
+
+<?php if ($view->hasBeenExported()): ?>
+    <section class="order-export-status admin__page-section">
+        <h3><?= __('Order was exported') ?></h3>
+    </section>
+<?php endif; ?>

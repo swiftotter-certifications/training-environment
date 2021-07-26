@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sales>
+            <palletizing>
+                <max_size_per_pallet>92160</max_size_per_pallet><!-- 48" x 40" x 48" -->
+                <pallet_padding>30</pallet_padding>
+                <fee_amount>10</fee_amount>
+            </palletizing>
+        </sales>
+    </default>
+</config>

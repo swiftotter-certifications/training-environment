@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_order_export">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true" comment="Value ID"/>
+        <column xsi:type="int" name="order_id" padding="10" unsigned="true" nullable="false" comment="Entity Id"/>
+        <column xsi:type="date" name="ship_on" comment="Shipping on"/>
+        <column xsi:type="datetime" name="exported_at" comment="Exported at"/>
+        <column xsi:type="text" name="merchant_notes" comment="Merchant notes"/>
+<!--        <constraint xsi:type="foreign"-->
+<!--                    referenceId="SALES_ORDER_EXPORT_ORDER_ID"-->
+<!--                    table="sales_order_export"-->
+<!--                    column="order_id"-->
+<!--                    referenceTable="sales_order"-->
+<!--                    referenceColumn="entity_id"-->
+<!--                    onDelete="CASCADE"-->
+<!--        />-->
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <section name="quote">
+        <group name="totals">
+            <item name="palletizing"
+                  instance="SwiftOtter\Palletizing\Model\QuoteTotal\Collector"
+                  sort_order="300" />
+        </group>
+    </section>
+</config>

@@ -1,0 +1,47 @@
+{
+    "pallet": {
+        "column": {
+            "id": true,
+            "base_total": true,
+            "total": true,
+            "base_invoiced": true,
+            "invoiced": true,
+            "base_credited": true,
+            "credited": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "pallet_quote_item": {
+        "column": {
+            "id": true,
+            "quote_item_id": true,
+            "pallet_id": true
+        },
+        "index": {
+            "PALLET_QUOTE_ITEM_QUOTE_ITEM_ID": true
+        },
+        "constraint": {
+            "PALLET_QUOTE_ITEM_QUOTE_ITEM_ID_QUOTE_ITEM_ITEM_ID": true,
+            "PALLET_QUOTE_ITEM_PALLET_ID_PALLET_ID": true,
+            "PRIMARY": true
+        }
+    },
+    "pallet_order_item": {
+        "column": {
+            "id": true,
+            "order_item_id": true,
+            "pallet_id": true
+        },
+        "index": {
+            "PALLET_ORDER_ITEM_ORDER_ITEM_ID": true,
+            "PALLET_ORDER_ITEM_PALLET_ID": true
+        },
+        "constraint": {
+            "PALLET_ORDER_ITEM_ORDER_ITEM_ID_SALES_ORDER_ITEM_ITEM_ID": true,
+            "PALLET_ORDER_ITEM_PALLET_ID_PALLET_ID": true,
+            "PRIMARY": true
+        }
+    }
+}
