@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sales>
+            <handling_fees>
+                <max_size_per_fee>92160</max_size_per_fee><!-- 48" x 40" x 48" -->
+                <fee_padding>30</fee_padding>
+                <fee_amount>10</fee_amount>
+            </handling_fees>
+        </sales>
+    </default>
+</config>

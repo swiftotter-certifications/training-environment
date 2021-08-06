@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="handling_fee">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true" comment="Value ID"/>
+        <column xsi:type="decimal" name="base_total" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="Base Total"/>
+        <column xsi:type="decimal" name="total" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="Total"/>
+        <column xsi:type="decimal" name="base_invoiced" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="Base Invoiced"/>
+        <column xsi:type="decimal" name="invoiced" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="Invoiced"/>
+        <column xsi:type="decimal" name="base_credited" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="Base Credited"/>
+        <column xsi:type="decimal" name="credited" scale="4" precision="20" unsigned="false"
+                nullable="true" comment="Credited"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="handling_fee_quote_item">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true" comment="Value ID"/>
+        <column xsi:type="int" name="quote_item_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Quote Item Id"/>
+        <column xsi:type="int" name="handling_fee_id" padding="11" unsigned="false" nullable="false" identity="false"
+                comment="Handling Fee ID"/>
+
+        <constraint xsi:type="foreign" referenceId="HANDLING_FEE_QUOTE_ITEM_QUOTE_ITEM_ID_QUOTE_ITEM_ITEM_ID" table="sales_quote_item"
+                    column="quote_item_id" referenceTable="quote_item" referenceColumn="item_id" onDelete="CASCADE"/>
+
+        <index referenceId="HANDLING_FEE_QUOTE_ITEM_QUOTE_ITEM_ID" indexType="btree">
+            <column name="quote_item_id"/>
+        </index>
+
+        <constraint xsi:type="foreign" referenceId="HANDLING_FEE_QUOTE_ITEM_QUOTE_ITEM_ID_HANDLING_FEE_ID" table="handling_fee_quote_item"
+                    column="handling_fee_id" referenceTable="handling_fee" referenceColumn="id" onDelete="CASCADE"/>
+
+        <index referenceId="HANDLING_FEE_ORDER_ITEM_QUOTE_ITEM_ID" indexType="btree">
+            <column name="quote_item_id"/>
+        </index>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="handling_fee_order_item">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true" comment="Value ID"/>
+        <column xsi:type="int" name="order_item_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Order Item Id"/>
+        <column xsi:type="int" name="handling_fee_id" padding="11" unsigned="false" nullable="false" identity="false"
+                comment="Handling Fee ID"/>
+
+        <constraint xsi:type="foreign" referenceId="HANDLING_FEE_ORDER_ITEM_ORDER_ITEM_ID_ORDER_ITEM_ITEM_ID" table="pallet_order_item"
+                    column="order_item_id" referenceTable="sales_order_item" referenceColumn="item_id" onDelete="CASCADE"/>
+
+        <index referenceId="HANDLING_FEE_ORDER_ITEM_ORDER_ITEM_ID" indexType="btree">
+            <column name="order_item_id"/>
+        </index>
+
+        <constraint xsi:type="foreign"
+                    referenceId="HANDLING_FEE_ORDER_ITEM_ORDER_ITEM_ID_HANDLING_FEE_ID"
+                    table="handling_fee_order_item"
+                    column="handling_fee_id"
+                    referenceTable="handling_fee"
+                    referenceColumn="id"
+                    onDelete="CASCADE"
+        />
+
+        <index referenceId="HANDLING_FEE_ORDER_ITEM_HANDLING_FEE_ID" indexType="btree">
+            <column name="handling_fee_id"/>
+        </index>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="quote">
+        <column xsi:type="decimal" name="handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+        <column xsi:type="decimal" name="base_handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+    </table>
+
+    <table name="sales_order">
+        <column xsi:type="decimal" name="handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+        <column xsi:type="decimal" name="base_handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+        <column xsi:type="decimal" name="invoiced_handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+        <column xsi:type="decimal" name="base_invoiced_handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+        <column xsi:type="decimal" name="credited_handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+        <column xsi:type="decimal" name="base_credited_handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+    </table>
+
+    <table name="sales_invoice">
+        <column xsi:type="decimal" name="handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+        <column xsi:type="decimal" name="base_handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+    </table>
+
+    <table name="sales_creditmemo">
+        <column xsi:type="decimal" name="handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+        <column xsi:type="decimal" name="base_handling_fee_amount"
+                scale="4" precision="20" unsigned="false" nullable="true" />
+    </table>
+</schema>

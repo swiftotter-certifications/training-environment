@@ -20,9 +20,9 @@ interface OrderUserInformationInterface
     public function setOrderId(int $orderId): void;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getOrderItemId(): int;
+    public function getOrderItemId(): ?int;
 
     /**
      * @param int $orderItemId

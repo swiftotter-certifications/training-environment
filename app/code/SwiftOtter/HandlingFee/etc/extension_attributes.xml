@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Sales\Api\Data\OrderInterface">
+        <attribute code="handling_fee_details" type="SwiftOtter\HandlingFee\Api\Data\AfterOrderHandlingFeeInterface[]"/>
+    </extension_attributes>
+
+    <extension_attributes for="Magento\Quote\Api\Data\CartInterface">
+        <attribute code="handling_fee_details" type="SwiftOtter\HandlingFee\Api\Data\BeforeOrderHandlingFeeInterface[]"/>
+    </extension_attributes>
+
+    <extension_attributes for="Magento\Quote\Api\Data\CartItemInterface">
+        <attribute code="handling_fee_details" type="SwiftOtter\HandlingFee\Api\Data\BeforeOrderHandlingFeeInterface[]"/>
+    </extension_attributes>
+
+    <extension_attributes for="SwiftOtter\HandlingFee\Api\Data\OrderHandlingFeeInterface">
+        <attribute code="order_items" type="Magento\Sales\Api\Data\OrderItemInterface[]"/>
+        <attribute code="quote_items" type="Magento\Quote\Api\Data\CartItemInterface[]"/>
+    </extension_attributes>
+</config>

@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="swiftotter_productdecorator_tier" resource="default" engine="innodb" comment="Pricing Tiers Table">
+        <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
+        <column xsi:type="int" name="min_tier" unsigned="true" nullable="false" comment="Minimum Tier"/>
+        <column xsi:type="int" name="max_tier" unsigned="true" nullable="false" comment="Maximum Tier"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="swiftotter_productdecorator_printcharge" resource="default" engine="innodb" comment="Print Charges Table">
+        <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
+        <column xsi:type="int" name="tier_id" default="0" unsigned="true" padding="11" comment="Tier ID"  />
+        <column xsi:type="decimal" name="price" scale="6" precision="20" unsigned="false" nullable="false" default="0" comment="Price"/>
+        <column xsi:type="tinyint" name="colors" padding="2" default="0" unsigned="true" nullable="false" comment="Colors"/>
+        <column xsi:type="varchar" length="40" name="price_type" comment="Price Type" />
+        <column xsi:type="int" name="min_lookup" default="0" unsigned="true" padding="11" comment="Min Lookup Amount"  />
+        <column xsi:type="int" name="max_lookup" default="0" unsigned="true" padding="11" comment="Max Lookup Amount"  />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="SWIFTOTTER_PE_PCH_TIER_ID_SWIFTOTTER_PE_TI_ID"
+                    table="swiftotter_productdecorator_printcharge" column="tier_id" referenceTable="swiftotter_productdecorator_tier"
+                    referenceColumn="id" onDelete="CASCADE"/>
+
+        <index referenceId="SWIFTOTTER_PRODUCTDECORATOR_PRINTCHARGE_TIER_ID" indexType="btree">
+            <column name="tier_id"/>
+        </index>
+    </table>
+
+    <table name="swiftotter_productdecorator_location_printmethod" resource="default" engine="innodb" comment="Location Print Method Table">
+        <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
+        <column xsi:type="int" name="location_id" default="0" unsigned="true" padding="11" comment="Location ID"  />
+        <column xsi:type="int" name="print_method_id" default="0" unsigned="true" padding="11" comment="Print Method ID"  />
+        <column xsi:type="varchar" length="50" name="sku" comment="Simple Product SKU" />
+
+        <constraint xsi:type="foreign"
+                    referenceId="PRODUCTDECORATOR_PE_PCH_LOC_ID_PRODUCTDECORATOR_PE_LO_ID"
+                    table="swiftotter_productdecorator_location_printmethod"
+                    column="location_id"
+                    referenceTable="swiftotter_productdecorator_locations"
+                    referenceColumn="id"
+                    onDelete="CASCADE"
+        />
+
+        <constraint xsi:type="foreign"
+                    referenceId="PRODUCTDECORATOR_PE_PCH_PR_MT_ID_PRODUCTDECORATOR_PE_PR_MT_ID"
+                    table="swiftotter_productdecorator_location_printmethod"
+                    column="print_method_id"
+                    referenceTable="swiftotter_productdecorator_print_method"
+                    referenceColumn="id"
+                    onDelete="CASCADE"
+        />
+
+        <constraint xsi:type="unique" referenceId="SWIFTOTTER_PRODUCTDECORATOR_PRI_LO_MET_LOCATION_ID_PRINT_METHOD_ID_SKU">
+            <column name="location_id"/>
+            <column name="print_method_id"/>
+            <column name="sku"/>
+        </constraint>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+        <index referenceId="SWIFTOTTER_PRODUCTDECORATOR_PRINTCHARGE_LOCATION_METHOD_LOCATION_ID" indexType="btree">
+            <column name="location_id"/>
+        </index>
+        <index referenceId="SWIFTOTTER_PRODUCTDECORATOR_PRINTCHARGE_LOCATION_METHOD_PRINT_METHOD_ID" indexType="btree">
+            <column name="print_method_id"/>
+        </index>
+
+        <index referenceId="SWIFTOTTER_PRODUCTDECORATOR_PRINTCHARGE_LOCATION_METHOD_SKU" indexType="btree">
+            <column name="sku"/>
+        </index>
+    </table>
+
+    <!-- Catalog Locations Table-->
+    <table name="swiftotter_productdecorator_locations" resource="default" engine="innodb" comment="Decorator Locations Table">
+        <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
+        <column xsi:type="varchar" name="name" length="256" nullable="true" comment="Name" />
+        <column xsi:type="varchar" name="code" length="100" nullable="true" comment="Code (Identifier)" />
+        <column xsi:type="int" name="sort_order" nullable="true" comment="Sort Order" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <!-- PrintMethod Table-->
+    <table name="swiftotter_productdecorator_print_method" resource="default" engine="innodb" comment="Catalog PrintMethod Table">
+        <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
+        <column xsi:type="varchar" length="40" name="name" comment="Name" />
+        <column xsi:type="varchar" length="40" name="price_type" comment="Price Type" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

@@ -35,11 +35,13 @@ class OrderUserInformation extends AbstractModel implements OrderUserInformation
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getOrderItemId(): int
+    public function getOrderItemId(): ?int
     {
-        return (int)$this->getData('order_item_id');
+        return $this->getData('order_item_id')
+            ? (int)$this->getData('order_item_id')
+            : null;
     }
 
     /**

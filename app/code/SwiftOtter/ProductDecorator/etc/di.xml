@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SwiftOtter\ProductDecorator\Api\LocationPrintMethodRepositoryInterface"
+                type="SwiftOtter\ProductDecorator\Model\LocationPrintMethodRepository" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\LocationPrintMethodInterface"
+                type="SwiftOtter\ProductDecorator\Model\LocationPrintMethod" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\LocationPrintMethodSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="SwiftOtter\ProductDecorator\Api\LocationRepositoryInterface"
+                type="SwiftOtter\ProductDecorator\Model\LocationRepository" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\LocationInterface"
+                type="SwiftOtter\ProductDecorator\Model\Location" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\LocationSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="SwiftOtter\ProductDecorator\Api\PrintChargeRepositoryInterface"
+                type="SwiftOtter\ProductDecorator\Model\PrintChargeRepository" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintChargeInterface"
+                type="SwiftOtter\ProductDecorator\Model\PrintCharge" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintChargeSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="SwiftOtter\ProductDecorator\Api\PrintMethodRepositoryInterface"
+                type="SwiftOtter\ProductDecorator\Model\PrintMethod" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintMethodInterface"
+                type="SwiftOtter\ProductDecorator\Model\PrintMethod" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintMethodSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="SwiftOtter\ProductDecorator\Api\TierRepositoryInterface"
+                type="SwiftOtter\ProductDecorator\Model\TierRepository" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\TierInterface"
+                type="SwiftOtter\ProductDecorator\Model\Tier" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\TierSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PriceRequestInterface"
+                type="SwiftOtter\ProductDecorator\Model\Data\PriceRequest" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PriceRequest\LocationRequestInterface"
+                type="SwiftOtter\ProductDecorator\Model\Data\PriceRequestLocation" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PriceRequest\ProductRequestInterface"
+                type="SwiftOtter\ProductDecorator\Model\Data\PriceRequestProduct" />
+
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PriceResponseInterface"
+                type="SwiftOtter\ProductDecorator\Model\Data\PriceResponse" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PriceResponse\ProductResponseInterface"
+                type="SwiftOtter\ProductDecorator\Model\Data\PriceResponseProduct" />
+    <preference for="\SwiftOtter\ProductDecorator\Api\Data\PriceResponse\AmountResponseInterface"
+                type="\SwiftOtter\ProductDecorator\Model\Data\PriceResponseAmount" />
+
+
+    <type name="SwiftOtter\ProductDecorator\Model\CompositeCalculator">
+        <arguments>
+            <argument xsi:type="array" name="calculators">
+                <item xsi:type="object" name="BasePriceCalculator">SwiftOtter\ProductDecorator\Model\Calculator\BasePrice</item>
+                <item xsi:type="object" name="PrintChargeCalculator">SwiftOtter\ProductDecorator\Model\Calculator\PrintCharge</item>
+                <item xsi:type="object" name="AdjustmentCalculator">SwiftOtter\ProductDecorator\Model\Calculator\Adjustment</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

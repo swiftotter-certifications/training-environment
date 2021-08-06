@@ -1,0 +1,20 @@
+{
+    "name": "swiftotter/module-aoed-bug1-name-not-saving",
+    "description": "SwiftOtter, Art of Ecommerce Debugging, Bug 1, Name not saving",
+    "require": {
+        "php": ">7.0",
+        "magento/framework": "100.1.*",
+        "magento/module-cms": "101.0.*",
+        "magento/module-theme": "101.0.*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "GNU-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ]
+    }
+}

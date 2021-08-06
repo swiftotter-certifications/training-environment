@@ -29,7 +29,7 @@ class GiftCardCheckoutInitializer implements LayoutProcessor
     private $giftCardRepository;
 
     public function __construct(
-        Proxy $checkoutSession,
+        CheckoutSession $checkoutSession,
         GiftCardRepository $giftCardRepository
     ) {
         $this->checkoutSession = $checkoutSession;
