@@ -42,8 +42,8 @@ class PrintMethod extends AbstractDb
     public function getPrintMethodDataPerSkus(array $skus = []): array
     {
         $select = $this->getConnection()->select()
-            ->from(['main_table' => $this->getMainTable()])
-            ->columns(['name', 'id'])
+            ->from(['main_table' => $this->getMainTable()], [])
+            ->columns(['name', 'id', 'price_type'])
             ->distinct(true)
             ->joinInner(
                 ['location_print_method' => $this->getTable('swiftotter_productdecorator_location_printmethod')],
@@ -55,7 +55,10 @@ class PrintMethod extends AbstractDb
             $select->where('location_print_method.sku IN (?)', $skus);
         }
 
-        return $this->getConnection()->fetchAll($select);
+        return array_map(function($row) {
+            $row['id'] = (int)$row['id'];
+            return $row;
+        }, $this->getConnection()->fetchAll($select));
     }
 
     public function getPrintMethodNameFor(int $printMethodId)

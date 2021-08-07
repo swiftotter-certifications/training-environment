@@ -18,6 +18,7 @@ use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\EntityManager\Operation\Read\ReadExtensions;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 use SwiftOtter\Repository\Api\FastProductRepositoryInterface;
 use SwiftOtter\Utils\Model\ResourceModel\ProductLookup;
 
@@ -56,6 +57,9 @@ class FastProductRepository implements FastProductRepositoryInterface
     /** @var ProductResource */
     private $productResource;
 
+    /** @var JsonSerializer */
+    private $jsonSerializer;
+
     public function __construct(
         OriginalProductRepository $originalProductRepository,
         ProductCollectionFactory $productCollectionFactory,
@@ -65,6 +69,7 @@ class FastProductRepository implements FastProductRepositoryInterface
         ReadExtensions $readExtensions,
         SearchResultsFactory $searchResultsFactory,
         ProductResource $productResource,
+        JsonSerializer $jsonSerializer,
         int $maximumCache = 100
     ) {
         $this->originalProductRepository = $originalProductRepository;
@@ -76,6 +81,7 @@ class FastProductRepository implements FastProductRepositoryInterface
         $this->searchResultsFactory = $searchResultsFactory;
         $this->maximumCache = $maximumCache;
         $this->productResource = $productResource;
+        $this->jsonSerializer = $jsonSerializer;
     }
 
     public function getById($productId, $editMode = false, $storeId = null, $forceReload = false, ?array $attributes = null): ProductInterface
@@ -162,7 +168,12 @@ class FastProductRepository implements FastProductRepositoryInterface
 
     private function getCacheKey($sku, $storeId = null)
     {
-        return mb_strtolower(trim($sku)) . '-' . ((int)$storeId);
+        return $this->cleanSku($sku) . '-' . ((int)$storeId);
+    }
+
+    private function cleanSku(string $sku): string
+    {
+        return mb_strtolower(trim($sku));
     }
 
     private function getCached($sku, $storeId = null): array
@@ -208,6 +219,15 @@ class FastProductRepository implements FastProductRepositoryInterface
         }
     }
 
+    /**
+     * This method has a series of escape hatches to locate a match as quickly as possible.
+     *
+     * @param string $sku
+     * @param $storeId
+     * @param array|null $attributes
+     * @return ProductInterface
+     * @throws NoSuchEntityException
+     */
     private function buildFromCachedProduct(string $sku, $storeId, ?array $attributes): ProductInterface
     {
         $this->addRead($sku, $storeId);
@@ -219,11 +239,29 @@ class FastProductRepository implements FastProductRepositoryInterface
             return $cached[self::CACHE_PRODUCT_KEY];
         }
 
+        // If the product has already been loaded, we whittle down the attributes in case this product was loaded from repository.
+        if (!empty($cached[self::CACHE_PRODUCT_KEY])) {
+            $cachedProduct = $cached[self::CACHE_PRODUCT_KEY];
+            $attributesToSelect = array_diff($attributesToSelect, array_keys($cachedProduct->getData()));
+
+            if (!count($attributesToSelect)) {
+                return $cachedProduct;
+            }
+        }
+
         // Escape hatch if we only need one attribute. Faster is better :).
         if (count($attributesToSelect) === 1 && !empty($cached[self::CACHE_PRODUCT_KEY])) {
             return $this->loadSingleAttributeForProduct($cached[self::CACHE_PRODUCT_KEY], $storeId, $attributesToSelect);
         }
 
+        // Attempt to break into the parent repository
+        if (($cachedProduct = $this->attemptLoadFromParentRepository($sku, $storeId)) && count($attributesToSelect)) {
+            $this->saveCacheAndMergeExistingValue($cachedProduct, $attributesToSelect, $storeId);
+
+            return $cachedProduct;
+        }
+
+        // We now have to go for a full product from the database.
         $product = $this->productCollectionFactory->create()
             ->setStoreId($storeId)
             ->addFieldToFilter('sku', $sku)
@@ -270,6 +308,57 @@ class FastProductRepository implements FastProductRepositoryInterface
         return $output;
     }
 
+    private function attemptLoadFromParentRepository(string $sku, $storeId = null): ?ProductInterface
+    {
+        return $this->attemptLoadFromParentRepositoryByKey('instances', $sku, $storeId)
+            ?? $this->attemptLoadFromParentRepositoryByKey('instancesById', $this->productLookup->getIdFromSku($sku), $storeId);
+    }
+
+    /**
+     * This method uses reflection to identify whether or not this product has already been loaded
+     * in the system's repository. If so, we capture this and save it.
+     *
+     * @param $key
+     * @param $lookup
+     * @param null $storeId
+     * @return ProductInterface|null
+     * @throws \ReflectionException
+     * @throws \Safe\Exceptions\ArrayException
+     */
+    private function attemptLoadFromParentRepositoryByKey($key, $lookup, $storeId = null): ?ProductInterface
+    {
+        $cacheKeys = [
+            [true, $storeId],
+            [false, $storeId]
+        ];
+
+        if ($storeId === null) {
+            $cacheKeys[] = [true, 0];
+            $cacheKeys[] = [false, 0];
+        }
+
+        $property = new \ReflectionProperty($this->originalProductRepository, $key);
+        $property->setAccessible(true);
+        $instanceList = $property->getValue($this->originalProductRepository);
+
+        if (!isset($instanceList[$this->cleanSku((string)$lookup)]))  {
+            return null;
+        }
+
+        $cacheKeys = array_map(function($values) {
+            return $this->getRepositoryCacheKey($values);
+        }, $cacheKeys);
+
+        $storeOptions = $instanceList[$this->cleanSku((string)$lookup)];
+        $matches = array_intersect_key($storeOptions, \Safe\array_flip($cacheKeys));
+
+        if (!count($matches)) {
+            return null;
+        }
+
+        return reset($matches);
+    }
+
     private function loadSingleAttributeForProduct($cached, $storeId, ?array $attributesToSelect)
     {
         $cachedProduct = $cached;
@@ -285,5 +374,19 @@ class FastProductRepository implements FastProductRepositoryInterface
         $this->saveCacheAndMergeExistingValue($cachedProduct, $attributesToSelect, $storeId);
 
         return $cachedProduct;
+    }
+
+    private function getRepositoryCacheKey($data)
+    {
+        $serializeData = [];
+        foreach ($data as $key => $value) {
+            if (is_object($value)) {
+                $serializeData[$key] = $value->getId();
+            } else {
+                $serializeData[$key] = $value;
+            }
+        }
+        $serializeData = $this->jsonSerializer->serialize($serializeData);
+        return sha1($serializeData);
     }
 }

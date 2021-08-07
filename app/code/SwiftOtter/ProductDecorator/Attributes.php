@@ -11,5 +11,5 @@ class Attributes
 {
     const ENABLED = 'decorator_enabled';
 
-    const DISPLAYED_PRICE = 'displayed_price';
+    const DEFAULT_DECORATION_CHARGE = 'default_decoration_charge';
 }

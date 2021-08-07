@@ -1,0 +1,18 @@
+{
+    "name": "swiftotter/theme-ottersplash",
+    "description": "A theme for the OtterSplash website",
+    "require": {
+        "php": "~7.0.6",
+        "magento/framework": "100.1.*"
+    },
+    "type": "magento2-theme",
+    "version": "1.0.0",
+    "license": [
+        "GNU-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ]
+    }
+}

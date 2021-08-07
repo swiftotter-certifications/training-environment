@@ -41,6 +41,29 @@ class ProductLookup extends AbstractDb
         $this->_init('catalog_product_entity', 'entity_id');
     }
 
+    public function getIdsForSkus(array $skus): array
+    {
+        $select = $this->getConnection()->select();
+        $select->from($this->getMainTable(), $this->productResource->getIdFieldName());
+        $select->where('sku IN (?)', $skus);
+
+        return $this->getConnection()->fetchCol($select);
+    }
+
+    public function getIdFromSku(string $sku): int
+    {
+        return $this->getRowIdFromSku($sku);
+    }
+
+    public function getRowIdFromSku(string $sku): int
+    {
+        $select = $this->getConnection()->select();
+        $select->from($this->getMainTable(),  $this->productResource->getIdFieldName());
+        $select->where('sku = ?', $sku);
+
+        return (int)$this->getConnection()->fetchOne($select);
+    }
+
     public function getEntityIdFromSku(string $sku): int
     {
         $select = $this->getConnection()->select();
@@ -77,14 +100,7 @@ class ProductLookup extends AbstractDb
         }, $values);
     }
 
-    public function getRowIdFromSku(string $sku): int
-    {
-        $select = $this->getConnection()->select();
-        $select->from($this->getMainTable(),  $this->productResource->getIdFieldName());
-        $select->where('sku = ?', $sku);
 
-        return (int)$this->getConnection()->fetchOne($select);
-    }
 
     public function getRowIdFromProductId(int $productId): int
     {
@@ -209,7 +225,10 @@ class ProductLookup extends AbstractDb
 
         $this->getConnection()->delete(
             $this->getAttributeTableFor($attribute),
-            $this->getConnection()->quoteInto('row_id IN (?)', $this->getRowIdsFor($sku))
+            $this->getConnection()->quoteInto(
+                $this->productResource->getIdFieldName() . ' IN (?)',
+                $this->getRowIdFromSku($sku)
+            )
             . ' AND '
             . $this->getConnection()->quoteInto('attribute_id = ?', $attribute->getAttributeId())
         );
@@ -217,7 +236,7 @@ class ProductLookup extends AbstractDb
         $this->getConnection()->insert(
             $this->getAttributeTableFor($attribute),
             [
-                'row_id' => $this->getMaxRowIdFor($sku),
+                $this->productResource->getIdFieldName() => $this->getRowIdFromSku($sku),
                 'attribute_id' => $attribute->getAttributeId(),
                 'store_id' => 0,
                 'value' => $value

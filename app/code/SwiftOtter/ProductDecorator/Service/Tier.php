@@ -42,6 +42,13 @@ class Tier
         return reset($tiers);
     }
 
+    public function getMinimumTier(string $sku): TierInterface
+    {
+        $tiers = $this->getTiersForSku($sku);
+
+        return reset($tiers);
+    }
+
     public function getTiersForSku(string $sku): array
     {
         $this->criteriaBuilder->addSortOrder(

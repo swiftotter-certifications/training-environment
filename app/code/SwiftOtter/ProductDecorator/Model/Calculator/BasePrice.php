@@ -29,6 +29,10 @@ class BasePrice implements CalculatorInterface
 
     public function calculate(PriceRequestInterface $request, ProductResponseInterface $response): ProductResponseInterface
     {
+        if ($request->getExcludeProductPrice()) {
+            return $response;
+        }
+
         $product = $this->productRepository->get($response->getProduct()->getSku(), null, null, null, ['price', 'tier_price']);
         $amount = $this->amountResponseFactory->create([
             'amount' => $product->getFinalPrice($response->getProduct()->getQuantity()) / $response->getProduct()->getQuantity(),

@@ -36,4 +36,14 @@ class Location extends AbstractDb
 
         return $connection->fetchOne($select);
     }
+
+    public function getUpchargeFor(int $id): float
+    {
+        $connection = $this->getConnection();
+        $select = $connection->select()
+            ->from($this->getMainTable(), ['upcharge'])
+            ->where('id = ?', $id);
+
+        return (float)$connection->fetchOne($select);
+    }
 }

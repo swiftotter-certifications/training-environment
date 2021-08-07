@@ -15,7 +15,10 @@ class Adjustment implements CalculatorInterface
 {
     public function calculate(PriceRequestInterface $request, ProductResponseInterface $response): ProductResponseInterface
     {
-        // TODO: Implement calculate() method.
+        /**
+         * This does nothing for now, but will allow for price overrides.
+         */
+        return $response;
     }
 
 }

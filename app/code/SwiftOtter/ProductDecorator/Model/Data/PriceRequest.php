@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace SwiftOtter\ProductDecorator\Model\Data;
 
+use Magento\Framework\Api\AttributeValueFactory;
+use Magento\Framework\Api\ExtensionAttributesFactory;
 use Magento\Framework\Model\AbstractExtensibleModel;
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequest\ProductRequestInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequestInterface;
@@ -18,6 +20,8 @@ class PriceRequest extends AbstractExtensibleModel implements PriceRequestInterf
     private $products;
 
     private $locations;
+
+    private $excludeProductPrice;
 
     public function getClientId(): ?string
     {
@@ -31,7 +35,7 @@ class PriceRequest extends AbstractExtensibleModel implements PriceRequestInterf
 
     public function setProducts(array $products): void
     {
-        $this->products = [];
+        $this->products = $products;
     }
 
     public function getProducts(): array
@@ -54,6 +58,16 @@ class PriceRequest extends AbstractExtensibleModel implements PriceRequestInterf
         return array_reduce($this->products, function(float $total, ProductRequestInterface $product) {
             return $total + (float)$product->getQuantity();
         }, 0);
+    }
+
+    public function setExcludeProductPrice(bool $value): void
+    {
+        $this->excludeProductPrice = $value;
+    }
+
+    public function getExcludeProductPrice(): bool
+    {
+        return (bool)$this->excludeProductPrice;
     }
 
     public function getExtensionAttributes()

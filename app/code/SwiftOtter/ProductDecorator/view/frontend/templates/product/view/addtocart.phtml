@@ -1,0 +1,89 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 8/6/21
+ * @website https://swiftotter.com
+ **/
+
+/** @var \Magento\Catalog\Block\Product\View $block */
+
+/** @var \SwiftOtter\ProductDecorator\ViewModel\ConfigRenderer $configRenderer */
+$configRenderer = $block->getData('config_renderer');
+?>
+
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()) :?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <div class="decorator__outer-wrap" data-bind="scope: 'decorator'">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <input type="hidden" name="decorator" data-bind="value: ko.toJSON(request)" />
+            </div>
+
+            <script type="text/x-magento-init">
+               {
+                   ".decorator__outer-wrap": {
+                       "Magento_Ui/js/core/app": {
+                           "components": {
+                               "decorator": <?=json_encode($configRenderer->getConfiguration());?>
+                           }
+                       }
+                   },
+                   ".field.qty": {
+                       "Magento_Ui/js/core/app": {
+                           "components": {
+                               "decoratorQty": {"component":"SwiftOtter_ProductDecorator/js/decorator/qty"}
+                           }
+                       }
+                   },
+                   ".product-info-price div.price-final_price": {
+                        "Magento_Ui/js/core/app": {
+                           "components": {
+                               "decorator-price": {"component":"SwiftOtter_ProductDecorator/js/decorator/price"}
+                           }
+                       }
+                   }
+               }
+            </script>
+
+            <?php if ($block->shouldRenderQuantity()) :?>
+                <div class="field qty" data-bind="scope: 'decoratorQty'">
+                    <!-- ko if: canDisplay -->
+                    <label class="label" for="qty"><span><?= $block->escapeHtml(__('Qty')) ?></span></label>
+                    <div class="control">
+                        <input type="number"
+                               name="qty"
+                               id="qty"
+                               min="0"
+                               value="<?= $block->getProductDefaultQty() * 1 ?>"
+                               title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                               class="input-text qty"
+                               data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                               data-bind="textInput: qty" <?php /** SwiftOtter added */ ?>
+                        />
+                    </div>
+                    <!-- /ko -->
+                </div>
+            <?php endif; ?>
+
+
+            <div class="actions">
+                <button type="submit"
+                        title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                        class="action primary tocart"
+                        id="product-addtocart-button" disabled>
+                    <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                </button>
+                <?= $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>

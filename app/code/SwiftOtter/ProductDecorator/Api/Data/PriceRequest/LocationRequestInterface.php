@@ -40,4 +40,15 @@ interface LocationRequestInterface
      * @param int $value
      */
     public function setPrintMethodId(int $value): void;
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayText(): ?string;
+
+    /**
+     * @param string|null $value
+     * @return void;
+     */
+    public function setDisplayText(?string $value): void;
 }

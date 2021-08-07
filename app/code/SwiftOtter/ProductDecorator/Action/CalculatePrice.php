@@ -7,16 +7,17 @@ declare(strict_types=1);
 
 namespace SwiftOtter\ProductDecorator\Action;
 
+use SwiftOtter\ProductDecorator\Api\CalculatePriceInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequestInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\ProductResponseInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\ProductResponseInterfaceFactory as ProductResponseFactory;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponseInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponseInterfaceFactory as PriceResponseFactory;
-use SwiftOtter\ProductDecorator\Model\CompositeCalculator;
+use SwiftOtter\ProductDecorator\Model\Calculator\CompositeCalculator;
 use SwiftOtter\ProductDecorator\Service\Tier as TierService;
 
 
-class CalculatePrice
+class CalculatePrice implements CalculatePriceInterface
 {
     /** @var PriceResponseFactory */
     private $priceResponseFactory;
@@ -59,8 +60,8 @@ class CalculatePrice
             $response->addProduct(
                 $this->compositeCalculator->calculate($priceRequest, $responseProduct)
             );
-
-            $response = null;
         }
+
+        return $response;
     }
 }

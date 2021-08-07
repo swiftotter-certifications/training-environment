@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/view.xsd">
+    <media>
+        <images module="Magento_Catalog">
+            <image id="product_base_image" type="image">
+                <width>500</width>
+                <height>500</height>
+            </image>
+            <image id="category_page_grid_small" type="image">
+                <width>300</width>
+                <height>260</height>
+                <frame>false</frame>
+            </image>
+            <image id="category_page_grid" type="image">
+                <width>490</width>
+                <height>400</height>
+                <frame>false</frame>
+            </image>
+            <image id="category_page_grid_large" type="small_image">
+                <width>980</width>
+                <height>800</height>
+                <frame>false</frame>
+            </image>
+            <image id="category_page_flag" type="image">
+                <width>980</width>
+                <height>800</height>
+                <frame>false</frame>
+            </image>
+            <image id="category_page_flag_small" type="image">
+                <width>980</width>
+                <height>800</height>
+                <frame>false</frame>
+            </image>
+            <image id="category_page_flag_large" type="image">
+                <width>980</width>
+                <height>800</height>
+                <frame>false</frame>
+            </image>
+            <image id="category_page_list_small" type="image">
+                <width>400</width>
+                <height>400</height>
+            </image>
+            <image id="category_page_list" type="image">
+                <width>400</width>
+                <height>400</height>
+            </image>
+            <image id="category_page_list_large" type="image">
+                <width>800</width>
+                <height>800</height>
+            </image>
+            <image id="related_products_list_small" type="image">
+                <width>150</width>
+                <height>150</height>
+                <frame>false</frame>
+            </image>
+            <image id="related_products_list" type="image">
+                <width>250</width>
+                <height>250</height>
+                <frame>false</frame>
+            </image>
+            <image id="related_products_list_large" type="image">
+                <width>500</width>
+                <height>500</height>
+                <frame>false</frame>
+            </image>
+
+            <image id="detailed_products_list_small" type="image">
+                <width>150</width>
+                <height>150</height>
+                <frame>false</frame>
+            </image>
+            <image id="detailed_products_list" type="image">
+                <width>200</width>
+                <height>200</height>
+                <frame>false</frame>
+            </image>
+            <image id="detailed_products_list_large" type="image">
+                <width>400</width>
+                <height>400</height>
+                <frame>false</frame>
+            </image>
+
+            <image id="upsell_products_list_small" type="image">
+                <width>70</width>
+                <height>70</height>
+                <frame>false</frame>
+            </image>
+            <image id="upsell_products_list" type="image">
+                <width>150</width>
+                <height>150</height>
+                <frame>false</frame>
+            </image>
+            <image id="upsell_products_list_large" type="image">
+                <width>300</width>
+                <height>300</height>
+                <frame>false</frame>
+            </image>
+        </images>
+    </media>
+    <vars module="Magento_Catalog">
+        <var name="product_list_image_size">400</var>           <!-- New Product image size used in product list -->
+    </vars>
+</view>

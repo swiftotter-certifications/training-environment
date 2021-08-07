@@ -11,11 +11,15 @@ use SwiftOtter\ProductDecorator\Api\Data\PriceRequest\LocationRequestInterface;
 
 class PriceRequestLocation implements LocationRequestInterface
 {
+    const DEFAULT_COLOR = '#ffffff';
+
     private $locationId;
 
     private $colors;
 
     private $printMethodId;
+
+    private $displayText;
 
     public function getLocationId(): ?int
     {
@@ -27,14 +31,14 @@ class PriceRequestLocation implements LocationRequestInterface
         $this->locationId = $locationId;
     }
 
-    public function setColors(array $colors): void
+    public function setColors(?array $colors): void
     {
         $this->colors = $colors;
     }
 
     public function getColors(): ?array
     {
-        return $this->colors;
+        return $this->colors ?? [];
     }
 
     public function getPrintMethodId(): ?int
@@ -45,5 +49,15 @@ class PriceRequestLocation implements LocationRequestInterface
     public function setPrintMethodId(int $value): void
     {
         $this->printMethodId = $value;
+    }
+
+    public function getDisplayText(): ?string
+    {
+        return $this->displayText;
+    }
+
+    public function setDisplayText(?string $value): void
+    {
+        $this->displayText = $value;
     }
 }

@@ -48,6 +48,16 @@ interface PriceRequestInterface
     public function getTotalQuantity(): int;
 
     /**
+     * @return bool
+     */
+    public function getExcludeProductPrice(): bool;
+
+    /**
+     * @param bool $value
+     */
+    public function setExcludeProductPrice(bool $value): void;
+
+    /**
      * @return \SwiftOtter\ProductDecorator\Api\Data\PriceRequestExtensionInterface|null
      */
     public function getExtensionAttributes();

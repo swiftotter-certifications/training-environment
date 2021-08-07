@@ -84,6 +84,7 @@
         <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
         <column xsi:type="varchar" name="name" length="256" nullable="true" comment="Name" />
         <column xsi:type="varchar" name="code" length="100" nullable="true" comment="Code (Identifier)" />
+        <column xsi:type="decimal" name="upcharge" scale="6" precision="20" unsigned="false" nullable="false" comment="Upcharge"  />
         <column xsi:type="int" name="sort_order" nullable="true" comment="Sort Order" />
 
         <constraint xsi:type="primary" referenceId="PRIMARY">
@@ -100,5 +101,111 @@
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>
         </constraint>
+    </table>
+
+    <table name="swiftotter_productdecorator_print_spec" resource="default" engine="innodb" comment="Print Specification">
+        <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
+        <column xsi:type="varchar" length="50" name="name" comment="Print Spec Name" />
+        <column xsi:type="smallint" name="is_deleted" unsigned="true" default="0" comment="Is Deleted"  />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="swiftotter_productdecorator_print_spec_location" resource="default" engine="innodb" comment="Print Specification Location">
+        <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
+        <column xsi:type="int" name="location_id" default="0" unsigned="true" padding="11" comment="Location ID"  />
+        <column xsi:type="int" name="print_method_id" default="0" unsigned="true" padding="11" comment="Print Method ID"  />
+        <column xsi:type="varchar" length="255" name="colors" comment="Color metadata" />
+        <column xsi:type="varchar" length="255" name="display_text" comment="Display text" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign"
+                    referenceId="PRODUCTDECORATOR_PRINT_SPEC_LOCATION_LOCATION_ID_LOCATION_ID"
+                    table="swiftotter_productdecorator_print_spec_location"
+                    column="location_id"
+                    referenceTable="swiftotter_productdecorator_locations"
+                    referenceColumn="id"
+                    onDelete="CASCADE"
+        />
+
+        <constraint xsi:type="foreign"
+                    referenceId="PRODUCTDECORATOR_PRINT_SPEC_LOCATION_PRINT_METHOD_ID_PRINT_METHOD_ID"
+                    table="swiftotter_productdecorator_print_spec_location"
+                    column="print_method_id"
+                    referenceTable="swiftotter_productdecorator_print_method"
+                    referenceColumn="id"
+                    onDelete="CASCADE"
+        />
+    </table>
+
+    <table name="swiftotter_productdecorator_print_spec_quote_item" resource="default" engine="innodb" comment="Print Specification Quote Item">
+        <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
+        <column xsi:type="int" name="quote_item_id" unsigned="true" padding="10" nullable="false" comment="Quote Item ID"  />
+        <column xsi:type="int" name="print_spec_id" unsigned="true" padding="11" comment="Print Spec ID"  />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign"
+                    referenceId="PRODUCTDECORATOR_PRINT_SPEC_QUOTE_ITEM_QUOTE_ITEM_ID"
+                    table="swiftotter_productdecorator_print_spec_quote_item"
+                    column="quote_item_id"
+                    referenceTable="quote_item"
+                    referenceColumn="item_id"
+                    onDelete="CASCADE"/>
+
+        <constraint xsi:type="foreign"
+                    referenceId="PRODUCTDECORATOR_PRINT_SPEC_QUOTE_ITEM_PRINT_SPEC_ID"
+                    table="swiftotter_productdecorator_print_spec_quote_item"
+                    column="print_spec_id"
+                    referenceTable="swiftotter_productdecorator_print_spec"
+                    referenceColumn="id"
+                    onDelete="CASCADE"/>
+
+        <index referenceId="PRODUCTDECORATOR_PRINT_SPEC_QUOTE_ITEM_QUOTE_ITEM_ID_IDX" indexType="btree">
+            <column name="quote_item_id"/>
+        </index>
+        <index referenceId="PRODUCTDECORATOR_PRINT_SPEC_QUOTE_ITEM_PRINT_SPEC_ID_IDX" indexType="btree">
+            <column name="print_spec_id"/>
+        </index>
+    </table>
+
+    <table name="swiftotter_productdecorator_print_spec_order_item" resource="default" engine="innodb" comment="Print Specification Quote Item">
+        <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
+        <column xsi:type="int" name="order_item_id" unsigned="true" padding="10" nullable="false" comment="Order Item ID"  />
+        <column xsi:type="int" name="print_spec_id" unsigned="true" padding="11" comment="Print Spec ID"  />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign"
+                    referenceId="PRODUCTDECORATOR_PRINT_SPEC_ORDER_ITEM_ORDER_ITEM_ID"
+                    table="swiftotter_productdecorator_print_spec_order_item"
+                    column="order_item_id"
+                    referenceTable="sales_order_item"
+                    referenceColumn="item_id"
+                    onDelete="CASCADE"/>
+
+        <constraint xsi:type="foreign"
+                    referenceId="PRODUCTDECORATOR_PRINT_SPEC_ORDER_ITEM_ITEM_PRINT_SPEC_ID"
+                    table="swiftotter_productdecorator_print_spec_order_item"
+                    column="print_spec_id"
+                    referenceTable="swiftotter_productdecorator_print_spec"
+                    referenceColumn="id"
+                    onDelete="CASCADE"/>
+
+        <index referenceId="PRODUCTDECORATOR_PRINT_SPEC_ORDER_ITEM_ORDER_ITEM_ID_IDX" indexType="btree">
+            <column name="order_item_id"/>
+        </index>
+        <index referenceId="PRODUCTDECORATOR_PRINT_SPEC_ORDER_ITEM_PRINT_SPEC_ID_IDX" indexType="btree">
+            <column name="print_spec_id"/>
+        </index>
     </table>
 </schema>

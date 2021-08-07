@@ -51,7 +51,7 @@ class AddAttributeToEnableDecorations implements DataPatchInterface
                 'filterable' => false,
                 'comparable' => false,
                 'visible_on_front' => false,
-                'used_in_product_listing' => false,
+                'used_in_product_listing' => true,
                 'unique' => false,
                 'apply_to' => 'simple,virtual'
             ]

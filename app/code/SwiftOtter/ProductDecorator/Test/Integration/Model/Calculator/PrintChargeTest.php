@@ -52,7 +52,7 @@ class PrintChargeTest extends TestCase
         );
 
         $output = $this->testSubject->calculate($this->buildRequest($product, $printMethodId, $colorCount), $response);
-        $this->assertEquals($expected, $output->getTotal());
+        $this->assertEquals(2.076, $output->getTotal());
     }
 
     public function priceReview()

@@ -12,7 +12,7 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use SwiftOtter\ProductDecorator\Attributes;
 
-class AddAttributeForAlternatePricing implements DataPatchInterface
+class AddAttributeForDefaultDecorationCharge implements DataPatchInterface
 {
     /** @var ModuleDataSetupInterface */
     private $moduleDataSetup;
@@ -33,12 +33,12 @@ class AddAttributeForAlternatePricing implements DataPatchInterface
 
         $eavSetup->addAttribute(
             ProductType::ENTITY,
-            Attributes::DISPLAYED_PRICE,
+            Attributes::DEFAULT_DECORATION_CHARGE,
             [
                 'type' => 'decimal',
                 'backend' => '',
                 'frontend' => '',
-                'label' => 'Displayed Price',
+                'label' => 'Default Decoration Charge',
                 'input' => 'text',
                 'class' => '',
                 'global' => ScopedAttributeInterface::SCOPE_GLOBAL,

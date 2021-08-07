@@ -19,6 +19,20 @@ class PrintCharge extends AbstractDb
         $this->_init('swiftotter_productdecorator_printcharge', 'id');
     }
 
+    public function getMaxColorsByTier(string $priceType): array
+    {
+        $connection = $this->getConnection();
+
+        $select = $connection->select()
+            ->from(['printcharge' => $this->getMainTable()], [])
+            ->joinInner(['tier' => 'swiftotter_productdecorator_tier'], 'tier.id = printcharge.tier_id', [])
+            ->columns(['tier_id' => 'tier_id', 'max_colors' => 'MAX(colors)', 'min_tier' => 'tier.min_tier'])
+            ->where('price_type = ?', $priceType)
+            ->group('tier_id');
+
+        return $connection->fetchAll($select);
+    }
+
     public function getById(int $id)
     {
         $connection = $this->getConnection();
@@ -35,11 +49,10 @@ class PrintCharge extends AbstractDb
         $connection = $this->getConnection();
 
         $select = $connection->select()
-            ->from($this->getMainTable(), ['price', 'qualifier', 'colors'])
+            ->from($this->getMainTable(), ['price', 'colors'])
             ->where('tier_id = ?', $tierId)
             ->where('price_type = ?', $priceType)
-            ->order('colors DESC')
-            ->order('qualifier DESC');
+            ->order('colors DESC');
 
         $values = $connection->fetchAll($select);
 

@@ -36,6 +36,7 @@ class CalculatePriceTest extends TestCase
         $location = ObjectManager::getInstance()->get(LocationRequestInterface::class);
         $location->setColors(['#ffffff']);
         $location->setLocationId(1);
+        $location->setPrintMethodId(1);
 
         $request->setLocations([$location]);
 
@@ -44,7 +45,7 @@ class CalculatePriceTest extends TestCase
         $product->setQuantity(1);
         $request->setProducts([$product]);
 
-        $this->testSubject->execute($request);
+        $response = $this->testSubject->execute($request);
+        $this->assertEquals(12.076, $response->getBasePrice());
     }
-
 }

@@ -1,0 +1,48 @@
+<div class="decorator">
+    <h3 data-bind="i18n: 'Customize this product:'"></h3>
+    <div class="field">
+        <label class="label" for="location-input" data-bind="i18n: 'Location'"></label>
+        <div class="control">
+            <select id="location-input" class="select required-entry" data-bind="
+                options: data.locations,
+                optionsText: 'name',
+                optionsValue: 'location_id',
+                value: location_id
+            "></select>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="print-method-input" data-bind="i18n: 'Application type'"></label>
+        <div class="control">
+            <select id="print-method-input" class="select required-entry" data-bind="
+                options: printMethods,
+                optionsText: 'name',
+                optionsValue: 'id',
+                value: print_method_id
+            "></select>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="colors-input" data-bind="i18n: 'Select colors to use'"></label>
+        <div class="control">
+            <select id="colors-input" multiple="multiple" class="select required-entry" data-bind="
+                options: data.colors,
+                optionsText: 'name',
+                optionsValue: 'color',
+                selectedOptions: colors
+            "></select>
+            <br/>
+            <span><span data-bind="i18n: 'Maximum colors'"></span>: <span data-bind="text: maxColors"></span></span>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="colors-input" data-bind="i18n: 'What to display?'"></label>
+        <div class="control">
+            <input type="text" id="text-input" class="input-text required-entry" data-bind="
+                value: displayText
+            "/>
+        </div>
+    </div>
+    <span class="note" data-bind="text: note"></span>
+
+</div>

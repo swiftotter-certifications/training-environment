@@ -1,6 +1,9 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SwiftOtter\ProductDecorator\Api\CalculatePriceInterface"
+                type="SwiftOtter\ProductDecorator\Action\CalculatePrice" />
+
     <preference for="SwiftOtter\ProductDecorator\Api\LocationPrintMethodRepositoryInterface"
                 type="SwiftOtter\ProductDecorator\Model\LocationPrintMethodRepository" />
     <preference for="SwiftOtter\ProductDecorator\Api\Data\LocationPrintMethodInterface"
@@ -50,8 +53,14 @@
     <preference for="\SwiftOtter\ProductDecorator\Api\Data\PriceResponse\AmountResponseInterface"
                 type="\SwiftOtter\ProductDecorator\Model\Data\PriceResponseAmount" />
 
+    <preference for="SwiftOtter\ProductDecorator\Api\PrintSpecRepositoryInterface"
+                type="SwiftOtter\ProductDecorator\Model\PrintSpec" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpecInterface"
+                type="SwiftOtter\ProductDecorator\Model\PrintSpec" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpecSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
 
-    <type name="SwiftOtter\ProductDecorator\Model\CompositeCalculator">
+    <type name="SwiftOtter\ProductDecorator\Model\Calculator\CompositeCalculator">
         <arguments>
             <argument xsi:type="array" name="calculators">
                 <item xsi:type="object" name="BasePriceCalculator">SwiftOtter\ProductDecorator\Model\Calculator\BasePrice</item>
@@ -59,5 +68,37 @@
                 <item xsi:type="object" name="AdjustmentCalculator">SwiftOtter\ProductDecorator\Model\Calculator\Adjustment</item>
             </argument>
         </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="rebuild_index" xsi:type="object">SwiftOtter\ProductDecorator\Command\Calculate</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Model\ResourceModel\Product">
+        <plugin type="SwiftOtter\ProductDecorator\Plugin\UpdateDisplayedPriceAfterProductSave" name="UpdateDisplayedPriceAfterProductSave" />
+    </type>
+
+    <!-- Pricing plugin updates -->
+    <type name="Magento\Catalog\Pricing\Price\RegularPrice">
+        <plugin type="SwiftOtter\ProductDecorator\Plugin\DefaultPricingForDecorated\RegularPrice" name="RegularPriceDecoration" />
+    </type>
+    <type name="Magento\Catalog\Pricing\Price\TierPrice">
+        <plugin type="SwiftOtter\ProductDecorator\Plugin\DefaultPricingForDecorated\TierPrice" name="TierPriceDecoration" />
+    </type>
+    <type name="Magento\Catalog\Pricing\Price\SpecialPrice">
+        <plugin type="SwiftOtter\ProductDecorator\Plugin\DefaultPricingForDecorated\SpecialPrice" name="SpecialPriceDecoration" />
+    </type>
+
+    <!-- Product page -->
+    <type name="Magento\Catalog\Helper\Product\View">
+        <plugin type="SwiftOtter\ProductDecorator\Plugin\AddDecoratorHandleToProductPage" name="AddDecoratorHandleToProductPage" />
+    </type>
+
+    <type name="Magento\Framework\Pricing\Render\RendererPool">
+        <plugin type="SwiftOtter\ProductDecorator\Plugin\ChangeFinalPriceTemplateDecoratedProduct" name="ChangeFinalPriceTemplateDecoratedProduct" />
     </type>
 </config>

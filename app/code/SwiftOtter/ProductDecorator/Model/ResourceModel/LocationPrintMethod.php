@@ -43,6 +43,41 @@ class LocationPrintMethod extends AbstractDb
         return $connection->fetchOne($select);
     }
 
+    public function getAvailableLocationIds(string $sku): array
+    {
+        $select = $this->getConnection()->select();
+        $select->from(['location_print_method' => $this->getMainTable()], 'location_id');
+        $select->joinInner(
+            ['location' => 'swiftotter_productdecorator_locations'],
+            'location_print_method.location_id = location.id',
+            ['name', 'code']
+        );
+        $select->where('sku = ?', $sku);
+        $select->distinct(true);
+
+        return $this->getConnection()->fetchAll($select);
+    }
+
+    public function getPrintMethodIdsGroupedByLocationIds(string $sku): array
+    {
+        $select = $this->getConnection()->select();
+        $select->from($this->getMainTable(), ['location_id', 'print_method_id']);
+        $select->where('sku = ?', $sku);
+
+        $values = $this->getConnection()->fetchAll($select);
+        $output = [];
+
+        foreach ($values as $pair) {
+            if (!isset($output[$pair['location_id']])) {
+                $output[$pair['location_id']] = [];
+            }
+
+            $output[$pair['location_id']][] = (int)$pair['print_method_id'];
+        }
+
+        return $output;
+    }
+
     public function getBestPrintMethodFor(string $sku, array $locationIds): array
     {
         $connection = $this->getConnection();
@@ -54,10 +89,7 @@ class LocationPrintMethod extends AbstractDb
                 'print_method.id = main_table.print_method_id',
                 []
             )
-            ->where(
-                'sku IN (?)',
-                array_filter([$sku, $this->findParentConfigurableForSimple->execute($sku)])
-            )
+            ->where('sku = ?', $sku)
             ->where('location_id IN (?)', $locationIds);
 
         $rows = $connection->fetchAll($select);
@@ -102,7 +134,6 @@ class LocationPrintMethod extends AbstractDb
             $select->order('location.upcharge ASC');
         }
 
-        $select->order('max_colors ASC');
         $select->distinct(true);
         $values = $connection->fetchCol($select);
 

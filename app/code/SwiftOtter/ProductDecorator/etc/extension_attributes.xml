@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Quote\Api\Data\CartItemInterface">
+        <attribute code="print_spec_quote_item" type="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\QuoteItemInterface" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\OrderItemInterface">
+        <attribute code="print_spec_quote_item" type="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\OrderItemInterface" />
+    </extension_attributes>
+
+    <extension_attributes for="SwiftOtter\ProductDecorator\Api\Data\PrintSpecInterface">
+        <attribute code="quote_items" type="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\QuoteItemInterface[]" />
+        <attribute code="order_items" type="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\OrderItemInterface[]" />
+        <attribute code="locations" type="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\LocationInterface[]" />
+    </extension_attributes>
+</config>

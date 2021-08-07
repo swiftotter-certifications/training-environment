@@ -5,7 +5,7 @@ declare(strict_types=1);
  * @website https://swiftotter.com
  **/
 
-namespace SwiftOtter\ProductDecorator\Model;
+namespace SwiftOtter\ProductDecorator\Model\Calculator;
 
 use SwiftOtter\ProductDecorator\Api\CalculatorInterface;
 use SwiftOtter\ProductDecorator\Api\Data\Calculator\ProductResponseInterface as CalculatorProductInterface;
