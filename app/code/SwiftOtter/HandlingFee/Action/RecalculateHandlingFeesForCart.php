@@ -139,7 +139,7 @@ class RecalculateHandlingFeesForCart
     private function getFeeAmount(int $storeId, string $scope): float
     {
         return (float)$this->scopeConfig->getValue(
-            'sales/palletizing/fee_amount',
+            'sales/handling_fee/fee_amount',
             $scope,
             $storeId
         );

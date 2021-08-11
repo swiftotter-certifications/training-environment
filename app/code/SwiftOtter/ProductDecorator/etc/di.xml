@@ -101,4 +101,8 @@
     <type name="Magento\Framework\Pricing\Render\RendererPool">
         <plugin type="SwiftOtter\ProductDecorator\Plugin\ChangeFinalPriceTemplateDecoratedProduct" name="ChangeFinalPriceTemplateDecoratedProduct" />
     </type>
+
+    <type name="Magento\Quote\Model\Quote">
+        <plugin type="SwiftOtter\ProductDecorator\Plugin\QuoteAddProductConfigurePrintSpec" name="QuoteAddProductConfigurePrintSpec" />
+    </type>
 </config>

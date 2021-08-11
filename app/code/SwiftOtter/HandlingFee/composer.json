@@ -1,6 +1,6 @@
 {
-  "name": "swiftotter/palletizing-group",
-  "description": "Palletizes orders",
+  "name": "swiftotter/module-handling-fee",
+  "description": "Add's handling fee to orders",
   "type": "magento2-module",
   "require": {
     "php": "^7.0",

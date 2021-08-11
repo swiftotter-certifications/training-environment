@@ -7,7 +7,7 @@
         "AFL-3.0"
     ],
     "require": {
-        "magento/product-community-edition": "2.4.2-p1",
+        "magento/product-community-edition": "2.4.3",
         "magento/composer-root-update-plugin": "~1.1",
         "snowdog/theme-blank-sass": "^v1.5",
         "gordalina/cachetool": "^6.0",
@@ -31,7 +31,6 @@
         "boldcommerce/magento2-ordercomments": "^1.8"
     },
     "require-dev": {
-        "allure-framework/allure-phpunit": "~1.2.0",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "friendsofphp/php-cs-fixer": "~2.16.0",
         "lusitanian/oauth": "~0.8.10",

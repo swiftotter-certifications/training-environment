@@ -22,10 +22,10 @@
                                                         <item name="children" xsi:type="array">
                                                             <!-- sort order for this totals is configured on admin panel-->
                                                             <!-- Stores->Configuration->SALES->Sales->General->Checkout Totals Sort Order -->
-                                                            <item name="palletizing-fee" xsi:type="array">
-                                                                <item name="component" xsi:type="string">SwiftOtter_HandlingFee/js/view/summary/palletizing-fee</item>
+                                                            <item name="handling-fee" xsi:type="array">
+                                                                <item name="component" xsi:type="string">SwiftOtter_HandlingFee/js/view/summary/handling-fee</item>
                                                                 <item name="config" xsi:type="array">
-                                                                    <item name="title" xsi:type="string" translate="true">HandlingFee Fee</item>
+                                                                    <item name="title" xsi:type="string" translate="true">Handling Fee</item>
                                                                 </item>
                                                             </item>
                                                         </item>

@@ -25,7 +25,7 @@ class HandlingFeeList implements ArgumentInterface
         $this->handlingFeeOrderItem = $handlingFeeOrderItem;
     }
 
-    public function getPallets()
+    public function getHandlingFees()
     {
 
     }

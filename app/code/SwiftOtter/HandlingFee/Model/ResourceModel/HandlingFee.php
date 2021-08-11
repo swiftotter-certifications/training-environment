@@ -21,13 +21,13 @@ class HandlingFee extends AbstractDb
         $select = $this->getConnection()->select();
         $select->from('quote_item', []);
         $select->joinInner(
-            'pallet_quote_item',
-            'pallet_quote_item.quote_item_id = quote_item.item_id',
+            'handling_fee_quote_item',
+            'handling_fee_quote_item.quote_item_id = quote_item.item_id',
             []
         );
         $select->joinInner(
-            'pallet',
-            'pallet.id = pallet_quote_item.pallet_id',
+            'handling_fee',
+            'handling_fee.id = handling_fee_quote_item.handling_fee_id',
             ['id']
         );
 
@@ -39,7 +39,7 @@ class HandlingFee extends AbstractDb
     public function deleteByIds(array $ids): void
     {
         $this->getConnection()->delete(
-            'pallet',
+            'handling_fee',
             $this->getConnection()->quoteInto('id IN (?)', $ids)
         );
     }

@@ -23,10 +23,10 @@ define([
             var totals = quote.getTotals()();
 
             if (totals) {
-                return totals['palletizing_fee'];
+                return totals['handling_fee'];
             }
 
-            return quote['palletizing_fee'];
+            return quote['handling_fee'];
         },
 
         /**

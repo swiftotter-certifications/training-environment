@@ -11,6 +11,10 @@ declare(strict_types=1);
 $configRenderer = $block->getData('config_renderer');
 ?>
 
+<script type="text/javascript">
+    const productName = '<?= $escaper->escapeJs('Javascript \' value') ?>'
+</script>
+
 <?php $_product = $block->getProduct(); ?>
 <?php $buttonTitle = __('Add to Cart'); ?>
 <?php if ($_product->isSaleable()) :?>

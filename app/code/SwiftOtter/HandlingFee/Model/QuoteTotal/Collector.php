@@ -21,9 +21,9 @@ use Magento\Tax\Model\Sales\Total\Quote\Subtotal;
 
 class Collector extends AbstractTotal
 {
-    const FEE_AMOUNT_CONFIG = 'sales/palletizing/fee_amount';
+    const FEE_AMOUNT_CONFIG = 'sales/handling_fee/fee_amount';
 
-    const TOTAL_CODE = 'palletizing_fee';
+    const TOTAL_CODE = 'handling_fee';
 
     /** @var ScopeConfigInterface */
     private $scopeConfig;
@@ -84,8 +84,8 @@ class Collector extends AbstractTotal
     {
         if ($total->getData(self::TOTAL_CODE . '_amount')) {
             return [
-                'code' => 'palletizing_fee',
-                'title' => 'HandlingFee Fee',
+                'code' => 'handling_fee',
+                'title' => 'Handling Fee',
                 'value' => $total->getData(self::TOTAL_CODE . '_amount')
             ];
         }

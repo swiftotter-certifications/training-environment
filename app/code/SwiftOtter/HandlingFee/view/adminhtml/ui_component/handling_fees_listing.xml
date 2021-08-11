@@ -13,7 +13,7 @@
                 <label translate="true">Add New Page</label>
             </button>
         </buttons>
-        <spinner>pallets_columns</spinner>
+        <spinner>handling_fee_columns</spinner>
         <deps>
             <dep>handling_fees_listing.handling_fees_listing_data_source</dep>
         </deps>
@@ -59,7 +59,7 @@
         </filters>
         <paging name="listing_paging"/>
     </listingToolbar>
-    <columns name="pallets_columns">
+    <columns name="handling_fee_columns">
         <column name="id">
             <settings>
                 <filter>textRange</filter>
