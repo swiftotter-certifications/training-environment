@@ -26,4 +26,20 @@ class QuoteItem extends AbstractDb
 
         return $connection->fetchOne($select);
     }
+
+    public function replace(int $printSpecId, int $quoteItemId): void
+    {
+        $this->getConnection()->delete(
+            $this->getMainTable(),
+            $this->getConnection()->quoteInto('quote_item_id = ?', $quoteItemId)
+        );
+
+        $this->getConnection()->insert(
+            $this->getMainTable(),
+            [
+                'print_spec_id' => $printSpecId,
+                'quote_item_id' => $quoteItemId
+            ]
+        );
+    }
 }

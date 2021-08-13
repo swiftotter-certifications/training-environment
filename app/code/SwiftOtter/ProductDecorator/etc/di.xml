@@ -54,11 +54,18 @@
                 type="\SwiftOtter\ProductDecorator\Model\Data\PriceResponseAmount" />
 
     <preference for="SwiftOtter\ProductDecorator\Api\PrintSpecRepositoryInterface"
-                type="SwiftOtter\ProductDecorator\Model\PrintSpec" />
+                type="SwiftOtter\ProductDecorator\Model\PrintSpecRepository" />
     <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpecInterface"
                 type="SwiftOtter\ProductDecorator\Model\PrintSpec" />
     <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpecSearchResultsInterface"
                 type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\LocationInterface"
+                type="SwiftOtter\ProductDecorator\Model\PrintSpec\Location" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\OrderItemInterface"
+                type="SwiftOtter\ProductDecorator\Model\PrintSpec\OrderItem" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\QuoteItemInterface"
+                type="SwiftOtter\ProductDecorator\Model\PrintSpec\QuoteItem" />
 
     <type name="SwiftOtter\ProductDecorator\Model\Calculator\CompositeCalculator">
         <arguments>
@@ -104,5 +111,9 @@
 
     <type name="Magento\Quote\Model\Quote">
         <plugin type="SwiftOtter\ProductDecorator\Plugin\QuoteAddProductConfigurePrintSpec" name="QuoteAddProductConfigurePrintSpec" />
+    </type>
+
+    <type name="SwiftOtter\ProductDecorator\Model\PrintSpec">
+        <plugin type="SwiftOtter\ProductDecorator\Plugin\Defaults\EnsurePrintSpecHasExtensionAttributes" name="EnsurePrintSpecHasExtensionAttributes" />
     </type>
 </config>

@@ -27,6 +27,8 @@ class Location extends AbstractModel implements IdentityInterface, LocationInter
 
     private const ID  = 'id';
 
+    private const PRINT_SPEC_ID = 'print_spec_id';
+
     private const LOCATION_ID = 'location_id';
 
     private const PRINT_METHOD_ID = 'print_method_id';
@@ -48,6 +50,11 @@ class Location extends AbstractModel implements IdentityInterface, LocationInter
     public function getId(): ?int
     {
         return $this->getData(self::ID) ? (int) $this->getData(self::ID) : null;
+    }
+
+    public function getPrintSpecId(): ?int
+    {
+        return $this->nullableInt($this->getData(self::LOCATION_ID));
     }
 
     public function getLocationId(): ?int
@@ -77,6 +84,11 @@ class Location extends AbstractModel implements IdentityInterface, LocationInter
     public function setId($id): void
     {
         $this->setData(self::ID, $id);
+    }
+
+    public function setPrintSpecId($value): void
+    {
+        $this->setData(self::PRINT_SPEC_ID, $value);
     }
 
     public function setLocationId(?int $value): void

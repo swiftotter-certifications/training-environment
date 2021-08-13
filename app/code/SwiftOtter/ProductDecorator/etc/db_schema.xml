@@ -106,6 +106,7 @@
     <table name="swiftotter_productdecorator_print_spec" resource="default" engine="innodb" comment="Print Specification">
         <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
         <column xsi:type="varchar" length="50" name="name" comment="Print Spec Name" />
+        <column xsi:type="varchar" length="50" name="client_id" comment="Client ID" />
         <column xsi:type="smallint" name="is_deleted" unsigned="true" default="0" comment="Is Deleted"  />
 
         <constraint xsi:type="primary" referenceId="PRIMARY">
@@ -116,6 +117,7 @@
     <table name="swiftotter_productdecorator_print_spec_location" resource="default" engine="innodb" comment="Print Specification Location">
         <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
         <column xsi:type="int" name="location_id" default="0" unsigned="true" padding="11" comment="Location ID"  />
+        <column xsi:type="int" name="print_spec_id" nullable="false" unsigned="true" comment="Print Spec ID"  />
         <column xsi:type="int" name="print_method_id" default="0" unsigned="true" padding="11" comment="Print Method ID"  />
         <column xsi:type="varchar" length="255" name="colors" comment="Color metadata" />
         <column xsi:type="varchar" length="255" name="display_text" comment="Display text" />
@@ -123,6 +125,15 @@
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>
         </constraint>
+
+        <constraint xsi:type="foreign"
+                    referenceId="PRODUCTDECORATOR_PRINT_SPEC_LOCATION_PRINT_SPEC_ID_PRINT_SPEC_ID"
+                    table="swiftotter_productdecorator_print_spec_location"
+                    column="print_spec_id"
+                    referenceTable="swiftotter_productdecorator_print_spec"
+                    referenceColumn="id"
+                    onDelete="CASCADE"
+        />
 
         <constraint xsi:type="foreign"
                     referenceId="PRODUCTDECORATOR_PRINT_SPEC_LOCATION_LOCATION_ID_LOCATION_ID"

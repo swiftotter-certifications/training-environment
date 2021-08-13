@@ -26,4 +26,15 @@ class PrintSpec extends AbstractDb
 
         return $connection->fetchOne($select);
     }
+
+    public function getIdByClientId(string $clientId): ?int
+    {
+        $connection = $this->getConnection();
+        $select = $connection->select()
+            ->from($this->getMainTable(), ['id'])
+            ->where('client_id = ?', $clientId);
+
+        $output = $connection->fetchOne($select);
+        return $output ? (int)$output : null;
+    }
 }

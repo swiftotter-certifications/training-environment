@@ -21,4 +21,15 @@ interface LocationInterface extends LocationRequestInterface
      * @return void
      */
     public function setId($id): void;
+
+    /**
+     * @return int|null
+     */
+    public function getPrintSpecId(): ?int;
+
+    /**
+     * @param $value
+     * @return void
+     */
+    public function setPrintSpecId($value): void;
 }
