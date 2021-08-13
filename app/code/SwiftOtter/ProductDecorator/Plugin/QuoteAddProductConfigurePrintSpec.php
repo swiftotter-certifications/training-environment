@@ -47,9 +47,9 @@ class QuoteAddProductConfigurePrintSpec
         $this->printSpecQuoteItemFactory = $printSpecQuoteItemFactory;
     }
 
-    public function afterAddProduct(Quote $quote, Quote\Item $quoteItem, ProductInterface $product, DataObject $dataObject)
+    public function afterAddProduct(Quote $quote, Quote\Item $quoteItem, ProductInterface $product, $dataObject)
     {
-        if (!$dataObject->getData('decorator')) {
+        if (!is_object($dataObject) || !$dataObject->getData('decorator')) {
             return $quoteItem;
         }
 
@@ -64,19 +64,18 @@ class QuoteAddProductConfigurePrintSpec
 
         $price = $this->calculatePrice->execute($priceRequest);
 
-        /** @var Quote\Item $item */
-        foreach ($allItems as $item) {
-            $item->setCustomPrice($price->getUnitPrice());
-            $item->setOriginalCustomPrice($price->getUnitPrice());
-        }
-
         $printSpec = $this->priceRequestToPrintSpec->execute($priceRequest);
         $request = $quoteItem->getBuyRequest();
         $request->setData('print_spec_id', $printSpec->getId());
 
-        $printSpecQuoteItem = $this->printSpecQuoteItemFactory->create();
+        /** @var Quote\Item $item */
+        foreach ($allItems as $item) {
+            $item->setCustomPrice($price->getUnitPrice());
+            $item->setOriginalCustomPrice($price->getUnitPrice());
 
-
+            $printSpecQuoteItem = $this->printSpecQuoteItemFactory->create();
+            $printSpecQuoteItem->setPrintSpecId($printSpec->getId());
+        }
 
         return $quoteItem;
     }

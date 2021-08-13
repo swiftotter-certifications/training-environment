@@ -17,4 +17,16 @@ class Collection extends AbstractCollection
     {
         $this->_init(PrintSpecQuoteItemModel::class, PrintSpecQuoteItemResourceModel::class);
     }
+
+    public function filterDeletedPrintSpecs()
+    {
+        $this->getSelect()
+            ->joinLeft(
+                ['print_spec' => $this->getTable('swiftotter_productdecorator_print_spec')],
+                'main_table.print_spec_id = print_spec.id',
+                []
+            )->where('print_spec.is_deleted = 0');
+
+        return $this;
+    }
 }

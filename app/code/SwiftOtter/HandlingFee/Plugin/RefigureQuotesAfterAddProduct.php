@@ -33,7 +33,7 @@ class RefigureQuotesAfterAddProduct
     public function afterAddProduct(CartModel $cart, $itemAdded)
     {
         if (!$cart->getId()) {
-            return null;
+            return $itemAdded;
         }
 
         $this->recalculateHandlingFeesForCart->execute($cart);

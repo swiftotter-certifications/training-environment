@@ -37,4 +37,15 @@ class PrintSpec extends AbstractDb
         $output = $connection->fetchOne($select);
         return $output ? (int)$output : null;
     }
+
+    public function delete(\Magento\Framework\Model\AbstractModel $object)
+    {
+        $object->setData('is_deleted', 1);
+        return parent::save($object);
+    }
+
+    public function hardDelete(\Magento\Framework\Model\AbstractModel $object)
+    {
+        return parent::delete($object);
+    }
 }
