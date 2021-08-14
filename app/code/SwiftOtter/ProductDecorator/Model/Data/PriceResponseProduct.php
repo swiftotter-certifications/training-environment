@@ -9,10 +9,11 @@ namespace SwiftOtter\ProductDecorator\Model\Data;
 
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequest\ProductRequestInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\AmountResponseInterface;
+use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\InternalProductResponseInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\ProductResponseInterface;
 use SwiftOtter\ProductDecorator\Api\Data\TierInterface;
 
-class PriceResponseProduct implements ProductResponseInterface
+class PriceResponseProduct implements InternalProductResponseInterface
 {
     private $amounts = [];
 
@@ -48,5 +49,10 @@ class PriceResponseProduct implements ProductResponseInterface
         return array_reduce($this->amounts, function(float $total, AmountResponseInterface $amount) {
             return $total + ($amount->getAmount() * $this->getProduct()->getQuantity());
         }, 0);
+    }
+
+    public function getAmounts(): array
+    {
+        return $this->amounts;
     }
 }

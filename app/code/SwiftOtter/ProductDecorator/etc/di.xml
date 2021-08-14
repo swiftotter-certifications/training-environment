@@ -142,4 +142,28 @@
         <plugin name="AddPrintSpecsToQuoteItems"
                 type="SwiftOtter\ProductDecorator\Plugin\Hydration\AddPrintSpecsToQuoteItems" />
     </type>
+
+    <type name="SwiftOtter\ProductDecorator\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="SwiftOtter\ProductDecorator\Logger\Logger" type="Monolog\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">pricingLogger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">SwiftOtter\ProductDecorator\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="SwiftOtter\ProductDecorator\Action\CalculatePrice">
+        <arguments>
+            <argument name="logger" xsi:type="object">SwiftOtter\ProductDecorator\Logger\Logger</argument>
+        </arguments>
+    </type>
+
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PriceResponse\InternalProductResponseInterface"
+        name="SwiftOtter\ProductDecorator\Model\Data\PriceResponseProduct" />
 </config>

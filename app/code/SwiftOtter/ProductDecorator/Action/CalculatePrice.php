@@ -7,11 +7,13 @@ declare(strict_types=1);
 
 namespace SwiftOtter\ProductDecorator\Action;
 
+use Psr\Log\LoggerInterface;
 use SwiftOtter\ProductDecorator\Api\CalculatePriceInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequestInterface;
-use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\ProductResponseInterface;
-use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\ProductResponseInterfaceFactory as ProductResponseFactory;
-use SwiftOtter\ProductDecorator\Api\Data\PriceResponseInterface;
+use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\AmountResponseInterface;
+use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\InternalProductResponseInterface as ProductResponse;
+use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\InternalProductResponseInterfaceFactory as ProductResponseFactory;
+use SwiftOtter\ProductDecorator\Api\Data\PriceResponseInterface as PriceResponse;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponseInterfaceFactory as PriceResponseFactory;
 use SwiftOtter\ProductDecorator\Model\Calculator\CompositeCalculator;
 use SwiftOtter\ProductDecorator\Service\Tier as TierService;
@@ -31,19 +33,24 @@ class CalculatePrice implements CalculatePriceInterface
     /** @var CompositeCalculator */
     private $compositeCalculator;
 
+    /** @var LoggerInterface */
+    private $logger;
+
     public function __construct(
         PriceResponseFactory $priceResponseFactory,
         TierService $tier,
         ProductResponseFactory $productResponseFactory,
-        CompositeCalculator $compositeCalculator
+        CompositeCalculator $compositeCalculator,
+        LoggerInterface $logger
     ) {
         $this->priceResponseFactory = $priceResponseFactory;
         $this->tierService = $tier;
         $this->productResponseFactory = $productResponseFactory;
         $this->compositeCalculator = $compositeCalculator;
+        $this->logger = $logger;
     }
 
-    public function execute(PriceRequestInterface $priceRequest): PriceResponseInterface
+    public function execute(PriceRequestInterface $priceRequest): PriceResponse
     {
         $response = $this->priceResponseFactory->create([
             'success' => true
@@ -57,11 +64,31 @@ class CalculatePrice implements CalculatePriceInterface
                 'tier' => $tier
             ]);
 
-            $response->addProduct(
-                $this->compositeCalculator->calculate($priceRequest, $responseProduct)
-            );
+            $calculated = $this->compositeCalculator->calculate($priceRequest, $responseProduct);
+            $response->addProduct($calculated);
+
+            $this->writeLogs($calculated);
         }
 
         return $response;
+    }
+
+    private function writeLogs(ProductResponse $productResponse): void
+    {
+        $details = [
+            'tier_id' => $productResponse->getTier()->getId(),
+            'tier_min' => $productResponse->getTier()->getMinTier(),
+            'tier_max' => $productResponse->getTier()->getMaxTier(),
+            'amounts' => []
+        ];
+
+        foreach ($productResponse->getAmounts() as $amount) {
+            $details['amounts'][] = [
+                'amount' => $amount->getAmount(),
+                'calculator' => get_class($amount->getCalculator())
+            ];
+        }
+
+        $this->logger->debug('Pricing output coming:', $details);
     }
 }
