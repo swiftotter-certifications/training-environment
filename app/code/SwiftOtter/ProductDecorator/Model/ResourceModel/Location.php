@@ -46,4 +46,14 @@ class Location extends AbstractDb
 
         return (float)$connection->fetchOne($select);
     }
+
+    public function getNameFor(int $id): string
+    {
+        $connection = $this->getConnection();
+        $select = $connection->select()
+            ->from($this->getMainTable(), ['name'])
+            ->where('id = ?', $id);
+
+        return (string)$connection->fetchOne($select);
+    }
 }

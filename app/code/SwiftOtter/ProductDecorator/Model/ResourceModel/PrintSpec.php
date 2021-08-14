@@ -8,13 +8,33 @@ declare(strict_types=1);
 namespace SwiftOtter\ProductDecorator\Model\ResourceModel;
 
 use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Math\Random;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
+use Magento\Framework\Model\ResourceModel\Db\Context as DbContext;
 
 class PrintSpec extends AbstractDb
 {
+    /** @var Random */
+    private $random;
+
+    public function __construct(DbContext $context, Random $random, $connectionName = null)
+    {
+        $this->random = $random;
+        parent::__construct($context, $connectionName);
+    }
+
     protected function _construct()
     {
         $this->_init('swiftotter_productdecorator_print_spec', 'id');
+    }
+
+    protected function _beforeSave(\Magento\Framework\Model\AbstractModel $object)
+    {
+        if ($object->getData('client_id')) {
+            $object->setData('client_id', $this->random->getRandomString(15));
+        }
+
+        return parent::_beforeSave($object);
     }
 
     public function getById(int $id)

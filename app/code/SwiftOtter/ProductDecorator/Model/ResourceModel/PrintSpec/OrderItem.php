@@ -26,4 +26,20 @@ class OrderItem extends AbstractDb
 
         return $connection->fetchOne($select);
     }
+
+    public function replace(int $printSpecId, int $orderItemId): void
+    {
+        $this->getConnection()->delete(
+            $this->getMainTable(),
+            $this->getConnection()->quoteInto('order_item_id = ?', $orderItemId)
+        );
+
+        $this->getConnection()->insert(
+            $this->getMainTable(),
+            [
+                'print_spec_id' => $printSpecId,
+                'order_item_id' => $orderItemId
+            ]
+        );
+    }
 }

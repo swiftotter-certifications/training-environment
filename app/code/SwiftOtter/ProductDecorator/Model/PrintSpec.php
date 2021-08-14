@@ -34,6 +34,8 @@ class PrintSpec extends AbstractExtensibleModel implements IdentityInterface, Pr
 
     private const IS_DELETED = 'is_deleted';
 
+    private const CLIENT_ID = 'client_id';
+
     protected function _construct()
     {
         $this->_init(PrintSpecResource::class);
@@ -54,6 +56,11 @@ class PrintSpec extends AbstractExtensibleModel implements IdentityInterface, Pr
         return (string)$this->getData(self::NAME);
     }
 
+    public function getClientId(): ?string
+    {
+        return (string)$this->getData(self::CLIENT_ID);
+    }
+
     public function getIsDeleted(): bool
     {
         return (bool)$this->getData(self::IS_DELETED);
@@ -67,6 +74,11 @@ class PrintSpec extends AbstractExtensibleModel implements IdentityInterface, Pr
     public function setName(?string $name): void
     {
         $this->setData(self::NAME, $name);
+    }
+
+    public function setClientId(?string $value): void
+    {
+        $this->setData(self::CLIENT_ID, $value);
     }
 
     public function setIsDeleted(bool $value): void

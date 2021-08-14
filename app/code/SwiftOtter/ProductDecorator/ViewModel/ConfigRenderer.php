@@ -13,6 +13,7 @@ use SwiftOtter\ProductDecorator\Model\ResourceModel\Location as LocationResource
 use SwiftOtter\ProductDecorator\Model\ResourceModel\LocationPrintMethod as LocationPrintMethodResource;
 use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintCharge as PrintChargeResource;
 use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintMethod as PrintMethodResource;
+use SwiftOtter\ProductDecorator\Model\Source\Colors;
 use SwiftOtter\ProductDecorator\Service\Product as ProductService;
 
 class ConfigRenderer implements ArgumentInterface
@@ -35,13 +36,17 @@ class ConfigRenderer implements ArgumentInterface
     /** @var UrlInterface */
     private $url;
 
+    /** @var Colors */
+    private $colors;
+
     public function __construct(
         LocationPrintMethodResource $locationPrintMethodResource,
         LocationResource $locationResource,
         PrintMethodResource $printMethodResource,
         ProductService $productService,
         PrintChargeResource $printChargeResource,
-        UrlInterface $url
+        UrlInterface $url,
+        Colors $colors
     ) {
         $this->locationPrintMethodResource = $locationPrintMethodResource;
         $this->locationResource = $locationResource;
@@ -49,6 +54,7 @@ class ConfigRenderer implements ArgumentInterface
         $this->productService = $productService;
         $this->printChargeResource = $printChargeResource;
         $this->url = $url;
+        $this->colors = $colors;
     }
 
     public function getConfiguration(): array
@@ -108,14 +114,6 @@ class ConfigRenderer implements ArgumentInterface
 
     private function getColors(): array
     {
-        return [
-            ['color' => '#ffffff', 'name' => __('White')],
-            ['color' => '#000000', 'name' => __('Black')],
-            ['color' => '#ff0000', 'name' => __('Red')],
-            ['color' => '#fcba03', 'name' => __('Bright Orange')],
-            ['color' => '#00f7ff', 'name' => __('Aqua')],
-            ['color' => '#0fd620', 'name' => __('Green')],
-            ['color' => '#a70bbf', 'name' => __('Fuchsia')]
-        ];
+        return $this->colors->toOptionArray();
     }
 }

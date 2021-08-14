@@ -12,7 +12,6 @@ use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use SwiftOtter\DownloadProduct\Attributes;
-use SwiftOtter\EmailList\Model\Source\EmailList;
 
 class CreateAssociatedProductListAttribute implements DataPatchInterface
 {

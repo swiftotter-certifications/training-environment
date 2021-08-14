@@ -13,7 +13,6 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use SwiftOtter\DownloadProduct\Attributes;
 use SwiftOtter\DownloadProduct\Model\PurchaseType;
-use SwiftOtter\EmailList\Model\Source\EmailList;
 
 class CreateAlternateNameAttribute implements DataPatchInterface
 {

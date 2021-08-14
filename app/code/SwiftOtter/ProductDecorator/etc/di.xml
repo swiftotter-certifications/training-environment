@@ -111,6 +111,7 @@
 
     <type name="Magento\Quote\Model\Quote">
         <plugin type="SwiftOtter\ProductDecorator\Plugin\QuoteAddProductConfigurePrintSpec" name="QuoteAddProductConfigurePrintSpec" />
+        <plugin type="SwiftOtter\ProductDecorator\Plugin\AddPrintSpecToBuyRequest" name="AddPrintSpecToBuyRequest" />
     </type>
 
     <type name="SwiftOtter\ProductDecorator\Model\PrintSpec">
@@ -120,6 +121,11 @@
     <type name="Magento\Quote\Model\Quote\ItemFactory">
         <plugin name="EnsureOrderArtQuoteItemAlwaysExists"
                 type="SwiftOtter\ProductDecorator\Plugin\Defaults\EnsureQuoteItemHasPrintSpecAssociation"/>
+    </type>
+
+    <type name="Magento\Quote\Model\Quote\Item">
+        <plugin name="HandleDuplicateProductAdditions"
+                type="SwiftOtter\ProductDecorator\Plugin\HandleDuplicateProductAdditions"/>
     </type>
 
     <type name="Magento\Framework\Data\Collection\EntityFactory">

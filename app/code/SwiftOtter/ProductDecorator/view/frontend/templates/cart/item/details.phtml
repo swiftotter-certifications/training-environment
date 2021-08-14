@@ -1,0 +1,28 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 8/14/21
+ * @website https://swiftotter.com
+ **/
+
+/** @var \SwiftOtter\ProductDecorator\ViewModel\CartItemInsight $insight */
+$insight = $block->getData('insight');
+?>
+
+<?php if ($insight->isDecorated($block->getItem())): ?>
+<?php $details = $insight->getDetails($block->getItem()); ?>
+<?php if (count($details)): ?>
+    <?php foreach ($details as $section):?>
+    <div class="decorator-details">
+        <p><b><?= $section['title'] ?>:</b></p>
+        <ul>
+            <?php foreach ($section['values'] as $value): ?>
+            <?php foreach ($value as $finalDetails): ?>
+                <li><?= $finalDetails ?></li>
+            <?php endforeach;?>
+            <?php endforeach ?>
+        </ul>
+    </div>
+    <?php endforeach;?>
+<?php endif; ?>
+<?php endif; ?>

@@ -41,9 +41,9 @@ class CreatePrintMethods implements DataPatchInterface
             'swiftotter_productdecorator_print_method',
             ['id', 'name', 'price_type'],
             [
-                ['1', 'Embroidery',  'embroidery'],
+                ['3', 'Embroidery',  'embroidery'],
                 ['2', 'Paint',  'paint'],
-                ['3', 'Hand-sewn stripes', 'handsewn_stripes'],
+                ['5', 'Hand-sewn stripes', 'handsewn_stripes'],
             ]
         );
     }

@@ -24,7 +24,6 @@
         "mageplaza/module-webhook": "^1.1",
         "fooman/emailattachments-m2": "^3.0",
         "markshust/magento2-module-disabletwofactorauth": "^1.0",
-        "wagento/module-subscription": "^101.0",
         "swiftotter/driver": "^3.1",
         "swiftotter/driver-magento2": "^2.0",
         "magemojo/m2-ce-cron": "^1.3",

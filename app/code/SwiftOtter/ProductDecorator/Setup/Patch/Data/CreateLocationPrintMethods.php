@@ -39,15 +39,15 @@ class CreateLocationPrintMethods implements DataPatchInterface
             'swiftotter_productdecorator_location_printmethod',
             ['location_id', 'print_method_id', 'sku'],
             [
-                ['1', '1', 'great-tent-1'],
-                ['1', '2', 'great-tent-1'],
                 ['1', '3', 'great-tent-1'],
-                ['2', '1', 'great-tent-1'],
-                ['2', '2', 'great-tent-1'],
+                ['1', '2', 'great-tent-1'],
+                ['1', '5', 'great-tent-1'],
                 ['2', '3', 'great-tent-1'],
-                ['3', '1', 'great-tent-1'],
-                ['3', '2', 'great-tent-1'],
+                ['2', '2', 'great-tent-1'],
+                ['2', '5', 'great-tent-1'],
                 ['3', '3', 'great-tent-1'],
+                ['3', '2', 'great-tent-1'],
+                ['3', '5', 'great-tent-1'],
             ]
         );
     }

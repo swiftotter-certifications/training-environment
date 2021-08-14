@@ -5,7 +5,7 @@ declare(strict_types=1);
  * @website https://swiftotter.com
  **/
 
-namespace SwiftOtter\ProductDecorator\Action;
+namespace SwiftOtter\ProductDecorator\Action\PrintSpec;
 
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequest\LocationRequestInterface as LocationRequest;
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequestInterface;

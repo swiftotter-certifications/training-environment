@@ -8,16 +8,17 @@ declare(strict_types=1);
 namespace SwiftOtter\ProductDecorator\Plugin;
 
 use Magento\Catalog\Api\Data\ProductInterface;
+use Magento\Catalog\Model\Product;
 use Magento\Framework\DataObject;
 use Magento\Quote\Model\Quote;
 use SwiftOtter\ProductDecorator\Action\CalculatePrice;
 use SwiftOtter\ProductDecorator\Action\FindQuoteItemsChildItems;
 use SwiftOtter\ProductDecorator\Action\HydratePriceRequestFromJson;
 use SwiftOtter\ProductDecorator\Action\PrintSpec\PriceRequestToPrintSpec;
-use SwiftOtter\ProductDecorator\Action\PrintSpec\PrintSpecToPriceRequest;
+use SwiftOtter\ProductDecorator\Attributes;
 use SwiftOtter\ProductDecorator\Model\PrintSpec\QuoteItemFactory as QuoteItemFactory;
 
-class QuoteAddProductConfigurePrintSpec
+class AddPrintSpecToBuyRequest
 {
     /** @var FindQuoteItemsChildItems */
     private $findQuoteItemsChildItems;
@@ -34,49 +35,38 @@ class QuoteAddProductConfigurePrintSpec
     /** @var QuoteItemFactory */
     private $printSpecQuoteItemFactory;
 
-    /** @var PrintSpecToPriceRequest */
-    private $printSpecToPriceRequest;
-
     public function __construct(
         FindQuoteItemsChildItems $findQuoteItemsChildItems,
         HydratePriceRequestFromJson $hydratePriceRequestFromJson,
         PriceRequestToPrintSpec $priceRequestToPrintSpec,
         CalculatePrice $calculatePrice,
-        QuoteItemFactory $printSpecQuoteItemFactory,
-        PrintSpecToPriceRequest $printSpecToPriceRequest
+        QuoteItemFactory $printSpecQuoteItemFactory
     ) {
         $this->findQuoteItemsChildItems = $findQuoteItemsChildItems;
         $this->hydratePriceRequestFromJsonRequest = $hydratePriceRequestFromJson;
         $this->calculatePrice = $calculatePrice;
         $this->priceRequestToPrintSpec = $priceRequestToPrintSpec;
         $this->printSpecQuoteItemFactory = $printSpecQuoteItemFactory;
-        $this->printSpecToPriceRequest = $printSpecToPriceRequest;
     }
 
-    public function afterAddProduct(Quote $quote, Quote\Item $quoteItem, ProductInterface $product, $dataObject)
+    public function beforeAddProduct(Quote $quote, Product $product, $buyRequest)
     {
-        if (!$quoteItem->getOptionByCode('print_spec_id')
-            || !$quoteItem->getOptionByCode('print_spec_id')->getValue()) {
-            return $quoteItem;
+        if (!is_object($buyRequest) || !$buyRequest->getData('decorator')) {
+            return null;
         }
 
-        $printSpecId = $quoteItem->getOptionByCode('print_spec_id')->getValue();
-
-        $allItems = array_merge([$quoteItem], $this->findQuoteItemsChildItems->execute($quote, $quoteItem));
-        $priceRequest = $this->printSpecToPriceRequest->execute($printSpecId, $allItems);
-
-        $price = $this->calculatePrice->execute($priceRequest);
-
-        /** @var Quote\Item $item */
-        foreach ($allItems as $item) {
-            $item->setCustomPrice($price->getUnitPrice());
-            $item->setOriginalCustomPrice($price->getUnitPrice());
-
-            $printSpecQuoteItem = $item->getExtensionAttributes()->getPrintSpecQuoteItem() ?: $this->printSpecQuoteItemFactory->create();
-            $printSpecQuoteItem->setPrintSpecId($printSpecId);
-            $item->getExtensionAttributes()->setPrintSpecQuoteItem($printSpecQuoteItem);
+        try {
+            $details = json_decode($buyRequest->getData('decorator'), true);
+        } catch (\Exception $ex) {
+            return null;
         }
 
-        return $quoteItem;
+        $priceRequest = $this->hydratePriceRequestFromJsonRequest->execute($details);
+        $printSpec = $this->priceRequestToPrintSpec->execute($priceRequest);
+
+        $buyRequest->setData('print_spec_id', $printSpec->getId());
+        $product->addCustomOption(Attributes::OPTION_PRINT_SPEC_ID, $printSpec->getId());
+
+        return null;
     }
 }

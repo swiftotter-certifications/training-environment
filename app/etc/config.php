@@ -369,7 +369,6 @@ return [
         'Vertex_RequestLoggingApi' => 1,
         'Vertex_RequestLogging' => 1,
         'Vertex_AddressValidation' => 1,
-        'Wagento_Subscription' => 1,
         'Yotpo_Yotpo' => 1
     ],
     'scopes' => [

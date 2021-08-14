@@ -5,11 +5,11 @@ declare(strict_types=1);
  * @website https://swiftotter.com
  **/
 
-namespace SwiftOtter\ProductDecorator\Test\Integration\Action;
+namespace SwiftOtter\ProductDecorator\Test\Integration\Action\PrintSpec;
 
 use Magento\TestFramework\ObjectManager;
 use PHPUnit\Framework\TestCase;
-use SwiftOtter\ProductDecorator\Action\PriceRequestToPrintSpec as TestSubject;
+use SwiftOtter\ProductDecorator\Action\PrintSpec\PriceRequestToPrintSpec as TestSubject;
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequest\LocationRequestInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequest\ProductRequestInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequestInterface;

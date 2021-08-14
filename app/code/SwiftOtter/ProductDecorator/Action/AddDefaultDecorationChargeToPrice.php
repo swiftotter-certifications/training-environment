@@ -25,7 +25,7 @@ class AddDefaultDecorationChargeToPrice
     public function execute(?float $amount, ProductInterface $product)
     {
         if (!($product instanceof Product)
-            || !$product->getData(Attributes::ENABLED)
+            || !$product->getData(Attributes::DEFAULT_DECORATION_CHARGE)
             || !$amount) {
             return $amount;
         }

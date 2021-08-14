@@ -42,4 +42,19 @@ class QuoteItem extends AbstractDb
             ]
         );
     }
+
+    public function getByQuoteItem(int $quoteItemId): int
+    {
+        $select = $this->getConnection()->select();
+        $select->from($this->getMainTable(), ['print_spec_id']);
+        $select->where('quote_item_id = ?', $quoteItemId);
+        $select->joinInner(
+            ['print_spec' => $this->getTable('swiftotter_product_decorator_print_spec')],
+            'print_spec.id = swiftotter_product_decorator_print_spec_quote_item.print_spec_id',
+            ['print_spec_id' =>'print_spec.id']
+        );
+        $select->where('print_spec.is_deleted = 0');
+
+        return (int)$this->getConnection()->fetchOne($select);
+    }
 }
