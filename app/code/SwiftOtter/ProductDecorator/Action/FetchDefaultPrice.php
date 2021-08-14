@@ -65,6 +65,7 @@ class FetchDefaultPrice
 
         $location = $this->locationRequestFactory->create();
         $location->setColors([PriceRequestLocation::DEFAULT_COLOR]);
+
         $locationIds = $this->locationPrintMethodResource->getPreferredLocationsIdFor($sku);
         $option = $this->locationPrintMethodResource->getBestPrintMethodFor($sku, $locationIds);
         $location->setPrintMethodId($option['print_method_id']);
