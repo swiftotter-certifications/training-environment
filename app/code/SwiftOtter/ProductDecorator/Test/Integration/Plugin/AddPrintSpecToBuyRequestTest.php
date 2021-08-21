@@ -9,7 +9,7 @@ namespace SwiftOtter\ProductDecorator\Test\Integration\Plugin;
 
 use Magento\Catalog\Model\ProductRepository;
 use Magento\Framework\DataObject;
-use Magento\Quote\Model\Quote as TestSubject;
+use Magento\Quote\Model\QuoteFactory as TestSubject;
 use Magento\TestFramework\ObjectManager;
 use PHPUnit\Framework\TestCase;
 
@@ -20,7 +20,7 @@ class AddPrintSpecToBuyRequestTest extends TestCase
 
     public function __construct(?string $name = null, array $data = [], $dataName = '')
     {
-        $this->testSubject = ObjectManager::getInstance()->create(TestSubject::class);
+        $this->testSubject = ObjectManager::getInstance()->get(TestSubject::class)->create();
 
         parent::__construct($name, $data, $dataName);
     }
@@ -42,6 +42,6 @@ class AddPrintSpecToBuyRequestTest extends TestCase
         ]);
 
         $result = $this->testSubject->addProduct($product, $request);
-        echo "test";
+        $this->assertNotNull($result->getExtensionAttributes()->getPrintSpecItem()->getPrintSpecId());
     }
 }

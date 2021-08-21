@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sales\Model\OrderFactory">
+        <plugin name="UnifiedOrderAlwaysExists"
+                type="SwiftOtter\Utils\Plugin\UnifiedOrderAlwaysExists" />
+    </type>
+    <type name="Magento\Sales\Api\Data\OrderInterfaceFactory">
+        <plugin name="UnifiedOrderAlwaysExists"
+                type="SwiftOtter\Utils\Plugin\UnifiedOrderAlwaysExists" />
+    </type>
+
+    <type name="Magento\Framework\Data\Collection\EntityFactory">
+        <plugin name="UnifiedOrderItemAlwaysExistsForEntityManager"
+                type="SwiftOtter\Utils\Plugin\UnifiedOrderItemAlwaysExistsForEntityManager" />
+    </type>
+    <type name="Magento\Sales\Model\Order\ItemFactory">
+        <plugin name="UnifiedOrderItemAlwaysExists"
+                type="SwiftOtter\Utils\Plugin\UnifiedOrderItemAlwaysExists" />
+    </type>
+    <type name="Magento\Sales\Api\Data\OrderItemInterfaceFactory">
+        <plugin name="UnifiedOrderItemAlwaysExists"
+                type="SwiftOtter\Utils\Plugin\UnifiedOrderItemAlwaysExists" />
+    </type>
+
+    <type name="Magento\Quote\Model\QuoteFactory">
+        <plugin name="UnifiedQuoteAlwaysExists"
+                type="SwiftOtter\Utils\Plugin\UnifiedQuoteAlwaysExists"/>
+    </type>
+    <type name="Magento\Quote\Api\Data\CartInterfaceFactory">
+        <plugin name="UnifiedQuoteAlwaysExists"
+                type="SwiftOtter\Utils\Plugin\UnifiedQuoteAlwaysExists" />
+    </type>
+
+    <type name="Magento\Framework\Data\Collection\EntityFactory">
+        <plugin name="UnifiedQuoteItemAlwaysExistsForEntityManager"
+                type="SwiftOtter\Utils\Plugin\UnifiedQuoteItemAlwaysExistsForEntityManager" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\ItemFactory">
+        <plugin name="UnifiedQuoteItemAlwaysExists"
+                type="SwiftOtter\Utils\Plugin\UnifiedQuoteItemAlwaysExists" />
+    </type>
+    <type name="Magento\Quote\Api\Data\CartItemInterfaceFactory">
+        <plugin name="UnifiedQuoteItemAlwaysExists"
+                type="SwiftOtter\Utils\Plugin\UnifiedQuoteItemAlwaysExists" />
+    </type>
+</config>

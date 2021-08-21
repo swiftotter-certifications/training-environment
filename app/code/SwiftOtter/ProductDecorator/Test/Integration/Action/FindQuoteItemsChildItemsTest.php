@@ -9,7 +9,7 @@ namespace SwiftOtter\ProductDecorator\Test\Integration\Action;
 
 use Magento\TestFramework\ObjectManager;
 use PHPUnit\Framework\TestCase;
-use SwiftOtter\ProductDecorator\Action\FindQuoteItemsChildItems as TestSubject;
+use SwiftOtter\ProductDecorator\Action\FindItemsChildItems as TestSubject;
 
 class FindQuoteItemsChildItemsTest extends TestCase
 {

@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace SwiftOtter\ProductDecorator\Api\Data\PrintSpec;
 
-interface OrderItemInterface
+interface ItemInterface
 {
     /**
      * @return int|null
@@ -17,7 +17,7 @@ interface OrderItemInterface
     /**
      * @return int|null
      */
-    public function getOrderItemId(): ?int;
+    public function getItemId(): ?int;
 
     /**
      * @return int|null
@@ -32,7 +32,7 @@ interface OrderItemInterface
     /**
      * @param int|null $value
      */
-    public function setOrderItemId(?int $value): void;
+    public function setItemId(?int $value): void;
 
     /**
      * @param int|null $value

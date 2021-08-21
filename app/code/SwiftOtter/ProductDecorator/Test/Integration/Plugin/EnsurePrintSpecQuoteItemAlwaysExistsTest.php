@@ -16,6 +16,6 @@ class EnsurePrintSpecQuoteItemAlwaysExistsTest extends TestCase
     public function testExtensionAttributesAreSet()
     {
         $cartItem = ObjectManager::getInstance()->get(\Magento\Quote\Api\Data\CartItemInterfaceFactory::class)->create();
-        $this->assertTrue($cartItem->getExtensionAttributes()->getPrintSpecQuoteItem() === null);
+        $this->assertTrue($cartItem->getExtensionAttributes()->getPrintSpecItem() === null);
     }
 }

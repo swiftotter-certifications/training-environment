@@ -40,7 +40,7 @@ class AddPrintSpecsToQuoteItemTest extends TestCase
 
         /** @var Quote\Item $quoteItem */
         foreach ($quote->getAllItems() as $quoteItem) {
-            $this->assertTrue($quoteItem->getExtensionAttributes()->getPrintSpecQuoteItem()->getPrintSpecId() > 0);
+            $this->assertTrue($quoteItem->getExtensionAttributes()->getPrintSpecItem()->getPrintSpecId() > 0);
         }
     }
 }

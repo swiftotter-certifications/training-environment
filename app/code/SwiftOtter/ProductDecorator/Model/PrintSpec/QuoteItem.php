@@ -9,11 +9,12 @@ namespace SwiftOtter\ProductDecorator\Model\PrintSpec;
 
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Model\AbstractModel;
+use SwiftOtter\ProductDecorator\Api\Data\PrintSpec\ItemInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PrintSpec\QuoteItemInterface;
 use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec\QuoteItem as PrintSpecQuoteItemResourceModel;
 use SwiftOtter\Utils\Model\StrictTypeTrait;
 
-class QuoteItem extends AbstractModel implements IdentityInterface, QuoteItemInterface
+class QuoteItem extends AbstractModel implements IdentityInterface, ItemInterface
 {
     use StrictTypeTrait;
 
@@ -46,7 +47,7 @@ class QuoteItem extends AbstractModel implements IdentityInterface, QuoteItemInt
         return $this->getData(self::ID) ? (int) $this->getData(self::ID) : null;
     }
 
-    public function getQuoteItemId(): ?int
+    public function getItemId(): ?int
     {
         return $this->nullableInt($this->getData(self::QUOTE_ITEM_ID));
     }
@@ -61,7 +62,7 @@ class QuoteItem extends AbstractModel implements IdentityInterface, QuoteItemInt
         $this->setData(self::ID, $id);
     }
 
-    public function setQuoteItemId(?int $value): void
+    public function setItemId(?int $value): void
     {
         $this->setData(self::QUOTE_ITEM_ID, $value);
     }

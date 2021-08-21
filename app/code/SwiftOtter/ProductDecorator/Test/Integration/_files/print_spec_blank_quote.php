@@ -19,7 +19,7 @@ $quoteShippingAddress = $objectManager->create(\Magento\Quote\Model\Quote\Addres
 $accountManagement = $objectManager->create(\Magento\Customer\Api\AccountManagementInterface::class);
 
 /** @var \Magento\Quote\Model\Quote $quote */
-$quote = $objectManager->create(\Magento\Quote\Model\Quote::class);
+$quote = $objectManager->get(\Magento\Quote\Model\QuoteFactory::class)->create();
 $quote->setStoreId(
     1
 )->setIsActive(

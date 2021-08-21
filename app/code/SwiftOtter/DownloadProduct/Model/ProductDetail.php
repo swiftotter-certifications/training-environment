@@ -86,20 +86,13 @@ class ProductDetail implements ProductDetailInterface
     /** @var ProductMessageResource */
     private $productMessageResource;
 
-    /** @var array|null */
-    private $addons;
-
     public function __construct(
         Emulation $appEmulation,
         StoreManagerInterface $storeManager,
         ProductFactory $productFactory,
         Image $imageHelper,
         ProductInterface $product,
-        PriceCalculatorFactory $priceCalculatorFactory,
-        PriceResponseFactory $priceResponseFactory,
         ProductCollectionFactory $productCollectionFactory,
-        GetLastPurchase $getLastPurchase,
-        TestLookup $testLookup,
         ProductMessageResource $productMessageResource,
         string $type,
         ?string $country = null,
@@ -108,15 +101,11 @@ class ProductDetail implements ProductDetailInterface
         ?array $addons = []
     ) {
         $this->product = $product;
-        $this->priceResponseFactory = $priceResponseFactory;
-        $this->priceCalculatorFactory = $priceCalculatorFactory;
         $this->imageHelper = $imageHelper;
         $this->productFactory = $productFactory;
         $this->appEmulation = $appEmulation;
         $this->storeManager = $storeManager;
         $this->productCollectionFactory = $productCollectionFactory;
-        $this->getLastPurchase = $getLastPurchase;
-        $this->testLookup = $testLookup;
         $this->qty = $qty;
         $this->type = $type;
         $this->children = $children;
