@@ -10,6 +10,10 @@
                 type="SwiftOtter\Utils\Plugin\UnifiedOrderAlwaysExists" />
     </type>
 
+    <type name="Magento\Framework\Data\Collection\EntityFactory">
+        <plugin name="UnifiedOrderItemAlwaysExistsForEntityManager"
+                type="SwiftOtter\Utils\Plugin\UnifiedOrderItemAlwaysExistsForEntityManager" />
+    </type>
     <type name="Magento\Sales\Model\Order\ItemFactory">
         <plugin name="UnifiedOrderItemAlwaysExists"
                 type="SwiftOtter\Utils\Plugin\UnifiedOrderItemAlwaysExists" />

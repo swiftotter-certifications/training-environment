@@ -31,7 +31,7 @@ class AddPrintSpecsToQuoteItems
      * @param array<int, QuoteItem>|null $items
      * @return array
      */
-    public function execute(?iterable $items): array
+    public function execute(?iterable $items): iterable
     {
         if (!$items) {
             return [];

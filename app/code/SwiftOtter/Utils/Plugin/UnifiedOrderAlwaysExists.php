@@ -11,7 +11,7 @@ use SwiftOtter\Utils\Model\UnifiedSaleFactory as UnifiedSaleFactory;
 use Magento\Framework\DataObject;
 use Magento\Sales\Api\Data\OrderExtensionInterface as OrderExtension;
 use Magento\Sales\Api\Data\OrderExtensionInterfaceFactory as OrderExtensionFactory;
-use Magento\Order\Model\Order;
+use Magento\Sales\Model\Order;
 
 class UnifiedOrderAlwaysExists
 {

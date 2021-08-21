@@ -33,7 +33,7 @@ class AddPrintSpecsToOrderItems
      * @param array<int, OrderItem>|null $items
      * @return array
      */
-    public function execute(?iterable $items): array
+    public function execute(?iterable $items): iterable
     {
         if (!$items) {
             return [];
@@ -57,7 +57,7 @@ class AddPrintSpecsToOrderItems
                 continue;
             }
 
-            $attributes->setPrintSpecItems($printSpecOrderItem);
+            $attributes->setPrintSpecItem($printSpecOrderItem);
             $item->setExtensionAttributes($attributes);
         }
 

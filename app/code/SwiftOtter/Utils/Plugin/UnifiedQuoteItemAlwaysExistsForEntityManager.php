@@ -30,7 +30,7 @@ class UnifiedQuoteItemAlwaysExistsForEntityManager
         $this->unifiedSaleItemFactory = $unifiedSaleItemFactory;
     }
 
-    public function afterCreate(EntityFactory $subject, DataObject $result): DataObject
+    public function afterCreate(EntityFactory $subject, $result)
     {
         if (!($result instanceof QuoteItem)) {
             return $result;

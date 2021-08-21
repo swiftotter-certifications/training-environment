@@ -147,6 +147,10 @@
         <plugin name="EnsureOrderItemHasPrintSpecAssociation"
                 type="SwiftOtter\ProductDecorator\Plugin\Defaults\EnsureOrderItemHasPrintSpecAssociation" />
     </type>
+    <type name="Magento\Sales\Model\Order\ItemFactory">
+        <plugin name="EnsureOrderItemHasPrintSpecAssociation"
+                type="SwiftOtter\ProductDecorator\Plugin\Defaults\EnsureOrderItemHasPrintSpecAssociation" />
+    </type>
 
     <type name="Magento\Sales\Api\OrderRepositoryInterface">
         <plugin name="AddPrintSpecsToOrder"
@@ -156,5 +160,15 @@
     <type name="Magento\Sales\Api\OrderItemRepositoryInterface">
         <plugin name="AddPrintSpecsToOrderItems"
                 type="SwiftOtter\ProductDecorator\Plugin\Hydration\AddPrintSpecsToOrderItems" />
+    </type>
+
+    <type name="Magento\Sales\Model\ResourceModel\Order\Item\Collection">
+        <plugin name="AddPrintSpecsToOrder"
+                type="SwiftOtter\ProductDecorator\Plugin\Hydration\AddPrintSpecsToOrderItemCollection" />
+    </type>
+
+    <type name="\Magento\Sales\Block\Adminhtml\Items\Column\DefaultColumn">
+        <plugin name="AddPrintSpecsToOrderItemDisplay"
+                type="SwiftOtter\ProductDecorator\Plugin\AddPrintSpecsToOrderItemDisplay"/>
     </type>
 </config>
