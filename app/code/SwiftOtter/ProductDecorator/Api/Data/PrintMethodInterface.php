@@ -25,6 +25,11 @@ interface PrintMethodInterface
     public function getPriceType(): string;
 
     /**
+     * @return int
+     */
+    public function getSortOrderForDefaultPricing(): int;
+
+    /**
      * @param int $id
      * @return void
      */
@@ -41,4 +46,9 @@ interface PrintMethodInterface
      * @return void
      */
     public function setPriceType(string $priceType): void;
+
+    /**
+     * @param int $value
+     */
+    public function setSortOrderForDefaultPricing(int $value): void;
 }

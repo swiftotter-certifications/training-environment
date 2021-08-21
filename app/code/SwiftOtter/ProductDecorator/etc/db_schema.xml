@@ -97,6 +97,7 @@
         <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
         <column xsi:type="varchar" length="40" name="name" comment="Name" />
         <column xsi:type="varchar" length="40" name="price_type" comment="Price Type" />
+        <column xsi:type="smallint" unsigned="true" name="sort_order_for_default_pricing" comment="Sort Order For Default Pricing" />
 
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>

@@ -18,10 +18,14 @@ class PriceResponseAmount implements AmountResponseInterface
     /** @var CalculatorInterface */
     private $calculator;
 
-    public function __construct(float $amount, CalculatorInterface $calculator)
+    /** @var string|null */
+    private $notes;
+
+    public function __construct(float $amount, CalculatorInterface $calculator, ?string $notes = null)
     {
         $this->amount = $amount;
         $this->calculator = $calculator;
+        $this->notes = $notes;
     }
 
     public function getAmount(): float
@@ -32,5 +36,10 @@ class PriceResponseAmount implements AmountResponseInterface
     public function getCalculator(): CalculatorInterface
     {
         return $this->calculator;
+    }
+
+    public function getNotes(): ?string
+    {
+        return $this->notes;
     }
 }

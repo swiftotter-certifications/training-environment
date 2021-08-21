@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace SwiftOtter\ProductDecorator\Model\Calculator;
 
+use Psr\Log\LoggerInterface;
 use SwiftOtter\ProductDecorator\Api\CalculatorInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequestInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\AmountResponseInterfaceFactory as AmountResponseFactory;
@@ -29,16 +30,21 @@ class PrintCharge implements CalculatorInterface
     /** @var LocationResource */
     private $locationResource;
 
+    /** @var LoggerInterface */
+    private $logger;
+
     public function __construct(
         PrintMethodResource $printMethodResource,
         PrintChargeResource $printChargeResource,
         AmountResponseFactory $amountResponseFactory,
-        LocationResource $locationResource
+        LocationResource $locationResource,
+        LoggerInterface $logger
     ) {
         $this->printMethodResource = $printMethodResource;
         $this->printChargeResource = $printChargeResource;
         $this->amountResponseFactory = $amountResponseFactory;
         $this->locationResource = $locationResource;
+        $this->logger = $logger;
     }
 
     public function calculate(PriceRequestInterface $request, ProductResponseInterface $response): ProductResponseInterface
@@ -57,7 +63,16 @@ class PrintCharge implements CalculatorInterface
                 $charge *= $upcharge;
             }
 
-            $amountResponse = $this->amountResponseFactory->create(['amount' => $charge, 'calculator' => $this]);
+            $amountResponse = $this->amountResponseFactory->create([
+                'amount' => $charge,
+                'calculator' => $this,
+                'notes' => implode(", ", [
+                    'priceType: '. $priceType,
+                    'charge: ' . $charge,
+                    'upcharge: ' . $upcharge
+                ])
+            ]);
+
             $response->addAmount($amountResponse);
         }
 

@@ -90,7 +90,8 @@ class LocationPrintMethod extends AbstractDb
                 []
             )
             ->where('sku = ?', $sku)
-            ->where('location_id IN (?)', $locationIds);
+            ->where('location_id IN (?)', $locationIds)
+            ->order('print_method.sort_order_for_default_pricing ASC');
 
         $rows = $connection->fetchAll($select);
 

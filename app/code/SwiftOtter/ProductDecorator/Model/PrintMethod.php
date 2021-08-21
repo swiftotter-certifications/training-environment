@@ -35,6 +35,8 @@ class PrintMethod extends AbstractModel implements
 
     private const PRICE_TYPE = 'price_type';
 
+    private const SORT_ORDER_FOR_DEFAULT_PRICING = 'sort_order_for_default_pricing';
+
     protected function _construct()
     {
         $this->_init(PrintMethodResource::class);
@@ -60,6 +62,11 @@ class PrintMethod extends AbstractModel implements
         return (string)$this->getData(self::PRICE_TYPE);
     }
 
+    public function getSortOrderForDefaultPricing(): int
+    {
+        return (int)$this->getData(self::SORT_ORDER_FOR_DEFAULT_PRICING);
+    }
+
     public function setId($id): void
     {
         $this->setData(self::ID, $id);
@@ -73,5 +80,10 @@ class PrintMethod extends AbstractModel implements
     public function setPriceType(string $value): void
     {
         $this->setData(self::PRICE_TYPE, $value);
+    }
+
+    public function setSortOrderForDefaultPricing(int $value): void
+    {
+        $this->setData(self::SORT_ORDER_FOR_DEFAULT_PRICING, $value);
     }
 }

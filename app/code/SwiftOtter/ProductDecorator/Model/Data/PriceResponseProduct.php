@@ -7,12 +7,13 @@ declare(strict_types=1);
 
 namespace SwiftOtter\ProductDecorator\Model\Data;
 
+use SwiftOtter\ProductDecorator\Api\Data\DetailedPriceResponseInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequest\ProductRequestInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\AmountResponseInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\ProductResponseInterface;
 use SwiftOtter\ProductDecorator\Api\Data\TierInterface;
 
-class PriceResponseProduct implements ProductResponseInterface
+class PriceResponseProduct implements ProductResponseInterface, DetailedPriceResponseInterface
 {
     private $amounts = [];
 
@@ -41,6 +42,11 @@ class PriceResponseProduct implements ProductResponseInterface
     public function addAmount(AmountResponseInterface $amount): void
     {
         $this->amounts[] = $amount;
+    }
+
+    public function getAmounts(): array
+    {
+        return $this->amounts;
     }
 
     public function getTotal(): float

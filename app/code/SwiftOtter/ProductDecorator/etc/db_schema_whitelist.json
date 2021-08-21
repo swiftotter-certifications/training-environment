@@ -1,0 +1,131 @@
+{
+    "swiftotter_productdecorator_tier": {
+        "column": {
+            "id": true,
+            "min_tier": true,
+            "max_tier": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "swiftotter_productdecorator_printcharge": {
+        "column": {
+            "id": true,
+            "tier_id": true,
+            "price": true,
+            "colors": true,
+            "price_type": true,
+            "min_lookup": true,
+            "max_lookup": true
+        },
+        "index": {
+            "SWIFTOTTER_PRODUCTDECORATOR_PRINTCHARGE_TIER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_62472333030EF83802184864473D7276": true
+        }
+    },
+    "swiftotter_productdecorator_location_printmethod": {
+        "column": {
+            "id": true,
+            "location_id": true,
+            "print_method_id": true,
+            "sku": true
+        },
+        "index": {
+            "SWIFTOTTER_PRODUCTDECORATOR_LOCATION_PRINTMETHOD_LOCATION_ID": true,
+            "SWIFTOTTER_PRODUCTDECORATOR_LOCATION_PRINTMETHOD_PRINT_METHOD_ID": true,
+            "SWIFTOTTER_PRODUCTDECORATOR_LOCATION_PRINTMETHOD_SKU": true
+        },
+        "constraint": {
+            "FK_ACAFF7C4687A673D988A819D51F34B5B": true,
+            "FK_EAA4C6B13691D008A373891AA1338601": true,
+            "UNQ_1DA43CD67DF88E39B748924D24F96712": true,
+            "PRIMARY": true
+        }
+    },
+    "swiftotter_productdecorator_locations": {
+        "column": {
+            "id": true,
+            "name": true,
+            "code": true,
+            "upcharge": true,
+            "sort_order": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "swiftotter_productdecorator_print_method": {
+        "column": {
+            "id": true,
+            "name": true,
+            "price_type": true,
+            "sort_order_for_default_pricing": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "swiftotter_productdecorator_print_spec": {
+        "column": {
+            "id": true,
+            "name": true,
+            "client_id": true,
+            "is_deleted": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "swiftotter_productdecorator_print_spec_location": {
+        "column": {
+            "id": true,
+            "location_id": true,
+            "print_spec_id": true,
+            "print_method_id": true,
+            "colors": true,
+            "display_text": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_A99220F038FA4FA3E31984CAF44D9009": true,
+            "FK_CD5A439897DEA48C5990CC734750B09A": true,
+            "FK_69C7E2A71DF133AF9F42562DA8F48C7D": true
+        }
+    },
+    "swiftotter_productdecorator_print_spec_quote_item": {
+        "column": {
+            "id": true,
+            "quote_item_id": true,
+            "print_spec_id": true
+        },
+        "index": {
+            "SWIFTOTTER_PRODUCTDECORATOR_PRINT_SPEC_QUOTE_ITEM_QUOTE_ITEM_ID": true,
+            "SWIFTOTTER_PRODUCTDECORATOR_PRINT_SPEC_QUOTE_ITEM_PRINT_SPEC_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_17340C818080A4E69213153FE8FFC9B0": true,
+            "FK_B36DD96A0005FCF16FF1CC9039C17D5F": true
+        }
+    },
+    "swiftotter_productdecorator_print_spec_order_item": {
+        "column": {
+            "id": true,
+            "order_item_id": true,
+            "print_spec_id": true
+        },
+        "index": {
+            "SWIFTOTTER_PRODUCTDECORATOR_PRINT_SPEC_ORDER_ITEM_ORDER_ITEM_ID": true,
+            "SWIFTOTTER_PRODUCTDECORATOR_PRINT_SPEC_ORDER_ITEM_PRINT_SPEC_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_4E90C1E60B8E58E5A3D53F74C7A5BC85": true,
+            "FK_D3D2DA4B10E9542FA47F0B298F7D5310": true
+        }
+    }
+}

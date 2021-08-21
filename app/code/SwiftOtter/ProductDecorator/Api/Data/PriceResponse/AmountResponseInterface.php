@@ -20,4 +20,9 @@ interface AmountResponseInterface
      * @return \SwiftOtter\ProductDecorator\Api\CalculatorInterface
      */
     public function getCalculator(): CalculatorInterface;
+
+    /**
+     * @return string|null
+     */
+    public function getNotes(): ?string;
 }

@@ -7,7 +7,9 @@ declare(strict_types=1);
 
 namespace SwiftOtter\ProductDecorator\Action;
 
+use Psr\Log\LoggerInterface;
 use SwiftOtter\ProductDecorator\Api\CalculatePriceInterface;
+use SwiftOtter\ProductDecorator\Api\Data\DetailedPriceResponseInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceRequestInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\ProductResponseInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\ProductResponseInterfaceFactory as ProductResponseFactory;
@@ -31,16 +33,21 @@ class CalculatePrice implements CalculatePriceInterface
     /** @var CompositeCalculator */
     private $compositeCalculator;
 
+    /** @var LoggerInterface */
+    private $logger;
+
     public function __construct(
         PriceResponseFactory $priceResponseFactory,
         TierService $tier,
         ProductResponseFactory $productResponseFactory,
-        CompositeCalculator $compositeCalculator
+        CompositeCalculator $compositeCalculator,
+        LoggerInterface $logger
     ) {
         $this->priceResponseFactory = $priceResponseFactory;
         $this->tierService = $tier;
         $this->productResponseFactory = $productResponseFactory;
         $this->compositeCalculator = $compositeCalculator;
+        $this->logger = $logger;
     }
 
     public function execute(PriceRequestInterface $priceRequest): PriceResponseInterface
@@ -57,11 +64,53 @@ class CalculatePrice implements CalculatePriceInterface
                 'tier' => $tier
             ]);
 
-            $response->addProduct(
-                $this->compositeCalculator->calculate($priceRequest, $responseProduct)
-            );
+            $output = $this->compositeCalculator->calculate($priceRequest, $responseProduct);
+            $this->writeLogs($priceRequest, $output);
+
+            $response->addProduct($output);
         }
 
         return $response;
+    }
+
+    private function writeLogs(PriceRequestInterface $priceRequest, ProductResponseInterface $productResponse)
+    {
+        $details = [];
+
+        $locations = [];
+        foreach ($priceRequest->getLocations() as $location) {
+            $locations[] = [
+                'print_method_id' => $location->getPrintMethodId(),
+                'colors' => $location->getColors(),
+                'location_id' => $location->getLocationId(),
+            ];
+        }
+
+        $details['locations'] = $locations;
+
+        $details['product'] = [
+            'sku' => $productResponse->getProduct()->getSku(),
+            'quantity' => $productResponse->getProduct()->getQuantity(),
+            'tier' => $productResponse->getTier()->getId(),
+            'tier_min_quantity' => $productResponse->getTier()->getMinTier()
+        ];
+
+        if (!($productResponse instanceof DetailedPriceResponseInterface)) {
+            $this->logger->warning('Product calculation information', $details);
+            return;
+        }
+
+        $amounts = [];
+        foreach ($productResponse->getAmounts() as $amount) {
+            $amounts[] = [
+                'amount' => $amount->getAmount(),
+                'calculator' => get_class($amount->getCalculator()),
+                'notes' => $amount->getNotes()
+            ];
+        }
+
+        $details['amounts'] = $amounts;
+
+        $this->logger->warning('Product calculation information', $details);
     }
 }
