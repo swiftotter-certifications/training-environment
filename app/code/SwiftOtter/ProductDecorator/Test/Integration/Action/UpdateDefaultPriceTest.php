@@ -36,7 +36,7 @@ class UpdateDefaultPriceTest extends TestCase
     public function testPriceReturnsCorrect()
     {
         $this->testSubject->execute('simple');
-        $product = ObjectManager::getInstance()->get(FastProductRepositoryInterface::class)->get('simple', null, null, null, [Attributes::DISPLAYED_PRICE]);
-        $this->assertEquals(12.076, $product->getData(Attributes::DISPLAYED_PRICE));
+        $product = ObjectManager::getInstance()->get(FastProductRepositoryInterface::class)->get('simple', null, null, null, [Attributes::DEFAULT_DECORATION_CHARGE]);
+        $this->assertEquals(2.08, $product->getData(Attributes::DEFAULT_DECORATION_CHARGE));
     }
 }

@@ -36,6 +36,10 @@ class ConvertQuoteToOrderForPrintSpec implements ObserverInterface
 
         foreach ($order->getAllItems() as $item) {
             $printSpecId = $this->printSpecQuoteItemResource->getByQuoteItem((int)$item->getQuoteItemId());
+            if (!$printSpecId) {
+                continue;
+            }
+
             $this->printSpecOrderItemResource->replace($printSpecId, (int)$item->getItemId());
         }
     }

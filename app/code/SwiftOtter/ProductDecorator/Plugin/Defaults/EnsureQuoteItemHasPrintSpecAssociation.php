@@ -46,7 +46,7 @@ class EnsureQuoteItemHasPrintSpecAssociation
         $cartItemExtension = $target->getExtensionAttributes()
             ?: $this->cartItemExtensionFactory->create();
 
-        $cartItemExtension->setPrintSpecQuoteItem($this->printSpecQuoteItemFactory->create());
+        $cartItemExtension->setPrintSpecItem($this->printSpecQuoteItemFactory->create());
 
         $target->setExtensionAttributes($cartItemExtension);
 

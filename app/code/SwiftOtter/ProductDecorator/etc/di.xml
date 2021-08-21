@@ -62,8 +62,8 @@
 
     <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\LocationInterface"
                 type="SwiftOtter\ProductDecorator\Model\PrintSpec\Location" />
-    <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\OrderItemInterface"
-                type="SwiftOtter\ProductDecorator\Model\PrintSpec\OrderItem" />
+    <preference for="ItemInterface"
+                type="Item" />
     <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\QuoteItemInterface"
                 type="SwiftOtter\ProductDecorator\Model\PrintSpec\QuoteItem" />
 
@@ -141,5 +141,20 @@
     <type name="Magento\Quote\Api\CartItemRepositoryInterface">
         <plugin name="AddPrintSpecsToQuoteItems"
                 type="SwiftOtter\ProductDecorator\Plugin\Hydration\AddPrintSpecsToQuoteItems" />
+    </type>
+
+    <type name="Magento\Sales\Api\OrderItemInterfaceFactory">
+        <plugin name="EnsureOrderItemHasPrintSpecAssociation"
+                type="SwiftOtter\ProductDecorator\Plugin\Defaults\EnsureOrderItemHasPrintSpecAssociation" />
+    </type>
+
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="AddPrintSpecsToOrder"
+                type="SwiftOtter\ProductDecorator\Plugin\Hydration\AddPrintSpecsToOrder" />
+    </type>
+
+    <type name="Magento\Sales\Api\OrderItemRepositoryInterface">
+        <plugin name="AddPrintSpecsToOrderItems"
+                type="SwiftOtter\ProductDecorator\Plugin\Hydration\AddPrintSpecsToOrderItems" />
     </type>
 </config>

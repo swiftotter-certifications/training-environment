@@ -27,16 +27,16 @@ class ApplyPrintSpecForQuoteItem implements ObserverInterface
         /** @var CartItemInterface $quoteItem */
         $quoteItem = $observer->getData('item');
         if (!$quoteItem->getExtensionAttributes()
-            || !$quoteItem->getExtensionAttributes()->getPrintSpecQuoteItem()
-            || !$quoteItem->getExtensionAttributes()->getPrintSpecQuoteItem()->getPrintSpecId()) {
+            || !$quoteItem->getExtensionAttributes()->getPrintSpecItem()
+            || !$quoteItem->getExtensionAttributes()->getPrintSpecItem()->getPrintSpecId()) {
             return;
         }
 
         $this->orderArtQuoteItemResource->replace(
-            $quoteItem->getExtensionAttributes()->getPrintSpecQuoteItem()->getPrintSpecId(),
+            $quoteItem->getExtensionAttributes()->getPrintSpecItem()->getPrintSpecId(),
             (int)$quoteItem->getItemId()
         );
 
-        $quoteItem->getExtensionAttributes()->getPrintSpecQuoteItem()->setQuoteItemId((int)$quoteItem->getItemId());
+        $quoteItem->getExtensionAttributes()->getPrintSpecItem()->setQuoteItemId((int)$quoteItem->getItemId());
     }
 }

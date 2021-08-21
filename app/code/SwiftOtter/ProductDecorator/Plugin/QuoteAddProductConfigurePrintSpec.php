@@ -11,15 +11,16 @@ use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Framework\DataObject;
 use Magento\Quote\Model\Quote;
 use SwiftOtter\ProductDecorator\Action\CalculatePrice;
-use SwiftOtter\ProductDecorator\Action\FindQuoteItemsChildItems;
+use SwiftOtter\ProductDecorator\Action\FindItemsChildItems;
 use SwiftOtter\ProductDecorator\Action\HydratePriceRequestFromJson;
 use SwiftOtter\ProductDecorator\Action\PrintSpec\PriceRequestToPrintSpec;
 use SwiftOtter\ProductDecorator\Action\PrintSpec\PrintSpecToPriceRequest;
 use SwiftOtter\ProductDecorator\Model\PrintSpec\QuoteItemFactory as QuoteItemFactory;
+use SwiftOtter\Utils\Api\Data\UnifiedSaleItemInterface;
 
 class QuoteAddProductConfigurePrintSpec
 {
-    /** @var FindQuoteItemsChildItems */
+    /** @var FindItemsChildItems */
     private $findQuoteItemsChildItems;
 
     /** @var HydratePriceRequestFromJson */
@@ -38,12 +39,12 @@ class QuoteAddProductConfigurePrintSpec
     private $printSpecToPriceRequest;
 
     public function __construct(
-        FindQuoteItemsChildItems $findQuoteItemsChildItems,
+        FindItemsChildItems         $findQuoteItemsChildItems,
         HydratePriceRequestFromJson $hydratePriceRequestFromJson,
-        PriceRequestToPrintSpec $priceRequestToPrintSpec,
-        CalculatePrice $calculatePrice,
-        QuoteItemFactory $printSpecQuoteItemFactory,
-        PrintSpecToPriceRequest $printSpecToPriceRequest
+        PriceRequestToPrintSpec     $priceRequestToPrintSpec,
+        CalculatePrice              $calculatePrice,
+        QuoteItemFactory            $printSpecQuoteItemFactory,
+        PrintSpecToPriceRequest     $printSpecToPriceRequest
     ) {
         $this->findQuoteItemsChildItems = $findQuoteItemsChildItems;
         $this->hydratePriceRequestFromJsonRequest = $hydratePriceRequestFromJson;
@@ -62,19 +63,25 @@ class QuoteAddProductConfigurePrintSpec
 
         $printSpecId = $quoteItem->getOptionByCode('print_spec_id')->getValue();
 
-        $allItems = array_merge([$quoteItem], $this->findQuoteItemsChildItems->execute($quote, $quoteItem));
+        $allItems = array_merge(
+            [$quoteItem->getExtensionAttributes()->getUnified()],
+            $this->findQuoteItemsChildItems->execute(
+                $quote->getExtensionAttributes()->getUnified(),
+                $quoteItem->getExtensionAttributes()->getUnified()
+            ));
+
         $priceRequest = $this->printSpecToPriceRequest->execute($printSpecId, $allItems);
 
         $price = $this->calculatePrice->execute($priceRequest);
 
-        /** @var Quote\Item $item */
+        /** @var UnifiedSaleItemInterface $item */
         foreach ($allItems as $item) {
             $item->setCustomPrice($price->getUnitPrice());
             $item->setOriginalCustomPrice($price->getUnitPrice());
 
-            $printSpecQuoteItem = $item->getExtensionAttributes()->getPrintSpecQuoteItem() ?: $this->printSpecQuoteItemFactory->create();
+            $printSpecQuoteItem = $item->getExtensionAttributes()->getPrintSpecItem() ?: $this->printSpecQuoteItemFactory->create();
             $printSpecQuoteItem->setPrintSpecId($printSpecId);
-            $item->getExtensionAttributes()->setPrintSpecQuoteItem($printSpecQuoteItem);
+            $item->getExtensionAttributes()->setPrintSpecItem($printSpecQuoteItem);
         }
 
         return $quoteItem;

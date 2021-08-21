@@ -27,9 +27,8 @@ class PriceRequestToPrintSpecTest extends TestCase
 
     protected function setUp(): void
     {
-        include __DIR__ . '/../_files/everything.php';
+        include __DIR__ . '/../../_files/everything.php';
     }
-
 
     public function testExecute()
     {
@@ -50,5 +49,6 @@ class PriceRequestToPrintSpecTest extends TestCase
         $priceRequest->setProducts([$productRequest]);
 
         $printSpec = $this->testSubject->execute($priceRequest);
+        $this->assertEquals(1, $printSpec->getExtensionAttributes()->getLocations()[0]->getLocationId());
     }
 }

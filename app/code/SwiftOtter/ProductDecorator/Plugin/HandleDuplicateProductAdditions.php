@@ -22,9 +22,9 @@ class HandleDuplicateProductAdditions
         }
 
         if (!$quoteItemPrintSpecId
-            && $quoteItem->getExtensionAttributes()->getPrintSpecQuoteItem()
-            && $quoteItem->getExtensionAttributes()->getPrintSpecQuoteItem()->getPrintSpecId()) {
-            $quoteItemPrintSpecId = $quoteItem->getExtensionAttributes()->getPrintSpecQuoteItem()->getPrintSpecId();
+            && $quoteItem->getExtensionAttributes()->getPrintSpecItem()
+            && $quoteItem->getExtensionAttributes()->getPrintSpecItem()->getPrintSpecId()) {
+            $quoteItemPrintSpecId = $quoteItem->getExtensionAttributes()->getPrintSpecItem()->getPrintSpecId();
         }
 
         $productPrintSpecId = null;

@@ -12,7 +12,7 @@ use Magento\Catalog\Model\Product;
 use Magento\Framework\DataObject;
 use Magento\Quote\Model\Quote;
 use SwiftOtter\ProductDecorator\Action\CalculatePrice;
-use SwiftOtter\ProductDecorator\Action\FindQuoteItemsChildItems;
+use SwiftOtter\ProductDecorator\Action\FindItemsChildItems;
 use SwiftOtter\ProductDecorator\Action\HydratePriceRequestFromJson;
 use SwiftOtter\ProductDecorator\Action\PrintSpec\PriceRequestToPrintSpec;
 use SwiftOtter\ProductDecorator\Attributes;
@@ -20,33 +20,18 @@ use SwiftOtter\ProductDecorator\Model\PrintSpec\QuoteItemFactory as QuoteItemFac
 
 class AddPrintSpecToBuyRequest
 {
-    /** @var FindQuoteItemsChildItems */
-    private $findQuoteItemsChildItems;
-
     /** @var HydratePriceRequestFromJson */
     private $hydratePriceRequestFromJsonRequest;
-
-    /** @var CalculatePrice */
-    private $calculatePrice;
 
     /** @var PriceRequestToPrintSpec */
     private $priceRequestToPrintSpec;
 
-    /** @var QuoteItemFactory */
-    private $printSpecQuoteItemFactory;
-
     public function __construct(
-        FindQuoteItemsChildItems $findQuoteItemsChildItems,
         HydratePriceRequestFromJson $hydratePriceRequestFromJson,
-        PriceRequestToPrintSpec $priceRequestToPrintSpec,
-        CalculatePrice $calculatePrice,
-        QuoteItemFactory $printSpecQuoteItemFactory
+        PriceRequestToPrintSpec $priceRequestToPrintSpec
     ) {
-        $this->findQuoteItemsChildItems = $findQuoteItemsChildItems;
         $this->hydratePriceRequestFromJsonRequest = $hydratePriceRequestFromJson;
-        $this->calculatePrice = $calculatePrice;
         $this->priceRequestToPrintSpec = $priceRequestToPrintSpec;
-        $this->printSpecQuoteItemFactory = $printSpecQuoteItemFactory;
     }
 
     public function beforeAddProduct(Quote $quote, Product $product, $buyRequest)

@@ -34,6 +34,6 @@ class FetchDefaultPriceTest extends TestCase
     public function testPriceReturnsCorrect()
     {
         $response = $this->testSubject->execute('simple');
-        $this->assertEquals(12.076, $response);
+        $this->assertEquals(2.076, $response);
     }
 }

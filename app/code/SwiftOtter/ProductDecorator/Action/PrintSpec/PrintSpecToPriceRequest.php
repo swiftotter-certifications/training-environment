@@ -17,7 +17,10 @@ use SwiftOtter\ProductDecorator\Api\Data\PriceRequestInterfaceFactory as PriceRe
 use SwiftOtter\ProductDecorator\Api\Data\PrintSpecInterface as PrintSpec;
 use SwiftOtter\ProductDecorator\Api\PrintSpecRepositoryInterface as PrintSpecRepository;
 use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec\Location;
+use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec\Location\CollectionFactory as LocationCollectionFactory;
 use SwiftOtter\Utils\Action\ClassCopier;
+use Swiftotter\Utils\Model\UnifiedSale\Item;
+use Swiftotter\Utils\Model\UnifiedSale\Item as UnifiedSaleItem;
 
 class PrintSpecToPriceRequest
 {
@@ -37,12 +40,12 @@ class PrintSpecToPriceRequest
     private $classCopier;
 
     public function __construct(
-        PriceRequestFactory $priceRequestFactory,
-        ProductRequestFactory $productRequestFactory,
-        LocationRequestFactory $locationRequestFactory,
-        PrintSpecRepository $printSpecRepository,
-        \SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec\Location\CollectionFactory $locationCollectionFactory,
-        ClassCopier $classCopier
+        PriceRequestFactory       $priceRequestFactory,
+        ProductRequestFactory     $productRequestFactory,
+        LocationRequestFactory    $locationRequestFactory,
+        PrintSpecRepository       $printSpecRepository,
+        LocationCollectionFactory $locationCollectionFactory,
+        ClassCopier               $classCopier
     ) {
         $this->priceRequestFactory = $priceRequestFactory;
         $this->productRequestFactory = $productRequestFactory;
@@ -54,10 +57,10 @@ class PrintSpecToPriceRequest
 
     /**
      * @param int $printSpecId
-     * @param array<int, QuoteItem> $quoteItems
+     * @param array<int, UnifiedSaleItem> $saleItems
      * @return PriceRequestInterface
      */
-    public function execute(int $printSpecId, array $quoteItems): PriceRequestInterface
+    public function execute(int $printSpecId, array $saleItems): PriceRequestInterface
     {
         $printSpec = $this->printSpecRepository->getById($printSpecId);
 
@@ -65,7 +68,7 @@ class PrintSpecToPriceRequest
         $request->setClientId($printSpec->getClientId());
 
         $request->setLocations($this->getLocations($printSpec));
-        $request->setProducts($this->getProducts($quoteItems));
+        $request->setProducts($this->getProducts($saleItems));
 
         return $request;
     }
@@ -87,21 +90,21 @@ class PrintSpecToPriceRequest
     }
 
     /**
-     * @param array<int, QuoteItem> $quoteItems
+     * @param array<int, UnifiedSaleItem> $saleItems
      * @return array<int, QuoteItem>
      */
-    private function getProducts(array $quoteItems): array
+    private function getProducts(array $saleItems): array
     {
         $output = [];
 
-        foreach ($quoteItems as $quoteItem) {
-            if ($quoteItem->getProductType() !== ProductType::TYPE_SIMPLE) {
+        foreach ($saleItems as $saleItem) {
+            if ($saleItem->getProductType() !== ProductType::TYPE_SIMPLE) {
                 continue;
             }
 
-            $productRequest= $this->productRequestFactory->create();
-            $productRequest->setSku($quoteItem->getSku());
-            $productRequest->setQuantity((int)$quoteItem->getTotalQty());
+            $productRequest = $this->productRequestFactory->create();
+            $productRequest->setSku($saleItem->getSku());
+            $productRequest->setQuantity((int)$saleItem->getTotalQty());
 
             $output[] = $productRequest;
         }

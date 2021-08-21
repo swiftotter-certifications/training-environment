@@ -9,26 +9,28 @@ namespace SwiftOtter\ProductDecorator\Action\Hydration;
 
 use Magento\Quote\Api\Data\CartItemExtensionInterfaceFactory as CartItemExtensionFactory;
 use Magento\Quote\Model\Quote\Item as QuoteItem;
-use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec\QuoteItem\CollectionFactory as PrintSpecItemCollectionFactory;
+use Magento\Sales\Api\Data\OrderItemExtensionInterfaceFactory as OrderItemExtensionFactory;
+use Magento\Sales\Model\Order\Item as OrderItem;
+use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec\OrderItem\CollectionFactory as PrintSpecItemCollectionFactory;
 
-class AddPrintSpecsToQuoteItems
+class AddPrintSpecsToOrderItems
 {
-    /** @var CartItemExtensionFactory */
-    private $cartItemExtensionFactory;
-
     /** @var PrintSpecItemCollectionFactory */
     private $printSpecItemCollectionFactory;
 
+    /** @var OrderItemExtensionFactory */
+    private $orderItemExtensionFactory;
+
     public function __construct(
-        CartItemExtensionFactory $cartItemExtensionFactory,
+        OrderItemExtensionFactory $orderItemExtensionFactory,
         PrintSpecItemCollectionFactory $printSpecQuoteItemCollectionFactory
     ) {
-        $this->cartItemExtensionFactory = $cartItemExtensionFactory;
         $this->printSpecItemCollectionFactory = $printSpecQuoteItemCollectionFactory;
+        $this->orderItemExtensionFactory = $orderItemExtensionFactory;
     }
 
     /**
-     * @param array<int, QuoteItem>|null $items
+     * @param array<int, OrderItem>|null $items
      * @return array
      */
     public function execute(?iterable $items): array
@@ -38,7 +40,7 @@ class AddPrintSpecsToQuoteItems
         }
 
         foreach ($items as $item) {
-            $attributes = $item->getExtensionAttributes() ?: $this->cartItemExtensionFactory->create();
+            $attributes = $item->getExtensionAttributes() ?: $this->orderItemExtensionFactory->create();
 
             if ($attributes
                 && $attributes->getPrintSpecItem()
@@ -46,16 +48,16 @@ class AddPrintSpecsToQuoteItems
                 continue;
             }
 
-            $printSpecQuoteItem = $this->printSpecItemCollectionFactory->create()
-                ->addFieldToFilter('quote_item_id', $item->getItemId())
+            $printSpecOrderItem = $this->printSpecItemCollectionFactory->create()
+                ->addFieldToFilter('order_item_id', $item->getItemId())
                 ->filterDeletedPrintSpecs()
                 ->getFirstItem();
 
-            if (!$printSpecQuoteItem->getId()) {
+            if (!$printSpecOrderItem->getId()) {
                 continue;
             }
 
-            $attributes->setPrintSpecItem($printSpecQuoteItem);
+            $attributes->setPrintSpecItems($printSpecOrderItem);
             $item->setExtensionAttributes($attributes);
         }
 

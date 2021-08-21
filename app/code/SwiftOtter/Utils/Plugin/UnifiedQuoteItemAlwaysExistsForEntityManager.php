@@ -5,30 +5,29 @@ declare(strict_types=1);
  * @website https://swiftotter.com
  **/
 
-namespace Catalog\Cart\Plugin;
+namespace SwiftOtter\Utils\Plugin;
 
-use SwiftOtter\ProductDecorator\Model\PrintSpec\QuoteItem as PrintSpecQuoteItemFactory;
 use Magento\Framework\Data\Collection\EntityFactory;
 use Magento\Framework\DataObject;
-use Magento\Quote\Api\Data\CartItemExtension;
-use Magento\Quote\Api\Data\CartItemExtensionFactory;
+use Magento\Quote\Api\Data\CartItemExtensionInterface as CartItemExtension;
+use Magento\Quote\Api\Data\CartItemExtensionInterfaceFactory as CartItemExtensionFactory;
 use Magento\Quote\Model\Quote\Item as QuoteItem;
-use Magento\Quote\Model\Quote\ItemFactory as QuoteItemFactory;
+use SwiftOtter\Utils\Model\UnifiedSale\ItemFactory as UnifiedSaleItemFactory;
 
-class EnsurePrintSpecQuoteItemAlwaysExistsForEntityManager
+class UnifiedQuoteItemAlwaysExistsForEntityManager
 {
     /** @var CartItemExtensionFactory */
     private $cartItemExtensionFactory;
 
-    /** @var PrintSpecQuoteItemFactory */
-    private $printSpecQuoteItemFactory;
+    /** @var UnifiedSaleItemFactory */
+    private $unifiedSaleItemFactory;
 
     public function __construct(
         CartItemExtensionFactory $cartItemExtensionFactory,
-        PrintSpecQuoteItemFactory $printSpecQuoteItemFactory
+        UnifiedSaleItemFactory $unifiedSaleItemFactory
     ) {
         $this->cartItemExtensionFactory = $cartItemExtensionFactory;
-        $this->printSpecQuoteItemFactory = $printSpecQuoteItemFactory;
+        $this->unifiedSaleItemFactory = $unifiedSaleItemFactory;
     }
 
     public function afterCreate(EntityFactory $subject, DataObject $result): DataObject
@@ -41,7 +40,7 @@ class EnsurePrintSpecQuoteItemAlwaysExistsForEntityManager
         $cartItemExtension = $result->getExtensionAttributes()
             ?: $this->cartItemExtensionFactory->create();
 
-        $cartItemExtension->setPrintSpecItem($this->printSpecQuoteItemFactory->create());
+        $cartItemExtension->setUnified($this->unifiedSaleItemFactory->create(['item' => $result]));
 
         $result->setExtensionAttributes($cartItemExtension);
 

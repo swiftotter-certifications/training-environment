@@ -9,11 +9,11 @@ namespace SwiftOtter\ProductDecorator\Model\PrintSpec;
 
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Model\AbstractModel;
-use SwiftOtter\ProductDecorator\Api\Data\PrintSpec\OrderItemInterface;
+use SwiftOtter\ProductDecorator\Api\Data\PrintSpec\ItemInterface;
 use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec\OrderItem as PrintSpecOrderItemResourceModel;
 use SwiftOtter\Utils\Model\StrictTypeTrait;
 
-class OrderItem extends AbstractModel implements IdentityInterface, OrderItemInterface
+class OrderItem extends AbstractModel implements IdentityInterface, ItemInterface
 {
     use StrictTypeTrait;
 
@@ -46,7 +46,7 @@ class OrderItem extends AbstractModel implements IdentityInterface, OrderItemInt
         return $this->getData(self::ID) ? (int) $this->getData(self::ID) : null;
     }
 
-    public function getOrderItemId(): ?int
+    public function getItemId(): ?int
     {
         return $this->nullableInt($this->getData(self::ORDER_ITEM_ID));
     }
@@ -61,7 +61,7 @@ class OrderItem extends AbstractModel implements IdentityInterface, OrderItemInt
         $this->setData(self::ID, $id);
     }
 
-    public function setOrderItemId(?int $value): void
+    public function setItemId(?int $value): void
     {
         $this->setData(self::ORDER_ITEM_ID, $value);
     }
