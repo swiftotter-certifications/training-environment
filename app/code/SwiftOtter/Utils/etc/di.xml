@@ -44,4 +44,9 @@
         <plugin name="UnifiedQuoteItemAlwaysExists"
                 type="SwiftOtter\Utils\Plugin\UnifiedQuoteItemAlwaysExists" />
     </type>
+
+    <type name="Magento\Quote\Model\ResourceModel\Quote">
+        <plugin name="UnifiedQuoteItemAlwaysExists"
+                type="\SwiftOtter\Utils\Plugin\UnifiedQuoteAlwaysExistsOnResource" />
+    </type>
 </config>

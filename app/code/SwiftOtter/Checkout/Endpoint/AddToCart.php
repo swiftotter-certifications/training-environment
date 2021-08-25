@@ -80,8 +80,6 @@ class AddToCart implements AddToCartInterface
         $quote->setShippingAddress($this->addressFactory->create());
         $quote->getShippingAddress()->setCollectShippingRates(true);
 
-        $quote->setItems([]);
-
         $quote->setTotalsCollectedFlag(false);
         $quote->setTriggerRecollect(1);
         $quote->collectTotals();

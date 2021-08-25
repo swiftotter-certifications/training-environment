@@ -9,7 +9,7 @@ namespace SwiftOtter\Utils\Plugin;
 
 use SwiftOtter\Utils\Model\UnifiedSaleFactory as UnifiedSaleFactory;
 use Magento\Framework\DataObject;
-use Magento\Quote\Api\Data\QuoteExtensionInterface as QuoteExtension;
+use Magento\Quote\Api\Data\CartExtensionInterface as QuoteExtension;
 use Magento\Sales\Api\Data\OrderExtensionInterfaceFactory as QuoteExtensionFactory;
 use Magento\Quote\Model\Quote as Quote;
 
@@ -18,7 +18,7 @@ class UnifiedQuoteAlwaysExists
     /** @var QuoteExtensionFactory */
     private $quoteExtensionFactory;
 
-    /** @var UnifiedSaleItemFactory */
+    /** @var UnifiedSaleFactory */
     private $unifiedSaleFactory;
 
     public function __construct(

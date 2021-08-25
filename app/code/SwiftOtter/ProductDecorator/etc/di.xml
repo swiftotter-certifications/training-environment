@@ -163,11 +163,11 @@
     </type>
 
     <type name="Magento\Sales\Model\ResourceModel\Order\Item\Collection">
-        <plugin name="AddPrintSpecsToOrder"
+        <plugin name="AddPrintSpecsToOrderItemCollection"
                 type="SwiftOtter\ProductDecorator\Plugin\Hydration\AddPrintSpecsToOrderItemCollection" />
     </type>
 
-    <type name="\Magento\Sales\Block\Adminhtml\Items\Column\DefaultColumn">
+    <type name="Magento\Sales\Block\Adminhtml\Items\Column\DefaultColumn">
         <plugin name="AddPrintSpecsToOrderItemDisplay"
                 type="SwiftOtter\ProductDecorator\Plugin\AddPrintSpecsToOrderItemDisplay"/>
     </type>

@@ -107,7 +107,17 @@
         <column xsi:type="int" name="id" unsigned="true" identity="true"  comment="Magento ID"  />
         <column xsi:type="varchar" length="50" name="name" comment="Print Spec Name" />
         <column xsi:type="varchar" length="50" name="client_id" comment="Client ID" />
+        <column xsi:type="int" name="cart_id" unsigned="true" comment="Cart ID"  />
         <column xsi:type="smallint" name="is_deleted" unsigned="true" default="0" comment="Is Deleted"  />
+
+        <constraint xsi:type="foreign"
+                    referenceId="PRODUCTDECORATOR_PRINT_SPEC_QUOTE_ID_QUOTE_ID"
+                    table="swiftotter_productdecorator_print_spec"
+                    column="cart_id"
+                    referenceTable="quote"
+                    referenceColumn="entity_id"
+                    onDelete="CASCADE"
+        />
 
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>

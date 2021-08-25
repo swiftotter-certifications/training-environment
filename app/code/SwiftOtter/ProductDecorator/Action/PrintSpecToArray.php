@@ -109,7 +109,8 @@ class PrintSpecToArray
             $locations['values'][] = [
                 'title' => $this->locationResource->getNameFor($location->getLocationId()),
                 'colors' => implode(', ', $this->mapColors($location->getColors())),
-                'print_method' => $this->printMethodResource->getPrintMethodNameFor($location->getPrintMethodId())
+                'print_method' => $this->printMethodResource->getPrintMethodNameFor($location->getPrintMethodId()),
+                'name' => $location->getDisplayText()
             ];
         }
         return $locations;

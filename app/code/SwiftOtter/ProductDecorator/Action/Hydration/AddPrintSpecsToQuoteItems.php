@@ -49,6 +49,7 @@ class AddPrintSpecsToQuoteItems
             $printSpecQuoteItem = $this->printSpecItemCollectionFactory->create()
                 ->addFieldToFilter('quote_item_id', $item->getItemId())
                 ->filterDeletedPrintSpecs()
+                ->filterByCartId((int)$item->getQuoteId())
                 ->getFirstItem();
 
             if (!$printSpecQuoteItem->getId()) {

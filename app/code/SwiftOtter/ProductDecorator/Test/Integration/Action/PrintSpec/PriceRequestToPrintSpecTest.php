@@ -48,7 +48,7 @@ class PriceRequestToPrintSpecTest extends TestCase
 
         $priceRequest->setProducts([$productRequest]);
 
-        $printSpec = $this->testSubject->execute($priceRequest);
+        $printSpec = $this->testSubject->execute($priceRequest, null);
         $this->assertEquals(1, $printSpec->getExtensionAttributes()->getLocations()[0]->getLocationId());
     }
 }

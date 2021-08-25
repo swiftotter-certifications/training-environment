@@ -53,13 +53,18 @@ class PriceRequestToPrintSpec
         $this->printSpecResource = $printSpecResource;
     }
 
-    public function execute(PriceRequestInterface $priceRequest): PrintSpecInterface
+    public function execute(PriceRequestInterface $priceRequest, ?int $cartId): PrintSpecInterface
     {
         $printSpec = $this->printSpecFactory->create();
         $printSpec->setName("Loaded at " . time());
+
         if ($priceRequest->getClientId()) {
             $id = $this->printSpecResource->getIdByClientId($priceRequest->getClientId());
             $printSpec = $this->printSpecRepository->getById($id);
+        }
+
+        if ($cartId) {
+            $printSpec->setCartId($cartId);
         }
 
         $this->printSpecRepository->save($printSpec);

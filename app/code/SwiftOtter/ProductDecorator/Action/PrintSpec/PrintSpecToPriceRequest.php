@@ -32,10 +32,13 @@ class PrintSpecToPriceRequest
 
     /** @var LocationRequestFactory */
     private $locationRequestFactory;
+
     /** @var PrintSpecRepository */
     private $printSpecRepository;
+
     /** @var Location\CollectionFactory */
     private $locationCollectionFactory;
+
     /** @var ClassCopier */
     private $classCopier;
 

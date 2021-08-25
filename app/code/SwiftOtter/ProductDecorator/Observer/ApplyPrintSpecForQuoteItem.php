@@ -37,6 +37,6 @@ class ApplyPrintSpecForQuoteItem implements ObserverInterface
             (int)$quoteItem->getItemId()
         );
 
-        $quoteItem->getExtensionAttributes()->getPrintSpecItem()->setQuoteItemId((int)$quoteItem->getItemId());
+        $quoteItem->getExtensionAttributes()->getPrintSpecItem()->setItemId((int)$quoteItem->getItemId());
     }
 }

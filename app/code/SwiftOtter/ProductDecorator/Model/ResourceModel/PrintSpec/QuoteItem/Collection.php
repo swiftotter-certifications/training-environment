@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec\QuoteItem;
 
+use Magento\Framework\DB\Select;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 use SwiftOtter\ProductDecorator\Model\PrintSpec\QuoteItem as PrintSpecQuoteItemModel;
 use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec\QuoteItem as PrintSpecQuoteItemResourceModel;
@@ -18,14 +19,32 @@ class Collection extends AbstractCollection
         $this->_init(PrintSpecQuoteItemModel::class, PrintSpecQuoteItemResourceModel::class);
     }
 
-    public function filterDeletedPrintSpecs()
+    public function joinPrintSpec(): void
     {
+        if (isset($this->getSelect()->getPart(Select::FROM)['print_spec'])) {
+            return;
+        }
+
         $this->getSelect()
             ->joinLeft(
                 ['print_spec' => $this->getTable('swiftotter_productdecorator_print_spec')],
                 'main_table.print_spec_id = print_spec.id',
                 []
-            )->where('print_spec.is_deleted = 0');
+            );
+    }
+
+    public function filterDeletedPrintSpecs()
+    {
+        $this->joinPrintSpec();
+        $this->getSelect()->where('print_spec.is_deleted = 0');
+
+        return $this;
+    }
+
+    public function filterByCartId(int $cartId)
+    {
+        $this->joinPrintSpec();
+        $this->getSelect()->where('print_spec.cart_id = ?', $cartId);
 
         return $this;
     }

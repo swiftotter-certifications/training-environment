@@ -47,7 +47,7 @@ class AddPrintSpecToBuyRequest
         }
 
         $priceRequest = $this->hydratePriceRequestFromJsonRequest->execute($details);
-        $printSpec = $this->priceRequestToPrintSpec->execute($priceRequest);
+        $printSpec = $this->priceRequestToPrintSpec->execute($priceRequest, (int)$quote->getId());
 
         $buyRequest->setData('print_spec_id', $printSpec->getId());
         $product->addCustomOption(Attributes::OPTION_PRINT_SPEC_ID, $printSpec->getId());

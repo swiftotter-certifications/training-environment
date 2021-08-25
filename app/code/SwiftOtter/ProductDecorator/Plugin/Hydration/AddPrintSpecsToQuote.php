@@ -41,7 +41,7 @@ class AddPrintSpecsToQuote
 
     private function getCartItemArtId(CartInterface $cart): CartInterface
     {
-        $cartItems = $cart->getAllItems();
+        $cartItems = array_merge($cart->getAllItems());
         if ($cartItems === null) {
             return $cart;
         }

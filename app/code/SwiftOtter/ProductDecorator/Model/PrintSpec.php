@@ -17,9 +17,12 @@ use Magento\Framework\Registry;
 use SwiftOtter\ProductDecorator\Api\Data\PrintSpecExtensionInterface;
 use SwiftOtter\ProductDecorator\Api\Data\PrintSpecInterface;
 use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec as PrintSpecResource;
+use SwiftOtter\Utils\Model\StrictTypeTrait;
 
 class PrintSpec extends AbstractExtensibleModel implements IdentityInterface, PrintSpecInterface
 {
+    use StrictTypeTrait;
+
     const CACHE_TAG = 'print_spec';
 
     protected $_cacheTag = 'prints_spec';
@@ -35,6 +38,8 @@ class PrintSpec extends AbstractExtensibleModel implements IdentityInterface, Pr
     private const IS_DELETED = 'is_deleted';
 
     private const CLIENT_ID = 'client_id';
+
+    private const CART_ID = 'cart_id';
 
     protected function _construct()
     {
@@ -61,6 +66,11 @@ class PrintSpec extends AbstractExtensibleModel implements IdentityInterface, Pr
         return (string)$this->getData(self::CLIENT_ID);
     }
 
+    public function getCartId(): ?int
+    {
+        return $this->nullableInt($this->getData(self::CART_ID));
+    }
+
     public function getIsDeleted(): bool
     {
         return (bool)$this->getData(self::IS_DELETED);
@@ -79,6 +89,11 @@ class PrintSpec extends AbstractExtensibleModel implements IdentityInterface, Pr
     public function setClientId(?string $value): void
     {
         $this->setData(self::CLIENT_ID, $value);
+    }
+
+    public function setCartId(?int $value): void
+    {
+        $this->setData(self::CART_ID, $value);
     }
 
     public function setIsDeleted(bool $value): void

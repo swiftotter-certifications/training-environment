@@ -27,6 +27,11 @@ interface PrintSpecInterface extends ExtensibleDataInterface
     public function getClientId(): ?string;
 
     /**
+     * @return int|null
+     */
+    public function getCartId(): ?int;
+
+    /**
      * @return bool
      */
     public function getIsDeleted(): bool;
@@ -46,6 +51,12 @@ interface PrintSpecInterface extends ExtensibleDataInterface
      * @param string|null $value
      */
     public function setClientId(?string $value): void;
+
+    /**
+     * @param int|null $id
+     * @return void
+     */
+    public function setCartId(?int $id): void;
 
     /**
      * @param bool $value
