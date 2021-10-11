@@ -9,6 +9,7 @@ namespace Project\Bug1NameNotSaving\Command;
 
 use GuzzleHttp\Client;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\App\Config\Storage\WriterInterface;
 use Project\Common\Action\ApiClient;
 use Project\Common\Action\CreateApiToken;
 use Project\Common\Constants;
@@ -20,13 +21,16 @@ class Initialize extends Command
 {
     /** @var ApiClient */
     private $apiClient;
+    private WriterInterface $configWriter;
 
     public function __construct(
         ApiClient $apiClient,
+        WriterInterface $configWriter,
         string $name = null
     ) {
         parent::__construct($name);
         $this->apiClient = $apiClient;
+        $this->configWriter = $configWriter;
     }
 
     protected function configure()
@@ -38,6 +42,8 @@ class Initialize extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('Beginning update for "flashlight-1".');
+
+        $this->configWriter->save('general/single_store_mode/enabled', 1);
 
         $response = $this->apiClient->execute()
             ->put(Constants::REST_BASE . '/V1/products/flashlight-1', [

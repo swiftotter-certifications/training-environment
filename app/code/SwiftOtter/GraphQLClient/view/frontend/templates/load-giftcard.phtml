@@ -1,0 +1,30 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 10/6/21
+ * @website https://swiftotter.com
+ **/
+
+/** @var SwiftOtter\GraphQLClient\ViewModel\Auth $auth */
+$auth = $block->getData('auth');
+
+?>
+
+<div class="giftcard-list-wrap" data-bind="scope: 'giftcard-list'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+   {
+       "*": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                   "giftcard-list": {
+                        "component":"SwiftOtter_GraphQLClient/js/giftcard-loader",
+                        "url": "<?=$auth->getUrl()?>"
+                   }
+               }
+           }
+       }
+   }
+</script>

@@ -1,0 +1,32 @@
+type Query {
+    giftcards (
+        filter: GiftcardAttributeFilterInput
+        pageSize: Int = 20
+        currentPage: Int = 1
+    ): Giftcards
+    @resolver(class: "SwiftOtter\\GraphQL\\Model\\Resolver\\Giftcards")
+}
+
+input GiftcardAttributeFilterInput {
+    code: String @doc(description: "Code is required."),
+    status: String,
+}
+
+type Giftcards @doc(description:"Comment for gift cards") {
+    items: [Giftcard] @doc(description: "comment for items[Giftcards].")
+    total_count: Int
+}
+
+type Giftcard @doc(description: "Giftcard is just that... a gift card")
+{
+    id: Int
+    assigned_customer_id: Int
+    code: String
+    status: Int
+    initial_value: Float
+    current_value: Float
+    created_at: String
+    updated_at: String
+    recipient_email: String
+    recipient_name: String
+}

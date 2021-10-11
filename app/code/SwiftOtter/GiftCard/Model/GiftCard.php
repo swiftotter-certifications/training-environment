@@ -25,91 +25,91 @@ class GiftCard extends AbstractModel implements GiftCardInterface
 
     public function setCustomerId(int $value): void
     {
-        $this->setData('customer_id', $value);
+        $this->setData(self::ASSIGNED_CUSTOMER_ID, $value);
     }
 
     public function getCustomerId(): ?int
     {
-        return (int)$this->getData('customer_id');
+        return (int)$this->getData(self::ASSIGNED_CUSTOMER_ID);
     }
 
     public function setCode(string $value): void
     {
-        $this->setData('code', $value);
+        $this->setData(self::CODE, $value);
     }
 
     public function getCode(): ?string
     {
-        return (string)$this->getData('code');
+        return (string)$this->getData(self::CODE);
     }
 
     public function setStatus(int $value): void
     {
-        $this->setData('status', $value);
+        $this->setData(self::STATUS, $value);
     }
 
     public function getStatus(): ?int
     {
-        return (int)$this->getData('status');
+        return (int)$this->getData(self::STATUS);
     }
 
     public function setInitialValue(float $value): void
     {
-        $this->setData('initial_value', $value);
+        $this->setData(self::INITIAL_VALUE, $value);
     }
 
     public function getInitialValue(): ?float
     {
-        return (float)$this->getData('initial_value');
+        return (float)$this->getData(self::INITIAL_VALUE);
     }
 
     public function setCurrentValue(float $value): void
     {
-        $this->setData('current_value', $value);
+        $this->setData(self::CURRENT_VALUE, $value);
     }
 
     public function getCurrentValue(): ?float
     {
-        return (float)$this->getData('current_value');
+        return (float)$this->getData(self::CURRENT_VALUE);
     }
 
     public function setCreatedAt(\DateTime $value): void
     {
-        $this->setData('created_at', $value->format('Y-m-d h:i:s'));
+        $this->setData(self::CREATED_AT, $value->format('Y-m-d h:i:s'));
     }
 
     public function getCreatedAt(): ?\DateTime
     {
-        return new \DateTime($this->getData('created_at'));
+        return new \DateTime($this->getData(self::CREATED_AT));
     }
 
     public function setUpdatedAt(\DateTime $value): void
     {
-        $this->setData('updated_at', $value->format('Y-m-d h:i:s'));
+        $this->setData(self::UPDATED_AT, $value->format('Y-m-d h:i:s'));
     }
 
     public function getUpdatedAt(): ?\DateTime
     {
-        return new \DateTime($this->getData('updated_at'));
+        return new \DateTime($this->getData(self::UPDATED_AT));
     }
 
     public function setRecipientEmail(string $value): void
     {
-        $this->setData('recipient_email', $value);
+        $this->setData(self::RECIPIENT_EMAIL, $value);
     }
 
     public function getRecipientEmail(): ?string
     {
-        return (string)$this->getData('recipient_email');
+        return (string)$this->getData(self::RECIPIENT_EMAIL);
     }
 
     public function setRecipientName(string $value): void
     {
-        $this->setData('recipient_name', $value);
+        $this->setData(self::RECIPIENT_NAME, $value);
     }
 
     public function getRecipientName(): ?string
     {
-        return (string)$this->getData('recipient_value');
+        return (string)$this->getData(self::RECIPIENT_NAME);
     }
 }

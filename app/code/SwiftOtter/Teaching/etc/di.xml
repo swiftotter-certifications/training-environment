@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="get_product" xsi:type="object">SwiftOtter\Teaching\Command\GetProduct</item>
+                <item name="get_location_print_method" xsi:type="object">SwiftOtter\Teaching\Command\GetLocationPrintMethod</item>
+                <item name="get_location_print_method_details" xsi:type="object">SwiftOtter\Teaching\Command\GetLocationPrintMethodDetails</item>
+                <item name="get_location_print_method_collection" xsi:type="object">SwiftOtter\Teaching\Command\GetLocationPrintMethodCollection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

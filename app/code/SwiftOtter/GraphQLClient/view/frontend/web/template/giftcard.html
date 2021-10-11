@@ -1,0 +1,16 @@
+<div class="block gift-card__wrapper" data-bind="mageInit: {'collapsible':{'openedState': 'active', 'active': false}}">
+    <div class="title" data-role="title">
+        <strong role="heading" aria-level="1">
+            <span data-bind="i18n:'Check gift card'"></span>
+        </strong>
+    </div>
+
+    <div class="content gift-card" data-role="content">
+        <input type="text" data-bind="value: giftcardCode"/>
+        <button type="button" click="update"><span translate="'Check it!'"></span></button>
+    </div>
+
+    <div class="gift-card-message">
+        <span data-bind="text: message"></span>
+    </div>
+</div>

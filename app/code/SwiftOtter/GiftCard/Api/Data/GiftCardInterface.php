@@ -9,6 +9,17 @@ namespace SwiftOtter\GiftCard\Api\Data;
 
 interface GiftCardInterface
 {
+    const ID = 'id';
+    const ASSIGNED_CUSTOMER_ID = 'assigned_customer_id';
+    const CODE = 'code';
+    const STATUS = 'status';
+    const INITIAL_VALUE = 'initial_value';
+    const CURRENT_VALUE = 'current_value';
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
+    const RECIPIENT_NAME = 'recipient_name';
+    const RECIPIENT_EMAIL = 'recipient_email';
+
     /**
      * @param $id
      */
