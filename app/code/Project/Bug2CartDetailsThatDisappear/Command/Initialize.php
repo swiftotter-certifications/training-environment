@@ -9,6 +9,7 @@ namespace Project\Bug2CartDetailsThatDisappear\Command;
 
 use GuzzleHttp\Client;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\App\Config\Storage\WriterInterface;
 use Project\Common\Action\ApiClient;
 use Project\Common\Action\CreateApiToken;
 use Project\Common\Constants;
@@ -18,15 +19,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Initialize extends Command
 {
-    /** @var ApiClient */
-    private $apiClient;
+    private WriterInterface $writer;
 
     public function __construct(
-        ApiClient $apiClient,
+        WriterInterface $writer,
         string $name = null
     ) {
         parent::__construct($name);
-        $this->apiClient = $apiClient;
+        $this->writer = $writer;
     }
 
     protected function configure()
@@ -39,10 +39,7 @@ class Initialize extends Command
     {
         $output->writeln('Beginning update for "flashlight-1".');
 
-        $response = $this->apiClient->execute()
-            ->put(Constants::REST_BASE . '/V1/products/flashlight-1', [
-                'json' => ['product' => ['name' => 'LED High-Lumen Flashlight']]
-            ]);
+        $this->writer->save('general/single_store_mode/enabled', 0);
 
         $output->writeln('Update complete.');
     }

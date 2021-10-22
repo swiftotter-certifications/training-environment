@@ -37,6 +37,17 @@ class PrintSpec extends AbstractDb
         return parent::_beforeSave($object);
     }
 
+    public function updateCartId(int $printSpecId, int $cartId): void
+    {
+        $this->getConnection()->update(
+            $this->getMainTable(),
+            [
+                'cart_id' => $cartId
+            ],
+            $this->getConnection()->quoteInto('id = ?', $printSpecId)
+        );
+    }
+
     public function getById(int $id)
     {
         $connection = $this->getConnection();

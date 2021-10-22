@@ -43,7 +43,7 @@ class Initialize extends Command
     {
         $output->writeln('Beginning update for "flashlight-1".');
 
-        $this->configWriter->save('general/single_store_mode/enabled', 1);
+        $this->configWriter->save('general/single_store_mode/enabled', 0);
 
         $response = $this->apiClient->execute()
             ->put(Constants::REST_BASE . '/V1/products/flashlight-1', [

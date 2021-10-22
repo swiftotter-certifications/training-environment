@@ -30,6 +30,27 @@ class AddPrintSpecsToQuote
         return $resultCart;
     }
 
+    public function afterGetForCustomer(CartRepositoryInterface $subject, CartInterface $resultCart): CartInterface
+    {
+        $this->getCartItemArtId($resultCart);
+
+        return $resultCart;
+    }
+
+    public function afterGetActive(CartRepositoryInterface $subject, CartInterface $resultCart): CartInterface
+    {
+        $this->getCartItemArtId($resultCart);
+
+        return $resultCart;
+    }
+
+    public function afterGetActiveForCustomer(CartRepositoryInterface $subject, CartInterface $resultCart): CartInterface
+    {
+        $this->getCartItemArtId($resultCart);
+
+        return $resultCart;
+    }
+
     public function afterGetList(CartRepositoryInterface $subject, $result)
     {
         /** @var CartInterface $cart */

@@ -20,23 +20,12 @@ use SwiftOtter\Utils\Api\Data\UnifiedSaleItemInterface;
 
 class QuoteAddProductConfigurePrintSpec
 {
-    /** @var FindItemsChildItems */
-    private $findQuoteItemsChildItems;
-
-    /** @var HydratePriceRequestFromJson */
-    private $hydratePriceRequestFromJsonRequest;
-
-    /** @var CalculatePrice */
-    private $calculatePrice;
-
-    /** @var PriceRequestToPrintSpec */
-    private $priceRequestToPrintSpec;
-
-    /** @var QuoteItemFactory */
-    private $printSpecQuoteItemFactory;
-
-    /** @var PrintSpecToPriceRequest */
-    private $printSpecToPriceRequest;
+    private FindItemsChildItems $findQuoteItemsChildItems;
+    private HydratePriceRequestFromJson $hydratePriceRequestFromJsonRequest;
+    private CalculatePrice $calculatePrice;
+    private PriceRequestToPrintSpec $priceRequestToPrintSpec;
+    private QuoteItemFactory $printSpecQuoteItemFactory;
+    private PrintSpecToPriceRequest $printSpecToPriceRequest;
 
     public function __construct(
         FindItemsChildItems         $findQuoteItemsChildItems,

@@ -61,7 +61,13 @@ class PrintSpecToArray
             array_merge([$unifiedSaleItem], $this->findQuoteItemsChildItems->execute($unifiedSaleItem->getParent(), $unifiedSaleItem))
         );
 
-        $output = [];
+        $output = [
+            [
+                'title' => __('Art #%1', $unifiedSaleItem->getExtensionAttributes()->getPrintSpecItem()->getPrintSpecId()),
+                'values' => []
+            ]
+        ];
+
         $output[] = $this->getLocations($printSpec);
 
         return $output;

@@ -62,8 +62,8 @@
 
     <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\LocationInterface"
                 type="SwiftOtter\ProductDecorator\Model\PrintSpec\Location" />
-    <preference for="ItemInterface"
-                type="Item" />
+    <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\ItemInterface"
+                type="SwiftOtter\ProductDecorator\Model\PrintSpec\OrderItem" />
     <preference for="SwiftOtter\ProductDecorator\Api\Data\PrintSpec\QuoteItemInterface"
                 type="SwiftOtter\ProductDecorator\Model\PrintSpec\QuoteItem" />
 
@@ -112,14 +112,18 @@
     <type name="Magento\Quote\Model\Quote">
         <plugin type="SwiftOtter\ProductDecorator\Plugin\QuoteAddProductConfigurePrintSpec" name="QuoteAddProductConfigurePrintSpec" />
         <plugin type="SwiftOtter\ProductDecorator\Plugin\AddPrintSpecToBuyRequest" name="AddPrintSpecToBuyRequest" />
+        <plugin name="BuildBuyRequestDetails"
+                type="SwiftOtter\ProductDecorator\Plugin\BuildBuyRequestDetails"/>
+        <plugin name="AddPrintSpecDetailsToBuyRequest"
+                type="SwiftOtter\ProductDecorator\Plugin\AddPrintSpecDetailsToBuyRequest"/>
     </type>
 
     <type name="SwiftOtter\ProductDecorator\Model\PrintSpec">
-        <plugin type="\SwiftOtter\ProductDecorator\Plugin\Defaults\EnsurePrintSpecHasExtensionAttributes" name="EnsurePrintSpecHasExtensionAttributes" />
+        <plugin type="SwiftOtter\ProductDecorator\Plugin\Defaults\EnsurePrintSpecHasExtensionAttributes" name="EnsurePrintSpecHasExtensionAttributes" />
     </type>
 
     <type name="Magento\Quote\Model\Quote\ItemFactory">
-        <plugin name="EnsureOrderArtQuoteItemAlwaysExists"
+        <plugin name="EnsurePrintSpecQuoteItemAlwaysExists"
                 type="SwiftOtter\ProductDecorator\Plugin\Defaults\EnsureQuoteItemHasPrintSpecAssociation"/>
     </type>
 
@@ -170,5 +174,10 @@
     <type name="Magento\Sales\Block\Adminhtml\Items\Column\DefaultColumn">
         <plugin name="AddPrintSpecsToOrderItemDisplay"
                 type="SwiftOtter\ProductDecorator\Plugin\AddPrintSpecsToOrderItemDisplay"/>
+    </type>
+
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="MergeQuoteUpdateCartId"
+                type="SwiftOtter\ProductDecorator\Plugin\MergeQuoteUpdateCartId" />
     </type>
 </config>

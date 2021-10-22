@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace SwiftOtter\ProductDecorator\Observer;
 
+use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec as PrintSpecResource;
 use SwiftOtter\ProductDecorator\Model\ResourceModel\PrintSpec\QuoteItem as PrintSpecQuoteItemResource;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
@@ -14,12 +15,12 @@ use Magento\Quote\Api\Data\CartItemInterface;
 
 class ApplyPrintSpecForQuoteItem implements ObserverInterface
 {
-    /** @var PrintSpecQuoteItemResource */
-    private $orderArtQuoteItemResource;
+    private PrintSpecQuoteItemResource $printSpecQuoteItemResource;
 
-    public function __construct(PrintSpecQuoteItemResource $printSpecQuoteItem)
-    {
-        $this->orderArtQuoteItemResource = $printSpecQuoteItem;
+    public function __construct(
+        PrintSpecQuoteItemResource $printSpecQuoteItemResource
+    ) {
+        $this->printSpecQuoteItemResource = $printSpecQuoteItemResource;
     }
 
     public function execute(Observer $observer)
@@ -32,7 +33,7 @@ class ApplyPrintSpecForQuoteItem implements ObserverInterface
             return;
         }
 
-        $this->orderArtQuoteItemResource->replace(
+        $this->printSpecQuoteItemResource->replace(
             $quoteItem->getExtensionAttributes()->getPrintSpecItem()->getPrintSpecId(),
             (int)$quoteItem->getItemId()
         );
