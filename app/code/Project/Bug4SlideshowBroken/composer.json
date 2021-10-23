@@ -1,0 +1,17 @@
+{
+  "name": "project/bug4slideshowbroken",
+  "description": "Slideshow Bug Setup",
+  "type": "magento2-module",
+  "require": {
+    "php": "^7.0",
+    "magento/framework": "^100.0"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Project\\Bug4SlideshowBroken\\": ""
+    }
+  }
+}
