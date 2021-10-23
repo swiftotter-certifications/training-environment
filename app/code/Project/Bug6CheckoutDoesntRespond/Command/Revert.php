@@ -10,6 +10,7 @@ namespace Project\Bug6CheckoutDoesntRespond\Command;
 use GuzzleHttp\Client;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Config\Storage\WriterInterface;
+use Project\Bug6CheckoutDoesntRespond\Model\EngagedState;
 use Project\Bug6CheckoutDoesntRespond\Plugin\PreventMethodOnUnified;
 use Project\Common\Action\ApiClient;
 use Project\Common\Action\CreateApiToken;
@@ -40,7 +41,7 @@ class Revert extends Command
     {
         $output->writeln('Say goodbye to your problems!');
 
-        $this->writer->save(PreventMethodOnUnified::ENABLED, 0);
+        $this->writer->save(EngagedState::ENABLED, 0);
 
         $output->writeln('Update complete.');
     }
