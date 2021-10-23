@@ -49,9 +49,4 @@
         <plugin name="UnifiedQuoteItemAlwaysExists"
                 type="\SwiftOtter\Utils\Plugin\UnifiedQuoteAlwaysExistsOnResource" />
     </type>
-
-    <type name="Magento\Framework\Reflection\MethodsMap">
-        <plugin name="PreventUnifiedOnWebApi"
-                type="SwiftOtter\Utils\Plugin\PreventUnifiedOnWebApi" />
-    </type>
 </config>
