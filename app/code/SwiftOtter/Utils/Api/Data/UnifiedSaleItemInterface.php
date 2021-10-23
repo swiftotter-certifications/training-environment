@@ -47,7 +47,7 @@ interface UnifiedSaleItemInterface
     /**
      * @return \SwiftOtter\Utils\Api\Data\UnifiedSaleInterface|null
      */
-    public function getParent(): UnifiedSaleInterface;
+    public function getParent(): ?UnifiedSaleInterface;
 
     /**
      * @return \SwiftOtter\Utils\Api\Data\UnifiedSaleItemInterface|null
