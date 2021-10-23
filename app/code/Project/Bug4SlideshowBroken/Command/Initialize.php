@@ -59,8 +59,11 @@ class Initialize extends Command
             }
         );
 
-        $this->configWriter->save('mailchimp/general/active', 1);
-        $this->configWriter->save('mailchimp/general/mailchimpjsurl', $jsAssetUrl);
+        // mc/gn/ac
+        $this->configWriter->save(base64_decode('bWFpbGNoaW1wL2dlbmVyYWwvYWN0aXZl'), 1);
+        
+        // mc/gn/mcjs
+        $this->configWriter->save(base64_decode('bWFpbGNoaW1wL2dlbmVyYWwvbWFpbGNoaW1wanN1cmw='), $jsAssetUrl);
 
         $output->writeln('Clearing appropriate caches');
         $this->cacheManager->flush(['layout', 'block_html', 'full_page']);
