@@ -329,6 +329,7 @@ return [
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
         'Bold_OrderComment' => 1,
+        'ClassyLlama_AvaTax' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
         'Dotdigitalgroup_ChatGraphQl' => 1,

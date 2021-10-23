@@ -112,10 +112,6 @@
     <type name="Magento\Quote\Model\Quote">
         <plugin type="SwiftOtter\ProductDecorator\Plugin\QuoteAddProductConfigurePrintSpec" name="QuoteAddProductConfigurePrintSpec" />
         <plugin type="SwiftOtter\ProductDecorator\Plugin\AddPrintSpecToBuyRequest" name="AddPrintSpecToBuyRequest" />
-        <plugin name="BuildBuyRequestDetails"
-                type="SwiftOtter\ProductDecorator\Plugin\BuildBuyRequestDetails"/>
-        <plugin name="AddPrintSpecDetailsToBuyRequest"
-                type="SwiftOtter\ProductDecorator\Plugin\AddPrintSpecDetailsToBuyRequest"/>
     </type>
 
     <type name="SwiftOtter\ProductDecorator\Model\PrintSpec">
