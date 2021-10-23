@@ -7,29 +7,24 @@ declare(strict_types=1);
 
 namespace Project\Bug6CheckoutDoesntRespond\Plugin;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\Reflection\MethodsMap;
-use SwiftOtter\Utils\Api\Data\UnifiedSaleInterface;
+use Project\Bug6CheckoutDoesntRespond\Model\EngagedState;
+use SwiftOtter\Utils\Model\UnifiedSale;
 
 class PreventMethodOnUnified
 {
-    const ENABLED = 'general/bug6/enabled';
-    private ScopeConfigInterface $scopeConfig;
+    private EngagedState $engagedState;
 
-    public function __construct(ScopeConfigInterface $scopeConfig)
+    public function __construct(EngagedState $engagedState)
     {
-        $this->scopeConfig = $scopeConfig;
+        $this->engagedState = $engagedState;
     }
 
-    public function afterGetMethodsMap(MethodsMap $subject, ?array $response, ?string $interfaceName): ?array
+    public function afterGet(UnifiedSale $subject, $output)
     {
-        if (strpos($interfaceName, UnifiedSaleInterface::class) !== false
-            && !$this->scopeConfig->isSetFlag(static::ENABLED)
-            && isset($response['get'])
-        ) {
-            $response = array_diff_key($response, ['get' => null]);
+        if ($this->engagedState->isEngaged()) {
+            return null;
         }
 
-        return $response;
+        return $output;
     }
 }

@@ -9,8 +9,12 @@
         </arguments>
     </type>
 
-    <type name="Magento\Framework\Reflection\MethodsMap">
+    <type name="SwiftOtter\Utils\Model\UnifiedSale">
         <plugin type="Project\Bug6CheckoutDoesntRespond\Plugin\PreventMethodOnUnified" name="PreventMethodOnUnified" />
+    </type>
+
+    <type name="Magento\Framework\Reflection\DataObjectProcessor">
+        <plugin type="Project\Bug6CheckoutDoesntRespond\Plugin\TurnOnGetNullifier" name="TurnOnGetNullifier" />
     </type>
 </config>
 
