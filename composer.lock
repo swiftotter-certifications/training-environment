@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6d4a396a6fd83f648817a90e4d04b7b",
+    "content-hash": "09ed95b36145c9b861b4a0ee0f698bad",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -1842,6 +1842,55 @@
                 "MIT"
             ],
             "description": "Engagement Cloud for Magento 2: SMS module"
+        },
+        {
+            "name": "ebizmarts/mailchimp-lib",
+            "version": "3.0.34",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ebizmarts/mailchimp-lib.git",
+                "reference": "ef10ed1ad6d951f6a8a27b95b290de4de40c15a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ebizmarts/mailchimp-lib/zipball/ef10ed1ad6d951f6a8a27b95b290de4de40c15a4",
+                "reference": "ef10ed1ad6d951f6a8a27b95b290de4de40c15a4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mailchimp": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ebizmarts Corp.",
+                    "email": "info@ebizmarts.com",
+                    "homepage": "http://ebizmarts.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "API client library for the MailChimp",
+            "homepage": "https://github.com/ebizmarts/mailchimp-lib",
+            "keywords": [
+                "api",
+                "email",
+                "mailchimp"
+            ],
+            "support": {
+                "issues": "https://github.com/ebizmarts/mailchimp-lib/issues",
+                "source": "https://github.com/ebizmarts/mailchimp-lib/tree/3.0.34"
+            },
+            "time": "2020-11-12T17:11:56+00:00"
         },
         {
             "name": "elasticsearch/elasticsearch",
@@ -18370,6 +18419,56 @@
                 "source": "https://github.com/mageplaza/magento-2-webhook/tree/v1.3.0"
             },
             "time": "2021-05-26T02:36:06+00:00"
+        },
+        {
+            "name": "mailchimp/mc-magento2",
+            "version": "103.4.43",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mailchimp/mc-magento2.git",
+                "reference": "db14242a675ee244b8613cacf281d6a26d13048f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mailchimp/mc-magento2/zipball/db14242a675ee244b8613cacf281d6a26d13048f",
+                "reference": "db14242a675ee244b8613cacf281d6a26d13048f",
+                "shasum": ""
+            },
+            "require": {
+                "ebizmarts/mailchimp-lib": ">=3.0.27",
+                "ext-json": "*",
+                "magento/framework": "103.0.*||>=102.0.6-p1"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Ebizmarts\\MailChimp\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ebizmarts Corp",
+                    "email": "mailchimp@ebizmarts-desk.zendesk.com",
+                    "homepage": "http://ebizmarts.com"
+                }
+            ],
+            "description": "Connect MailChimp with Magento",
+            "support": {
+                "email": "mailchimp@ebizmarts-desk.zendesk.com",
+                "forum": "http://ebizmarts.com/forums/view/6",
+                "issues": "https://github.com/mailchimp/mc-magento2/issues",
+                "source": "https://github.com/mailchimp/mc-magento2/tree/103.4.43",
+                "wiki": "https://connect.mailchimp.com/integrations/magento"
+            },
+            "time": "2021-06-07T13:20:46+00:00"
         },
         {
             "name": "markrogoyski/math-php",
