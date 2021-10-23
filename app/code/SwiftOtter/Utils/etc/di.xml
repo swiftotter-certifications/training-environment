@@ -1,6 +1,9 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SwiftOtter\Utils\Api\Data\UnifiedSaleInterface" type="SwiftOtter\Utils\Model\UnifiedSale"/>
+    <preference for="SwiftOtter\Utils\Api\Data\UnifiedSaleItemInterface" type="SwiftOtter\Utils\Model\UnifiedSale\Item"/>
+
     <type name="Magento\Sales\Model\OrderFactory">
         <plugin name="UnifiedOrderAlwaysExists"
                 type="SwiftOtter\Utils\Plugin\UnifiedOrderAlwaysExists" />
@@ -48,5 +51,9 @@
     <type name="Magento\Quote\Model\ResourceModel\Quote">
         <plugin name="UnifiedQuoteItemAlwaysExists"
                 type="\SwiftOtter\Utils\Plugin\UnifiedQuoteAlwaysExistsOnResource" />
+    </type>
+    <type name="Magento\Framework\Api\DataObjectHelper">
+        <plugin name="UnifiedOrderAlwaysExistsAfterMerge"
+                type="SwiftOtter\Utils\Plugin\UnifiedOrderAlwaysExistsAfterMerge"/>
     </type>
 </config>

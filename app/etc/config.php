@@ -352,6 +352,7 @@ return [
         'PayPal_BraintreeGraphQl' => 1,
         'Project_Bug1NameNotSaving' => 1,
         'Project_Bug4SlideshowBroken' => 1,
+        'Project_Bug6CheckoutDoesntRespond' => 1,
         'Project_Common' => 1,
         'SwiftOtter_Catalog' => 1,
         'SwiftOtter_CategoryAsProduct' => 1,
