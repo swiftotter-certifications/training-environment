@@ -3,8 +3,8 @@
     <type name="Magento\Framework\Console\CommandListInterface">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="Bug5Initialize" xsi:type="object">\Project\Bug5CheckoutLightsOut\Command\Initialize</item>
-                <item name="Bug5Revert" xsi:type="object">\Project\Bug5CheckoutLightsOut\Command\Revert</item>
+                <item name="Bug5Initialize" xsi:type="object">Project\Bug5CheckoutLightsOut\Command\Initialize</item>
+                <item name="Bug5Revert" xsi:type="object">Project\Bug5CheckoutLightsOut\Command\Revert</item>
             </argument>
         </arguments>
     </type>

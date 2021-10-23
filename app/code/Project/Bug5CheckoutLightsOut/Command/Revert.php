@@ -22,14 +22,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Revert extends Command
 {
-    private Bug6Revert $bug6Revert;
-
     public function __construct(
-        Bug6Revert $bug6Revert,
         string $name = null
     ) {
         parent::__construct($name);
-        $this->bug6Revert = $bug6Revert;
     }
 
     protected function configure()
@@ -40,6 +36,5 @@ class Revert extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->bug6Revert->run($input, $output);
     }
 }
