@@ -33,6 +33,7 @@ class Initialize extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        exec('git checkout bug5');
         $this->bug6Initialize->run($input, $output);
     }
 }
