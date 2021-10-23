@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Swiftotter\Utils\Model\UnifiedSale;
 
+use Magento\Framework\DataObject;
 use Magento\Framework\Model\AbstractModel;
 use Magento\Quote\Api\Data\CartInterface;
 use Magento\Quote\Api\Data\CartItemExtensionInterface;
@@ -36,7 +37,7 @@ class Item implements UnifiedSaleItemInterface
     private $unifiedSaleFactory;
 
     public function __construct(
-        AbstractModel $item,
+        DataObject $item,
         ItemFactory $itemFactory,
         UnifiedSaleFactory $unifiedSaleFactory
     ) {
@@ -93,11 +94,16 @@ class Item implements UnifiedSaleItemInterface
     /**
      * @return UnifiedSaleInterface|null
      */
-    public function getParent(): UnifiedSaleInterface
+    public function getParent(): ?UnifiedSaleInterface
     {
         $object = $this->isQuoteItem()
             ? $this->item->getQuote()
             : $this->item->getOrder();
+
+        if (!$object
+            || !$object->getExtensionAttributes()) {
+            return null;
+        }
 
         if (!$object->getExtensionAttributes()->getUnified()) {
             $object->getExtensionAttributes()->setUnified($this->unifiedSaleFactory->create(['entity' => $object]));

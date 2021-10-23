@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace SwiftOtter\Utils\Model;
 
+use Magento\Framework\DataObject;
 use SwiftOtter\Utils\Api\Data\UnifiedSaleInterface;
 use SwiftOtter\Utils\Model\UnifiedSale\Item;
 use SwiftOtter\Utils\Model\UnifiedSale\ItemFactory;
@@ -39,7 +40,7 @@ class UnifiedSale implements UnifiedSaleInterface
         QuoteItemCollectionFactory $quoteItemCollectionFactory,
         OrderItemCollectionFactory $orderItemCollectionFactory,
         ItemFactory $itemFactory,
-        AbstractModel $entity
+        DataObject $entity
     ) {
         $this->entity = $entity;
         $this->quoteItemCollectionFactory = $quoteItemCollectionFactory;
