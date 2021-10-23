@@ -15,14 +15,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Initialize extends Command
 {
-    private Bug6Initialize $bug6Initialize;
-
     public function __construct(
-        Bug6Initialize $bug6Initialize,
         string $name = null
     ) {
         parent::__construct($name);
-        $this->bug6Initialize = $bug6Initialize;
     }
 
     protected function configure()
@@ -34,6 +30,5 @@ class Initialize extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         exec('git checkout bug5');
-        $this->bug6Initialize->run($input, $output);
     }
 }
