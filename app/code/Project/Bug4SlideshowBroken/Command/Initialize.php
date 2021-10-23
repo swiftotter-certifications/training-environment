@@ -53,7 +53,7 @@ class Initialize extends Command
         $jsAssetUrl = $this->state->emulateAreaCode(
             Area::AREA_FRONTEND,
             function () {
-                return $this->assetRepository->getUrlWithParams('SwiftOtter_Mailchimp::js/mailchimp.js', [
+                return $this->assetRepository->getUrlWithParams(base64_decode('U3dpZnRPdHRlcl9NYWlsY2hpbXA6OmpzL21haWxjaGltcC5qcw=='), [
                     'theme' => 'SwiftOtter/OtterSplash'
                 ]);
             }
