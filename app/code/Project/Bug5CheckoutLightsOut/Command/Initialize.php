@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Project\Bug5CheckoutLightsOut\Command;
 
+use Magento\Backend\Console\Command\CacheFlushCommand;
 use Magento\Framework\App\Config\Storage\WriterInterface;
 use Project\Bug6CheckoutDoesntRespond\Command\Initialize as Bug6Initialize;
 use Symfony\Component\Console\Command\Command;
@@ -15,10 +16,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Initialize extends Command
 {
+    private CacheFlushCommand $cacheFlushCommand;
+
     public function __construct(
-        string $name = null
+        string $name = null,
+        CacheFlushCommand $cacheFlushCommand
     ) {
         parent::__construct($name);
+        $this->cacheFlushCommand = $cacheFlushCommand;
     }
 
     protected function configure()
@@ -30,5 +35,6 @@ class Initialize extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         exec('git checkout bug5');
+        $this->cacheFlushCommand->run($input, $output);
     }
 }
