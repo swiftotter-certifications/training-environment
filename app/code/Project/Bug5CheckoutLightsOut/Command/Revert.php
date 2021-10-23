@@ -5,12 +5,13 @@ declare(strict_types=1);
  * @website https://swiftotter.com
  **/
 
-namespace Project\Bug6CheckoutDoesntRespond\Command;
+namespace Project\Bug5CheckoutLightsOut\Command;
 
 use GuzzleHttp\Client;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Config\Storage\WriterInterface;
-use Project\Bug6CheckoutDoesntRespond\Model\EngagedState;
+use Project\Bug6CheckoutDoesntRespond\Command\Initialize as Bug6Initialize;
+use Project\Bug6CheckoutDoesntRespond\Command\Revert as Bug6Revert;
 use Project\Bug6CheckoutDoesntRespond\Plugin\PreventMethodOnUnified;
 use Project\Common\Action\ApiClient;
 use Project\Common\Action\CreateApiToken;
@@ -19,30 +20,26 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class Initialize extends Command
+class Revert extends Command
 {
-    private WriterInterface $writer;
+    private Bug6Revert $bug6Revert;
 
     public function __construct(
-        WriterInterface $writer,
+        Bug6Revert $bug6Revert,
         string $name = null
     ) {
         parent::__construct($name);
-        $this->writer = $writer;
+        $this->bug6Revert = $bug6Revert;
     }
 
     protected function configure()
     {
-        $this->setName('project:bug6:initialize');
-        $this->setDescription('Initializes environment for bug 6');
+        $this->setName('project:bug5:revert');
+        $this->setDescription('Resets bug 5 so you can use the store again.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln('Enabling scenario for bug 6. Get ready!');
-
-        $this->writer->save(EngagedState::ENABLED, 1);
-
-        $output->writeln('Update complete.');
+        $this->bug6Revert->run($input, $output);
     }
 }
