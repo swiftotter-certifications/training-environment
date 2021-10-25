@@ -19,8 +19,8 @@ class Initialize extends Command
     private CacheFlushCommand $cacheFlushCommand;
 
     public function __construct(
-        string $name = null,
-        CacheFlushCommand $cacheFlushCommand
+        CacheFlushCommand $cacheFlushCommand,
+        string $name = null
     ) {
         parent::__construct($name);
         $this->cacheFlushCommand = $cacheFlushCommand;
