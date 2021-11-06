@@ -1,0 +1,20 @@
+From 78f20cc3cc14b9013cc3ccb8561c11ae1624d303 Mon Sep 17 00:00:00 2001
+From: gonzalezuy <gonzalo@ebizmarts.com>
+Date: Fri, 11 Jun 2021 08:49:50 -0300
+Subject: [PATCH] closes #1209 for magento 2.4
+
+---
+ view/frontend/templates/mailchimpjs.phtml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/view/frontend/templates/mailchimpjs.phtml b/view/frontend/templates/mailchimpjs.phtml
+index 5c5bf483..4ded0c44 100644
+--- a/view/frontend/templates/mailchimpjs.phtml
++++ b/view/frontend/templates/mailchimpjs.phtml
+@@ -4,5 +4,5 @@
+  */
+ $url = $block->getJsUrl();
+ $render = $block->getRender();
+-echo $render->renderTag('script',['type'=>'text/javascript','src'=>$url],'',false);
++echo $render->renderTag('script',['type'=>'text/javascript','src'=>$url],"\n",true);
+ ?>

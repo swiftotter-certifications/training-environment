@@ -104,6 +104,11 @@
     "prefer-stable": true,
     "extra": {
         "magento-force": "override",
-        "composer-exit-on-patch-failure": true
+        "composer-exit-on-patch-failure": true,
+        "patches": {
+            "mailchimp/mc-magento2": {
+                "DEV-1234: fixes a problem where the Javascript was incorrectly escaped.": "patches/mailchimp-body-class-fix.patch"
+            }
+        }
     }
 }
