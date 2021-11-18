@@ -106,24 +106,17 @@ authentication. If this happens, log into the
 
 #### 4. Install Magento
 ```bash
-bin/magento setup:install \
-    --db-host=mysql \ 
-    --db-user=canthelpyouhere \
-    --db-password=orhereeither \
-    --amqp-host=rabbitmq \ 
-    --search-engine=elasticsearch7 \ 
-    --elasticsearch-host=elasticsearch \ 
-    --admin-user=admin_username \
-    --admin-password=admin_password \
-    --admin-email="me@me.com" \
-    --admin-firstname=Great \
-    --admin-lastname=Developer
+bin/magento setup:install --db-host=mysql --db-name=aoed --db-user=canthelpyouhere --db-password=orhereeither --search-engine=elasticsearch7  --elasticsearch-host=elasticsearch --admin-user=admin_username --admin-password=admin_password --admin-email="me@me.com" --admin-firstname=Great --admin-lastname=Developer
 ```
 
 The easiest it to copy into a text editor, update the values, then run it on your command line.
 
 _Note:_ if you are using a docker-based development environment, use the appropriate host names (typically, it is `mysql`, `elasticsearch`, etc.).
 Otherwise, use `127.0.0.1`. Also, don't forget to specify the correct version of ElasticSearch: `elasticsearch5`, `elasticsearch6`, or `elasticsearch7`.
+
+**Common Problems:*
+* `In ResourceConnection.php line 148: Connection "default" is not defined`. Run this command again and it should work.                                      
+
 
 #### 5. Load the latest training data set
 ```bash
