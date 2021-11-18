@@ -35,21 +35,25 @@ class CreateLocationPrintMethods implements DataPatchInterface
      */
     public function apply()
     {
-        $this->moduleDataSetup->getConnection()->insertArray(
-            'swiftotter_productdecorator_location_printmethod',
-            ['location_id', 'print_method_id', 'sku'],
-            [
-                ['1', '3', 'great-tent-1'],
-                ['1', '2', 'great-tent-1'],
-                ['1', '5', 'great-tent-1'],
-                ['2', '3', 'great-tent-1'],
-                ['2', '2', 'great-tent-1'],
-                ['2', '5', 'great-tent-1'],
-                ['3', '3', 'great-tent-1'],
-                ['3', '2', 'great-tent-1'],
-                ['3', '5', 'great-tent-1'],
-            ]
-        );
+        try {
+            $this->moduleDataSetup->getConnection()->insertArray(
+                'swiftotter_productdecorator_location_printmethod',
+                ['location_id', 'print_method_id', 'sku'],
+                [
+                    ['1', '3', 'great-tent-1'],
+                    ['1', '2', 'great-tent-1'],
+                    ['1', '5', 'great-tent-1'],
+                    ['2', '3', 'great-tent-1'],
+                    ['2', '2', 'great-tent-1'],
+                    ['2', '5', 'great-tent-1'],
+                    ['3', '3', 'great-tent-1'],
+                    ['3', '2', 'great-tent-1'],
+                    ['3', '5', 'great-tent-1'],
+                ]
+            );
+        } catch (\Exception $ex) {
+            // This already ran, hopefully!
+        }
     }
 
     /**

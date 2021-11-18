@@ -50,15 +50,5 @@ module.exports = {
             'css/styles'
         ],
         dsl: 'less'
-    },
-    ottersplash: {
-        area: 'frontend',
-        name: 'SwiftOtter/OtterSplash',
-        locale: 'en_US',
-        files: [
-            'css/styles-m',
-            'css/styles-l'
-        ],
-        dsl: 'less'
     }
 };

@@ -59,8 +59,9 @@ there are a couple of _critical_ points:
 3. Run `composer install`
 4. Run `bin/magento setup:install`
 5. Import the latest training data set
-6. Run `bin/magento setup:upgrade`
-7. Ready to go!
+6. Configure URLs
+7. Run `bin/magento setup:upgrade`
+8. Ready to go!
 
 #### 1. Clone Project
 ```bash
@@ -114,9 +115,8 @@ The easiest it to copy into a text editor, update the values, then run it on you
 _Note:_ if you are using a docker-based development environment, use the appropriate host names (typically, it is `mysql`, `elasticsearch`, etc.).
 Otherwise, use `127.0.0.1`. Also, don't forget to specify the correct version of ElasticSearch: `elasticsearch5`, `elasticsearch6`, or `elasticsearch7`.
 
-**Common Problems:*
+**Common Problems:**
 * `In ResourceConnection.php line 148: Connection "default" is not defined`. Run this command again and it should work.                                      
-
 
 #### 5. Load the latest training data set
 ```bash
@@ -128,12 +128,43 @@ This uses [Driver](https://github.com/SwiftOtter/Driver) to fetch in the latest 
 _Known problem:_ At this point, your admin details will be reverted each time you reload. We are getting this
 fixed.
 
-#### 6. Upgrade Magento
-```bash
-bin/magento setup:upgrade --keep-generated
+Thus, you will want to then run:
+```
+bin/magento admin:user:create
 ```
 
-#### 7. That's it!
+#### 6. Set configuration values
+```bash
+bin/magento config:set web/unsecure/base_url "[your URL here]"
+bin/magento config:set web/secure/base_url "[your URL here]"
+bin/magento config:set web/cookie/cookie_domain "[cookie domain]"
+```
+
+#### 7. Upgrade Magento
+```bash
+bin/magento setup:upgrade
+```
+
+If this fails, the first thing to do is _do it again_.
+
+**Installing Avatax**
+
+You might see this error:
+```
+Installing schema... Upgrading schema... Column "cross_border_type" does not exist in table "avatax_cross_border_class".
+```
+
+In this case, go into the database and add `cross_border_type` to `avatax_cross_border_class`. 
+Based on their documentation, this is a known error.
+
+Then, you are likely to get this error:
+```
+SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'cross_border_type_id'
+```
+
+Just delete this column.
+
+#### 8. That's it!
 Pretty easy, isn't it? Let's get rocking some bugs!
 
 ### Refreshing with the latest data
