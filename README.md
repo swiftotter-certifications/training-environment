@@ -53,7 +53,7 @@ there are a couple of _critical_ points:
 * ElasticSearch
 * Ideally: case-sensitive file system
 
-###Overview
+### Overview
 1. Clone project 
 2. Create the database
 3. Run `composer install`
