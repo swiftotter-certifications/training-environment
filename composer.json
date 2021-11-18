@@ -27,8 +27,8 @@
         "sentry/sdk": "2.0.2",
         "snowdog/frontools": "^1.8",
         "snowdog/theme-blank-sass": "^v1.5",
-        "swiftotter/driver": "^3.1",
-        "swiftotter/driver-magento2": "^2.0",
+        "swiftotter/driver": "^3.3",
+        "swiftotter/driver-magento2": "^2.1",
         "avalara/avatax-magento": "2.2.5"
     },
     "require-dev": {
