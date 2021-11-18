@@ -41,6 +41,10 @@ there are a couple of _critical_ points:
 * Watch / read the replication, then try to solve yourself using the TAD 
   framework.
 
+#### Support:
+* [Email us](mailto:learning@swiftotter.com)
+* [Chat with us](https://join.slack.com/t/certifications-hq/shared_invite/zt-dhfoqfqv-Gbs972TAuMnakJK8Q8GWpw)
+
 ### Getting Started
 
 **Project Requirements**
@@ -49,21 +53,53 @@ there are a couple of _critical_ points:
 * ElasticSearch
 * Ideally: case-sensitive file system
 
-**Overview**
-* Run `composer install`
-* Run `bin/magento setup:install`
-* Import the latest training data set
-* Run `bin/magento setup:upgrade`
-* Ready to go!
+###Overview
+1. Clone project 
+2. Create the database
+3. Run `composer install`
+4. Run `bin/magento setup:install`
+5. Import the latest training data set
+6. Run `bin/magento setup:upgrade`
+7. Ready to go!
 
-**Install Composer**
+#### 1. Clone Project
+```bash
+git clone https://github.com/swiftotter-certifications/art-of-ecommerce-debugging debugging
+```
+
+The last parameter is _which directory_ you wish to insert the project. Remove this parameter
+to insert into the current directory.
+
+_Note:_ If you get an Access Denied error, make sure you have properly configured your computer 
+to connect to GitHub. Feel free to [email us](mailto:learning@swiftotter.com) and we will help 
+you PRONTO.
+
+#### 2. Create the database
+If you are using a docker-based development environment (like Warden), the database is already 
+created. Make sure to configure the correct name in configuration below.
+
+If you are using a MAMP/WAMP/LAMP-esque system, you will need to create the database. Log into 
+MySQL and run:
+```mysql
+CREATE DATABASE aoed;
+```
+
+If you are not using root credentials locally, you will also want to assign privileges:
+```mysql
+GRANT ALL PRIVILEGES ON aoed.* to 'myuser'@'%';
+FLUSH PRIVILEGES;
+```
+
+#### 3. Install Composer
 ```bash
 composer install
 ```
 
-This should _just work_.
+This should _just work_. The most likely error you will receive is regarding Magento 
+authentication. If this happens, log into the
+[Magento Marketplace](https://marketplace.magento.com/) and get your Composer credentials there.
 
-**Install Magento**
+#### 4. Install Magento
 ```bash
 bin/magento setup:install \
     --db-host=mysql \ #or 127.0.0.1
@@ -82,7 +118,7 @@ bin/magento setup:install \
 _Note:_ if you are using a docker-based development environment, use the appropriate host names (typically, it is `mysql`, `elasticsearch`, etc.).
 Otherwise, use `127.0.0.1`.
 
-**Load the latest training data set**
+#### 5. Load the latest training data set
 ```bash
 ./vendor/bin/driver run --environment=local-init import-s3
 ```
@@ -92,12 +128,12 @@ This uses [Driver](https://github.com/SwiftOtter/Driver) to fetch in the latest 
 _Known problem:_ At this point, your admin details will be reverted each time you reload. We are getting this
 fixed.
 
-**Upgrade Magento**
+#### 6. Upgrade Magento
 ```bash
 bin/magento setup:upgrade --keep-generated
 ```
 
-**That's it!**
+#### 7. That's it!
 Pretty easy, isn't it? Let's get rocking some bugs!
 
 ### Refreshing with the latest data
