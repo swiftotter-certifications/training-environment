@@ -70,9 +70,13 @@ git clone https://github.com/swiftotter-certifications/art-of-ecommerce-debuggin
 The last parameter is _which directory_ you wish to insert the project. Remove this parameter
 to insert into the current directory.
 
-_Note:_ If you get an Access Denied error, make sure you have properly configured your computer 
+_Note #1:_ If you get an Access Denied error, make sure you have properly configured your computer 
 to connect to GitHub. Feel free to [email us](mailto:learning@swiftotter.com) and we will help 
 you PRONTO.
+
+_Note #2_: if you are using a docker-based environment
+(like [Warden](https://docs.warden.dev/environments/magento2.html)), you will want to ssh into
+the environment and continue these instructions.
 
 #### 2. Create the database
 If you are using a docker-based development environment (like Warden), the database is already 
@@ -92,6 +96,7 @@ FLUSH PRIVILEGES;
 
 #### 3. Install Composer
 ```bash
+cd debugging # or whatever directory the project is found in
 composer install
 ```
 
