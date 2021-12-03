@@ -38,9 +38,13 @@ class UpdateDefaultPrice
         $this->logger = $logger;
     }
 
-    public function execute(string $sku): float
+    public function execute(string $sku): ?float
     {
         $defaultPrice = $this->fetchDefaultPrice->execute($sku);
+        if ($defaultPrice === null) {
+            return null;
+        }
+
         $this->productLookup->saveAttribute($sku, Attributes::DEFAULT_DECORATION_CHARGE, round($defaultPrice, 2));
 
         $this->logger->info('Saving new displayed price: ', [

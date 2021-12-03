@@ -9,6 +9,7 @@ namespace SwiftOtter\DownloadProduct\Model;
 
 use Magento\Customer\Model\ResourceModel\AddressRepository;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\OfflinePayments\Model\Checkmo;
 use Magento\Quote\Api\Data\PaymentInterface;
 use Magento\Quote\Model\Quote as QuoteModel;
 use Magento\Quote\Model\Quote\Address as QuoteAddress;
@@ -18,7 +19,6 @@ use Magento\Vault\Model\Ui\VaultConfigProvider;
 use Psr\Log\LoggerInterface;
 use SwiftOtter\Catalog\Action\ConfigureBillingAddress;
 use SwiftOtter\Catalog\Api\Data\IncomingOrderDetailsInterface;
-use SwiftOtter\Catalog\Model\PriceCalculatorFactory;
 use SwiftOtter\DownloadProduct\Action\AddProductToQuote;
 use SwiftOtter\DownloadProduct\Action\TriggerOrderWebhook;
 use SwiftOtter\DownloadProduct\Api\Data\OrderUserInformationInterface;
@@ -57,9 +57,6 @@ class Purchase
     /** @var ConfigureBillingAddress */
     private $configureBillingAddress;
 
-    /** @var PriceCalculatorFactory */
-    private $priceCalculatorFactory;
-
     /** @var LoggerInterface */
     private $logger;
 
@@ -74,6 +71,7 @@ class Purchase
 
     /** @var */
     private $currency;
+
     /** @var AddressRepository */
     private $customerAddressRepository;
 
@@ -88,7 +86,6 @@ class Purchase
         \Magento\Sales\Api\OrderRepositoryInterface $orderRepository,
         IncomingOrderDetailsInterface $order,
         ConfigureBillingAddress $configureBillingAddress,
-        PriceCalculatorFactory $priceCalculatorFactory,
         LoggerInterface $logger,
         IncomingOrderTransport $incomingOrderTransport,
         TriggerOrderWebhook $triggerOrderWebhook,
@@ -106,7 +103,6 @@ class Purchase
         $this->detailsFactory = $detailsFactory;
         $this->order = $order;
         $this->configureBillingAddress = $configureBillingAddress;
-        $this->priceCalculatorFactory = $priceCalculatorFactory;
         $this->logger = $logger;
         $this->incomingOrderTransport = $incomingOrderTransport;
         $this->triggerOrderWebhook = $triggerOrderWebhook;

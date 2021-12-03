@@ -39,7 +39,7 @@ interface UnifiedSaleInterface
     public function getIncrementId(): ?string;
 
     /**
-     * @return \Magento\Sales\Api\Data\OrderItemInterface|\Magento\Quote\Api\Data\CartItemInterface
+     * @return \Magento\Sales\Api\Data\OrderInterface|\Magento\Quote\Api\Data\CartInterface
      */
     public function get();
 

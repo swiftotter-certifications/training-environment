@@ -9,23 +9,53 @@ namespace SwiftOtter\OrderExport\Api\Data;
 
 interface OrderExportDetailsInterface
 {
+    /**
+     * @return int
+     */
     public function getId();
 
+    /**
+     * @return int
+     */
     public function getOrderId(): int;
 
+    /**
+     * @param int $orderId
+     */
     public function setOrderId(int $orderId): void;
 
-    public function getShipOn(): \DateTime;
+    /**
+     * @return string
+     */
+    public function getShipOn(): string;
 
-    public function setShipOn(\DateTime $shipOn): void;
+    /**
+     * @param string $shipOn
+     */
+    public function setShipOn(string $shipOn): void;
 
-    public function getExportedAt(): \DateTime;
+    /**
+     * @return string
+     */
+    public function getExportedAt(): string;
 
-    public function setExportedAt(\DateTime $exportedAt): void;
+    /**
+     * @param string $exportedAt
+     */
+    public function setExportedAt(string $exportedAt): void;
 
+    /**
+     * @return string
+     */
     public function getMerchantNotes(): string;
 
+    /**
+     * @param string $merchantNotes
+     */
     public function setMerchantNotes(string $merchantNotes): void;
 
+    /**
+     * @return bool
+     */
     public function hasBeenExported(): bool;
 }

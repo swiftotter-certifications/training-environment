@@ -7,10 +7,12 @@ declare(strict_types=1);
 
 namespace SwiftOtter\DownloadProduct\Model;
 
+use Magento\Catalog\Model\ResourceModel\Product as ProductResource;
 use Magento\Framework\Pricing\PriceCurrencyInterface;
 use SwiftOtter\Catalog\Model\PriceCalculator;
 use SwiftOtter\DownloadProduct\Api\PriceResponseInterface;
 use SwiftOtter\DownloadProduct\Endpoint\Token;
+use SwiftOtter\Utils\Model\ResourceModel\ProductLookup;
 
 class PriceResponse implements PriceResponseInterface
 {
@@ -36,19 +38,21 @@ class PriceResponse implements PriceResponseInterface
     /** @var bool */
     private $couponIsApplied;
 
-    /** @var PriceCalculator|null */
-    private $priceCalculator;
+    private ProductResource $productResource;
+    private ProductLookup $productLookup;
 
     public function __construct(
         string $name,
         string $sku,
         PriceCurrencyInterface $pricingHelper,
-        PriceCalculator $priceCalculator
+        ProductResource $productResource,
+        ProductLookup $productLookup
     ) {
         $this->pricingHelper = $pricingHelper;
         $this->name = $name;
         $this->sku = $sku;
-        $this->priceCalculator = $priceCalculator;
+        $this->productResource = $productResource;
+        $this->productLookup = $productLookup;
     }
 
     public function getSku(): string
@@ -78,22 +82,22 @@ class PriceResponse implements PriceResponseInterface
 
     public function getTaxAmount(): ?float
     {
-        return $this->priceCalculator->getTaxAmount();
+        return 0;
     }
 
     public function getBaseTaxAmount(): ?float
     {
-        return $this->priceCalculator->getBaseTaxAmount();
+        return 0;
     }
 
     public function getPrice(): float
     {
-        return $this->priceCalculator->getPrice();
+        return (float)$this->productResource->getAttributeRawValue($this->productLookup->getEntityIdFromSku($this->sku), 'price', 0);
     }
 
     public function getBasePrice(): float
     {
-        return $this->priceCalculator->getBasePrice();
+        return (float)$this->productResource->getAttributeRawValue($this->productLookup->getEntityIdFromSku($this->sku), 'price', 0);
     }
 
     public function getToken(): string
@@ -103,11 +107,11 @@ class PriceResponse implements PriceResponseInterface
 
     public function getCurrency(): string
     {
-        return $this->priceCalculator->getCurrencyCode();
+        return 'USD';
     }
 
     public function getCouponIsApplied(): bool
     {
-        return $this->priceCalculator->getCouponIsApplied();
+        return false;
     }
 }

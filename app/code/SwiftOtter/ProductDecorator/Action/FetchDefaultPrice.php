@@ -57,7 +57,7 @@ class FetchDefaultPrice
         $this->locationPrintMethodResource = $locationPrintMethodResource;
     }
 
-    public function execute($sku): float
+    public function execute($sku): ?float
     {
         $product = $this->productRequestFactory->create();
         $product->setSku($sku);
@@ -68,6 +68,10 @@ class FetchDefaultPrice
 
         $locationIds = $this->locationPrintMethodResource->getPreferredLocationsIdFor($sku);
         $option = $this->locationPrintMethodResource->getBestPrintMethodFor($sku, $locationIds);
+        if (!$option) {
+            return null;
+        }
+
         $location->setPrintMethodId($option['print_method_id']);
         $location->setLocationId($option['location_id']);
 

@@ -27,22 +27,22 @@ class OrderExportDetails extends AbstractModel implements OrderExportDetailsInte
         $this->setData('order_id', $orderId);
     }
 
-    public function getShipOn(): \DateTime
+    public function getShipOn(): string
     {
-        return new \DateTime($this->getData('ship_on'));
+        return $this->getData('ship_on');
     }
 
-    public function setShipOn(\DateTime $shipOn): void
+    public function setShipOn(string $shipOn): void
     {
         $this->setData('ship_on', $shipOn);
     }
 
-    public function getExportedAt(): \DateTime
+    public function getExportedAt(): string
     {
-        return new \DateTime($this->getData('exported_at'));
+        return $this->getData('exported_at');
     }
 
-    public function setExportedAt(\DateTime $exportedAt): void
+    public function setExportedAt(string $exportedAt): void
     {
         $this->setData('exported_at', $exportedAt);
     }

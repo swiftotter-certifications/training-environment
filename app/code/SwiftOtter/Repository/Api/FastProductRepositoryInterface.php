@@ -41,6 +41,7 @@ interface FastProductRepositoryInterface extends OriginalProductRepositoryInterf
      * @param bool $editMode
      * @param int|null $storeId
      * @param bool $forceReload
+     * @param string[]|null $attributes
      * @return \Magento\Catalog\Api\Data\ProductInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
