@@ -9,12 +9,14 @@ namespace SwiftOtter\DownloadProduct\Model;
 
 use Magento\Catalog\Model\ResourceModel\Product as ProductResource;
 use Magento\Framework\Pricing\PriceCurrencyInterface;
+use Magento\Sales\Api\Data\OrderInterface;
 use SwiftOtter\Catalog\Model\PriceCalculator;
+use SwiftOtter\DownloadProduct\Api\InternalPriceResponseInterface;
 use SwiftOtter\DownloadProduct\Api\PriceResponseInterface;
 use SwiftOtter\DownloadProduct\Endpoint\Token;
 use SwiftOtter\Utils\Model\ResourceModel\ProductLookup;
 
-class PriceResponse implements PriceResponseInterface
+class PriceResponse implements InternalPriceResponseInterface
 {
     private $price;
 
@@ -114,4 +116,11 @@ class PriceResponse implements PriceResponseInterface
     {
         return false;
     }
+
+    public function getOrder(): ?OrderInterface
+    {
+        return null;
+    }
+
+
 }

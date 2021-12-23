@@ -114,51 +114,24 @@ class Purchase
 
     public function placeOrder(): PurchaseDetailsInterface
     {
-        $orderId = '';
-        $success = true;
+        $this->incomingOrderTransport->set($this->order);
 
-        try {
-            $this->incomingOrderTransport->set($this->order);
-            $orderId = $this->cartManagement->placeOrder($this->configureQuote()->getId());
+        $orderId = $this->cartManagement->placeOrder($this->configureQuote()->getId());
+        $order = $this->orderRepository->get((int)$orderId);
 
-            $order = $this->orderRepository->get((int)$orderId);
-            $this->saveShareDetails($order);
-            $this->orderRepository->save($order);
+        $this->saveShareDetails($order);
+        $this->orderRepository->save($order);
 
-            $this->triggerOrderWebhook->execute($order, $this->order);
-
-            $title = __('Success! Your purchase is now available.');
-            $message = $this->getMessage();
-            $purchaseType = $this->getPurchaseType();
-            $video = $this->getVideo();
-            $testId = $this->getTestId();
-        } catch (\Exception $exception) {
-            $error = [
-                'Error: ' . $exception->getMessage(),
-                'Trace: ',
-                $exception->getTraceAsString(),
-                'Email: ' . $this->order->getEmail(),
-                'Name: ' . $this->order->getName(),
-                'ProductIdentifer: ' . $this->order->getProductIdentifier(),
-            ];
-            $this->logger->critical($exception->getMessage(), $error);
-            mail('joseph@swiftotter.com', 'Error', implode("\n", $error), 'From: Joseph Maxwell <joseph@swiftotter.com>');
-            $success = false;
-            $message = $exception->getMessage();
-            $title = __('There was a problem with your order.');
-            $purchaseType = 'error';
-            $video = '';
-            $testId = '';
-        }
+        $this->triggerOrderWebhook->execute($order, $this->order);
 
         return $this->detailsFactory->create([
-            'success' => $success,
+            'success' => true,
             'orderId' => $orderId,
-            'title' => $title,
-            'message' => $message,
-            'purchaseType' => $purchaseType,
-            'video' => $video,
-            'testId' => $testId
+            'title' => __('Success! Your purchase is now available.'),
+            'message' => $this->getMessage(),
+            'purchaseType' => $this->getPurchaseType(),
+            'video' => $this->getVideo(),
+            'testId' => $this->getTestId()
         ]);
     }
 
@@ -398,5 +371,10 @@ class Purchase
                 $address->setCustomerId(null);
             }
         }
+    }
+
+    public function getOrderDetails(): IncomingOrderDetailsInterface
+    {
+        return $this->order;
     }
 }

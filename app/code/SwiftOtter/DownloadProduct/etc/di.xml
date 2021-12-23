@@ -26,5 +26,9 @@
         <plugin name="OrderUserInformationLoading" type="SwiftOtter\DownloadProduct\Plugin\OrderUserInformationSaving"/>
     </type>
 
+    <type name="SwiftOtter\DownloadProduct\Model\Purchase">
+        <plugin name="PlaceOrderExceptionHandling" type="SwiftOtter\DownloadProduct\Plugin\PlaceOrderExceptionHandling" />
+    </type>
+
     <preference for="SwiftOtter\DownloadProduct\Api\Data\OrderUserInformationInterface" type="SwiftOtter\DownloadProduct\Model\OrderUserInformation" />
 </config>

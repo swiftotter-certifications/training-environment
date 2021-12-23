@@ -475,5 +475,14 @@ return [
             'type' => '0',
             'code' => 'SwiftOtter/OtterSplash'
         ]
+    ],
+    'system' => [
+        'default' => [
+            'sales' => [
+                'order_export' => [
+                    'enabled' => '0'
+                ]
+            ]
+        ]
     ]
 ];
