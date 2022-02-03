@@ -10,11 +10,11 @@ use SwiftOtter\GiftCard\Api\Data\GiftCardSearchResultsInterface;
 interface GiftCardRepositoryInterface
 {
     /**
-     * @param GiftCardInterface $giftCard
+     * @param \SwiftOtter\GiftCard\Api\Data\GiftCardInterface $giftCard
      * @param int|null $storeId
-     * @return void
+     * @return \SwiftOtter\GiftCard\Api\Data\GiftCardInterface
      */
-    public function save(GiftCardInterface $giftCard, ?int $storeId = 0);
+    public function save(GiftCardInterface $giftCard, ?int $storeId = 0): GiftCardInterface;
 
     /**
      * @param $cardId
@@ -23,7 +23,7 @@ interface GiftCardRepositoryInterface
     public function getById($cardId);
 
     /**
-     * @param $cardId
+     * @param string $cardId
      * @return \SwiftOtter\GiftCard\Api\Data\GiftCardInterface
      */
     public function getByCode($cardId);

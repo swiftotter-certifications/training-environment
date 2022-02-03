@@ -73,24 +73,24 @@ class GiftCard extends AbstractModel implements GiftCardInterface
         return (float)$this->getData(self::CURRENT_VALUE);
     }
 
-    public function setCreatedAt(\DateTime $value): void
+    public function setCreatedAt(?string $value): void
     {
-        $this->setData(self::CREATED_AT, $value->format('Y-m-d h:i:s'));
+        $this->setData(self::CREATED_AT, $value);
     }
 
-    public function getCreatedAt(): ?\DateTime
+    public function getCreatedAt(): ?string
     {
-        return new \DateTime($this->getData(self::CREATED_AT));
+        return$this->getData(self::CREATED_AT);
     }
 
-    public function setUpdatedAt(\DateTime $value): void
+    public function setUpdatedAt(string $value): void
     {
-        $this->setData(self::UPDATED_AT, $value->format('Y-m-d h:i:s'));
+        $this->setData(self::UPDATED_AT, $value);
     }
 
-    public function getUpdatedAt(): ?\DateTime
+    public function getUpdatedAt(): string
     {
-        return new \DateTime($this->getData(self::UPDATED_AT));
+        return $this->getData(self::UPDATED_AT);
     }
 
     public function setRecipientEmail(string $value): void
@@ -111,5 +111,15 @@ class GiftCard extends AbstractModel implements GiftCardInterface
     public function getRecipientName(): ?string
     {
         return (string)$this->getData(self::RECIPIENT_NAME);
+    }
+
+    public function setDisableNotification(bool $value): void
+    {
+        $this->setData(self::DISABLE_NOTIFICATION, $value);
+    }
+
+    public function getDisableNotification(): bool
+    {
+        return (bool)$this->getData(self::DISABLE_NOTIFICATION);
     }
 }

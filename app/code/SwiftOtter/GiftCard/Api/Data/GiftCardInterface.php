@@ -19,19 +19,22 @@ interface GiftCardInterface
     const UPDATED_AT = 'updated_at';
     const RECIPIENT_NAME = 'recipient_name';
     const RECIPIENT_EMAIL = 'recipient_email';
+    const DISABLE_NOTIFICATION = 'disable_notification';
 
     /**
      * @param $id
+     * @return void
      */
     public function setId($id);
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId();
 
     /**
      * @param int $customerId
+     * @return void
      */
     public function setCustomerId(int $customerId): void;
 
@@ -42,6 +45,7 @@ interface GiftCardInterface
 
     /**
      * @param string $code
+     * @return void
      */
     public function setCode(string $code): void;
 
@@ -52,6 +56,7 @@ interface GiftCardInterface
 
     /**
      * @param int $status
+     * @return void
      */
     public function setStatus(int $status): void;
 
@@ -62,6 +67,7 @@ interface GiftCardInterface
 
     /**
      * @param float $value
+     * @return void;
      */
     public function setInitialValue(float $value): void;
 
@@ -72,6 +78,7 @@ interface GiftCardInterface
 
     /**
      * @param float $value
+     * @return void
      */
     public function setCurrentValue(float $value): void;
 
@@ -81,27 +88,30 @@ interface GiftCardInterface
     public function getCurrentValue(): ?float;
 
     /**
-     * @param \DateTime $value
+     * @param string $value
+     * @return void
      */
-    public function setCreatedAt(\DateTime $value): void;
+    public function setCreatedAt(string $value): void;
 
     /**
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getCreatedAt(): ?\DateTime;
-
-    /**
-     * @param \DateTime $value
-     */
-    public function setUpdatedAt(\DateTime $value): void;
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt(): ?\DateTime;
+    public function getCreatedAt(): ?string;
 
     /**
      * @param string $value
+     * @return void
+     */
+    public function setUpdatedAt(string $value): void;
+
+    /**
+     * @return string|null
+     */
+    public function getUpdatedAt(): ?string;
+
+    /**
+     * @param string $value
+     * @return void
      */
     public function setRecipientEmail(string $value): void;
 
@@ -112,6 +122,7 @@ interface GiftCardInterface
 
     /**
      * @param string $value
+     * @return void
      */
     public function setRecipientName(string $value): void;
 
@@ -119,4 +130,14 @@ interface GiftCardInterface
      * @return string|null
      */
     public function getRecipientName(): ?string;
+
+    /**
+     * @param bool $value
+     */
+    public function setDisableNotification(bool $value): void;
+
+    /**
+     * @return bool
+     */
+    public function getDisableNotification(): bool;
 }

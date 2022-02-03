@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0c001047d6e1fc1c35390352abc7c5e",
+    "content-hash": "f3efb837539eb323be8e647706d145c3",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -1306,6 +1306,79 @@
                 }
             ],
             "time": "2021-10-05T07:44:27+00:00"
+        },
+        {
+            "name": "composer/package-versions-deprecated",
+            "version": "1.11.99.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/package-versions-deprecated.git",
+                "reference": "b4f54f74ef3453349c24a845d22392cd31e65f1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/b4f54f74ef3453349c24a845d22392cd31e65f1d",
+                "reference": "b4f54f74ef3453349c24a845d22392cd31e65f1d",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1.0 || ^2.0",
+                "php": "^7 || ^8"
+            },
+            "replace": {
+                "ocramius/package-versions": "1.11.99"
+            },
+            "require-dev": {
+                "composer/composer": "^1.9.3 || ^2.0@dev",
+                "ext-zip": "^1.13",
+                "phpunit/phpunit": "^6.5 || ^7"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PackageVersions\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PackageVersions\\": "src/PackageVersions"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be"
+                }
+            ],
+            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+            "support": {
+                "issues": "https://github.com/composer/package-versions-deprecated/issues",
+                "source": "https://github.com/composer/package-versions-deprecated/tree/1.11.99.5"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-01-17T14:14:24+00:00"
         },
         {
             "name": "composer/semver",
@@ -6662,6 +6735,51 @@
                 "AFL-3.0"
             ],
             "description": "Chinese (China) language"
+        },
+        {
+            "name": "magento/magento-cloud-patches",
+            "version": "1.0.13",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/magento-cloud-patches/magento-magento-cloud-patches-1.0.13.0.zip",
+                "shasum": "55ff49be16f6b3a68a43d696b4b87b6062991c3c"
+            },
+            "require": {
+                "composer/composer": "@stable",
+                "composer/semver": "@stable",
+                "ext-json": "*",
+                "magento/quality-patches": "^1.1.0",
+                "monolog/monolog": "^1.25||^2.3",
+                "php": "^7.0",
+                "symfony/config": "^3.3||^4.4||^5.1",
+                "symfony/console": "^2.6||^4.0||^5.1",
+                "symfony/dependency-injection": "^3.3||^4.3||^5.1",
+                "symfony/process": "^2.1||^4.1||^5.1",
+                "symfony/proxy-manager-bridge": "^3.3||^4.3||^5.1",
+                "symfony/yaml": "^3.3||^4.0||^5.1"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.5.3",
+                "consolidation/robo": "^1.2",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "^7.2",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "bin": [
+                "bin/ece-patches",
+                "bin/magento-patches"
+            ],
+            "type": "magento2-component",
+            "autoload": {
+                "psr-4": {
+                    "Magento\\CloudPatches\\": "src/",
+                    "Magento\\CloudPatches\\Test\\Functional\\": "tests/functional/"
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "Provides critical fixes for Magento 2 Enterprise Edition"
         },
         {
             "name": "magento/magento-composer-installer",
@@ -18176,6 +18294,40 @@
             "description": "eCommerce Platform for Growth (Community Edition)"
         },
         {
+            "name": "magento/quality-patches",
+            "version": "1.1.9",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/quality-patches/magento-quality-patches-1.1.9.0.zip",
+                "shasum": "35617b84d2e7fdc51b7fad4d018dd61ad2089f92"
+            },
+            "require": {
+                "ext-json": "*",
+                "magento/magento-cloud-patches": "^1.0.11",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.5.3",
+                "composer/semver": "@stable",
+                "consolidation/robo": "^1.2",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "^6.2",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "magento2-component",
+            "autoload": {
+                "psr-4": {
+                    "Magento\\QualityPatches\\": "src/",
+                    "Magento\\QualityPatches\\Test\\Functional\\": "tests/functional/",
+                    "Magento\\QualityPatches\\Sniffs\\": "tests/static/sniffs/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Provides quality patches for Magento 2"
+        },
+        {
             "name": "magento/security-package",
             "version": "1.1.2",
             "dist": {
@@ -18959,6 +19111,96 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/master"
             },
             "time": "2020-04-10T16:34:50+00:00"
+        },
+        {
+            "name": "ocramius/proxy-manager",
+            "version": "2.10.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Ocramius/ProxyManager.git",
+                "reference": "8e85357b800125dea30b7083a6bf1800801ad98b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/8e85357b800125dea30b7083a6bf1800801ad98b",
+                "reference": "8e85357b800125dea30b7083a6bf1800801ad98b",
+                "shasum": ""
+            },
+            "require": {
+                "composer-runtime-api": "^2.0.0",
+                "laminas/laminas-code": "^3.4.1",
+                "php": "~7.4.1",
+                "webimpress/safe-writer": "^2.0.1"
+            },
+            "conflict": {
+                "doctrine/annotations": "<1.6.1",
+                "laminas/laminas-stdlib": "<3.2.1",
+                "zendframework/zend-stdlib": "<3.2.1"
+            },
+            "require-dev": {
+                "codelicia/xulieta": "^0.1.2",
+                "doctrine/coding-standard": "^8.1.0",
+                "ext-phar": "*",
+                "infection/infection": "^0.16.4",
+                "nikic/php-parser": "^4.6.0",
+                "phpbench/phpbench": "^0.17.1",
+                "phpunit/phpunit": "^9.2.5",
+                "slevomat/coding-standard": "^6.3.10",
+                "squizlabs/php_codesniffer": "^3.5.5",
+                "vimeo/psalm": "^3.12.2"
+            },
+            "suggest": {
+                "laminas/laminas-json": "To have the JsonRpc adapter (Remote Object feature)",
+                "laminas/laminas-soap": "To have the Soap adapter (Remote Object feature)",
+                "laminas/laminas-xmlrpc": "To have the XmlRpc adapter (Remote Object feature)",
+                "ocramius/generated-hydrator": "To have very fast object to array to object conversion for ghost objects"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ProxyManager\\": "src/ProxyManager"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.io/"
+                }
+            ],
+            "description": "A library providing utilities to generate, instantiate and generally operate with Object Proxies",
+            "homepage": "https://github.com/Ocramius/ProxyManager",
+            "keywords": [
+                "aop",
+                "lazy loading",
+                "proxy",
+                "proxy pattern",
+                "service proxies"
+            ],
+            "support": {
+                "issues": "https://github.com/Ocramius/ProxyManager/issues",
+                "source": "https://github.com/Ocramius/ProxyManager/tree/2.10.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Ocramius",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/ocramius/proxy-manager",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-12-30T14:27:27+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -23831,6 +24073,76 @@
                 }
             ],
             "time": "2021-09-07T07:41:40+00:00"
+        },
+        {
+            "name": "symfony/proxy-manager-bridge",
+            "version": "v5.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/proxy-manager-bridge.git",
+                "reference": "fba051ee1cb00d1d40672ee2da842ba23c572576"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/proxy-manager-bridge/zipball/fba051ee1cb00d1d40672ee2da842ba23c572576",
+                "reference": "fba051ee1cb00d1d40672ee2da842ba23c572576",
+                "shasum": ""
+            },
+            "require": {
+                "composer/package-versions-deprecated": "^1.8",
+                "ocramius/proxy-manager": "~2.1",
+                "php": ">=7.2.5",
+                "symfony/dependency-injection": "^5.0"
+            },
+            "conflict": {
+                "zendframework/zend-eventmanager": "2.6.0"
+            },
+            "require-dev": {
+                "symfony/config": "^4.4|^5.0"
+            },
+            "type": "symfony-bridge",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bridge\\ProxyManager\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony ProxyManager Bridge",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/proxy-manager-bridge/tree/v5.2.1"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-11-12T22:25:33+00:00"
         },
         {
             "name": "symfony/service-contracts",

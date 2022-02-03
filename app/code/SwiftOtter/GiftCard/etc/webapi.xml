@@ -18,4 +18,18 @@
             <parameter name="cartId" force="true">%cart_id%</parameter>
         </data>
     </route>
+
+    <route url="/V1/gift-card/:cardId" method="GET">
+        <service class="SwiftOtter\GiftCard\Api\GiftCardRepositoryInterface" method="getByCode"/>
+        <resources>
+            <resource ref="SwiftOtter_GiftCard::management" />
+        </resources>
+    </route>
+
+    <route url="/V1/gift-card" method="POST">
+        <service class="SwiftOtter\GiftCard\Api\GiftCardRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="SwiftOtter_GiftCard::management" />
+        </resources>
+    </route>
 </routes>

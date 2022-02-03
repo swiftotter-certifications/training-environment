@@ -4,6 +4,7 @@ namespace SwiftOtter\GiftCard\Console;
 
 use Magento\Framework\App\Area;
 use Magento\Framework\App\State;
+use Magento\Framework\Console\Cli;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\File\Csv;
@@ -85,16 +86,20 @@ class ImportGiftCards extends Command
                     try {
                         $this->giftCardRepository->save($this->giftCard->setData($row));
                     } catch (CouldNotSaveException $exception) {
-                        return $output->writeln("<error>{$exception->getMessage()}</error>");
+                        $output->writeln("<error>{$exception->getMessage()}</error>");
+                        return Cli::RETURN_FAILURE;
                     }
                 }
             } catch (\Exception $exception) {
-                return $output->writeln($exception->getMessage());
+                $output->writeln($exception->getMessage());
+                return Cli::RETURN_FAILURE;
             }
         } else {
-            return $output->writeln("<error>You must include the file name.</error>");
+            $output->writeln("<error>You must include the file name.</error>");
+            return Cli::RETURN_FAILURE;
         }
 
-        return $output->writeln("<info>Data successfully imported.</info>");
+        $output->writeln("<info>Data successfully imported.</info>");
+        return Cli::RETURN_SUCCESS;
     }
 }

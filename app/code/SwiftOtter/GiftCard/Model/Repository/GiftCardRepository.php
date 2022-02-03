@@ -62,14 +62,14 @@ class GiftCardRepository implements GiftCardRepositoryInterface
         $this->emailNotification = $emailNotification;
     }
 
-    public function save(GiftCardInterface $giftCard, ?int $storeId = 0)
+    public function save(GiftCardInterface $giftCard, ?int $storeId = 0): GiftCardInterface
     {
         try {
             $canNotify = !(bool)$giftCard->getId();
 
             $this->resource->save($giftCard);
 
-            if ($canNotify) {
+            if ($canNotify && !$giftCard->getDisableNotification()) {
                 $this->emailNotification->send($storeId, $giftCard);
             }
         } catch (\Exception $exception) {
