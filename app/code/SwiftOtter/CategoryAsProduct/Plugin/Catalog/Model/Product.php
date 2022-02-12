@@ -8,22 +8,22 @@ declare(strict_types=1);
 namespace SwiftOtter\CategoryAsProduct\Plugin\Catalog\Model;
 
 use Magento\Catalog\Api\Data\ProductInterface;
+use Magento\Catalog\Model\Product as ProductModel;
+use Magento\Framework\Stdlib\DateTime\DateTime;
 use SwiftOtter\CategoryAsProduct\Model\Product\Type;
 
 class Product
 {
     const KEY_SORT = 'news_from_date';
-    /**
-     * @var \Magento\Framework\Stdlib\DateTime\DateTime
-     */
-    private $dateTime;
 
-    public function __construct(\Magento\Framework\Stdlib\DateTime\DateTime $dateTime)
+    private DateTime $dateTime;
+
+    public function __construct(DateTime $dateTime)
     {
         $this->dateTime = $dateTime;
     }
 
-    public function afterBeforeSave(\Magento\Catalog\Model\Product $context)
+    public function afterBeforeSave(ProductModel $context)
     {
         if ($context->getTypeId() === Type::TYPE_ID && !$context->getData(self::KEY_SORT)) {
             $context->setData(self::KEY_SORT, $context->getData(ProductInterface::CREATED_AT) ?? $this->dateTime->gmtDate());

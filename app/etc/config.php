@@ -370,6 +370,7 @@ return [
         'SwiftOtter_HandlingFee' => 1,
         'SwiftOtter_ProductDecorator' => 1,
         'SwiftOtter_Repository' => 1,
+        'SwiftOtter_StockLookup' => 1,
         'SwiftOtter_Teaching' => 1,
         'SwiftOtter_Utils' => 1,
         'Temando_ShippingRemover' => 1,
@@ -481,6 +482,15 @@ return [
             'sales' => [
                 'order_export' => [
                     'enabled' => '0'
+                ]
+            ]
+        ],
+        'websites' => [
+            'base' => [
+                'sales' => [
+                    'braintree_api' => [
+                        'tokenization_key' => '0:3:JougTjRbIfG+bNapbwqzOKhUXN7yA8/hagSPZiQyWwBD9ZblA75r'
+                    ]
                 ]
             ]
         ]

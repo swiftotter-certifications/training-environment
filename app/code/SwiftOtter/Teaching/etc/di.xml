@@ -11,4 +11,9 @@
             </argument>
         </arguments>
     </type>
+
+    <type name="SwiftOtter\Teaching\Command\GetProduct">
+        <plugin name="SortOrderEmpty" type="\SwiftOtter\Teaching\Plugin\SortOrderEmpty" />
+        <plugin name="SortOrderPopulated" type="\SwiftOtter\Teaching\Plugin\SortOrderPopulated" sortOrder="50" />
+    </type>
 </config>
