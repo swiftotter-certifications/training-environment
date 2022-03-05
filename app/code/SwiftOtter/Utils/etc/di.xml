@@ -56,4 +56,9 @@
         <plugin name="UnifiedOrderAlwaysExistsAfterMerge"
                 type="SwiftOtter\Utils\Plugin\UnifiedOrderAlwaysExistsAfterMerge"/>
     </type>
+
+    <type name="Magento\Framework\Reflection\MethodsMap">
+        <plugin name="PreventUnifiedOnWebApi"
+            type="SwiftOtter\Utils\Plugin\Api\PreventUnifiedOnWebApi" />
+    </type>
 </config>

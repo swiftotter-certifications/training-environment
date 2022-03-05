@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Listing\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="stock_selector" xsi:type="array">
+                    <item name="class" xsi:type="string">Magento\Catalog\Ui\DataProvider\Product\Modifier\Attributes</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider">
+        <arguments>
+            <argument name="addFilterStrategies" xsi:type="array">
+                <item name="salable_quantity" xsi:type="object">SwiftOtter\InventoryFilter\Ui\Component\Filters\StockFilterApplicator</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\InventorySalesAdminUi\Ui\Component\Listing\Column\SalableQuantity">
+        <plugin name="RebuildStockQuantityLookups"
+            type="SwiftOtter\InventoryFilter\Plugin\RebuildStockQuantityLookups"/>
+    </type>
+</config>

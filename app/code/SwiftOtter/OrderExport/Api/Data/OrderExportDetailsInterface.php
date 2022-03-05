@@ -15,32 +15,35 @@ interface OrderExportDetailsInterface
     public function getId();
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getOrderId(): int;
+    public function getOrderId(): ?int;
 
     /**
      * @param int $orderId
+     * @return void
      */
     public function setOrderId(int $orderId): void;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getShipOn(): string;
+    public function getShipOn(): ?string;
 
     /**
      * @param string $shipOn
+     * @return void
      */
     public function setShipOn(string $shipOn): void;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getExportedAt(): string;
+    public function getExportedAt(): ?string;
 
     /**
      * @param string $exportedAt
+     * @return void
      */
     public function setExportedAt(string $exportedAt): void;
 
@@ -51,6 +54,7 @@ interface OrderExportDetailsInterface
 
     /**
      * @param string $merchantNotes
+     * @return void
      */
     public function setMerchantNotes(string $merchantNotes): void;
 

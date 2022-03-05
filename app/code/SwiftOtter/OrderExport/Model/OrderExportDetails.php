@@ -17,7 +17,7 @@ class OrderExportDetails extends AbstractModel implements OrderExportDetailsInte
         $this->_init(\SwiftOtter\OrderExport\Model\ResourceModel\OrderExportDetails::class);
     }
 
-    public function getOrderId(): int
+    public function getOrderId(): ?int
     {
         return (int)$this->getData('order_id');
     }
@@ -27,7 +27,7 @@ class OrderExportDetails extends AbstractModel implements OrderExportDetailsInte
         $this->setData('order_id', $orderId);
     }
 
-    public function getShipOn(): string
+    public function getShipOn(): ?string
     {
         return $this->getData('ship_on');
     }
@@ -37,7 +37,7 @@ class OrderExportDetails extends AbstractModel implements OrderExportDetailsInte
         $this->setData('ship_on', $shipOn);
     }
 
-    public function getExportedAt(): string
+    public function getExportedAt(): ?string
     {
         return $this->getData('exported_at');
     }

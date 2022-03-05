@@ -16,6 +16,7 @@ interface OrderUserInformationInterface
 
     /**
      * @param int $orderId
+     * @return void
      */
     public function setOrderId(int $orderId): void;
 
@@ -26,6 +27,7 @@ interface OrderUserInformationInterface
 
     /**
      * @param int $orderItemId
+     * @return void
      */
     public function setOrderItemId(int $orderItemId): void;
 
@@ -36,6 +38,7 @@ interface OrderUserInformationInterface
 
     /**
      * @param string $name
+     * @return void
      */
     public function setName(string $name): void;
 
@@ -46,6 +49,7 @@ interface OrderUserInformationInterface
 
     /**
      * @param string $email
+     * @return void
      */
     public function setEmail(string $email): void;
 
@@ -56,6 +60,7 @@ interface OrderUserInformationInterface
 
     /**
      * @param bool $value
+     * @return void
      */
     public function setIsShared(bool $value): void;
 }

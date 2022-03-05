@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <filters name="listing_filters">
+            <filterRange name="salable_quantity"
+                provider="${ $.parentName }"
+                component="SwiftOtter_InventoryFilter/js/grid/filters/stock-selector"
+                class="SwiftOtter\InventoryFilter\Ui\Component\Filters\Type\StockFilter">
+                <settings>
+                    <label translate="true">Salable Quantity</label>
+                    <dataScope>salable_quantity</dataScope>
+                </settings>
+            </filterRange>
+        </filters>
+    </listingToolbar>
+
+    <columns name="product_columns">
+        <column name="salable_quantity">
+            <settings>
+                <filter>true</filter>
+            </settings>
+        </column>
+    </columns>
+</listing>

@@ -26,16 +26,19 @@ interface ItemInterface
 
     /**
      * @param $id
+     * @return void
      */
     public function setId($id): void;
 
     /**
      * @param int|null $value
+     * @return void
      */
     public function setItemId(?int $value): void;
 
     /**
      * @param int|null $value
+     * @return void
      */
     public function setPrintSpecId(?int $value): void;
 }

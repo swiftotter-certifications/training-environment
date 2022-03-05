@@ -82,11 +82,13 @@ interface UnifiedSaleItemInterface
 
     /**
      * @param float|null $price
+     * @return void
      */
     public function setCustomPrice(?float $price): void;
 
     /**
      * @param float|null $price
+     * @return void
      */
     public function setOriginalCustomPrice(?float $price): void;
 }
