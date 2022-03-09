@@ -27,7 +27,7 @@ class RunTest extends AbstractBackendController
 
     protected $httpMethod = HttpRequest::METHOD_POST;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

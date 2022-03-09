@@ -8,7 +8,10 @@ declare(strict_types=1);
 namespace SwiftOtter\OrderExport\Test\Integration\Action;
 
 use Magento\Sales\Model\Order;
+use Magento\Sales\Model\OrderFactory;
+use Magento\Sales\Model\ResourceModel\Order as OrderResource;
 use Magento\TestFramework\Helper\Bootstrap;
+use Magento\TestFramework\ObjectManager;
 use PHPUnit\Framework\TestCase;
 use SwiftOtter\OrderExport\Action\TransformOrderToArray;
 use SwiftOtter\OrderExport\Model\HeaderData;
@@ -17,15 +20,20 @@ class TransformOrderToArrayTest extends TestCase
 {
     private $objectManager;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->objectManager = Bootstrap::getObjectManager();
     }
 
+    /**
+     * @magentoDataFixture Magento/Sales/_files/order.php
+     * @return void
+     */
     public function testRunsSuccessfully()
     {
-        /** @var Order $order */
-        include __DIR__ . '/../../../../../../../dev/tests/integration/testsuite/Magento/Sales/_files/order.php';
+        $orderResource = ObjectManager::getInstance()->get(OrderResource::class);
+        $order = ObjectManager::getInstance()->get(OrderFactory::class)->create();
+        $orderResource->load($order, '100000001', 'increment_id');
 
         /** @var HeaderData $headerData */
         $headerData = $this->objectManager->get(HeaderData::class);
@@ -35,12 +43,9 @@ class TransformOrderToArrayTest extends TestCase
         $action = $this->objectManager->get(TransformOrderToArray::class);
         $output = $action->execute((int)$order->getId(), $headerData);
 
-        $this->assertArraySubset([
-            'ship_on' => '01/11/2019',
-            'name' => 'firstname lastname',
-            'city' => 'Los Angeles'
-        ], $output['shipping']);
-
+        $this->assertEquals('01/11/2019', $output['shipping']['ship_on']);
+        $this->assertEquals('firstname lastname', $output['shipping']['name']);
+        $this->assertEquals('Los Angeles', $output['shipping']['city']);
         $this->assertEquals(1, count($output['items']));
     }
 }

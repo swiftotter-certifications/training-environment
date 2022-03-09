@@ -8,7 +8,11 @@ declare(strict_types=1);
 namespace SwiftOtter\OrderExport\Test\Integration\Collector;
 
 use Magento\Sales\Model\Order;
+use Magento\Sales\Model\OrderFactory;
+use Magento\Sales\Model\OrderRepository;
+use Magento\Sales\Model\ResourceModel\Order as OrderResource;
 use Magento\TestFramework\Helper\Bootstrap;
+use Magento\TestFramework\ObjectManager;
 use PHPUnit\Framework\TestCase;
 use SwiftOtter\OrderExport\Collector\ItemData;
 use SwiftOtter\OrderExport\Model\HeaderData as HeaderDataModel;
@@ -17,19 +21,22 @@ class ItemDataTest extends TestCase
 {
     private $objectManager;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->objectManager = Bootstrap::getObjectManager();
     }
 
+    /**
+     * @magentoDataFixture Magento/Sales/_files/order_configurable_product.php
+     * @return void
+     */
     public function testConfigurableProductOutput()
     {
-        include __DIR__ . '/../../../../../../../dev/tests/integration/testsuite/Magento/Sales/_files/order_configurable_product_rollback.php';
+        $orderResource = ObjectManager::getInstance()->get(OrderResource::class);
+        $order = ObjectManager::getInstance()->get(OrderFactory::class)->create();
+        $orderResource->load($order, '100000001', 'increment_id');
 
-        /** @var Order $order */
-        include __DIR__ . '/../../../../../../../dev/tests/integration/testsuite/Magento/Sales/_files/order_configurable_product.php';
-
-        foreach ($order->getItems() as $orderItem) {
+        foreach ($order->getAllItems() as $orderItem) {
             if ($orderItem->getProductType() !== 'simple') {
                 continue;
             }
