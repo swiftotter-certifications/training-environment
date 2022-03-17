@@ -366,6 +366,7 @@ return [
         'SwiftOtter_GraphQL' => 1,
         'SwiftOtter_GraphQLClient' => 1,
         'SwiftOtter_OrderExport' => 1,
+        'SwiftOtter_InventoryFilter' => 1,
         'SwiftOtter_Mailchimp' => 1,
         'SwiftOtter_HandlingFee' => 1,
         'SwiftOtter_ProductDecorator' => 1,
@@ -631,18 +632,18 @@ return [
         'default' => [
             'sales' => [
                 'order_export' => [
-                    'enabled' => '0'
-                ]
-            ]
+                    'enabled' => '0',
+                ],
+            ],
         ],
         'websites' => [
             'base' => [
                 'sales' => [
                     'braintree_api' => [
-                        'tokenization_key' => '0:3:JougTjRbIfG+bNapbwqzOKhUXN7yA8/hagSPZiQyWwBD9ZblA75r'
-                    ]
-                ]
-            ]
-        ]
-    ]
+                        'tokenization_key' => '0:3:JougTjRbIfG+bNapbwqzOKhUXN7yA8/hagSPZiQyWwBD9ZblA75r',
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];

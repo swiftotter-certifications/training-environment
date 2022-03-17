@@ -133,6 +133,7 @@ interface GiftCardInterface
 
     /**
      * @param bool $value
+     * @return void
      */
     public function setDisableNotification(bool $value): void;
 

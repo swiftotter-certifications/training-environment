@@ -9,6 +9,7 @@
         <arguments>
             <argument name="commands" xsi:type="array">
                 <item name="TriggerEventQueue" xsi:type="object">SwiftOtter\EventQueue\Command\Trigger</item>
+                <item name="RunPoisonPill" xsi:type="object">SwiftOtter\EventQueue\Command\PoisonPill</item>
             </argument>
         </arguments>
     </type>

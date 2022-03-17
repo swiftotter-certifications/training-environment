@@ -1,0 +1,68 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 3/14/22
+ * @website https://swiftotter.com
+ **/
+
+/** @var \SwiftOtter\Teaching\ViewModel\EscapeDemonstration $dataProvider */
+$dataProvider = $block->getData('data_provider');
+
+?>
+
+<h1>Escape Output</h1>
+
+<h3><code>$escaper->escapeHtml()</code></h3>
+<pre>
+&lt;script type="javascript"&gt;
+    alert("do something");
+&lt;/script&gt;
+</pre>
+<pre>
+<?= $escaper->escapeHtml("<script type=\"javascript\">alert(\"do something\");</script>"); ?>
+</pre>
+
+<h3><code>$escaper->escapeHtmlAttr()</code></h3>
+<b>Value:</b>
+<pre>
+We like "A Great Day"!
+</pre>
+<pre>
+<?= $escaper->escapeHtmlAttr("We like \"A Great Day\"!"); ?>
+</pre>
+
+<h3><code>$escaper->escapeUrl()</code></h3>
+<b>Value:</b>
+<pre>
+javascript:doSomethingTerrible()
+</pre>
+<pre>
+<?= $escaper->escapeUrl("javascript:doSomethingTerrible()"); ?>
+</pre>
+
+<h3><code>$escaper->encodeUrlParam()</code></h3>
+<b>Value:</b>
+<pre>
+https://swiftotter.com/test?value=1&value=2
+</pre>
+<pre>
+<?= $escaper->escapeUrl("https://swiftotter.com/test?value=1&value=2"); ?>
+</pre>
+
+<h3><code>$escaper->escapeJs()</code></h3>
+<b>Value:</b>
+<pre>
+"We like emojis 😀", %test value
+</pre>
+<pre>
+<?= $escaper->escapeUrl("\"We like emojis 😀\", %test value"); ?>
+</pre>
+
+<h3><code>$escaper->escapeCss()</code></h3>
+<b>Value:</b>
+<pre>
+.test { display: block; content: "This is a test."; }
+</pre>
+<pre>
+<?= $escaper->escapeUrl(".test { display: block; content: \"This is a test.\"; }"); ?>
+</pre>

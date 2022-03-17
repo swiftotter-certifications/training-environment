@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block name="escape_examples" template="SwiftOtter_Teaching::escaper.phtml" cacheable="false">
+                <arguments>
+                    <argument xsi:type="object" name="data_provider">\SwiftOtter\Teaching\ViewModel\EscapeDemonstration</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
