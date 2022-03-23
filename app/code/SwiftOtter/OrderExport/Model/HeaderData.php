@@ -7,26 +7,25 @@ declare(strict_types=1);
 
 namespace SwiftOtter\OrderExport\Model;
 
-class HeaderData
+use SwiftOtter\OrderExport\Api\Data\HeaderDataInterface;
+
+class HeaderData implements HeaderDataInterface
 {
-    /** @var \DateTime */
+    /** @var string */
     private $shipDate;
 
     /** @var string */
     private $merchantNotes;
 
-    /**
-     * @return \DateTime
-     */
-    public function getShipDate(): \DateTime
+    public function getShipDate(): string
     {
         return $this->shipDate;
     }
 
     /**
-     * @param \DateTime $shipDate
+     * @param string $shipDate
      */
-    public function setShipDate(\DateTime $shipDate): void
+    public function setShipDate(string $shipDate): void
     {
         $this->shipDate = $shipDate;
     }

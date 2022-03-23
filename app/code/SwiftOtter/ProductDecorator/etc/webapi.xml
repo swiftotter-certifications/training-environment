@@ -8,10 +8,4 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
-    <route url="/V1/V1/detail-loader/valid" method="GET">
-        <service class="SwiftOtter\ProductDecorator\Api\DetailLoaderInterface" method="valid"/>
-        <resources>
-            <resource ref="self"/>
-        </resources>
-    </route>
 </routes>

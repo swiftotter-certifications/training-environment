@@ -30,5 +30,29 @@
             "GIFT_CARD_USAGE_ID_GIFT_CARD_ID": true,
             "GIFT_CARD_USAGE_ORDER_ID_SALES_ORDER_ENTITY_ID": true
         }
+    },
+    "gift_card_quote": {
+        "column": {
+            "id": true,
+            "gift_card_id": true,
+            "quote_id": true
+        },
+        "constraint": {
+            "GIFT_CARD_QUOTE_GIFT_CARD_ID_GIFT_CARD_ID": true,
+            "GIFT_CARD_QUOTE_QUOTE_ID_QUOTE_ENTITY_ID": true,
+            "PRIMARY": true
+        }
+    },
+    "quote": {
+        "column": {
+            "gift_card_amount": true,
+            "base_gift_card_amount": true
+        }
+    },
+    "quote_address": {
+        "column": {
+            "gift_card_amount": true,
+            "base_gift_card_amount": true
+        }
     }
 }

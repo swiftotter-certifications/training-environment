@@ -14,7 +14,8 @@ input GiftcardAttributeFilterInput {
 
 type Giftcards @doc(description:"Comment for gift cards") {
     items: [Giftcard] @doc(description: "comment for items[Giftcards].")
-    total_count: Int
+    page_info: SearchResultPageInfo @doc(description: "An object that includes the page_info and currentPage values specified in the query.")
+    total_count: Int @doc(description: "The total number of categories that match the criteria.")
 }
 
 type Giftcard @doc(description: "Giftcard is just that... a gift card")

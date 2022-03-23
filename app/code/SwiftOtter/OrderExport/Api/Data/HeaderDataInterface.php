@@ -1,15 +1,13 @@
 <?php
 declare(strict_types=1);
 /**
- * @by SwiftOtter, Inc. 3/6/20
+ * @by SwiftOtter, Inc. 3/23/22
  * @website https://swiftotter.com
  **/
 
 namespace SwiftOtter\OrderExport\Api\Data;
 
-use SwiftOtter\OrderExport\Model\HeaderData;
-
-interface IncomingHeaderDataInterface
+interface HeaderDataInterface
 {
     /**
      * @return string
@@ -18,6 +16,7 @@ interface IncomingHeaderDataInterface
 
     /**
      * @param string $shipDate
+     * @return void
      */
     public function setShipDate(string $shipDate): void;
 
@@ -27,12 +26,8 @@ interface IncomingHeaderDataInterface
     public function getMerchantNotes(): string;
 
     /**
-     * @param string $notes
+     * @param string $merchantNotes
+     * @return void
      */
-    public function setMerchantNotes(string $notes): void;
-
-    /**
-     * @return \SwiftOtter\OrderExport\Api\Data\HeaderDataInterface
-     */
-    public function getHeaderData(): HeaderDataInterface;
+    public function setMerchantNotes(string $merchantNotes): void;
 }

@@ -57,4 +57,7 @@
 
     <preference for="SwiftOtter\OrderExport\Api\Data\OrderExportDetailsInterface"
                 type="SwiftOtter\OrderExport\Model\OrderExportDetails"/>
+
+    <preference for="SwiftOtter\OrderExport\Api\Data\HeaderDataInterface"
+                type="SwiftOtter\OrderExport\Model\HeaderData"/>
 </config>

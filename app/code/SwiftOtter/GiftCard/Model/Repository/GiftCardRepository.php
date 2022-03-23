@@ -7,10 +7,6 @@ declare(strict_types=1);
 
 namespace SwiftOtter\GiftCard\Model\Repository;
 
-use Magento\Cms\Api\BlockRepositoryInterface;
-use Magento\Cms\Api\Data;
-use Magento\Cms\Model\ResourceModel\Block as ResourceBlock;
-use Magento\Cms\Model\ResourceModel\Block\CollectionFactory as BlockCollectionFactory;
 use Magento\Framework\Api\DataObjectHelper;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace SwiftOtter\OrderExport\Model;
 
+use SwiftOtter\OrderExport\Api\Data\HeaderDataInterface;
 use SwiftOtter\OrderExport\Api\Data\IncomingHeaderDataInterface;
 
 class IncomingHeaderData implements IncomingHeaderDataInterface
@@ -20,7 +21,7 @@ class IncomingHeaderData implements IncomingHeaderDataInterface
     /** @var string */
     private $merchantNotes;
 
-    public function __construct(HeaderDataFactory $headerDataFactory)
+    public function __construct(\SwiftOtter\OrderExport\Api\Data\HeaderDataInterfaceFactory $headerDataFactory)
     {
         $this->headerDataFactory = $headerDataFactory;
     }
@@ -57,11 +58,11 @@ class IncomingHeaderData implements IncomingHeaderDataInterface
         $this->merchantNotes = $merchantNotes;
     }
 
-    public function getHeaderData(): HeaderData
+    public function getHeaderData(): HeaderDataInterface
     {
         $headerData = $this->headerDataFactory->create();
         $headerData->setMerchantNotes($this->getMerchantNotes());
-        $headerData->setShipDate(new \DateTime($this->getShipDate()));
+        $headerData->setShipDate($this->getShipDate());
 
         return $headerData;
     }
