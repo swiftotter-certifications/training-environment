@@ -62,7 +62,7 @@
                 <sorting>asc</sorting>
             </settings>
         </column>
-        <column name="code">
+        <column name="code" template="">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Title</label>
@@ -74,6 +74,7 @@
                 <filter>select</filter>
                 <dataType>select</dataType>
                 <label translate="true">Status</label>
+                <bodyTmpl>SwiftOtter_GiftCard/grid/bold-text</bodyTmpl>
             </settings>
         </column>
         <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">

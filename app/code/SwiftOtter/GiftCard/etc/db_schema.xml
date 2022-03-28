@@ -19,6 +19,12 @@
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>
         </constraint>
+
+        <index referenceId="GIFT_CARD_CODE_RECIPIENT_EMAIL_RECIPIENT_NAME" indexType="fulltext">
+            <column name="code"/>
+            <column name="recipient_email"/>
+            <column name="recipient_name"/>
+        </index>
     </table>
 
     <table name="gift_card_usage" resource="default" engine="innodb" comment="Gift card usage">

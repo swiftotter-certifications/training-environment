@@ -369,6 +369,7 @@ return [
         'SwiftOtter_InventoryFilter' => 1,
         'SwiftOtter_Mailchimp' => 1,
         'SwiftOtter_HandlingFee' => 1,
+        'SwiftOtter_PageBuilder' => 1,
         'SwiftOtter_ProductDecorator' => 1,
         'SwiftOtter_Repository' => 1,
         'SwiftOtter_StockLookup' => 1,

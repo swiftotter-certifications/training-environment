@@ -14,6 +14,9 @@
         },
         "constraint": {
             "PRIMARY": true
+        },
+        "index": {
+            "GIFT_CARD_CODE_RECIPIENT_EMAIL_RECIPIENT_NAME": true
         }
     },
     "gift_card_usage": {
