@@ -40,18 +40,6 @@
         <bookmark name="bookmarks"/>
         <columnsControls name="columns_controls"/>
         <filterSearch name="fulltext"/>
-        <filters name="listing_filters">
-            <settings>
-                <templates>
-                    <filters>
-                        <select>
-                            <param name="template" xsi:type="string">ui/grid/filters/elements/ui-select</param>
-                            <param name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</param>
-                        </select>
-                    </filters>
-                </templates>
-            </settings>
-        </filters>
         <paging name="listing_paging"/>
     </listingToolbar>
     <columns name="giftcards_columns">
@@ -62,7 +50,7 @@
                 <sorting>asc</sorting>
             </settings>
         </column>
-        <column name="code" template="">
+        <column name="code">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Title</label>
