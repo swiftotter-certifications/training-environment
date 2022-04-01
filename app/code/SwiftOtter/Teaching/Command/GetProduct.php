@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace SwiftOtter\Teaching\Command;
 
 use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 use SwiftOtter\Repository\Api\FastProductRepositoryInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -18,20 +19,20 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GetProduct extends Command
 {
-    /** @var ProductRepositoryInterface */
-    private $productRepository;
-
-    /** @var FastProductRepositoryInterface */
-    private $fastProductRepository;
+    private ProductRepositoryInterface $productRepository;
+    private FastProductRepositoryInterface $fastProductRepository;
+    private ScopeConfigInterface $scopeConfig;
 
     public function __construct(
         ProductRepositoryInterface $productRepository,
         FastProductRepositoryInterface $fastProductRepository,
+        ScopeConfigInterface $scopeConfig,
         string $name = null
     ) {
         parent::__construct($name);
         $this->productRepository = $productRepository;
         $this->fastProductRepository = $fastProductRepository;
+        $this->scopeConfig = $scopeConfig;
     }
 
     protected function configure()
