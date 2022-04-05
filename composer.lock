@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f92e619f38313cc2fa7408f9cefe9716",
+    "content-hash": "dc85c9aae6647c4fe5d8e2fe96f5140c",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -21722,17 +21722,11 @@
         },
         {
             "name": "swiftotter/driver",
-            "version": "v3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/swiftotter/Driver.git",
-                "reference": "5192a1c11908ea1c23b192df1fd0f54b736a1b11"
-            },
+            "version": "dev-master",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/swiftotter/Driver/zipball/5192a1c11908ea1c23b192df1fd0f54b736a1b11",
-                "reference": "5192a1c11908ea1c23b192df1fd0f54b736a1b11",
-                "shasum": ""
+                "type": "path",
+                "url": "modules/driver",
+                "reference": "30148146614cd837b54b88c7e24afe62428322f7"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.19",
@@ -21758,7 +21752,6 @@
                     "Driver\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
                     "name": "Joseph Maxwell",
@@ -21766,25 +21759,17 @@
                 }
             ],
             "description": "A database production to sandbox utility to sanitize data.",
-            "support": {
-                "issues": "https://github.com/swiftotter/Driver/issues",
-                "source": "https://github.com/swiftotter/Driver/tree/v3.3.0"
-            },
-            "time": "2021-11-17T23:51:02+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "swiftotter/driver-magento2",
-            "version": "v2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/swiftotter/Driver-Magento2.git",
-                "reference": "17e0ae0ae4935e8ea54b5cd94515714d4dfe1483"
-            },
+            "version": "dev-master",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/swiftotter/Driver-Magento2/zipball/17e0ae0ae4935e8ea54b5cd94515714d4dfe1483",
-                "reference": "17e0ae0ae4935e8ea54b5cd94515714d4dfe1483",
-                "shasum": ""
+                "type": "path",
+                "url": "modules/driver-magento2",
+                "reference": "9cf080320afb8a493984e3b5cfb73865027735a3"
             },
             "require": {
                 "swiftotter/driver": "@dev"
@@ -21795,7 +21780,6 @@
                     "Driver\\Magento2\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
                     "name": "Joseph Maxwell",
@@ -21803,11 +21787,9 @@
                 }
             ],
             "description": "The Magento 2 transformation component",
-            "support": {
-                "issues": "https://github.com/swiftotter/Driver-Magento2/issues",
-                "source": "https://github.com/swiftotter/Driver-Magento2/tree/v2.1.0"
-            },
-            "time": "2021-11-17T23:53:20+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "symfony/config",
@@ -30822,11 +30804,14 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "swiftotter/driver": 20,
+        "swiftotter/driver-magento2": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }

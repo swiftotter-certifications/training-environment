@@ -2,6 +2,7 @@
     "name": "magento/project-community-edition",
     "description": "eCommerce Platform for Growth (Community Edition)",
     "type": "project",
+    "minimum-stability": "dev",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
@@ -29,8 +30,8 @@
         "sentry/sdk": "2.0.2",
         "snowdog/frontools": "^1.8",
         "snowdog/theme-blank-sass": "^v1.5",
-        "swiftotter/driver": "^3.3",
-        "swiftotter/driver-magento2": "^2.1"
+        "swiftotter/driver": "dev-master",
+        "swiftotter/driver-magento2": "dev-master"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
@@ -51,7 +52,15 @@
     "config": {
         "use-include-path": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "magento/magento-composer-installer": true,
+            "magento/inventory-composer-installer": true,
+            "laminas/laminas-dependency-plugin": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "magento/composer-root-update-plugin": true
+        }
     },
     "autoload": {
         "exclude-from-classmap": [
@@ -89,6 +98,11 @@
         {
             "type": "composer",
             "url": "https://repo.magento.com/"
+        },
+        {
+            "type": "path",
+            "url": "modules/*/",
+            "symlink": false
         },
         {
             "type": "package",
