@@ -50,18 +50,40 @@ class StockLookup extends AbstractDb
             [RebuildStockQuantityLookups::SOURCE_CODES_KEY => new Expression('GROUP_CONCAT(source_code)')]
         );
 
+        $select->joinLeft(
+            ['stock_configuration' => 'cataloginventory_stock_item'],
+            "product.entity_id = stock_configuration.product_id",
+            [
+                RebuildStockQuantityLookups::CONFIG_MIN_QTY_KEY => new Expression('MAX(min_qty)'),
+                RebuildStockQuantityLookups::CONFIG_USE_CONFIG_MIN_QTY_KEY => new Expression('MAX(use_config_min_qty)'),
+            ]
+        );
+
         foreach ($this->getStockIds() as $stockId) {
             if (!$this->getConnection()->isTableExists('inventory_stock_' . $stockId)) {
                 continue;
             }
 
-            $alias = 'stock_' . $stockId;
+            $alias = RebuildStockQuantityLookups::PREFIX_STOCK . '_' . $stockId;
             $select->joinLeft(
                 [$alias => 'inventory_stock_' . $stockId],
                 "product.sku = {$alias}.sku",
                 [
                     "{$alias}_quantity" => new Expression("SUM({$alias}.quantity)"),
                     "{$alias}_is_salable" => new Expression("IF(SUM({$alias}.is_salable) > 0, 1, 0)")
+                ]
+            );
+
+            $reservationAlias = RebuildStockQuantityLookups::PREFIX_RESERVATION . "_" . $stockId;
+            $select->joinLeft(
+                [$reservationAlias => 'inventory_reservation'],
+                implode(' ', [
+                    "product.sku = {$reservationAlias}.sku",
+                     'AND',
+                     $this->getConnection()->quoteInto("{$reservationAlias}.stock_id = ?", $stockId)
+                ]),
+                [
+                    "{$reservationAlias}_quantity" => new Expression("SUM({$reservationAlias}.quantity)")
                 ]
             );
         }

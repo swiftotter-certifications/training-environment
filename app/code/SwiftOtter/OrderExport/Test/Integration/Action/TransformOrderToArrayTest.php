@@ -31,19 +31,20 @@ class TransformOrderToArrayTest extends TestCase
      */
     public function testRunsSuccessfully()
     {
+        include __DIR__ . '/path/to/fixture.php';
         $orderResource = ObjectManager::getInstance()->get(OrderResource::class);
         $order = ObjectManager::getInstance()->get(OrderFactory::class)->create();
         $orderResource->load($order, '100000001', 'increment_id');
 
         /** @var HeaderData $headerData */
         $headerData = $this->objectManager->get(HeaderData::class);
-        $headerData->setShipDate(new \DateTime('2019-11-01'));
+        $headerData->setShipDate('2019-11-01');
 
         /** @var TransformOrderToArray $action */
         $action = $this->objectManager->get(TransformOrderToArray::class);
         $output = $action->execute((int)$order->getId(), $headerData);
 
-        $this->assertEquals('01/11/2019', $output['shipping']['ship_on']);
+        $this->assertEquals('2019-11-01', $output['shipping']['ship_on']);
         $this->assertEquals('firstname lastname', $output['shipping']['name']);
         $this->assertEquals('Los Angeles', $output['shipping']['city']);
         $this->assertEquals(1, count($output['items']));

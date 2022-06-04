@@ -56,7 +56,7 @@
                 <label translate="true">Title</label>
             </settings>
         </column>
-        <column name="status" component="Magento_Ui/js/grid/columns/select">
+        <column name="status" component="SwiftOtter_GiftCard/js/grid/columns/status">
             <settings>
                 <options class="SwiftOtter\GiftCard\Model\Source\Status"/>
                 <filter>select</filter>

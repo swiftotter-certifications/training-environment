@@ -1,2 +1,8 @@
 <!-- from: vendor/magento/module-ui/view/base/web/templates/grid/cells/sanitizedHtml.html -->
-<div class="data-grid-cell-content"><b text="$col.getLabel($row())"></b></div>
+<div class="data-grid-cell-content"
+     data-bind="style: {
+        fontWeight: $col.isBold($row()) ? 'bold' : 'normal',
+        textDecoration: $col.isStrike($row()) ? 'line-through' : 'none',
+     }"
+     text="$col.getLabel($row())"/>
+

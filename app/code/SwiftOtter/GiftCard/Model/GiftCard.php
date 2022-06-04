@@ -13,6 +13,7 @@ use SwiftOtter\GiftCard\Model\ResourceModel\GiftCard as GiftCardResource;
 
 class GiftCard extends AbstractModel implements GiftCardInterface
 {
+    const STATUS_NOT_ACTIVE = 0;
     const STATUS_ACTIVE = 1;
     const STATUS_USED = 2;
 

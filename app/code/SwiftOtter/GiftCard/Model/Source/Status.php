@@ -20,8 +20,12 @@ class Status implements OptionSourceInterface
                 'value' => GiftCard::STATUS_ACTIVE
             ],
             [
-                'label' => __('Not active'),
+                'label' => __('Used'),
                 'value' => GiftCard::STATUS_USED
+            ],
+            [
+                'label' => __('Not Yet Active'),
+                'value' => GiftCard::STATUS_NOT_ACTIVE
             ],
         ];
     }

@@ -22,8 +22,10 @@ class CompositeCalculator implements CalculatorInterface
         $this->calculators = $calculators;
     }
 
-    public function calculate(PriceRequestInterface $request, ProductResponseInterface $response): ProductResponseInterface
-    {
+    public function calculate(
+        PriceRequestInterface $request,
+        ProductResponseInterface $response
+    ): ProductResponseInterface {
         /** @var CalculatorInterface $calculator */
         foreach ($this->calculators as $calculator) {
             $response = $calculator->calculate($request, $response);

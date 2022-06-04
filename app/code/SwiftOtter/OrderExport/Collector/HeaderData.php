@@ -68,7 +68,7 @@ class HeaderData implements DataCollectorInterface
                 'country' => $address->getCountryId(),
                 'amount' => $order->getBaseShippingAmount(),
                 'method' => $order->getShippingDescription(),
-                'ship_on' => $headerData->getShipDate()->format('d/m/Y')
+                'ship_on' => $headerData->getShipDate()
             ];
         }
 

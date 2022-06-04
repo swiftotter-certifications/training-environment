@@ -22,4 +22,21 @@
         <plugin name="SortOrderEmpty" type="\SwiftOtter\Teaching\Plugin\SortOrderEmpty" />
         <plugin name="SortOrderPopulated" type="\SwiftOtter\Teaching\Plugin\SortOrderPopulated" sortOrder="50" />
     </type>
+
+    <preference for="SwiftOtter\Teaching\Api\InvoiceStageInterface"
+        type="SwiftOtter\Teaching\Model\InvoiceStage"/>
+
+    <preference for="SwiftOtter\Teaching\Api\OrderStageInterface"
+        type="SwiftOtter\Teaching\Model\OrderStage"/>
+
+    <preference for="SwiftOtter\Teaching\Api\QuoteStageInterface"
+        type="SwiftOtter\Teaching\Model\QuoteStage"/>
+
+    <type name="SwiftOtter\Teaching\Model\StageFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="\Magento\Sales\Api\Data\OrderInterface" xsi:type="string"></item>
+            </argument>
+        </arguments>
+    </type>
 </config>
