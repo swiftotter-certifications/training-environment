@@ -15,6 +15,7 @@ class RegisterReqs implements LayoutProcessorInterface
 {
     /** @var CheckoutSession */
     private $checkoutSession;
+
     /** @var IsRegisterRequired */
     private $isRegisterRequired;
 
@@ -68,5 +69,4 @@ class RegisterReqs implements LayoutProcessorInterface
 
         return $jsLayout;
     }
-
 }

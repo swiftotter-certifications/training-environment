@@ -15,7 +15,7 @@ use SwiftOtter\ProductDecorator\Api\Data\PriceResponse\ProductResponseInterface;
 class CompositeCalculator implements CalculatorInterface
 {
     /** @var CalculatorInterface[] */
-    private $calculators;
+    private array $calculators;
 
     /**
      * @param CalculatorInterface[] $calculators
