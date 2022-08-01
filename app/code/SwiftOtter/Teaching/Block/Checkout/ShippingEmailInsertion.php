@@ -21,7 +21,7 @@ class ShippingEmailInsertion implements LayoutProcessorInterface
 
     public function process($jsLayout)
     {
-        $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["before-shipping-method-form"]["children"]["shipping-email"]['email'] = 'joseph@swiftotter.com';
+        $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["before-shipping-method-form"]["children"]["shipping-email"]['emails'] = ['joseph@swiftotter.com'];
         $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["before-shipping-method-form"]["children"]["shipping-email"]['countries'] = $this->countryProvider->get();
         return $jsLayout;
     }

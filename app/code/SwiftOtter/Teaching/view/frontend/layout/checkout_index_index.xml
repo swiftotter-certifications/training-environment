@@ -24,8 +24,14 @@
                                                                 <item name="children" xsi:type="array">
                                                                     <item name="shipping-email" xsi:type="array">
                                                                         <item name="component" xsi:type="string">SwiftOtter_Teaching/js/view/shipping-email</item>
-                                                                        <item name="template" xsi:type="string">SwiftOtter_Teaching/shipping-email</item>
+                                                                        <item name="template" xsi:type="string">SwiftOtter_Teaching/shipping-email-container</item>
                                                                         <item name="visibilitySource" xsi:type="string">checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.country_id</item>
+                                                                        <!-- these are the basic properties of the child renderer: -->
+                                                                        <item name="rendererDetails" xsi:type="array">
+                                                                            <item name="template" xsi:type="string">SwiftOtter_Teaching/shipping-email</item>
+                                                                            <item name="component" xsi:type="string">SwiftOtter_Teaching/js/view/shipping-email-child</item>
+                                                                            <item name="displayArea" xsi:type="string">shipping-email-listing</item>
+                                                                        </item>
                                                                     </item>
                                                                 </item>
                                                             </item>

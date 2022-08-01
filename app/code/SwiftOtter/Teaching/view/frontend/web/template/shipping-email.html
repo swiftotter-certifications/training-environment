@@ -1,19 +1,4 @@
-<!-- ko if: (visible()) -->
-<div class="email">
-    <div class="ship-to">
-        <div class="shipping-information-title">
-            <label for="shipping-information-email">
-                <span data-bind="i18n: 'Additional email for tracking numbers:'"></span>
-            </label>
-
-            <input
-                type="text"
-                data-bind="value: email"
-                id="shipping-information-email"
-            />
-
-            <span data-bind="text: visible"></span>
-        </div>
-    </div>
-</div>
-<!--/ko-->
+<input
+    type="email"
+    data-bind="value: email"
+/>
