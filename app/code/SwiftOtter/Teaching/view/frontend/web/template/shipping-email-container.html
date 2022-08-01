@@ -1,0 +1,15 @@
+<!-- ko if: (visible()) -->
+<div class="email">
+    <div class="ship-to">
+        <div class="shipping-information-title">
+            <label>
+                <span data-bind="i18n: 'Additional email for tracking numbers:'"></span>
+            </label>
+            <each args="data: elems, as: 'element'">
+                <render />
+            </each>
+            <button data-bind="click: createEmail">+</button>
+        </div>
+    </div>
+</div>
+<!--/ko-->

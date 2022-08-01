@@ -60,10 +60,12 @@ define([
                 setTimeout(() => this.refreshInterval = 1000, 5000);
 
                 this.visibilitySetterInterval = setTimeout(this.useAddressForInvoice.bind(this), 500);
-                // debugger;
-                // this.source[this.dataScopePrefix].subscribe(this.updateAddress);
             },
             refreshAddress: function () {
+                if (!quote.billingAddress()) {
+                    return;
+                }
+
                 if (this.refreshTimeout) {
                     clearTimeout(this.refreshTimeout);
                 }
@@ -78,14 +80,9 @@ define([
 
                 if (this.selectedAddress()
                     && quote.billingAddress()
-                    && this.selectedAddress().customerAddressId === quote.billingAddress().customerAddressId) {
+                    && this.selectedAddress().customerAddressId === quote.billingAddress()?.customerAddressId) {
                     return;
                 }
-
-                const addressData = this.source.get(this.dataScopePrefix);
-                console.log(addressData);
-                console.log(quote.billingAddress());
-
 
                 this.updateAddress();
             },

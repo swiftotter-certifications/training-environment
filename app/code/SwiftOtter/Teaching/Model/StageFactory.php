@@ -19,6 +19,12 @@ class StageFactory
         InvoiceInterface::class => InvoiceStageInterface::class
     ];
 
+    const CLASS_MAP = [
+        'order' => '\SwiftOtter\Teaching\Api\OrderStageInterface',
+        'quote' => '\SwiftOtter\Teaching\Api\QuoteStageInterface',
+        'invoice' => '\SwiftOtter\Teaching\Api\InvoiceStageInterface'
+    ];
+
     /**
      * Object Manager instance
      *
