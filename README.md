@@ -106,14 +106,42 @@ authentication. If this happens, log into the
 [Magento Marketplace](https://marketplace.magento.com/) and get your Composer credentials there.
 
 #### 4. Install Magento
+Run the following to install Magento, injecting the appropriate values for all placeholders (e.g., `{{db-host}}`).
+
 ```bash
-bin/magento setup:install --db-host=mysql --db-name=aoed --db-user=canthelpyouhere --db-password=orhereeither --search-engine=elasticsearch7  --elasticsearch-host=elasticsearch --admin-user=admin_username --admin-password=admin_password --admin-email="me@me.com" --admin-firstname=Great --admin-lastname=Developer
+bin/magento setup:install \
+    --backend-frontname=backend \
+    --amqp-host={{rabbitmq-host}} \
+    --amqp-port={{rabbitmq-port}} \
+    --amqp-user={{rabbitmq-user}} \
+    --amqp-password={{rabbittmq-password}} \
+    --db-host={{db-host}} \
+    --db-name={{db-name}} \
+    --db-user={{db-user}} \
+    --db-password={{db-password}} \
+    --search-engine=elasticsearch7 \
+    --elasticsearch-host={{elasticsearch-host}} \
+    --elasticsearch-port={{elasticsearch-port}} \
+    --elasticsearch-index-prefix=magento2 \
+    --elasticsearch-enable-auth=0 \
+    --elasticsearch-timeout=15 \
+    --http-cache-hosts={{varnish-host}} \
+    --session-save=redis \
+    --session-save-redis-host={{redis-host}} \
+    --session-save-redis-port={{redis-port}} \
+    --session-save-redis-db=2 \
+    --session-save-redis-max-concurrency=20 \
+    --cache-backend=redis \
+    --cache-backend-redis-server={{redis-host}} \
+    --cache-backend-redis-db=0 \
+    --cache-backend-redis-port={{redis-port}} \
+    --page-cache=redis \
+    --page-cache-redis-server={{redis-host}} \
+    --page-cache-redis-db=1 \
+    --page-cache-redis-port={{redis-port}}
 ```
 
 The easiest it to copy into a text editor, update the values, then run it on your command line.
-
-_Note:_ if you are using a docker-based development environment, use the appropriate host names (typically, it is `mysql`, `elasticsearch`, etc.).
-Otherwise, use `127.0.0.1`. Also, don't forget to specify the correct version of ElasticSearch: `elasticsearch5`, `elasticsearch6`, or `elasticsearch7`.
 
 **Common Problems:**
 * `In ResourceConnection.php line 148: Connection "default" is not defined`. Run this command again and it should work.                                      
