@@ -72,3 +72,5 @@ atlassian*
 !/generated/.htaccess
 .DS_Store
 app/code/SwiftOtter/StockLookup
+
+.env
