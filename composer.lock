@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d29805586d4a80353e1bb345b157f40",
+    "content-hash": "be85065c421e5e895345624007f38ef6",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -1030,31 +1030,32 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.1.0",
+            "version": "2.2.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "59bb0df323c75308e6a72c6c9bc7dc8cc577f1ca"
+                "reference": "84175907664ca8b73f73f4883e67e886dfefb9f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/59bb0df323c75308e6a72c6c9bc7dc8cc577f1ca",
-                "reference": "59bb0df323c75308e6a72c6c9bc7dc8cc577f1ca",
+                "url": "https://api.github.com/repos/composer/composer/zipball/84175907664ca8b73f73f4883e67e886dfefb9f5",
+                "reference": "84175907664ca8b73f73f4883e67e886dfefb9f5",
                 "shasum": ""
             },
             "require": {
                 "composer/ca-bundle": "^1.0",
                 "composer/metadata-minifier": "^1.0",
+                "composer/pcre": "^1.0",
                 "composer/semver": "^3.0",
                 "composer/spdx-licenses": "^1.2",
-                "composer/xdebug-handler": "^2.0",
-                "justinrainbow/json-schema": "^5.2.10",
+                "composer/xdebug-handler": "^2.0 || ^3.0",
+                "justinrainbow/json-schema": "^5.2.11",
                 "php": "^5.3.2 || ^7.0 || ^8.0",
-                "psr/log": "^1.0",
+                "psr/log": "^1.0 || ^2.0",
                 "react/promise": "^1.2 || ^2.7",
                 "seld/jsonlint": "^1.4",
                 "seld/phar-utils": "^1.0",
-                "symfony/console": "^2.8.52 || ^3.4.35 || ^4.4 || ^5.0 || ^6.0",
+                "symfony/console": "^2.8.52 || ^3.4.35 || ^4.4 || ^5.0",
                 "symfony/filesystem": "^2.8.52 || ^3.4.35 || ^4.4 || ^5.0 || ^6.0",
                 "symfony/finder": "^2.8.52 || ^3.4.35 || ^4.4 || ^5.0 || ^6.0",
                 "symfony/process": "^2.8.52 || ^3.4.35 || ^4.4 || ^5.0 || ^6.0"
@@ -1074,7 +1075,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-main": "2.2-dev"
                 }
             },
             "autoload": {
@@ -1106,9 +1107,9 @@
                 "package"
             ],
             "support": {
-                "irc": "irc://irc.freenode.org/composer",
+                "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.1.0"
+                "source": "https://github.com/composer/composer/tree/2.2.18"
             },
             "funding": [
                 {
@@ -1124,7 +1125,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-03T09:30:09+00:00"
+            "time": "2022-08-20T09:33:38+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -1492,60 +1493,6 @@
                 }
             ],
             "time": "2022-02-24T20:20:32+00:00"
-        },
-        {
-            "name": "consolidation/self-update",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/consolidation/self-update.git",
-                "reference": "dba6b2c0708f20fa3ba8008a2353b637578849b4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/self-update/zipball/dba6b2c0708f20fa3ba8008a2353b637578849b4",
-                "reference": "dba6b2c0708f20fa3ba8008a2353b637578849b4",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.0",
-                "symfony/console": "^2.8|^3|^4|^5",
-                "symfony/filesystem": "^2.5|^3|^4|^5"
-            },
-            "bin": [
-                "scripts/release"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "SelfUpdate\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alexander Menk",
-                    "email": "menk@mestrona.net"
-                },
-                {
-                    "name": "Greg Anderson",
-                    "email": "greg.1.anderson@greenknowe.org"
-                }
-            ],
-            "description": "Provides a self:update command for Symfony Console applications.",
-            "support": {
-                "issues": "https://github.com/consolidation/self-update/issues",
-                "source": "https://github.com/consolidation/self-update/tree/1.2.0"
-            },
-            "time": "2020-04-13T02:49:20+00:00"
         },
         {
             "name": "cweagans/composer-patches",
@@ -2234,77 +2181,6 @@
             "time": "2020-03-31T17:50:54+00:00"
         },
         {
-            "name": "gordalina/cachetool",
-            "version": "6.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gordalina/cachetool.git",
-                "reference": "97c09bb2097632d3760d1bf4d71447f5d68cdb6e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/gordalina/cachetool/zipball/97c09bb2097632d3760d1bf4d71447f5d68cdb6e",
-                "reference": "97c09bb2097632d3760d1bf4d71447f5d68cdb6e",
-                "shasum": ""
-            },
-            "require": {
-                "consolidation/self-update": "^1.2.0",
-                "hollodotme/fast-cgi-client": "^3.0",
-                "monolog/monolog": "^1.0|^2.0",
-                "php": "^7.3|^8.0",
-                "psr/log": "^1.0",
-                "symfony/console": "^4.0|^5.0",
-                "symfony/dependency-injection": "^4.0|^5.0",
-                "symfony/finder": "^4.0|^5.0",
-                "symfony/http-client": "^4.0|^5.0",
-                "symfony/http-foundation": "^4.0|^5.0",
-                "symfony/process": "^4.0|^5.0",
-                "symfony/yaml": "^4.0|^5.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8.0|^9.0"
-            },
-            "bin": [
-                "bin/cachetool"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "CacheTool\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "gordalina",
-                    "email": "samuel.gordalina@gmail.com"
-                }
-            ],
-            "description": "Manage your OPcache & APCu cache through the CLI",
-            "keywords": [
-                "Opcache",
-                "apcu",
-                "cache",
-                "fastcgi",
-                "fpm",
-                "opcode"
-            ],
-            "support": {
-                "issues": "https://github.com/gordalina/cachetool/issues",
-                "source": "https://github.com/gordalina/cachetool/tree/6.3.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/gordalina",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-05-12T17:36:43+00:00"
-        },
-        {
             "name": "guzzlehttp/guzzle",
             "version": "7.5.0",
             "source": {
@@ -2634,56 +2510,6 @@
                 }
             ],
             "time": "2022-08-28T14:45:39+00:00"
-        },
-        {
-            "name": "hollodotme/fast-cgi-client",
-            "version": "v3.1.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hollodotme/fast-cgi-client.git",
-                "reference": "062182d4eda73c161cc2839783acc83096ec0f37"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hollodotme/fast-cgi-client/zipball/062182d4eda73c161cc2839783acc83096ec0f37",
-                "reference": "062182d4eda73c161cc2839783acc83096ec0f37",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "ext-xdebug": ">=2.6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "hollodotme\\FastCGI\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Holger Woltersdorf",
-                    "email": "hw@hollo.me"
-                }
-            ],
-            "description": "A PHP fast CGI client to send requests (a)synchronously to PHP-FPM.",
-            "keywords": [
-                "Socket",
-                "async",
-                "fastcgi",
-                "php-fpm"
-            ],
-            "support": {
-                "issues": "https://github.com/hollodotme/fast-cgi-client/issues",
-                "source": "https://github.com/hollodotme/fast-cgi-client/tree/v3.1.7"
-            },
-            "time": "2021-12-07T10:10:20+00:00"
         },
         {
             "name": "http-interop/http-factory-guzzle",
@@ -5227,75 +5053,6 @@
                 "source": "https://github.com/thephpleague/oauth2-google/tree/3.0.4"
             },
             "time": "2021-01-27T16:09:03+00:00"
-        },
-        {
-            "name": "liquid/liquid",
-            "version": "1.4.32",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kalimatas/php-liquid.git",
-                "reference": "f0be8a3e0e0fcee99c0091748dcb21675b3caf46"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kalimatas/php-liquid/zipball/f0be8a3e0e0fcee99c0091748dcb21675b3caf46",
-                "reference": "f0be8a3e0e0fcee99c0091748dcb21675b3caf46",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.3 || ^8.0"
-            },
-            "require-dev": {
-                "ergebnis/composer-normalize": "^2.8",
-                "friendsofphp/php-cs-fixer": "^2.16.4",
-                "infection/infection": ">=0.17.6",
-                "php-coveralls/php-coveralls": "^2.2",
-                "phpunit/phpunit": "^9.2.6"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liquid\\": "src/Liquid"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Guz Alexander",
-                    "email": "kalimatas@gmail.com",
-                    "homepage": "http://guzalexander.com"
-                },
-                {
-                    "name": "Harald Hanek"
-                },
-                {
-                    "name": "Mateo Murphy"
-                },
-                {
-                    "name": "Alexey Kopytko",
-                    "email": "alexey@kopytko.com",
-                    "homepage": "https://www.alexeykopytko.com/"
-                }
-            ],
-            "description": "Liquid template engine for PHP",
-            "homepage": "https://github.com/kalimatas/php-liquid",
-            "keywords": [
-                "liquid",
-                "template"
-            ],
-            "support": {
-                "issues": "https://github.com/kalimatas/php-liquid/issues",
-                "source": "https://github.com/kalimatas/php-liquid/tree/1.4.32"
-            },
-            "time": "2022-08-08T01:55:20+00:00"
         },
         {
             "name": "magemojo/m2-ce-cron",
@@ -17948,105 +17705,17 @@
             "time": "2022-04-12T22:17:11+00:00"
         },
         {
-            "name": "mageplaza/module-core",
-            "version": "1.4.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "85d1074fdee1259d438618c977ba6e21b76c4f39"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/85d1074fdee1259d438618c977ba6e21b76c4f39",
-                "reference": "85d1074fdee1259d438618c977ba6e21b76c4f39",
-                "shasum": ""
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Mageplaza\\Core\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Mageplaza",
-                    "email": "support@mageplaza.com",
-                    "homepage": "https://www.mageplaza.com",
-                    "role": "Technical Support"
-                }
-            ],
-            "description": "Mageplaza Core for Magento 2",
-            "support": {
-                "issues": "https://github.com/mageplaza/module-core/issues",
-                "source": "https://github.com/mageplaza/module-core/tree/v1.4.12"
-            },
-            "time": "2022-05-30T03:41:05+00:00"
-        },
-        {
-            "name": "mageplaza/module-webhook",
-            "version": "1.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mageplaza/magento-2-webhook.git",
-                "reference": "6d93bb46da7ed0b6fd9449edd4c88a24bdd36c8b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/magento-2-webhook/zipball/6d93bb46da7ed0b6fd9449edd4c88a24bdd36c8b",
-                "reference": "6d93bb46da7ed0b6fd9449edd4c88a24bdd36c8b",
-                "shasum": ""
-            },
-            "require": {
-                "liquid/liquid": "^1.4.8",
-                "mageplaza/module-core": "^1.4.12"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Mageplaza\\Webhook\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Mageplaza",
-                    "email": "support@mageplaza.com",
-                    "homepage": "https://www.mageplaza.com",
-                    "role": "Technical Support"
-                }
-            ],
-            "description": "Magento 2 Webhook Extension",
-            "support": {
-                "issues": "https://github.com/mageplaza/magento-2-webhook/issues",
-                "source": "https://github.com/mageplaza/magento-2-webhook/tree/v1.3.3"
-            },
-            "time": "2022-06-22T09:31:48+00:00"
-        },
-        {
             "name": "mailchimp/mc-magento2",
-            "version": "103.4.43",
+            "version": "103.4.49",
             "dist": {
                 "type": "zip",
-                "url": "https://repo.magento.com/archives/mailchimp/mc-magento2/mailchimp-mc-magento2-103.4.43.0.zip",
-                "shasum": "c73af3867846c82a119914150452069f750d8926"
+                "url": "https://repo.magento.com/archives/mailchimp/mc-magento2/mailchimp-mc-magento2-103.4.49.0.zip",
+                "shasum": "1e57b93c8674a0bae10eb22dbf7bc2832e010441"
             },
             "require": {
-                "ebizmarts/mailchimp-lib": ">=3.0.27",
+                "ebizmarts/mailchimp-lib": ">=3.0.35",
                 "ext-json": "*",
-                "magento/framework": "103.0.*||>=102.0.6-p1"
+                "magento/framework": "103.0.*"
             },
             "type": "magento2-module",
             "autoload": {
@@ -18144,21 +17813,21 @@
         },
         {
             "name": "markshust/magento2-module-disabletwofactorauth",
-            "version": "1.1.4",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/markshust/magento2-module-disabletwofactorauth.git",
-                "reference": "b45d0cefc320a6f37e4c9972ea0509c3ffb70432"
+                "reference": "224c68d85479938f06ab2400148778575784871c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/markshust/magento2-module-disabletwofactorauth/zipball/b45d0cefc320a6f37e4c9972ea0509c3ffb70432",
-                "reference": "b45d0cefc320a6f37e4c9972ea0509c3ffb70432",
+                "url": "https://api.github.com/repos/markshust/magento2-module-disabletwofactorauth/zipball/224c68d85479938f06ab2400148778575784871c",
+                "reference": "224c68d85479938f06ab2400148778575784871c",
                 "shasum": ""
             },
             "require": {
-                "magento/framework": ">=103",
-                "php": ">=7.3"
+                "magento/framework": "^103",
+                "php": "^7||^8"
             },
             "type": "magento2-module",
             "autoload": {
@@ -18176,7 +17845,7 @@
             "description": "The DisableTwoFactorAuth module provides the ability to disable two-factor authentication.",
             "support": {
                 "issues": "https://github.com/markshust/magento2-module-disabletwofactorauth/issues",
-                "source": "https://github.com/markshust/magento2-module-disabletwofactorauth/tree/1.1.4"
+                "source": "https://github.com/markshust/magento2-module-disabletwofactorauth/tree/2.0.1"
             },
             "funding": [
                 {
@@ -18184,7 +17853,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-02-22T16:57:59+00:00"
+            "time": "2022-10-24T17:11:14+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -18618,60 +18287,6 @@
                 "AFL-3.0"
             ],
             "description": "N/A"
-        },
-        {
-            "name": "paypal/rest-api-sdk-php",
-            "version": "1.14.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
-                "reference": "72e2f2466975bf128a31e02b15110180f059fc04"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/72e2f2466975bf128a31e02b15110180f059fc04",
-                "reference": "72e2f2466975bf128a31e02b15110180f059fc04",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "php": ">=5.3.0",
-                "psr/log": "^1.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.35"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "PayPal": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "PayPal",
-                    "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
-                }
-            ],
-            "description": "PayPal's PHP SDK for REST APIs",
-            "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
-            "keywords": [
-                "payments",
-                "paypal",
-                "rest",
-                "sdk"
-            ],
-            "support": {
-                "issues": "https://github.com/paypal/PayPal-PHP-SDK/issues",
-                "source": "https://github.com/paypal/PayPal-PHP-SDK/tree/master"
-            },
-            "abandoned": true,
-            "time": "2019-01-04T20:04:25+00:00"
         },
         {
             "name": "pelago/emogrifier",
@@ -20479,64 +20094,6 @@
                 }
             ],
             "time": "2022-10-19T09:28:02+00:00"
-        },
-        {
-            "name": "snowdog/frontools",
-            "version": "1.12.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SnowdogApps/magento2-frontools.git",
-                "reference": "2a5854781c970044af38aabdce2efa1a6bf9e56e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SnowdogApps/magento2-frontools/zipball/2a5854781c970044af38aabdce2efa1a6bf9e56e",
-                "reference": "2a5854781c970044af38aabdce2efa1a6bf9e56e",
-                "shasum": ""
-            },
-            "type": "magento2-component",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Set of front-end tools for Magento 2, based on Gulp.js",
-            "support": {
-                "issues": "https://github.com/SnowdogApps/magento2-frontools/issues",
-                "source": "https://github.com/SnowdogApps/magento2-frontools/tree/1.12.2"
-            },
-            "time": "2022-03-07T11:34:34+00:00"
-        },
-        {
-            "name": "snowdog/theme-blank-sass",
-            "version": "1.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SnowdogApps/magento2-theme-blank-sass.git",
-                "reference": "14f1e6d4944c632e6f5cd46dbbcb31bbc9570809"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SnowdogApps/magento2-theme-blank-sass/zipball/14f1e6d4944c632e6f5cd46dbbcb31bbc9570809",
-                "reference": "14f1e6d4944c632e6f5cd46dbbcb31bbc9570809",
-                "shasum": ""
-            },
-            "type": "magento2-theme",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "SASS based version of Magento 2 Blank theme",
-            "support": {
-                "issues": "https://github.com/SnowdogApps/magento2-theme-blank-sass/issues",
-                "source": "https://github.com/SnowdogApps/magento2-theme-blank-sass/tree/1.5.0"
-            },
-            "abandoned": true,
-            "time": "2020-10-26T12:38:16+00:00"
         },
         {
             "name": "spomky-labs/aes-key-wrap",
