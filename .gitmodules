@@ -1,6 +1,0 @@
-[submodule "modules/driver"]
-	path = modules/driver
-	url = https://github.com/swiftotter/Driver.git
-[submodule "modules/driver-magento2"]
-	path = modules/driver-magento2
-	url = https://github.com/swiftotter/Driver-Magento2.git
