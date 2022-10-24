@@ -48,8 +48,8 @@ there are a couple of _critical_ points:
 ### Getting Started
 
 **Project Requirements**
-* PHP 7.4 (I know..., but you need to be running it, so that's why I'm using it for this project)
-* MySQL 5.7 or 8
+* PHP 8.1
+* MySQL 8
 * ElasticSearch
 * Ideally: case-sensitive file system
 

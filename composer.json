@@ -8,7 +8,7 @@
         "AFL-3.0"
     ],
     "require": {
-        "avalara/avatax-magento": "2.2.9",
+        "avalara/avatax-magento": "^2.4",
         "boldcommerce/magento2-ordercomments": "^1.8",
         "cweagans/composer-patches": "^1.6",
         "fooman/emailattachments-m2": "^3.0",
@@ -26,27 +26,25 @@
         "markshust/magento2-module-disabletwofactorauth": "^1.0",
         "paypal/module-braintree": "^4.1",
         "paypal/rest-api-sdk-php": "^1.13",
-        "sentry/sdk": "2.0.2",
+        "sentry/sdk": "^3.0",
         "snowdog/frontools": "^1.8",
-        "snowdog/theme-blank-sass": "^v1.5",
-        "swiftotter/driver": "dev-master",
-        "swiftotter/driver-magento2": "dev-master"
+        "snowdog/theme-blank-sass": "^v1.5"
     },
     "require-dev": {
+        "allure-framework/allure-phpunit": "~1.5.0",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-        "friendsofphp/php-cs-fixer": "~2.16.0",
+        "friendsofphp/php-cs-fixer": "~3.3.0",
         "lusitanian/oauth": "~0.8.10",
         "magento/magento-coding-standard": "*",
-        "magento/magento2-functional-testing-framework": "^3.0",
-        "orba/magento2-codegen": "^2.3",
-        "pdepend/pdepend": "~2.7.1",
-        "phpcompatibility/php-compatibility": "^9.3",
-        "phpmd/phpmd": "^2.8.0",
-        "phpstan/phpstan": ">=0.12.3 <=0.12.23",
-        "phpunit/phpunit": "^9",
-        "reach-digital/magento2-test-framework": "^1.4",
-        "sebastian/phpcpd": "~5.0.0",
-        "squizlabs/php_codesniffer": "~3.5.4"
+        "magento/magento2-functional-testing-framework": "^3.7",
+        "pdepend/pdepend": "~2.10.0",
+        "phpmd/phpmd": "^2.9.1",
+        "phpstan/phpstan": "~1.2.0",
+        "phpunit/phpunit": "~9.5.0",
+        "sebastian/phpcpd": "^6.0.3",
+        "squizlabs/php_codesniffer": "~3.6.0",
+        "symfony/finder": "^5.2",
+        "reach-digital/magento2-test-framework": "^1.4"
     },
     "config": {
         "use-include-path": true,
@@ -58,7 +56,8 @@
             "laminas/laminas-dependency-plugin": true,
             "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "magento/composer-root-update-plugin": true
+            "magento/composer-root-update-plugin": true,
+            "magento/composer-dependency-version-audit-plugin": true
         }
     },
     "autoload": {
@@ -97,22 +96,6 @@
         {
             "type": "composer",
             "url": "https://repo.magento.com/"
-        },
-        {
-            "type": "path",
-            "url": "modules/*/",
-            "symlink": false
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "avalara/avatax-magento",
-                "version": "2.2.5",
-                "dist": {
-                    "url": "app/composer/Avalara-AvaTax-for-Magento2-master.zip",
-                    "type": "zip"
-                }
-            }
         }
     ],
     "prefer-stable": true,
