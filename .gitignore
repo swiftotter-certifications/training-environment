@@ -1,4 +1,3 @@
-config.d/connections.yaml
 /.buildpath
 /.cache
 /.metadata
@@ -33,6 +32,8 @@ atlassian*
 /package.json
 /.php_cs
 /.php_cs.cache
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
 /grunt-config.json
 /pub/media/*.*
 !/pub/media/.htaccess
@@ -71,4 +72,3 @@ atlassian*
 /generated/*
 !/generated/.htaccess
 .DS_Store
-app/code/SwiftOtter/StockLookup

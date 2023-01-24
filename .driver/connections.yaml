@@ -1,0 +1,8 @@
+connections:
+  s3:
+    bucket: art-of-ecommerce-debugging
+    compressed-file-key: aoed-local-init.sql.gz
+    uncompressed-file-key: aoed-local-init.sql
+    region: us-east-1
+    key: "AKIAUCOHEVQPU4OPOTUG"
+    secret: "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"
