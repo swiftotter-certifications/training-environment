@@ -1,4 +1,20 @@
-<input
-    type="email"
-    data-bind="value: email"
-/>
+<input class="input-text checkout__shipping-email" type="email"
+       data-bind="
+        event: {change: userChanges},
+        value: value,
+        hasFocus: focused,
+        valueUpdate: valueUpdate,
+        attr: {
+            name: inputName,
+            placeholder: placeholder,
+            'aria-describedby': noticeId,
+            'aria-invalid': error() ? true: false,
+            id: uid,
+            disabled: disabled,
+            maxlength: 255
+    }"/>
+<!-- ko if: error() -->
+<div class="field-error">
+    <span data-bind="text: error" class="error"></span>
+</div>
+<!-- /ko -->

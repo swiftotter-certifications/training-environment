@@ -1,7 +1,7 @@
 define([
     'jquery',
     'ko',
-    'uiComponent'
+    'Magento_Ui/js/form/element/abstract'
 ], function(
     $,
     ko,
@@ -10,17 +10,19 @@ define([
     'use strict';
 
     return Component.extend({
-        email: '',
         defaults: {
             exports: {
-                email: '${ $.parentName }:emails[${ $.index }]'
+                value: '${ $.parentName }:emails[${ $.index }]'
+            },
+            listens: {
+                'checkoutProvider:shippingAddress.data.validate': 'validate'
             }
         },
-        initObservable: function () {
-            this._super()
-                .observe(['email']);
-
-            return this;
+        validation: {
+            'validate-order-shipping-email': true
+        },
+        getTemplate: function() {
+            return this.template;
         }
     });
 })

@@ -1,0 +1,59 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc.
+ **/
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()) :?>
+<div class="box-tocart">
+    <div class="fieldset">
+        <?php if ($block->shouldRenderQuantity()):
+            // SwiftOtter: begin tracking minimum quantity
+            $quantityValidators = $block->getQuantityValidators();
+            $minQuantity = $quantityValidators['validate-item-quantity']['minAllowed'] ?? 1;
+            ?>
+            <div class="field qty">
+                <div class="control">
+                    <input type="number"
+                           name="qty"
+                           id="qty"
+                           min="<?= $minQuantity ?>" <?php // SwiftOtter added minimum quantity ?>
+                           value="<?= $block->getProductDefaultQty() * 1 ?>"
+                           title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                           class="input-text qty"
+                           data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                    />
+
+                    <?php if ($unitOfMeasure = $_product->getCustomAttribute(Attributes::UNIT_OF_MEASURE)?->getValue()): ?>
+                        <span class="unit-of-measure">
+                            <?= __('per') ?>
+                            <?= $unitOfMeasure ?>
+                        </span>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php // END example ?>
+        <?php endif; ?>
+        <div class="actions">
+            <button type="submit"
+                    title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                    class="action primary tocart"
+                    id="product-addtocart-button" disabled>
+                <span><?= $block->escapeHtml($buttonTitle) ?></span>
+            </button>
+            <?= $block->getChildHtml('', true) ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>

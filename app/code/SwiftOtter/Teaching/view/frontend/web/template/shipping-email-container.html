@@ -1,9 +1,14 @@
+<div>
+    <b>Hello, </b>
+    <span data-bind="text: firstname"></span>
+</div>
+
 <!-- ko if: (visible()) -->
 <div class="email">
     <div class="ship-to">
         <div class="shipping-information-title">
             <label>
-                <span data-bind="i18n: 'Additional email for tracking numbers:'"></span>
+                <span translate="'Additional email for tracking numbers'">asdf</span>:
             </label>
             <each args="data: elems, as: 'element'">
                 <render />

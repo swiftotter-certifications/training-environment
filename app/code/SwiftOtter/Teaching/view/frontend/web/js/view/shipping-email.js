@@ -6,6 +6,7 @@ define([
     'uiLayout',
     'mageUtils',
     'uiRegistry',
+    'text!ui/template/form/element/date.html'
 ], function(
     $,
     ko,
@@ -13,25 +14,29 @@ define([
     hooks,
     layout,
     utils,
-    registry
+    registry,
+    date
 ) {
     'use strict';
-
     return Component.extend({
         emails: [],
         visible: true,
+        firstname: '',
         rendererDetails: {},
         rendererComponents: {},
         defaults: {
+            imports: {
+                'firstname': 'checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.firstname:value'
+            },
             listens: {
                 '${ $.visibilitySource }:value': 'countryChanged'
             }
         },
         initObservable: function () {
             this._super()
-                .observe(['emails', 'visible']);
+                .observe(['emails', 'visible', 'firstname']);
 
-            hooks.requestModifiers.push(this.addEmail)
+            hooks.requestModifiers.push(this.addEmail.bind(this))
 
             if (this.emails().length > 0) {
                 this.emails().forEach((value, index) => this.initEmail(index))
@@ -61,7 +66,7 @@ define([
                 parent: this,
                 name: index, // this cannot contain the parent name
                 index: index, // this is passed directly to the child item
-                email: this.emails()[index] // this is the initial value
+                value: this.emails()[index] // this is the initial value
             };
 
             const rendererComponent = Object.assign(this.rendererDetails, templateData);
@@ -118,6 +123,6 @@ define([
             }
 
             return this;
-        },
+        }
     });
 })
