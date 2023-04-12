@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace SwiftOtter\ProductDecorator\Plugin\Defaults;
 
 use SwiftOtter\ProductDecorator\Api\Data\PrintSpecInterface as Target;
-use SwiftOtter\ProductDecorator\Api\Data\PrintSpecInterfaceExtensionFactory as ExtensionFactory;
+use SwiftOtter\ProductDecorator\Api\Data\PrintSpecExtensionFactory as ExtensionFactory;
 use SwiftOtter\ProductDecorator\Api\Data\PrintSpecInterfaceFactory as TargetFactory;
 
 class EnsurePrintSpecHasExtensionAttributes
