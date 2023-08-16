@@ -20,7 +20,6 @@
         "magento/product-community-edition": "2.4.5-p1",
         "magento/quality-patches": "^1.1",
         "magepal/magento2-gmailsmtpapp": "^2.8",
-        "mageplaza/module-webhook": "^1.1",
         "mailchimp/mc-magento2": "103.4.50",
         "markrogoyski/math-php": "^0.47.0",
         "markshust/magento2-module-disabletwofactorauth": "^1.0",

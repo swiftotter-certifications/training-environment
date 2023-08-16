@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c9b9c9f477735388233212bed2fda05",
+    "content-hash": "5ce3b60e24496b89136b62dff607eb38",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -5352,75 +5352,6 @@
                 "source": "https://github.com/thephpleague/oauth2-google/tree/3.0.4"
             },
             "time": "2021-01-27T16:09:03+00:00"
-        },
-        {
-            "name": "liquid/liquid",
-            "version": "1.4.33",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kalimatas/php-liquid.git",
-                "reference": "c8356295b9ddaafabcbea8d1e8d39658842b5758"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kalimatas/php-liquid/zipball/c8356295b9ddaafabcbea8d1e8d39658842b5758",
-                "reference": "c8356295b9ddaafabcbea8d1e8d39658842b5758",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.3 || ^8.0"
-            },
-            "require-dev": {
-                "ergebnis/composer-normalize": "^2.8",
-                "friendsofphp/php-cs-fixer": "^2.16.4",
-                "infection/infection": ">=0.17.6",
-                "php-coveralls/php-coveralls": "^2.2",
-                "phpunit/phpunit": "^9.2.6"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liquid\\": "src/Liquid"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Guz Alexander",
-                    "email": "kalimatas@gmail.com",
-                    "homepage": "http://guzalexander.com"
-                },
-                {
-                    "name": "Harald Hanek"
-                },
-                {
-                    "name": "Mateo Murphy"
-                },
-                {
-                    "name": "Alexey Kopytko",
-                    "email": "alexey@kopytko.com",
-                    "homepage": "https://www.alexeykopytko.com/"
-                }
-            ],
-            "description": "Liquid template engine for PHP",
-            "homepage": "https://github.com/kalimatas/php-liquid",
-            "keywords": [
-                "liquid",
-                "template"
-            ],
-            "support": {
-                "issues": "https://github.com/kalimatas/php-liquid/issues",
-                "source": "https://github.com/kalimatas/php-liquid/tree/1.4.33"
-            },
-            "time": "2023-01-04T09:08:41+00:00"
         },
         {
             "name": "magemojo/m2-ce-cron",
@@ -18057,94 +17988,6 @@
             "time": "2022-04-12T22:17:11+00:00"
         },
         {
-            "name": "mageplaza/module-core",
-            "version": "1.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "f105e4b5a90a92628f246265380bd8e3d6e26348"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/f105e4b5a90a92628f246265380bd8e3d6e26348",
-                "reference": "f105e4b5a90a92628f246265380bd8e3d6e26348",
-                "shasum": ""
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Mageplaza\\Core\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Mageplaza",
-                    "email": "support@mageplaza.com",
-                    "homepage": "https://www.mageplaza.com",
-                    "role": "Technical Support"
-                }
-            ],
-            "description": "Mageplaza Core for Magento 2",
-            "support": {
-                "issues": "https://github.com/mageplaza/module-core/issues",
-                "source": "https://github.com/mageplaza/module-core/tree/v1.5.1"
-            },
-            "time": "2022-12-15T02:58:32+00:00"
-        },
-        {
-            "name": "mageplaza/module-webhook",
-            "version": "1.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mageplaza/magento-2-webhook.git",
-                "reference": "6d93bb46da7ed0b6fd9449edd4c88a24bdd36c8b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/magento-2-webhook/zipball/6d93bb46da7ed0b6fd9449edd4c88a24bdd36c8b",
-                "reference": "6d93bb46da7ed0b6fd9449edd4c88a24bdd36c8b",
-                "shasum": ""
-            },
-            "require": {
-                "liquid/liquid": "^1.4.8",
-                "mageplaza/module-core": "^1.4.12"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Mageplaza\\Webhook\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Mageplaza",
-                    "email": "support@mageplaza.com",
-                    "homepage": "https://www.mageplaza.com",
-                    "role": "Technical Support"
-                }
-            ],
-            "description": "Magento 2 Webhook Extension",
-            "support": {
-                "issues": "https://github.com/mageplaza/magento-2-webhook/issues",
-                "source": "https://github.com/mageplaza/magento-2-webhook/tree/v1.3.3"
-            },
-            "time": "2022-06-22T09:31:48+00:00"
-        },
-        {
             "name": "mailchimp/mc-magento2",
             "version": "103.4.50",
             "dist": {
@@ -28398,5 +28241,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
