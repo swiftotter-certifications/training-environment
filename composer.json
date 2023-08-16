@@ -13,15 +13,32 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "laminas/laminas-dependency-plugin": true,
             "magento/*": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "cweagans/composer-patches": true
         },
         "preferred-install": "dist",
         "sort-packages": true
     },
     "require": {
-        "magento/product-community-edition": "2.4.6",
+        "avalara/avatax-magento": "^2.4",
+        "boldcommerce/magento2-ordercomments": "^1.8",
+        "cweagans/composer-patches": "^1.6",
+        "fooman/emailattachments-m2": "^3.0",
+        "league/oauth2-client": "^2.6",
+        "league/oauth2-google": "^3.0",
+        "magemojo/m2-ce-cron": "^1.3",
+        "magento/composer-dependency-version-audit-plugin": "~0.1",
         "magento/composer-root-update-plugin": "~2.0",
-        "magento/composer-dependency-version-audit-plugin": "~0.1"
+        "magento/product-community-edition": "2.4.6",
+        "magento/quality-patches": "^1.1",
+        "magepal/magento2-gmailsmtpapp": "^2.8",
+        "mailchimp/mc-magento2": "^103",
+        "markrogoyski/math-php": "^0.47",
+        "markshust/magento2-module-disabletwofactorauth": "*",
+        "paypal/rest-api-sdk-php": "^1.13",
+        "sentry/sdk": "^3.1",
+        "snowdog/frontools": "^1.8",
+        "snowdog/theme-blank-sass": "^1.5"
     },
     "autoload": {
         "exclude-from-classmap": [
@@ -79,22 +96,6 @@
         {
             "type": "composer",
             "url": "https://repo.magento.com/"
-        },
-        {
-            "type": "path",
-            "url": "modules/*/",
-            "symlink": false
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "avalara/avatax-magento",
-                "version": "2.4.2",
-                "dist": {
-                    "url": "app/composer/Avalara-AvaTax-for-Magento2-2.4.2.zip",
-                    "type": "zip"
-                }
-            }
         }
     ],
     "prefer-stable": true,

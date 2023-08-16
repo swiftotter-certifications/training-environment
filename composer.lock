@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f26dabe2a1c0ae3468bdd3094005eb6a",
+    "content-hash": "739eb7a9b9c1dc4ae98e862d259df7ab",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -108,6 +108,109 @@
                 "source": "https://github.com/adobe/stock-api-libphp/tree/1.1.5"
             },
             "time": "2021-08-31T16:36:34+00:00"
+        },
+        {
+            "name": "avalara/avatax-magento",
+            "version": "2.5.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/avalara/avatax-magento/avalara-avatax-magento-2.5.3.0.zip",
+                "shasum": "34564570a0ddef482ef33c06d315b84f0d8bb23b"
+            },
+            "require": {
+                "avalara/avataxclient": "^23.3.0",
+                "laminas/laminas-serializer": "*",
+                "magento/framework": "^100.1.0|101.0.*|>=102.0.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "ClassyLlama\\AvaTax\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "Magento module for Avalara's AvaTax suite of business tax calculation and processing services. Uses the AvaTax REST v2 API."
+        },
+        {
+            "name": "avalara/avataxclient",
+            "version": "23.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avadev/AvaTax-REST-V2-PHP-SDK.git",
+                "reference": "d355d53a5342e344594145265af61c3a47be688c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avadev/AvaTax-REST-V2-PHP-SDK/zipball/d355d53a5342e344594145265af61c3a47be688c",
+                "reference": "d355d53a5342e344594145265af61c3a47be688c",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6|~7",
+                "php": ">=5.5.9",
+                "psr/log": "^1.0 || ^2.0 || ^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ],
+                "exclude-from-classmap": [
+                    "src/AvaTaxClient.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Avalara Developer Relations",
+                    "homepage": "https://developer.avalara.com"
+                },
+                {
+                    "name": "Community Developer Forum",
+                    "homepage": "https://community.avalara.com"
+                },
+                {
+                    "name": "Ted Spence",
+                    "email": "ted.spence@avalara.com"
+                },
+                {
+                    "name": "Bob Maidens",
+                    "email": "bob.maidens@avalara.com"
+                },
+                {
+                    "name": "Genevieve Conty",
+                    "email": "genevieve.conty@avalara.com"
+                }
+            ],
+            "description": "Client library for Avalara's AvaTax suite of business tax calculation and processing services. Uses the REST v2 API.",
+            "homepage": "https://developer.avalara.com/",
+            "keywords": [
+                "AvaTax",
+                "avalara",
+                "ecommerce",
+                "sales compliance",
+                "tax",
+                "tax calculation",
+                "taxes"
+            ],
+            "support": {
+                "docs": "https://developer.avalara.com",
+                "forum": "https://community.avalara.com",
+                "issues": "https://github.com/avadev/AvaTax-REST-V2-PHP-SDK/issues",
+                "source": "https://github.com/avadev/AvaTax-REST-V2-PHP-SDK"
+            },
+            "time": "2023-08-14T21:04:00+00:00"
         },
         {
             "name": "aws/aws-crt-php",
@@ -380,6 +483,52 @@
             "time": "2021-12-16T21:41:27+00:00"
         },
         {
+            "name": "boldcommerce/magento2-ordercomments",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/boldcommerce/magento2-ordercomments.git",
+                "reference": "2f0feb02b422a8af2c045dadb0bae2429a49011b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/boldcommerce/magento2-ordercomments/zipball/2f0feb02b422a8af2c045dadb0bae2429a49011b",
+                "reference": "2f0feb02b422a8af2c045dadb0bae2429a49011b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0.0|^8.0.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Bold\\OrderComment\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bold Commerce BV",
+                    "email": "info@boldcommerce.nl"
+                }
+            ],
+            "description": "Magento 2 Module to add  a comment field above the place order button in the checkout",
+            "keywords": [
+                "magento2"
+            ],
+            "support": {
+                "issues": "https://github.com/boldcommerce/magento2-ordercomments/issues",
+                "source": "https://github.com/boldcommerce/magento2-ordercomments/tree/1.9.0"
+            },
+            "time": "2023-05-17T11:39:11+00:00"
+        },
+        {
             "name": "braintree/braintree_php",
             "version": "6.11.1",
             "source": {
@@ -590,6 +739,72 @@
                 "source": "https://github.com/ChristianRiesen/base32/tree/1.6.0"
             },
             "time": "2021-02-26T10:19:33+00:00"
+        },
+        {
+            "name": "clue/stream-filter",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/clue/stream-filter.git",
+                "reference": "d6169430c7731d8509da7aecd0af756a5747b78e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/clue/stream-filter/zipball/d6169430c7731d8509da7aecd0af756a5747b78e",
+                "reference": "d6169430c7731d8509da7aecd0af756a5747b78e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.36"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "Clue\\StreamFilter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Lück",
+                    "email": "christian@clue.engineering"
+                }
+            ],
+            "description": "A simple and modern approach to stream filtering in PHP",
+            "homepage": "https://github.com/clue/php-stream-filter",
+            "keywords": [
+                "bucket brigade",
+                "callback",
+                "filter",
+                "php_user_filter",
+                "stream",
+                "stream_filter_append",
+                "stream_filter_register"
+            ],
+            "support": {
+                "issues": "https://github.com/clue/stream-filter/issues",
+                "source": "https://github.com/clue/stream-filter/tree/v1.6.0"
+            },
+            "funding": [
+                {
+                    "url": "https://clue.engineering/support",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/clue",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-21T13:15:14+00:00"
         },
         {
             "name": "colinmollenhour/cache-backend-file",
@@ -1399,6 +1614,54 @@
             "time": "2022-02-25T21:32:43+00:00"
         },
         {
+            "name": "cweagans/composer-patches",
+            "version": "1.7.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cweagans/composer-patches.git",
+                "reference": "e190d4466fe2b103a55467dfa83fc2fecfcaf2db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cweagans/composer-patches/zipball/e190d4466fe2b103a55467dfa83fc2fecfcaf2db",
+                "reference": "e190d4466fe2b103a55467dfa83fc2fecfcaf2db",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "composer/composer": "~1.0 || ~2.0",
+                "phpunit/phpunit": "~4.6"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "cweagans\\Composer\\Patches"
+            },
+            "autoload": {
+                "psr-4": {
+                    "cweagans\\Composer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Cameron Eagans",
+                    "email": "me@cweagans.net"
+                }
+            ],
+            "description": "Provides a way to patch Composer packages.",
+            "support": {
+                "issues": "https://github.com/cweagans/composer-patches/issues",
+                "source": "https://github.com/cweagans/composer-patches/tree/1.7.3"
+            },
+            "time": "2022-12-20T22:53:13+00:00"
+        },
+        {
             "name": "dasprid/enum",
             "version": "1.0.4",
             "source": {
@@ -1648,6 +1911,55 @@
                 }
             ],
             "time": "2022-12-14T08:49:07+00:00"
+        },
+        {
+            "name": "ebizmarts/mailchimp-lib",
+            "version": "3.0.37",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ebizmarts/mailchimp-lib.git",
+                "reference": "b4b30cf8b0c105caab1ce95e151602901c31b50d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ebizmarts/mailchimp-lib/zipball/b4b30cf8b0c105caab1ce95e151602901c31b50d",
+                "reference": "b4b30cf8b0c105caab1ce95e151602901c31b50d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mailchimp": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ebizmarts Corp.",
+                    "email": "info@ebizmarts.com",
+                    "homepage": "http://ebizmarts.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "API client library for the MailChimp",
+            "homepage": "https://github.com/ebizmarts/mailchimp-lib",
+            "keywords": [
+                "api",
+                "email",
+                "mailchimp"
+            ],
+            "support": {
+                "issues": "https://github.com/ebizmarts/mailchimp-lib/issues",
+                "source": "https://github.com/ebizmarts/mailchimp-lib/tree/3.0.37"
+            },
+            "time": "2023-05-18T02:11:50+00:00"
         },
         {
             "name": "elasticsearch/elasticsearch",
@@ -1957,6 +2269,172 @@
                 "source": "https://github.com/ezyang/htmlpurifier/tree/v4.16.0"
             },
             "time": "2022-09-18T07:06:19+00:00"
+        },
+        {
+            "name": "fooman/emailattachments-implementation-m2",
+            "version": "107.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fooman/emailattachments-implementation-m2.git",
+                "reference": "be7127e95e3603a2da32e7947a1a0c0ba1c05bf1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fooman/emailattachments-implementation-m2/zipball/be7127e95e3603a2da32e7947a1a0c0ba1c05bf1",
+                "reference": "be7127e95e3603a2da32e7947a1a0c0ba1c05bf1",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-mime": "^2.5",
+                "magento/framework": "^102.0.5 || ^103.0.0",
+                "magento/module-backend": "^101.0.0 || ^102.0.0",
+                "magento/module-checkout-agreements": "^100.0.2",
+                "magento/module-email": "^101.0.3",
+                "magento/module-sales": "^102.0.0 || ^103.0.0",
+                "php": "~7.1.0||~7.2.0||~7.3.0||~7.4.0||~8.0.0||~8.1.0||~8.2.0"
+            },
+            "require-dev": {
+                "fooman/testing-and-quality-tools": "^1.0"
+            },
+            "suggest": {
+                "fooman/pdfcustomiser-m2": "Allows to easily customise the sales pdfs while also reducing file sizes ",
+                "fooman/printorderpdf-m2": "Allows attaching the order confirmation pdf to the order confirmation email"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/registration.php"
+                ],
+                "psr-4": {
+                    "Fooman\\EmailAttachments\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "Automatically attach pdf and terms and conditions documents to outgoing sales emails.",
+            "support": {
+                "issues": "https://github.com/fooman/emailattachments-implementation-m2/issues",
+                "source": "https://github.com/fooman/emailattachments-implementation-m2/tree/v107.3.0"
+            },
+            "time": "2023-02-07T23:10:26+00:00"
+        },
+        {
+            "name": "fooman/emailattachments-m2",
+            "version": "3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fooman/emailattachments-m2.git",
+                "reference": "556856ac8945d4ec842708aec3827c5d7687a6d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fooman/emailattachments-m2/zipball/556856ac8945d4ec842708aec3827c5d7687a6d9",
+                "reference": "556856ac8945d4ec842708aec3827c5d7687a6d9",
+                "shasum": ""
+            },
+            "require": {
+                "fooman/emailattachments-implementation-m2": "107.3.0",
+                "magento/framework": ">= 102.0.3 < 102.0.8 || >=103.0.0 < 103.0.7",
+                "php": "~7.1.0||~7.2.0||~7.3.0||~7.4.0||~8.0.0||~8.1.0||~8.2.0"
+            },
+            "suggest": {
+                "fooman/pdfcustomiser-m2": "Allows to easily customise the sales pdfs while also reducing file sizes ",
+                "fooman/printorderpdf-m2": "Allows attaching the order confirmation pdf to the order confirmation email"
+            },
+            "type": "metapackage",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "Automatically attach pdf and terms and conditions documents to outgoing sales emails.",
+            "support": {
+                "source": "https://github.com/fooman/emailattachments-m2/tree/v3.4.0"
+            },
+            "time": "2023-03-06T08:10:45+00:00"
+        },
+        {
+            "name": "friendsofphp/proxy-manager-lts",
+            "version": "v1.0.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfPHP/proxy-manager-lts.git",
+                "reference": "ecadbdc9052e4ad08c60c8a02268712e50427f7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfPHP/proxy-manager-lts/zipball/ecadbdc9052e4ad08c60c8a02268712e50427f7c",
+                "reference": "ecadbdc9052e4ad08c60c8a02268712e50427f7c",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-code": "~3.4.1|^4.0",
+                "php": ">=7.1",
+                "symfony/filesystem": "^4.4.17|^5.0|^6.0|^7.0"
+            },
+            "conflict": {
+                "laminas/laminas-stdlib": "<3.2.1",
+                "zendframework/zend-stdlib": "<3.2.1"
+            },
+            "replace": {
+                "ocramius/proxy-manager": "^2.1"
+            },
+            "require-dev": {
+                "ext-phar": "*",
+                "symfony/phpunit-bridge": "^5.4|^6.0|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "name": "ocramius/proxy-manager",
+                    "url": "https://github.com/Ocramius/ProxyManager"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ProxyManager\\": "src/ProxyManager"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "https://ocramius.github.io/"
+                },
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                }
+            ],
+            "description": "Adding support for a wider range of PHP versions to ocramius/proxy-manager",
+            "homepage": "https://github.com/FriendsOfPHP/proxy-manager-lts",
+            "keywords": [
+                "aop",
+                "lazy loading",
+                "proxy",
+                "proxy pattern",
+                "service proxies"
+            ],
+            "support": {
+                "issues": "https://github.com/FriendsOfPHP/proxy-manager-lts/issues",
+                "source": "https://github.com/FriendsOfPHP/proxy-manager-lts/tree/v1.0.16"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Ocramius",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/ocramius/proxy-manager",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-05-24T07:17:17+00:00"
         },
         {
             "name": "google/recaptcha",
@@ -2330,6 +2808,123 @@
                 }
             ],
             "time": "2023-08-03T15:06:02+00:00"
+        },
+        {
+            "name": "http-interop/http-factory-guzzle",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/http-interop/http-factory-guzzle.git",
+                "reference": "8f06e92b95405216b237521cc64c804dd44c4a81"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/http-interop/http-factory-guzzle/zipball/8f06e92b95405216b237521cc64c804dd44c4a81",
+                "reference": "8f06e92b95405216b237521cc64c804dd44c4a81",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/psr7": "^1.7||^2.0",
+                "php": ">=7.3",
+                "psr/http-factory": "^1.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "^1.0"
+            },
+            "require-dev": {
+                "http-interop/http-factory-tests": "^0.9",
+                "phpunit/phpunit": "^9.5"
+            },
+            "suggest": {
+                "guzzlehttp/psr7": "Includes an HTTP factory starting in version 2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Http\\Factory\\Guzzle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "An HTTP Factory using Guzzle PSR7",
+            "keywords": [
+                "factory",
+                "http",
+                "psr-17",
+                "psr-7"
+            ],
+            "support": {
+                "issues": "https://github.com/http-interop/http-factory-guzzle/issues",
+                "source": "https://github.com/http-interop/http-factory-guzzle/tree/1.2.0"
+            },
+            "time": "2021-07-21T13:50:14+00:00"
+        },
+        {
+            "name": "jean85/pretty-package-versions",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jean85/pretty-package-versions.git",
+                "reference": "ae547e455a3d8babd07b96966b17d7fd21d9c6af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/ae547e455a3d8babd07b96966b17d7fd21d9c6af",
+                "reference": "ae547e455a3d8babd07b96966b17d7fd21d9c6af",
+                "shasum": ""
+            },
+            "require": {
+                "composer-runtime-api": "^2.0.0",
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.17",
+                "jean85/composer-provided-replaced-stub-package": "^1.0",
+                "phpstan/phpstan": "^0.12.66",
+                "phpunit/phpunit": "^7.5|^8.5|^9.4",
+                "vimeo/psalm": "^4.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jean85\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alessandro Lai",
+                    "email": "alessandro.lai85@gmail.com"
+                }
+            ],
+            "description": "A library to get pretty versions strings of installed dependencies",
+            "keywords": [
+                "composer",
+                "package",
+                "release",
+                "versions"
+            ],
+            "support": {
+                "issues": "https://github.com/Jean85/pretty-package-versions/issues",
+                "source": "https://github.com/Jean85/pretty-package-versions/tree/2.0.5"
+            },
+            "time": "2021-10-08T21:21:46+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -4056,6 +4651,76 @@
             "time": "2022-12-29T14:47:23+00:00"
         },
         {
+            "name": "laminas/laminas-serializer",
+            "version": "2.15.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-serializer.git",
+                "reference": "a54801b20c94fdbbcbfb8e7611ca2d5fe0181c8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-serializer/zipball/a54801b20c94fdbbcbfb8e7611ca2d5fe0181c8f",
+                "reference": "a54801b20c94fdbbcbfb8e7611ca2d5fe0181c8f",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-json": "^3.1",
+                "laminas/laminas-stdlib": "^3.2",
+                "php": "~8.0.0 || ~8.1.0 || ~8.2.0"
+            },
+            "conflict": {
+                "zendframework/zend-serializer": "*"
+            },
+            "require-dev": {
+                "laminas/laminas-coding-standard": "~2.4.0",
+                "laminas/laminas-math": "~3.6.0",
+                "laminas/laminas-servicemanager": "~3.19.0",
+                "phpunit/phpunit": "~9.6.0"
+            },
+            "suggest": {
+                "laminas/laminas-math": "(^3.3) To support Python Pickle serialization",
+                "laminas/laminas-servicemanager": "(^3.6) To support plugin manager support"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "component": "Laminas\\Serializer",
+                    "config-provider": "Laminas\\Serializer\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laminas\\Serializer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Serialize and deserialize PHP structures to a variety of representations",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "laminas",
+                "serializer"
+            ],
+            "support": {
+                "chat": "https://laminas.dev/chat",
+                "docs": "https://docs.laminas.dev/laminas-serializer/",
+                "forum": "https://discourse.laminas.dev",
+                "issues": "https://github.com/laminas/laminas-serializer/issues",
+                "rss": "https://github.com/laminas/laminas-serializer/releases.atom",
+                "source": "https://github.com/laminas/laminas-serializer"
+            },
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2023-07-08T08:46:03+00:00"
+        },
+        {
             "name": "laminas/laminas-server",
             "version": "2.15.0",
             "source": {
@@ -4993,6 +5658,185 @@
             "time": "2023-08-05T12:09:49+00:00"
         },
         {
+            "name": "league/oauth2-client",
+            "version": "2.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth2-client.git",
+                "reference": "160d6274b03562ebeb55ed18399281d8118b76c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/160d6274b03562ebeb55ed18399281d8118b76c8",
+                "reference": "160d6274b03562ebeb55ed18399281d8118b76c8",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0 || ^7.0",
+                "paragonie/random_compat": "^1 || ^2 || ^9.99",
+                "php": "^5.6 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3.5",
+                "php-parallel-lint/php-parallel-lint": "^1.3.1",
+                "phpunit/phpunit": "^5.7 || ^6.0 || ^9.5",
+                "squizlabs/php_codesniffer": "^2.3 || ^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Bilbie",
+                    "email": "hello@alexbilbie.com",
+                    "homepage": "http://www.alexbilbie.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Woody Gilk",
+                    "homepage": "https://github.com/shadowhand",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "OAuth 2.0 Client Library",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth2",
+                "single sign on"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/oauth2-client/issues",
+                "source": "https://github.com/thephpleague/oauth2-client/tree/2.7.0"
+            },
+            "time": "2023-04-16T18:19:15+00:00"
+        },
+        {
+            "name": "league/oauth2-google",
+            "version": "3.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth2-google.git",
+                "reference": "6b79441f244040760bed5fdcd092a2bda7cf34c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-google/zipball/6b79441f244040760bed5fdcd092a2bda7cf34c6",
+                "reference": "6b79441f244040760bed5fdcd092a2bda7cf34c6",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-client": "^2.0"
+            },
+            "require-dev": {
+                "eloquent/phony-phpunit": "^2.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^6.0",
+                "squizlabs/php_codesniffer": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com",
+                    "homepage": "http://shadowhand.me"
+                }
+            ],
+            "description": "Google OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "Authentication",
+                "authorization",
+                "client",
+                "google",
+                "oauth",
+                "oauth2"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/oauth2-google/issues",
+                "source": "https://github.com/thephpleague/oauth2-google/tree/3.0.4"
+            },
+            "time": "2021-01-27T16:09:03+00:00"
+        },
+        {
+            "name": "magemojo/m2-ce-cron",
+            "version": "1.4.3-stable",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/magemojo/m2-ce-cron.git",
+                "reference": "7da592c1712e2bcaa72161f2d2442b9397290720"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/magemojo/m2-ce-cron/zipball/7da592c1712e2bcaa72161f2d2442b9397290720",
+                "reference": "7da592c1712e2bcaa72161f2d2442b9397290720",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "suggest": {
+                "magento/framework": "*",
+                "magento/module-config": "*",
+                "magento/module-cron": "*",
+                "magento/module-store": "*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "MageMojo\\Cron\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "MageMojo",
+                    "homepage": "https://github.com/magemojo/"
+                }
+            ],
+            "description": "Replacement package for Magento 2 Cron Functionality",
+            "homepage": "https://github.com/magemojo/",
+            "keywords": [
+                "cron",
+                "magento2"
+            ],
+            "support": {
+                "issues": "https://github.com/magemojo/m2-ce-cron/issues",
+                "source": "https://github.com/magemojo/m2-ce-cron/tree/1.4.3-stable"
+            },
+            "time": "2022-12-13T20:04:34+00:00"
+        },
+        {
             "name": "magento/adobe-stock-integration",
             "version": "2.1.5",
             "dist": {
@@ -5553,6 +6397,55 @@
                 "AFL-3.0"
             ],
             "description": "Chinese (China) language"
+        },
+        {
+            "name": "magento/magento-cloud-patches",
+            "version": "1.0.23",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/magento-cloud-patches/magento-magento-cloud-patches-1.0.23.0.zip",
+                "shasum": "0060410eb99bcb98e8913ad6a13b6c984f9cc516"
+            },
+            "require": {
+                "composer/composer": "^1.4 || ^2.0",
+                "composer/semver": "@stable",
+                "ext-json": "*",
+                "magento/quality-patches": "^1.1.0",
+                "monolog/monolog": "^1.25||^2.3",
+                "php": "^7.2 || ^8.0",
+                "symfony/config": "^3.3||^4.4||^5.0||^6.0",
+                "symfony/console": "^2.6||^4.0||^5.0||^6.0",
+                "symfony/dependency-injection": "^3.3||^4.3||^5.0||^6.0",
+                "symfony/process": "^2.1||^4.1||^5.0||^6.0",
+                "symfony/proxy-manager-bridge": "^3.3||^4.3||^5.0||^6.0",
+                "symfony/yaml": "^3.3||^4.0||^5.0||^6.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^4.1",
+                "codeception/module-asserts": "^1.2",
+                "codeception/module-db": "^1.0",
+                "codeception/module-phpbrowser": "^1.0",
+                "codeception/module-rest": "^1.2",
+                "consolidation/robo": "^1.2 || ^2.0",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "^8.5 || ^9.5",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "bin": [
+                "bin/ece-patches",
+                "bin/magento-patches"
+            ],
+            "type": "magento2-component",
+            "autoload": {
+                "psr-4": {
+                    "Magento\\CloudPatches\\": "src/",
+                    "Magento\\CloudPatches\\Test\\Functional\\": "tests/functional/"
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "Provides critical fixes for Magento 2 Enterprise Edition"
         },
         {
             "name": "magento/magento-composer-installer",
@@ -17310,6 +18203,44 @@
             "description": "eCommerce Platform for Growth (Community Edition)"
         },
         {
+            "name": "magento/quality-patches",
+            "version": "1.1.36",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/quality-patches/magento-quality-patches-1.1.36.0.zip",
+                "shasum": "fea8652737cfedcefa4ae3d2ffcbfa4b49b6e908"
+            },
+            "require": {
+                "ext-json": "*",
+                "magento/magento-cloud-patches": "^1.0.11",
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^4.1",
+                "codeception/module-asserts": "^1.2",
+                "codeception/module-db": "^1.0",
+                "codeception/module-phpbrowser": "^1.0",
+                "codeception/module-rest": "^1.2",
+                "composer/semver": "@stable",
+                "consolidation/robo": "^1.2 || ^2.0",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "^8.5 || ^9.5",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "magento2-component",
+            "autoload": {
+                "psr-4": {
+                    "Magento\\QualityPatches\\": "src/",
+                    "Magento\\QualityPatches\\Test\\Functional\\": "tests/functional/",
+                    "Magento\\QualityPatches\\Sniffs\\": "tests/static/sniffs/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Provides quality patches for AdobeCommerce & Magento OpenSource"
+        },
+        {
             "name": "magento/security-package",
             "version": "1.1.5",
             "dist": {
@@ -17785,6 +18716,278 @@
                 "source": "https://github.com/magento/magento-zend-pdf/tree/1.16.2"
             },
             "time": "2023-02-08T18:07:39+00:00"
+        },
+        {
+            "name": "magepal/magento2-core",
+            "version": "1.1.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/magepal/magento2-core.git",
+                "reference": "75005e3dba946ce7afa1825fd4f19c8291db2887"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/magepal/magento2-core/zipball/75005e3dba946ce7afa1825fd4f19c8291db2887",
+                "reference": "75005e3dba946ce7afa1825fd4f19c8291db2887",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "MagePal\\Core\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Renon Stewart",
+                    "email": "renon@magepal.com",
+                    "homepage": "https://www.magepal.com/",
+                    "role": "Leader"
+                }
+            ],
+            "description": "MagePal core extension",
+            "homepage": "https://www.magepal.com/",
+            "keywords": [
+                "magento 2",
+                "magepal core extension"
+            ],
+            "support": {
+                "email": "support@magepal.com",
+                "issues": "https://github.com/magepal/magento2-core/issues/",
+                "source": "https://github.com/magepal/magento2-core/tree/1.1.13"
+            },
+            "time": "2023-06-06T14:01:13+00:00"
+        },
+        {
+            "name": "magepal/magento2-gmailsmtpapp",
+            "version": "2.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/magepal/magento2-gmail-smtp-app.git",
+                "reference": "902db5fd4a5cb81f6612491f226fd7f1d9ea86e0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/magepal/magento2-gmail-smtp-app/zipball/902db5fd4a5cb81f6612491f226fd7f1d9ea86e0",
+                "reference": "902db5fd4a5cb81f6612491f226fd7f1d9ea86e0",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "103.0.*",
+                "magento/module-backend": "102.0.*",
+                "magepal/magento2-core": ">1.1.0",
+                "php": "~7.4.0||~8.1.0||~8.2.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "MagePal\\GmailSmtpApp\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Renon Stewart",
+                    "email": "renon@magepal.com",
+                    "homepage": "https://www.magepal.com/",
+                    "role": "Leader"
+                }
+            ],
+            "description": "Magento 2 SMTP Extension - Configure Magento 2 to send all transactional email using Gmail, G Suite, Amazon SES, Office360, Mailgun, SendGrid, Mandrill or any other SMTP servers",
+            "homepage": "https://www.magepal.com/",
+            "keywords": [
+                "Amazon SES",
+                "Amazon Simple Email Service",
+                "g suite",
+                "gmail smtp",
+                "google app",
+                "how to configure magento email",
+                "how to setup email magento2",
+                "magento 2",
+                "magento2 email",
+                "magento2 email setup",
+                "magento2 smtp",
+                "send email magento2"
+            ],
+            "support": {
+                "email": "support@magepal.com",
+                "issues": "https://github.com/magepal/magento2-gmail-smtp-app/issues/",
+                "source": "https://github.com/magepal/magento2-gmail-smtp-app/tree/2.9.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.magepal.com/custom-smtp.html?utm_source=smtp&utm_medium=github%20sponsor",
+                    "type": "custom"
+                }
+            ],
+            "time": "2023-03-16T19:43:24+00:00"
+        },
+        {
+            "name": "mailchimp/mc-magento2",
+            "version": "103.4.53",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/mailchimp/mc-magento2/mailchimp-mc-magento2-103.4.53.0.zip",
+                "shasum": "17b8868e7a4755f02fb35eae870f44991db7fbba"
+            },
+            "require": {
+                "ebizmarts/mailchimp-lib": ">=3.0.37",
+                "ext-json": "*",
+                "magento/framework": "103.0.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Ebizmarts\\MailChimp\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ebizmarts Corp",
+                    "email": "mailchimp@ebizmarts-desk.zendesk.com",
+                    "homepage": "http://ebizmarts.com"
+                }
+            ],
+            "description": "Connect MailChimp with Magento"
+        },
+        {
+            "name": "markrogoyski/math-php",
+            "version": "v0.47.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/markrogoyski/math-php.git",
+                "reference": "17cbb7507f05ed1e2e14d7e4c10e068691bb7051"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/markrogoyski/math-php/zipball/17cbb7507f05ed1e2e14d7e4c10e068691bb7051",
+                "reference": "17cbb7507f05ed1e2e14d7e4c10e068691bb7051",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.0",
+                "phploc/phploc": "*",
+                "phpmd/phpmd": "^2.6",
+                "phpstan/phpstan": "*",
+                "phpunit/phpunit": "6.*",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MathPHP\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Nowaczyk",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Jakob Sandberg",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Mark Rogoyski",
+                    "email": "mark@rogoyski.com",
+                    "homepage": "https://github.com/markrogoyski",
+                    "role": "Lead developer"
+                }
+            ],
+            "description": "Math Library for PHP. Features descriptive statistics and regressions; Continuous and discrete probability distributions; Linear algebra with matrices and vectors, Numerical analysis; special mathematical functions; Algebra",
+            "homepage": "https://github.com/markrogoyski/math-php/",
+            "keywords": [
+                "algebra",
+                "combinatorics",
+                "distributions",
+                "linear algebra",
+                "math",
+                "mathematics",
+                "matrix",
+                "numerical analysis",
+                "probability",
+                "regressions",
+                "statistics"
+            ],
+            "support": {
+                "issues": "https://github.com/markrogoyski/math-php/issues",
+                "source": "https://github.com/markrogoyski/math-php/tree/develop"
+            },
+            "time": "2018-11-21T05:31:55+00:00"
+        },
+        {
+            "name": "markshust/magento2-module-disabletwofactorauth",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/markshust/magento2-module-disabletwofactorauth.git",
+                "reference": "224c68d85479938f06ab2400148778575784871c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/markshust/magento2-module-disabletwofactorauth/zipball/224c68d85479938f06ab2400148778575784871c",
+                "reference": "224c68d85479938f06ab2400148778575784871c",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "^103",
+                "php": "^7||^8"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "MarkShust\\DisableTwoFactorAuth\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The DisableTwoFactorAuth module provides the ability to disable two-factor authentication.",
+            "support": {
+                "issues": "https://github.com/markshust/magento2-module-disabletwofactorauth/issues",
+                "source": "https://github.com/markshust/magento2-module-disabletwofactorauth/tree/2.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/markshust",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-10-24T17:11:14+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -18306,6 +19509,60 @@
             "description": "N/A"
         },
         {
+            "name": "paypal/rest-api-sdk-php",
+            "version": "1.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
+                "reference": "72e2f2466975bf128a31e02b15110180f059fc04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/72e2f2466975bf128a31e02b15110180f059fc04",
+                "reference": "72e2f2466975bf128a31e02b15110180f059fc04",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.0",
+                "psr/log": "^1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PayPal": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "PayPal",
+                    "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+                }
+            ],
+            "description": "PayPal's PHP SDK for REST APIs",
+            "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+            "keywords": [
+                "payments",
+                "paypal",
+                "rest",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/paypal/PayPal-PHP-SDK/issues",
+                "source": "https://github.com/paypal/PayPal-PHP-SDK/tree/master"
+            },
+            "abandoned": true,
+            "time": "2019-01-04T20:04:25+00:00"
+        },
+        {
             "name": "pelago/emogrifier",
             "version": "v7.0.0",
             "source": {
@@ -18463,6 +19720,391 @@
                 "source": "https://github.com/php-amqplib/php-amqplib/tree/v3.2.0"
             },
             "time": "2022-03-10T19:16:00+00:00"
+        },
+        {
+            "name": "php-http/client-common",
+            "version": "2.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/client-common.git",
+                "reference": "880509727a447474d2a71b7d7fa5d268ddd3db4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/client-common/zipball/880509727a447474d2a71b7d7fa5d268ddd3db4b",
+                "reference": "880509727a447474d2a71b7d7fa5d268ddd3db4b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0",
+                "php-http/httplug": "^2.0",
+                "php-http/message": "^1.6",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0 || ^2.0",
+                "symfony/options-resolver": "~4.0.15 || ~4.1.9 || ^4.2.1 || ^5.0 || ^6.0",
+                "symfony/polyfill-php80": "^1.17"
+            },
+            "require-dev": {
+                "doctrine/instantiator": "^1.1",
+                "guzzlehttp/psr7": "^1.4",
+                "nyholm/psr7": "^1.2",
+                "phpspec/phpspec": "^5.1 || ^6.3 || ^7.1",
+                "phpspec/prophecy": "^1.10.2",
+                "phpunit/phpunit": "^7.5.20 || ^8.5.33 || ^9.6.7"
+            },
+            "suggest": {
+                "ext-json": "To detect JSON responses with the ContentTypePlugin",
+                "ext-libxml": "To detect XML responses with the ContentTypePlugin",
+                "php-http/cache-plugin": "PSR-6 Cache plugin",
+                "php-http/logger-plugin": "PSR-3 Logger plugin",
+                "php-http/stopwatch-plugin": "Symfony Stopwatch plugin"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Http\\Client\\Common\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Common HTTP Client implementations and tools for HTTPlug",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "client",
+                "common",
+                "http",
+                "httplug"
+            ],
+            "support": {
+                "issues": "https://github.com/php-http/client-common/issues",
+                "source": "https://github.com/php-http/client-common/tree/2.7.0"
+            },
+            "time": "2023-05-17T06:46:59+00:00"
+        },
+        {
+            "name": "php-http/discovery",
+            "version": "1.19.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/discovery.git",
+                "reference": "57f3de01d32085fea20865f9b16fb0e69347c39e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/57f3de01d32085fea20865f9b16fb0e69347c39e",
+                "reference": "57f3de01d32085fea20865f9b16fb0e69347c39e",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0|^2.0",
+                "php": "^7.1 || ^8.0"
+            },
+            "conflict": {
+                "nyholm/psr7": "<1.0",
+                "zendframework/zend-diactoros": "*"
+            },
+            "provide": {
+                "php-http/async-client-implementation": "*",
+                "php-http/client-implementation": "*",
+                "psr/http-client-implementation": "*",
+                "psr/http-factory-implementation": "*",
+                "psr/http-message-implementation": "*"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0.2|^2.0",
+                "graham-campbell/phpspec-skip-example-extension": "^5.0",
+                "php-http/httplug": "^1.0 || ^2.0",
+                "php-http/message-factory": "^1.0",
+                "phpspec/phpspec": "^5.1 || ^6.1 || ^7.3",
+                "symfony/phpunit-bridge": "^6.2"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Http\\Discovery\\Composer\\Plugin",
+                "plugin-optional": true
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Discovery\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "src/Composer/Plugin.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Finds and installs PSR-7, PSR-17, PSR-18 and HTTPlug implementations",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "adapter",
+                "client",
+                "discovery",
+                "factory",
+                "http",
+                "message",
+                "psr17",
+                "psr7"
+            ],
+            "support": {
+                "issues": "https://github.com/php-http/discovery/issues",
+                "source": "https://github.com/php-http/discovery/tree/1.19.1"
+            },
+            "time": "2023-07-11T07:02:26+00:00"
+        },
+        {
+            "name": "php-http/httplug",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/httplug.git",
+                "reference": "625ad742c360c8ac580fcc647a1541d29e257f67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/httplug/zipball/625ad742c360c8ac580fcc647a1541d29e257f67",
+                "reference": "625ad742c360c8ac580fcc647a1541d29e257f67",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0",
+                "php-http/promise": "^1.1",
+                "psr/http-client": "^1.0",
+                "psr/http-message": "^1.0 || ^2.0"
+            },
+            "require-dev": {
+                "friends-of-phpspec/phpspec-code-coverage": "^4.1 || ^5.0 || ^6.0",
+                "phpspec/phpspec": "^5.1 || ^6.0 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Http\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric GELOEN",
+                    "email": "geloen.eric@gmail.com"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://sagikazarmark.hu"
+                }
+            ],
+            "description": "HTTPlug, the HTTP client abstraction for PHP",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "client",
+                "http"
+            ],
+            "support": {
+                "issues": "https://github.com/php-http/httplug/issues",
+                "source": "https://github.com/php-http/httplug/tree/2.4.0"
+            },
+            "time": "2023-04-14T15:10:03+00:00"
+        },
+        {
+            "name": "php-http/message",
+            "version": "1.16.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/message.git",
+                "reference": "47a14338bf4ebd67d317bf1144253d7db4ab55fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/message/zipball/47a14338bf4ebd67d317bf1144253d7db4ab55fd",
+                "reference": "47a14338bf4ebd67d317bf1144253d7db4ab55fd",
+                "shasum": ""
+            },
+            "require": {
+                "clue/stream-filter": "^1.5",
+                "php": "^7.2 || ^8.0",
+                "psr/http-message": "^1.1 || ^2.0"
+            },
+            "provide": {
+                "php-http/message-factory-implementation": "1.0"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.6",
+                "ext-zlib": "*",
+                "guzzlehttp/psr7": "^1.0 || ^2.0",
+                "laminas/laminas-diactoros": "^2.0 || ^3.0",
+                "php-http/message-factory": "^1.0.2",
+                "phpspec/phpspec": "^5.1 || ^6.3 || ^7.1",
+                "slim/slim": "^3.0"
+            },
+            "suggest": {
+                "ext-zlib": "Used with compressor/decompressor streams",
+                "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
+                "laminas/laminas-diactoros": "Used with Diactoros Factories",
+                "slim/slim": "Used with Slim Framework PSR-7 implementation"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/filters.php"
+                ],
+                "psr-4": {
+                    "Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "HTTP Message related tools",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "http",
+                "message",
+                "psr-7"
+            ],
+            "support": {
+                "issues": "https://github.com/php-http/message/issues",
+                "source": "https://github.com/php-http/message/tree/1.16.0"
+            },
+            "time": "2023-05-17T06:43:38+00:00"
+        },
+        {
+            "name": "php-http/message-factory",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/message-factory.git",
+                "reference": "4d8778e1c7d405cbb471574821c1ff5b68cc8f57"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/message-factory/zipball/4d8778e1c7d405cbb471574821c1ff5b68cc8f57",
+                "reference": "4d8778e1c7d405cbb471574821c1ff5b68cc8f57",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "psr/http-message": "^1.0 || ^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Factory interfaces for PSR-7 HTTP Message",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "stream",
+                "uri"
+            ],
+            "support": {
+                "issues": "https://github.com/php-http/message-factory/issues",
+                "source": "https://github.com/php-http/message-factory/tree/1.1.0"
+            },
+            "abandoned": "psr/http-factory",
+            "time": "2023-04-14T14:16:17+00:00"
+        },
+        {
+            "name": "php-http/promise",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/promise.git",
+                "reference": "4c4c1f9b7289a2ec57cde7f1e9762a5789506f88"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/promise/zipball/4c4c1f9b7289a2ec57cde7f1e9762a5789506f88",
+                "reference": "4c4c1f9b7289a2ec57cde7f1e9762a5789506f88",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "friends-of-phpspec/phpspec-code-coverage": "^4.3.2",
+                "phpspec/phpspec": "^5.1.2 || ^6.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Promise\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joel Wurtz",
+                    "email": "joel.wurtz@gmail.com"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Promise used for asynchronous HTTP requests",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "promise"
+            ],
+            "support": {
+                "issues": "https://github.com/php-http/promise/issues",
+                "source": "https://github.com/php-http/promise/tree/1.1.0"
+            },
+            "time": "2020-07-07T09:29:14+00:00"
         },
         {
             "name": "phpgt/cssxpath",
@@ -19721,6 +21363,221 @@
             "time": "2022-07-20T18:31:45+00:00"
         },
         {
+            "name": "sentry/sdk",
+            "version": "3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getsentry/sentry-php-sdk.git",
+                "reference": "cd91b752f07c4bab9fb3b173f81af68a78a78d6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getsentry/sentry-php-sdk/zipball/cd91b752f07c4bab9fb3b173f81af68a78a78d6d",
+                "reference": "cd91b752f07c4bab9fb3b173f81af68a78a78d6d",
+                "shasum": ""
+            },
+            "require": {
+                "http-interop/http-factory-guzzle": "^1.0",
+                "sentry/sentry": "^3.19",
+                "symfony/http-client": "^4.3|^5.0|^6.0"
+            },
+            "type": "metapackage",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sentry",
+                    "email": "accounts@sentry.io"
+                }
+            ],
+            "description": "This is a metapackage shipping sentry/sentry with a recommended HTTP client.",
+            "homepage": "http://sentry.io",
+            "keywords": [
+                "crash-reporting",
+                "crash-reports",
+                "error-handler",
+                "error-monitoring",
+                "log",
+                "logging",
+                "sentry"
+            ],
+            "support": {
+                "issues": "https://github.com/getsentry/sentry-php-sdk/issues",
+                "source": "https://github.com/getsentry/sentry-php-sdk/tree/3.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://sentry.io/",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://sentry.io/pricing/",
+                    "type": "custom"
+                }
+            ],
+            "time": "2023-06-12T17:50:36+00:00"
+        },
+        {
+            "name": "sentry/sentry",
+            "version": "3.21.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getsentry/sentry-php.git",
+                "reference": "624aafc22b84b089ffa43b71fb01e0096505ec4f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/624aafc22b84b089ffa43b71fb01e0096505ec4f",
+                "reference": "624aafc22b84b089ffa43b71fb01e0096505ec4f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/promises": "^1.5.3|^2.0",
+                "jean85/pretty-package-versions": "^1.5|^2.0.4",
+                "php": "^7.2|^8.0",
+                "php-http/async-client-implementation": "^1.0",
+                "php-http/client-common": "^1.5|^2.0",
+                "php-http/discovery": "^1.15",
+                "php-http/httplug": "^1.1|^2.0",
+                "php-http/message": "^1.5",
+                "php-http/message-factory": "^1.1",
+                "psr/http-factory": "^1.0",
+                "psr/http-factory-implementation": "^1.0",
+                "psr/log": "^1.0|^2.0|^3.0",
+                "symfony/options-resolver": "^3.4.43|^4.4.30|^5.0.11|^6.0",
+                "symfony/polyfill-php80": "^1.17"
+            },
+            "conflict": {
+                "php-http/client-common": "1.8.0",
+                "raven/raven": "*"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.19|3.4.*",
+                "guzzlehttp/psr7": "^1.8.4|^2.1.1",
+                "http-interop/http-factory-guzzle": "^1.0",
+                "monolog/monolog": "^1.6|^2.0|^3.0",
+                "nikic/php-parser": "^4.10.3",
+                "php-http/mock-client": "^1.3",
+                "phpbench/phpbench": "^1.0",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^1.3",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^8.5.14|^9.4",
+                "symfony/phpunit-bridge": "^5.2|^6.0",
+                "vimeo/psalm": "^4.17"
+            },
+            "suggest": {
+                "monolog/monolog": "Allow sending log messages to Sentry by using the included Monolog handler."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "Sentry\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sentry",
+                    "email": "accounts@sentry.io"
+                }
+            ],
+            "description": "A PHP SDK for Sentry (http://sentry.io)",
+            "homepage": "http://sentry.io",
+            "keywords": [
+                "crash-reporting",
+                "crash-reports",
+                "error-handler",
+                "error-monitoring",
+                "log",
+                "logging",
+                "sentry"
+            ],
+            "support": {
+                "issues": "https://github.com/getsentry/sentry-php/issues",
+                "source": "https://github.com/getsentry/sentry-php/tree/3.21.0"
+            },
+            "funding": [
+                {
+                    "url": "https://sentry.io/",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://sentry.io/pricing/",
+                    "type": "custom"
+                }
+            ],
+            "time": "2023-07-31T15:31:24+00:00"
+        },
+        {
+            "name": "snowdog/frontools",
+            "version": "1.12.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SnowdogApps/magento2-frontools.git",
+                "reference": "2a5854781c970044af38aabdce2efa1a6bf9e56e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SnowdogApps/magento2-frontools/zipball/2a5854781c970044af38aabdce2efa1a6bf9e56e",
+                "reference": "2a5854781c970044af38aabdce2efa1a6bf9e56e",
+                "shasum": ""
+            },
+            "type": "magento2-component",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Set of front-end tools for Magento 2, based on Gulp.js",
+            "support": {
+                "issues": "https://github.com/SnowdogApps/magento2-frontools/issues",
+                "source": "https://github.com/SnowdogApps/magento2-frontools/tree/1.12.2"
+            },
+            "time": "2022-03-07T11:34:34+00:00"
+        },
+        {
+            "name": "snowdog/theme-blank-sass",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SnowdogApps/magento2-theme-blank-sass.git",
+                "reference": "14f1e6d4944c632e6f5cd46dbbcb31bbc9570809"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SnowdogApps/magento2-theme-blank-sass/zipball/14f1e6d4944c632e6f5cd46dbbcb31bbc9570809",
+                "reference": "14f1e6d4944c632e6f5cd46dbbcb31bbc9570809",
+                "shasum": ""
+            },
+            "type": "magento2-theme",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "SASS based version of Magento 2 Blank theme",
+            "support": {
+                "issues": "https://github.com/SnowdogApps/magento2-theme-blank-sass/issues",
+                "source": "https://github.com/SnowdogApps/magento2-theme-blank-sass/tree/1.5.0"
+            },
+            "abandoned": true,
+            "time": "2020-10-26T12:38:16+00:00"
+        },
+        {
             "name": "spomky-labs/aes-key-wrap",
             "version": "v7.0.0",
             "source": {
@@ -20725,6 +22582,173 @@
             "time": "2023-07-31T08:02:31+00:00"
         },
         {
+            "name": "symfony/http-client",
+            "version": "v6.2.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-client.git",
+                "reference": "297374a399ce6852d5905d92a1351df00bb9dd10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/297374a399ce6852d5905d92a1351df00bb9dd10",
+                "reference": "297374a399ce6852d5905d92a1351df00bb9dd10",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "psr/log": "^1|^2|^3",
+                "symfony/deprecation-contracts": "^2.1|^3",
+                "symfony/http-client-contracts": "^3",
+                "symfony/service-contracts": "^1.0|^2|^3"
+            },
+            "provide": {
+                "php-http/async-client-implementation": "*",
+                "php-http/client-implementation": "*",
+                "psr/http-client-implementation": "1.0",
+                "symfony/http-client-implementation": "3.0"
+            },
+            "require-dev": {
+                "amphp/amp": "^2.5",
+                "amphp/http-client": "^4.2.1",
+                "amphp/http-tunnel": "^1.0",
+                "amphp/socket": "^1.1",
+                "guzzlehttp/promises": "^1.4",
+                "nyholm/psr7": "^1.0",
+                "php-http/httplug": "^1.0|^2.0",
+                "php-http/message-factory": "^1.0",
+                "psr/http-client": "^1.0",
+                "symfony/dependency-injection": "^5.4|^6.0",
+                "symfony/http-kernel": "^5.4|^6.0",
+                "symfony/process": "^5.4|^6.0",
+                "symfony/stopwatch": "^5.4|^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\HttpClient\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "http"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/http-client/tree/v6.2.13"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-07-03T12:13:45+00:00"
+        },
+        {
+            "name": "symfony/http-client-contracts",
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-client-contracts.git",
+                "reference": "3b66325d0176b4ec826bffab57c9037d759c31fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/3b66325d0176b4ec826bffab57c9037d759c31fb",
+                "reference": "3b66325d0176b4ec826bffab57c9037d759c31fb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "3.4-dev"
+                },
+                "thanks": {
+                    "name": "symfony/contracts",
+                    "url": "https://github.com/symfony/contracts"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Contracts\\HttpClient\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Test/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Generic abstractions related to HTTP clients",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "abstractions",
+                "contracts",
+                "decoupling",
+                "interfaces",
+                "interoperability",
+                "standards"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/http-client-contracts/tree/v3.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-05-23T14:45:45+00:00"
+        },
+        {
             "name": "symfony/http-foundation",
             "version": "v5.4.26",
             "source": {
@@ -21000,6 +23024,73 @@
                 }
             ],
             "time": "2023-07-13T09:02:54+00:00"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/options-resolver.git",
+                "reference": "a10f19f5198d589d5c33333cffe98dc9820332dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/a10f19f5198d589d5c33333cffe98dc9820332dd",
+                "reference": "a10f19f5198d589d5c33333cffe98dc9820332dd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "symfony/deprecation-contracts": "^2.5|^3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\OptionsResolver\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides an improved replacement for the array_replace PHP function",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "config",
+                "configuration",
+                "options"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/options-resolver/tree/v6.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-05-12T14:21:09+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -21798,6 +23889,73 @@
             "time": "2023-07-12T15:44:31+00:00"
         },
         {
+            "name": "symfony/proxy-manager-bridge",
+            "version": "v6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/proxy-manager-bridge.git",
+                "reference": "7ba2ac62c88d7c3460d41f04ceba5fc3b9071a39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/proxy-manager-bridge/zipball/7ba2ac62c88d7c3460d41f04ceba5fc3b9071a39",
+                "reference": "7ba2ac62c88d7c3460d41f04ceba5fc3b9071a39",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofphp/proxy-manager-lts": "^1.0.2",
+                "php": ">=8.1",
+                "symfony/dependency-injection": "^6.3",
+                "symfony/deprecation-contracts": "^2.5|^3"
+            },
+            "require-dev": {
+                "symfony/config": "^6.1"
+            },
+            "type": "symfony-bridge",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bridge\\ProxyManager\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides integration for ProxyManager with various Symfony components",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/proxy-manager-bridge/tree/v6.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-05-26T07:49:33+00:00"
+        },
+        {
             "name": "symfony/service-contracts",
             "version": "v2.5.2",
             "source": {
@@ -22123,6 +24281,78 @@
                 }
             ],
             "time": "2023-07-26T17:39:03+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v6.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "e23292e8c07c85b971b44c1c4b87af52133e2add"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/e23292e8c07c85b971b44c1c4b87af52133e2add",
+                "reference": "e23292e8c07c85b971b44c1c4b87af52133e2add",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "symfony/deprecation-contracts": "^2.5|^3",
+                "symfony/polyfill-ctype": "^1.8"
+            },
+            "conflict": {
+                "symfony/console": "<5.4"
+            },
+            "require-dev": {
+                "symfony/console": "^5.4|^6.0"
+            },
+            "bin": [
+                "Resources/bin/yaml-lint"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Loads and dumps YAML files",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v6.3.3"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-07-31T07:08:24+00:00"
         },
         {
             "name": "tedivm/jshrink",
@@ -26705,73 +28935,6 @@
             "time": "2023-07-27T06:29:31+00:00"
         },
         {
-            "name": "symfony/options-resolver",
-            "version": "v6.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "a10f19f5198d589d5c33333cffe98dc9820332dd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/a10f19f5198d589d5c33333cffe98dc9820332dd",
-                "reference": "a10f19f5198d589d5c33333cffe98dc9820332dd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.1",
-                "symfony/deprecation-contracts": "^2.5|^3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\OptionsResolver\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Provides an improved replacement for the array_replace PHP function",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "config",
-                "configuration",
-                "options"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/options-resolver/tree/v6.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2023-05-12T14:21:09+00:00"
-        },
-        {
             "name": "symfony/stopwatch",
             "version": "v6.3.0",
             "source": {
@@ -26832,78 +28995,6 @@
                 }
             ],
             "time": "2023-02-16T10:14:28+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v6.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "e23292e8c07c85b971b44c1c4b87af52133e2add"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/e23292e8c07c85b971b44c1c4b87af52133e2add",
-                "reference": "e23292e8c07c85b971b44c1c4b87af52133e2add",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.1",
-                "symfony/deprecation-contracts": "^2.5|^3",
-                "symfony/polyfill-ctype": "^1.8"
-            },
-            "conflict": {
-                "symfony/console": "<5.4"
-            },
-            "require-dev": {
-                "symfony/console": "^5.4|^6.0"
-            },
-            "bin": [
-                "Resources/bin/yaml-lint"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Loads and dumps YAML files",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/yaml/tree/v6.3.3"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2023-07-31T07:08:24+00:00"
         },
         {
             "name": "theseer/tokenizer",
