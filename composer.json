@@ -124,6 +124,11 @@
             "magento/magento-composer-installer": {
                 "Fixes PHP 8 / Alpine incompatibility": "patches/alpine-php8-incompatibility-glob.patch"
             }
+        },
+        "magento-deploy-ignore": {
+            "*": [
+                "/.gitignore"
+            ]
         }
     }
 }
