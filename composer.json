@@ -9,17 +9,19 @@
     ],
     "config": {
         "use-include-path": true,
-        "preferred-install": "dist",
-        "sort-packages": true,
         "allow-plugins": {
-            "magento/magento-composer-installer": true,
-            "magento/inventory-composer-installer": true,
-            "laminas/laminas-dependency-plugin": true,
-            "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "magento/composer-root-update-plugin": true,
-            "magento/composer-dependency-version-audit-plugin": true
-        }
+            "laminas/laminas-dependency-plugin": true,
+            "magento/*": true,
+            "php-http/discovery": true
+        },
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "require": {
+        "magento/product-community-edition": "2.4.6",
+        "magento/composer-root-update-plugin": "~2.0",
+        "magento/composer-dependency-version-audit-plugin": "~0.1"
     },
     "autoload": {
         "exclude-from-classmap": [
@@ -39,9 +41,26 @@
         "psr-4": {
             "Magento\\": "app/code/Magento/",
             "Magento\\Framework\\": "lib/internal/Magento/Framework/",
-            "Magento\\Setup\\": "setup/src/Magento/Setup/",
-            "Zend\\Mvc\\Controller\\": "setup/src/Zend/Mvc/Controller/"
+            "Magento\\Setup\\": "setup/src/Magento/Setup/"
         }
+    },
+    "require-dev": {
+        "allure-framework/allure-phpunit": "^2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "dg/bypass-finals": "^1.4",
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "lusitanian/oauth": "^0.8",
+        "magento/magento-coding-standard": "*",
+        "magento/magento2-functional-testing-framework": "^4.2.1",
+        "pdepend/pdepend": "^2.10",
+        "phpmd/phpmd": "^2.12",
+        "phpstan/phpstan": "^1.9",
+        "phpunit/phpunit": "^9.5",
+        "sebastian/phpcpd": "^6.0",
+        "symfony/finder": "^5.4"
+    },
+    "conflict": {
+        "gene/bluefoot": "*"
     },
     "autoload-dev": {
         "psr-4": {
@@ -78,19 +97,11 @@
     "prefer-stable": true,
     "extra": {
         "magento-force": "override",
-        "composer-exit-on-patch-failure": true,
-        "patches": {
-            "magento/magento-composer-installer": {
-                "Fixes PHP 8 / Alpine incompatibility": "patches/alpine-php8-incompatibility-glob.patch"
-            }
-        },
         "magento-deploy-ignore": {
             "*": [
                 "/.gitignore"
             ]
         }
-    },
-    "require": {
-        "magento/product-community-edition": "2.4.6"
     }
 }
+
