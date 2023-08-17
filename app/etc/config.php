@@ -499,6 +499,11 @@ return [
                     'enabled' => '0',
                 ],
             ],
+            'design' => [
+                'theme' => [
+                    'theme_id' => 'frontend/SwiftOtter/OtterSplash',
+                ],
+            ],
         ]
     ],
 ];
