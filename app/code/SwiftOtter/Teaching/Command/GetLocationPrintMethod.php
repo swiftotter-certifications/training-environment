@@ -49,11 +49,13 @@ class GetLocationPrintMethod extends Command
         $table = new Table($section);
 
         $table->setHeaders(['ID', 'Location ID', 'SKU']);
-        $table->render();;
+        $table->render();
 
         $rows = $this->locationPrintMethodRepository->getList($this->searchCriteriaBuilder->create());
         foreach ($rows->getItems() as $row) {
             $table->appendRow([$row->getId(), $row->getLocationId(), $row->getSku()]);
         }
+
+        return 0;
     }
 }

@@ -86,6 +86,9 @@ class ProductDetail implements ProductDetailInterface
     /** @var ProductMessageResource */
     private $productMessageResource;
 
+    /** @var array|null */
+    private $addons;
+
     public function __construct(
         Emulation $appEmulation,
         StoreManagerInterface $storeManager,
@@ -138,7 +141,7 @@ class ProductDetail implements ProductDetailInterface
         ]);
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->product->getName();
     }

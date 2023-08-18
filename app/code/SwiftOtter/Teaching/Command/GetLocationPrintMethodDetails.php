@@ -45,11 +45,13 @@ class GetLocationPrintMethodDetails extends Command
         $table = new Table($section);
 
         $table->setHeaders(['ID', 'Value']);
-        $table->render();;
+        $table->render();
 
         $rows = $this->locationPrintMethodResource->getPrintMethodIdsGroupedByLocationIds('great-tent-1');
         foreach ($rows as $id => $value) {
-            $table->appendRow([$id, $value]);
+            $table->appendRow([$id, implode(', ', $value)]);
         }
+
+        return 0;
     }
 }

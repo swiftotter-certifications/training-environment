@@ -9,7 +9,7 @@
     <preference for="SwiftOtter\ProductDecorator\Api\Data\LocationPrintMethodInterface"
                 type="SwiftOtter\ProductDecorator\Model\LocationPrintMethod" />
     <preference for="SwiftOtter\ProductDecorator\Api\Data\LocationPrintMethodSearchResultsInterface"
-                type="Magento\Framework\Api\SearchResults" />
+                type="SwiftOtter\ProductDecorator\Model\LocationPrintMethodSearchResults" />
 
     <preference for="SwiftOtter\ProductDecorator\Api\LocationRepositoryInterface"
                 type="SwiftOtter\ProductDecorator\Model\LocationRepository" />
