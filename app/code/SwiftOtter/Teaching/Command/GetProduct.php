@@ -63,5 +63,7 @@ class GetProduct extends Command
         }
 
         $table->appendRow([$sku, $product->getName(), microtime(true) - $time]);
+
+        return 0;
     }
 }

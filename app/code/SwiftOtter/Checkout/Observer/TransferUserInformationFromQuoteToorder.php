@@ -39,7 +39,7 @@ class TransferUserInformationFromQuoteToorder implements ObserverInterface
 
             $details = $orderItem->getExtensionAttributes()->getUserInformation() ?: $this->orderUserInformationFactory->create();
             $details->setOrderId((int)$order->getId());
-            $details->setOrderItemId((int)$orderItem->getItemId());
+            $details->setOrderItemId((int)$orderItem->getId());
             $orderItem->getExtensionAttributes()->setUserInformation($details);
 
             try {
@@ -48,8 +48,8 @@ class TransferUserInformationFromQuoteToorder implements ObserverInterface
             }
 
             if (empty($value)
-                || !isset($values['enabled'])
-                || !$values['enabled']) {
+                || !isset($value['enabled'])
+                || !$value['enabled']) {
                 continue;
             }
 

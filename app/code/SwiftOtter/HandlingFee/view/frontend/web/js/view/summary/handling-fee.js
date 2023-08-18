@@ -6,7 +6,7 @@ define([
 
     return Component.extend({
         defaults: {
-            template: 'SwiftOtter_HandlingFee/summary/palletizing-fee'
+            template: 'SwiftOtter_HandlingFee/summary/handling-fee'
         },
 
         /**

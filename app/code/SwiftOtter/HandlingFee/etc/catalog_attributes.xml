@@ -4,4 +4,8 @@
         <attribute name="case_cubic_size" />
         <attribute name="case_pack_qty" />
     </group>
+    <group name="quote_item">
+        <attribute name="case_cubic_size" />
+        <attribute name="case_pack_qty" />
+    </group>
 </config>

@@ -55,5 +55,7 @@ class GetLocationPrintMethodCollection extends Command
         foreach ($rows as $row) {
             $table->appendRow([$row->getSku(), $row->getLocationId()]);
         }
+
+        return 0;
     }
 }

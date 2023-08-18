@@ -91,6 +91,6 @@ class AssembleFees
             $size = $size - ($size * ($padding / 100));
         }
 
-        return $size;
+        return (float) $size;
     }
 }

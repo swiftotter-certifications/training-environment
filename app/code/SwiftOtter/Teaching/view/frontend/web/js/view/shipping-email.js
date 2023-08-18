@@ -31,7 +31,7 @@ define([
             this._super()
                 .observe(['emails', 'visible']);
 
-            hooks.requestModifiers.push(this.addEmail)
+            hooks.requestModifiers.push(this.addEmail.bind(this))
 
             if (this.emails().length > 0) {
                 this.emails().forEach((value, index) => this.initEmail(index))
