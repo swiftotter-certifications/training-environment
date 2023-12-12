@@ -1,0 +1,2768 @@
+<!doctype html>
+<html data-n-head-ssr lang="en-US" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22en-US%22%7D%7D">
+<head>
+    <meta data-n-head="ssr" charset="utf-8">
+    <meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1">
+    <meta data-n-head="ssr" data-hid="og:description" name="og:description" content="">
+    <meta data-n-head="ssr" name="format-detection" content="telephone=no">
+    <meta data-n-head="ssr" data-hid="og:site_name" name="og:site_name" property="og:site_name" content="SwiftOtter">
+    <meta data-n-head="ssr" data-hid="apple-mobile-web-app-title" name="apple-mobile-web-app-title"
+          content="SwiftOtter">
+    <meta data-n-head="ssr" rel="preconnect" href="https://images.prismic.io" crossorigin="crossorigin">
+    <meta data-n-head="ssr" rel="dns-prefetch" href="https://images.prismic.io">
+    <meta data-n-head="ssr" rel="preconnect" href="https://prismic-io.s3.amazonaws.com" crossorigin="crossorigin">
+    <meta data-n-head="ssr" rel="dns-prefetch" href="https://prismic-io.s3.amazonaws.com">
+    <meta data-n-head="ssr" name="generator" content="Vue Storefront 2">
+    <meta data-n-head="ssr" data-hid="charset" charset="utf-8">
+    <meta data-n-head="ssr" data-hid="mobile-web-app-capable" name="mobile-web-app-capable" content="yes">
+    <meta data-n-head="ssr" data-hid="theme-color" name="theme-color" content="#5F9EF4">
+    <meta data-n-head="ssr" data-hid="og:type" name="og:type" property="og:type" content="website">
+    <meta data-n-head="ssr" data-hid="name" itemprop="name"
+          content="SwiftOtter: Magento and BigCommerce development for online merchants">
+    <meta data-n-head="ssr" data-hid="og:title" name="og:title" property="og:title"
+          content="SwiftOtter: Magento and BigCommerce development for online merchants">
+    <meta data-n-head="ssr" data-hid="description" name="description"
+          content="Empowering merchants to be successful. Work with Magento-certified developers with years of experience building highly-customized Adobe Commerce, Magento and BigCommerce applications. Let us assist you in taking your website to the next level.">
+    <meta data-n-head="ssr" data-hid="i18n-og" property="og:locale" content="en_US">
+    <title>SwiftOtter: Magento and BigCommerce development for online merchants</title>
+    <base href="/">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link data-n-head="ssr" data-hid="shortcut-icon" rel="shortcut icon" href="/_nuxt/icons/icon_64x64.fed972.png">
+    <link data-n-head="ssr" data-hid="apple-touch-icon" rel="apple-touch-icon"
+          href="/_nuxt/icons/icon_512x512.fed972.png" sizes="512x512">
+    <link data-n-head="ssr" rel="manifest" href="/_nuxt/manifest.539b5ec6.json" data-hid="manifest">
+    <link data-n-head="ssr" data-hid="i18n-alt-en" rel="alternate" href="https://swiftotter.com//" hreflang="en">
+    <link data-n-head="ssr" data-hid="i18n-alt-en-US" rel="alternate" href="https://swiftotter.com//" hreflang="en-US">
+    <link data-n-head="ssr" data-hid="i18n-xd" rel="alternate" href="https://swiftotter.com//" hreflang="x-default">
+    <link data-n-head="ssr" data-hid="i18n-can" rel="canonical" href="https://swiftotter.com//">
+    <script data-n-head="ssr" data-hid="gtm-script">if (!window._gtm_init) {
+        window._gtm_init = 1;
+        (function (w, n, d, m, e, p) {
+            w[d] = (w[d] == 1 || n[d] == 'yes' || n[d] == 1 || n[m] == 1 || (w[e] && w[e][p] && w[e][p]())) ? 1 : 0
+        })(window, navigator, 'doNotTrack', 'msDoNotTrack', 'external', 'msTrackingProtectionEnabled');
+        (function (w, d, s, l, x, y) {
+            w[x] = {};
+            w._gtm_inject = function (i) {
+                if (w.doNotTrack || w[x][i]) return;
+                w[x][i] = 1;
+                w[l] = w[l] || [];
+                w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i;
+                f.parentNode.insertBefore(j, f);
+            };
+            w[y]('GTM-T9TZRS')
+        })(window, document, 'script', 'dataLayer', '_gtm_ids', '_gtm_inject')
+    }</script>
+    <style
+        data-vue-ssr-id="16397239:0 4ebc6595:0 19a06dae:0 23a68209:0 37a4cf3b:0 3344616c:0 6133c148:0 1bbfb302:0 31dad2d1:0 038013ee:0 6dcdba5e:0 2d5e9d56:0 f7653084:0 c1bb77ee:0 1b0739db:0 390330d0:0 4c64a29f:0 733668f0:0 4748a76e:0 a363c70a:0 338c1050:0 dadf738a:0 56b7f2a2:0 6a3bb464:0">.display-none {
+        display: none
+    }
+
+    .display-none {
+        display: none
+    }
+
+    :root {
+        --border-width-default: 2px;
+        --black: #000;
+        --pink: #ffb8d2;
+        --color-blue: #649abb;
+        --color-yellow: #f7d557;
+        --color-orange: #ffba68;
+        --color-pink: #f1c5d3;
+        --color-pink-dark: #ff5986;
+        --color-purple: #9e59ff;
+        --color-green-rgb: 83, 242, 212;
+        --color-pink-rgb: 255, 129, 175;
+        --color-yellow-rgb: 255, 186, 104;
+        --color-blue-rgb: 95, 157, 243;
+        --header-background: #0d052c;
+        --color-background: rgba(233, 241, 247, .5);
+        --c-primary: #bfa443;
+        --c-secondary: #0d052c;
+        --c-link: #31729a;
+        --c-link-hover: #265877;
+        --font-size-body: 1.125rem;
+        --font-family--primary: Aeonik, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+        --font-family--secondary: Recoleta, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+        --button-background: #0d052c;
+        --c-success: #c0ff97;
+        --c-danger: #ff9393;
+        --small-radius: 0.5rem;
+        --big-radius: 1.5rem;
+        --primary-border: 2px solid #0d052c;
+        --product-card-title-color: #0d052c
+    }
+
+    * {
+        box-sizing: border-box
+    }
+
+    .page {
+        position: relative
+    }
+
+    body, html {
+        height: 100%
+    }
+
+    body {
+        margin: 0
+    }
+
+    h1, h2, h3, h4, h5 {
+        font-family: "Recoleta", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+    }
+
+    h1 {
+        font-size: 3rem
+    }
+
+    h1, h2 {
+        font-weight: 700;
+        line-height: 1.2
+    }
+
+    h2, h3 {
+        font-size: 2rem
+    }
+
+    h3 {
+        line-height: 1.2
+    }
+
+    img {
+        height: auto;
+        max-width: 100%
+    }
+
+    p {
+        letter-spacing: .03em;
+        line-height: 1.5;
+        margin-bottom: 1.25em
+    }
+
+    pre {
+        background: #000;
+        border-radius: .25rem;
+        color: #fff;
+        font-size: 1rem;
+        overflow-x: auto;
+        padding: 1em;
+        white-space: pre-wrap;
+        width: 100%
+    }
+
+    .display-none {
+        display: none
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: "Aeonik";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/_nuxt/fonts/Aeonik-Regular.c672e6f.woff2) format("woff2"), url(/_nuxt/fonts/Aeonik-Regular.4957ae9.woff) format("woff")
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: "Aeonik";
+        font-style: italic;
+        font-weight: 400;
+        src: url(/_nuxt/fonts/Aeonik-RegularItalic.ad71d1c.woff2) format("woff2"), url(/_nuxt/fonts/Aeonik-RegularItalic.13a11c5.woff) format("woff")
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: "Aeonik";
+        font-style: normal;
+        font-weight: 600;
+        src: url(/_nuxt/fonts/Aeonik-Medium.a584ebd.woff2) format("woff2"), url(/_nuxt/fonts/Aeonik-Medium.3b09f56.woff) format("woff")
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: "Aeonik";
+        font-style: italic;
+        font-weight: 600;
+        src: url(/_nuxt/fonts/Aeonik-MediumItalic.699c767.woff2) format("woff2"), url(/_nuxt/fonts/Aeonik-MediumItalic.933fdf9.woff) format("woff")
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: "Recoleta";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/_nuxt/fonts/Recoleta-Regular.0d25f8d.woff2) format("woff2"), url(/_nuxt/fonts/Recoleta-Regular.cd35d4d.woff) format("woff")
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: "Recoleta";
+        font-style: normal;
+        font-weight: 700;
+        src: url(/_nuxt/fonts/Recoleta-Bold.5ad3aeb.woff2) format("woff2"), url(/_nuxt/fonts/Recoleta-Bold.85aaf5e.woff) format("woff")
+    }
+
+    .display-none {
+        display: none
+    }
+
+    .clamped {
+        max-width: calc(1280px + 4rem);
+        padding: 0 min(2rem, .5rem + 1vw)
+    }
+
+    .clamped, .clamped--text {
+        margin: 0 auto;
+        width: 100%
+    }
+
+    .clamped--text {
+        max-width: calc(900px + 4rem);
+        padding: 0 min(2rem, 2vmin)
+    }
+
+    .cms {
+        word-wrap: break-word;
+        font-size: 1.2em
+    }
+
+    .cms li {
+        line-height: 1.5;
+        list-style-position: outside;
+        list-style-type: inherit;
+        margin-bottom: .6em;
+        position: relative
+    }
+
+    .section {
+        margin-bottom: 1em
+    }
+
+    .btn-primary {
+        background: none;
+        background: var(--bg-color, none);
+        border: 2px solid;
+        border-radius: 4rem;
+        color: #0d052c;
+        cursor: pointer;
+        font-size: inherit;
+        padding: 1rem 2rem
+    }
+
+    .btn-primary, .btn-primary:hover {
+        -webkit-text-decoration: none;
+        text-decoration: none
+    }
+
+    .btn-primary:hover {
+        background: #0d052c;
+        border-color: #0d052c;
+        color: #fff
+    }
+
+    .glide {
+        box-sizing: border-box;
+        position: relative;
+        width: 100%
+    }
+
+    .glide * {
+        box-sizing: inherit
+    }
+
+    .glide__slides, .glide__track {
+        overflow: hidden
+    }
+
+    .glide__slides {
+        backface-visibility: hidden;
+        display: flex;
+        flex-wrap: nowrap;
+        list-style: none;
+        padding: 0;
+        position: relative;
+        touch-action: pan-Y;
+        transform-style: preserve-3d;
+        white-space: nowrap;
+        width: 100%;
+        will-change: transform
+    }
+
+    .glide__slide {
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+        flex-shrink: 0;
+        height: 100%;
+        -moz-user-select: none;
+        white-space: normal;
+        width: 100%
+    }
+
+    .glide__slide, .glide__slide a {
+        -webkit-user-select: none;
+        user-select: none
+    }
+
+    .glide__slide a {
+        -webkit-user-drag: none;
+        -moz-user-select: none;
+        -ms-user-select: none
+    }
+
+    .glide__bullets {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none
+    }
+
+    .text-success {
+        color: #018937 !important;
+        color: var(--c-success) !important
+    }
+
+    .text-warning {
+        color: #ecc713 !important;
+        color: var(--c-warning) !important
+    }
+
+    @media (min-width: 1024px) {
+        html .smartphone-only {
+            display: none !important
+        }
+    }
+
+    @media (max-width: 1023px) {
+        html .desktop-only {
+            display: none !important
+        }
+    }
+
+    html {
+        --c-black: #1d1f22;
+        --c-black-base: 29, 31, 34;
+        --c-black-lighten: #292c30;
+        --c-black-darken: #111214;
+        --c-white: #fff;
+        --_c-green-primary: #018937;
+        --_c-green-primary-base: 1, 137, 55;
+        --_c-green-primary-lighten: #01a241;
+        --_c-green-primary-darken: #01702d;
+        --_c-green-secondary: #9ee2b0;
+        --_c-green-secondary-base: 158, 226, 176;
+        --_c-green-secondary-lighten: #b2e8c0;
+        --_c-green-secondary-darken: #8adca0;
+        --_c-dark-primary: #1d1f22;
+        --_c-dark-primary-base: 29, 31, 34;
+        --_c-dark-primary-lighten: #292c30;
+        --_c-dark-primary-darken: #111214;
+        --_c-dark-secondary: #43464e;
+        --_c-dark-secondary-base: 67, 70, 78;
+        --_c-dark-secondary-lighten: #4f525c;
+        --_c-dark-secondary-darken: #373a40;
+        --_c-gray-primary: #72757e;
+        --_c-gray-primary-base: 114, 117, 126;
+        --_c-gray-primary-lighten: #7f828b;
+        --_c-gray-primary-darken: #666971;
+        --_c-gray-secondary: #8d8f9a;
+        --_c-gray-secondary-base: 141, 143, 154;
+        --_c-gray-secondary-lighten: #9b9ca6;
+        --_c-gray-secondary-darken: #7f828e;
+        --_c-gray-accent: #e0e0e1;
+        --_c-gray-accent-base: 224, 224, 225;
+        --_c-gray-accent-lighten: #ededee;
+        --_c-gray-accent-darken: #d3d3d4;
+        --_c-light-primary: #f1f2f3;
+        --_c-light-primary-base: 241, 242, 243;
+        --_c-light-primary-lighten: #fff;
+        --_c-light-primary-darken: #e3e5e7;
+        --_c-light-secondary: #fff;
+        --_c-light-secondary-base: 255, 255, 255;
+        --_c-light-secondary-lighten: #fff;
+        --_c-light-secondary-darken: #f2f2f2;
+        --_c-red-primary: #d12727;
+        --_c-red-primary-base: 209, 39, 39;
+        --_c-red-primary-lighten: #da3838;
+        --_c-red-primary-darken: #bc2323;
+        --_c-red-secondary: #fcede8;
+        --_c-red-secondary-base: 252, 237, 232;
+        --_c-red-secondary-lighten: #fff;
+        --_c-red-secondary-darken: #f9dbd1;
+        --_c-yellow-primary: #ecc713;
+        --_c-yellow-primary-base: 236, 199, 19;
+        --_c-yellow-primary-lighten: #eecd2b;
+        --_c-yellow-primary-darken: #d4b311;
+        --_c-yellow-secondary: #f6e389;
+        --_c-yellow-secondary-base: 246, 227, 137;
+        --_c-yellow-secondary-lighten: #f8e9a1;
+        --_c-yellow-secondary-darken: #f4dd71;
+        --_c-blue-primary: #0468db;
+        --_c-blue-primary-base: 4, 104, 219;
+        --_c-blue-primary-lighten: #0474f4;
+        --_c-blue-primary-darken: #045cc2;
+        --_c-blue-secondary: #e1f4fe;
+        --_c-blue-secondary-base: 225, 244, 254;
+        --_c-blue-secondary-lighten: #fafdff;
+        --_c-blue-secondary-darken: #c8ebfd;
+        --c-body: var(--_c-light-secondary);
+        --c-text: var(--_c-dark-primary);
+        --c-text-muted: var(--_c-gray-primary);
+        --c-text-disabled: var(--_c-gray-accent);
+        --c-link: var(--_c-dark-secondary);
+        --c-link-hover: var(--c-black);
+        --c-primary: var(--_c-green-primary);
+        --c-primary-base: var(--_c-green-primary-base);
+        --c-primary-lighten: var(--_c-green-primary-lighten);
+        --c-primary-darken: var(--_c-green-primary-darken);
+        --c-primary-variant: var(--_c-green-secondary);
+        --c-on-primary: var(--_c-light-secondary);
+        --c-secondary: var(--_c-dark-primary);
+        --c-secondary-base: var(--_c-dark-primary-base);
+        --c-secondary-lighten: var(--_c-dark-primary-lighten);
+        --c-secondary-darken: var(--_c-dark-primary-darken);
+        --c-secondary-variant: var(--_c-dark-secondary);
+        --c-on-secondary: var(--_c-light-secondary);
+        --c-light: var(--_c-light-primary);
+        --c-light-base: var(--_c-light-primary-base);
+        --c-light-lighten: var(--_c-light-primary-lighten);
+        --c-light-darken: var(--_c-light-primary-darken);
+        --c-light-variant: var(--_c-light-secondary);
+        --c-on-light: var(--c-black);
+        --c-gray: var(--_c-gray-primary);
+        --c-gray-base: var(--_c-gray-primary-base);
+        --c-gray-lighten: var(--_c-gray-primary-lighten);
+        --c-gray-darken: var(--_c-gray-primary-darken);
+        --c-gray-variant: var(--_c-gray-secondary);
+        --c-on-gray: var(--c-black);
+        --c-dark: var(--_c-dark-primary);
+        --c-dark-base: var(--_c-dark-primary-base);
+        --c-dark-lighten: var(--_c-dark-primary-lighten);
+        --c-dark-darken: var(--_c-dark-primary-darken);
+        --c-dark-variant: var(--_c-dark-secondary);
+        --c-on-dark: var(--_c-light-secondary);
+        --c-info: var(--_c-blue-primary);
+        --c-info-base: var(--_c-blue-primary-base);
+        --c-info-lighten: var(--_c-blue-primary-lighten);
+        --c-info-darken: var(--_c-blue-primary-darken);
+        --c-info-variant: var(--_c-blue-secondary);
+        --c-on-info: var(--_c-light-secondary);
+        --c-success: var(--_c-green-primary);
+        --c-success-base: var(--_c-green-primary-base);
+        --c-success-lighten: var(--_c-green-primary-lighten);
+        --c-success-darken: var(--_c-green-primary-darken);
+        --c-success-variant: var(--_c-green-secondary);
+        --c-on-success: var(--_c-light-secondary);
+        --c-warning: var(--_c-yellow-primary);
+        --c-warning-base: var(--_c-yellow-primary-base);
+        --c-warning-lighten: var(--_c-yellow-primary-lighten);
+        --c-warning-darken: var(--_c-yellow-primary-darken);
+        --c-warning-variant: var(--_c-yellow-secondary);
+        --c-on-warning: var(--_c-light-secondary);
+        --c-danger: var(--_c-red-primary);
+        --c-danger-base: var(--_c-red-primary-base);
+        --c-danger-lighten: var(--_c-red-primary-lighten);
+        --c-danger-darken: var(--_c-red-primary-darken);
+        --c-danger-variant: var(--_c-red-secondary);
+        --c-on-danger: var(--_c-light-secondary);
+        --spacer-2xs: 0.25rem;
+        --spacer-xs: 0.5rem;
+        --spacer-sm: 1rem;
+        --spacer-base: 1.5rem;
+        --spacer-lg: 2rem;
+        --spacer-xl: 2.5rem;
+        --spacer-2xl: 5rem;
+        --spacer-3xl: 10rem
+    }
+
+    .display-none {
+        display: none
+    }
+
+    html {
+        --font-family--primary: "Roboto", serif;
+        --font-family--secondary: "Raleway", sans-serif;
+        --font-weight--light: 300;
+        --font-weight--normal: 400;
+        --font-weight--medium: 500;
+        --font-weight--semibold: 600;
+        --font-weight--bold: 700;
+        --font-size--xs: 0.75rem;
+        --font-size--sm: 0.875rem;
+        --font-size--base: 1rem;
+        --font-size--lg: 1.125rem;
+        --h1-font-size: 1.5rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: var(--font-size--lg);
+        --h4-font-size: var(--font-size--lg);
+        --h5-font-size: var(--font-size--base);
+        --h6-font-size: var(--font-size--base)
+    }
+
+    @media (min-width: 1024px) {
+        html {
+            --h1-font-size: 2.625rem;
+            --h2-font-size: 2.25rem;
+            --h3-font-size: 1.625rem;
+            --h4-font-size: 1.25rem;
+            --h5-font-size: var(--font-size--base);
+            --h6-font-size: var(--font-size--sm)
+        }
+    }
+
+    .sf-fade-enter-active, .sf-fade-leave-active {
+        transition: opacity .25s linear
+    }
+
+    .sf-fade-enter, .sf-fade-leave, .sf-fade-leave-to {
+        opacity: 0
+    }
+
+    .sf-collapse-bottom-enter-active, .sf-collapse-bottom-leave-active {
+        transition: transform .25s ease-in-out
+    }
+
+    @media (min-width: 1024px) {
+        .sf-collapse-bottom-enter-active, .sf-collapse-bottom-leave-active {
+            transition: transform .35 ease-in-out
+        }
+    }
+
+    .sf-collapse-bottom-enter, .sf-collapse-bottom-leave-to {
+        transform: translate3d(0, 100%, 0)
+    }
+
+    .sf-collapse-top-enter-active, .sf-collapse-top-leave-active {
+        transition: transform .25s ease-in-out
+    }
+
+    @media (min-width: 1024px) {
+        .sf-collapse-top-enter-active, .sf-collapse-top-leave-active {
+            transition: transform .35 ease-in-out
+        }
+    }
+
+    .sf-collapse-top-enter, .sf-collapse-top-leave-to {
+        transform: translate3d(0, -100%, 0)
+    }
+
+    .sf-slide-left-enter-active, .sf-slide-left-leave-active {
+        transition: transform .4s ease
+    }
+
+    .sf-slide-left-enter, .sf-slide-left-leave-to {
+        transform: translate3d(-100%, 0, 0);
+        transition: transform .3s ease-in
+    }
+
+    .sf-slide-right-enter-active, .sf-slide-right-leave-active {
+        transition: transform .4s ease
+    }
+
+    .sf-slide-right-enter, .sf-slide-right-leave-to {
+        transform: translate3d(100%, 0, 0);
+        transition: transform .3s ease-in
+    }
+
+    .sf-expand-enter-active, .sf-expand-enter-leave {
+        overflow: hidden;
+        transform: scaleX(1);
+        transition: transform .25s ease-in-out
+    }
+
+    .sf-expand-enter, .sf-expand-leave-to {
+        transform: scaleY(0)
+    }
+
+    .sf-bounce-enter-active {
+        animation: sf-bounce .3s
+    }
+
+    .sf-bounce-leave-active {
+        animation: sf-bounce .3s reverse
+    }
+
+    .sf-pulse-enter-active {
+        animation: sf-pulse .25s
+    }
+
+    .sf-pulse-leave-active {
+        animation: sf-pulse .25s reverse
+    }
+
+    @keyframes sf-bounce {
+        0% {
+            transform: scale(0)
+        }
+        50% {
+            transform: scale(1.2)
+        }
+        to {
+            transform: scale(1)
+        }
+    }
+
+    @keyframes sf-pulse {
+        0% {
+            transform: scale(1)
+        }
+        50% {
+            transform: scale(1.2)
+        }
+        to {
+            transform: scale(1)
+        }
+    }
+
+    .display-none {
+        display: none
+    }
+
+    .sf-button {
+        --button-border-radius: 4px
+    }
+
+    .sf-button--text:hover {
+        --button-color: var(--c-link-hover)
+    }
+
+    .sf-modal .sf-modal__close {
+        position: absolute
+    }
+
+    .sf-gallery.sf-gallery {
+        --gallery-image-width: max(15vmin, min(25rem, 80vw));
+        --gallery-image-height: max(20vmin, min(16rem, 50vmin))
+    }
+
+    @media (min-width: 60rem) {
+        .sf-gallery.sf-gallery {
+            --gallery-image-width: 26.375rem;
+            --gallery-image-height: 31.5rem
+        }
+    }
+
+    .sf-product-card__title.sf-product-card__title {
+        overflow: auto;
+        white-space: normal
+    }
+
+    .sf-product-card__image, .sf-product-card__picture {
+        --image-height: 250px
+    }
+
+    .sf-product-card__link:hover {
+        color: currentColor
+    }
+
+    .sf-link {
+        font: inherit
+    }
+
+    .sf-content-pages__content, .sf-content-pages__sidebar {
+        height: 100% !important
+    }
+
+    .nuxt-progress {
+        background-color: #fff;
+        height: 2px;
+        left: 0;
+        opacity: 1;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transition: width .1s, opacity .4s;
+        width: 0;
+        z-index: 999999
+    }
+
+    .display-none {
+        display: none
+    }
+
+    #layout {
+        box-sizing: border-box;
+        flex-grow: 1
+    }
+
+    #__layout, #__nuxt {
+        height: 100%
+    }
+
+    .wrap {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%
+    }
+
+    .no-scroll {
+        height: 100vh;
+        overflow: hidden
+    }
+
+    html {
+        --font-size-body: 100%;
+        width: auto
+    }
+
+    body {
+        color: var(--c-text);
+        font-family: var(--font-family--primary);
+        font-size: 100%;
+        font-size: var(--font-size-body);
+        margin: 0;
+        padding: 0
+    }
+
+    a {
+        color: var(--c-link);
+        -webkit-text-decoration: none;
+        text-decoration: none
+    }
+
+    a:hover {
+        color: var(--c-link-hover);
+        -webkit-text-decoration: underline;
+        text-decoration: underline
+    }
+
+    h1 {
+        font-size: var(--h1-font-size)
+    }
+
+    h1, h2 {
+        font-family: var(--font-family--secondary);
+        line-height: 1.6;
+        margin: 0
+    }
+
+    h2 {
+        font-size: var(--h2-font-size)
+    }
+
+    h3 {
+        font-size: var(--h3-font-size)
+    }
+
+    h3, h4 {
+        font-family: var(--font-family--secondary);
+        line-height: 1.6;
+        margin: 0
+    }
+
+    h4 {
+        font-size: var(--h4-font-size)
+    }
+
+    .display-none[data-v-440618a6] {
+        display: none
+    }
+
+    .modal[data-v-440618a6] {
+        --modal-index: 35;
+        --overlay-z-index: 30
+    }
+
+    .display-none {
+        display: none
+    }
+
+    .sf-modal__container {
+        align-content: space-between;
+        background-color: var(--modal-background, var(--c-white));
+        border: var(--modal-border);
+        bottom: 0;
+        bottom: var(--modal-bottom, 0);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        flex-direction: var(--modal-flex-direction, column);
+        height: var(--modal-height);
+        left: 0;
+        left: var(--modal-left, 0);
+        max-height: var(--modal-max-height);
+        position: fixed;
+        right: 0;
+        right: var(--modal-right, 0);
+        top: 0;
+        top: var(--modal-top, 0);
+        transform: var(--modal-transform);
+        width: var(--modal-width);
+        z-index: 1;
+        z-index: var(--modal-index, 1)
+    }
+
+    .sf-modal__container::-webkit-scrollbar {
+        width: 0
+    }
+
+    .sf-modal__content {
+        font: var(--modal-content-font, var(--modal-content-font-weight, var(--font-weight--light)) var(--modal-content-font-size, var(--font-size--base))/1.6 var(--modal-content-font-family, var(--font-family--primary)));
+        font: var(--modal-content-font, var(--modal-content-font-weight, var(--font-weight--light)) var(--modal-content-font-size, var(--font-size--base))/var(--modal-content-font-line-height, 1.6) var(--modal-content-font-family, var(--font-family--primary)));
+        height: var(--modal-content-height);
+        overflow-y: auto;
+        padding: var(--modal-content-padding, var(--spacer-base) var(--spacer-sm))
+    }
+
+    .sf-modal__close {
+        position: absolute;
+        right: var(--modal-close-right, var(--spacer-sm));
+        top: var(--modal-close-top, var(--spacer-sm))
+    }
+
+    @media (min-width: 1024px) {
+        .sf-modal {
+            --modal-width: 29.375rem;
+            --modal-top: 50%;
+            --modal-left: 50%;
+            --modal-bottom: none;
+            --modal-right: none;
+            --modal-transform: translate3d(-50%, -50%, 0);
+            --modal-height: auto;
+            --modal-max-height: 90%;
+            --modal-content-padding: var(--spacer-sm) var(--spacer-lg);
+            --modal-content-height: 100%
+        }
+    }
+
+    .display-none {
+        display: none
+    }
+
+    .sf-overlay {
+        background: var(--overlay-background, rgba(var(--c-gray-base), .7));
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        z-index: var(--overlay-z-index, 1)
+    }
+
+    .display-none[data-v-36b1e194] {
+        display: none
+    }
+
+    .notifications[data-v-36b1e194] {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        z-index: 30
+    }
+
+    @media (min-width: 1024px) {
+        .notifications[data-v-36b1e194] {
+            bottom: 10px;
+            left: 2%;
+            width: 350px
+        }
+    }
+
+    .sf-notification[data-v-36b1e194] {
+        margin: var(--spacer-xs) auto 0 auto;
+        max-width: 100%
+    }
+
+    .sf-notification[data-v-36b1e194]:first-child {
+        margin-top: 0
+    }
+
+    @media (max-width: 1023px) {
+        .sf-notification[data-v-36b1e194] {
+            --notification-border-radius: 0;
+            --notification-max-width: 100%;
+            --notification-background: var(--c-link);
+            --notification-font-size: var(--font-size--sm);
+            --notification-font-family: var(--font-family--primary);
+            --notification-font-weight: var(--font-weight--normal);
+            --notification-padding: var(--spacer-base) var(--spacer-lg)
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .sf-notification[data-v-36b1e194] {
+            margin: 0 0 var(--spacer-xs) 0
+        }
+    }
+
+    .slide-fade-enter-active[data-v-36b1e194], .slide-fade-leave-active[data-v-36b1e194] {
+        transition: all .3s
+    }
+
+    @media (min-width: 1024px) {
+        .slide-fade-enter-active[data-v-36b1e194], .slide-fade-leave-active[data-v-36b1e194] {
+            transition: opacity .25s linear
+        }
+    }
+
+    .slide-fade-enter[data-v-36b1e194] {
+        transform: translateY(40px)
+    }
+
+    @media (min-width: 1024px) {
+        .slide-fade-enter[data-v-36b1e194] {
+            opacity: 0
+        }
+    }
+
+    .slide-fade-leave-to[data-v-36b1e194] {
+        transform: translateY(80px)
+    }
+
+    @media (min-width: 1024px) {
+        .slide-fade-leave-to[data-v-36b1e194] {
+            opacity: 0
+        }
+    }
+
+    .display-none[data-v-44017492] {
+        display: none
+    }
+
+    .header-wrapper[data-v-44017492] {
+        background-color: #0d052c
+    }
+
+    .header[data-v-44017492] {
+        --c-text: #fff;
+        --c-link-hover: #c2c2c2;
+        align-items: center;
+        color: #fff;
+        -moz-column-gap: 1.5em;
+        column-gap: 1.5em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: min(2vh, 1rem) min(2vw, 2rem) 0;
+        row-gap: min(2vmin, 1rem)
+    }
+
+    @media (min-width: 1024px) {
+        .header[data-v-44017492] {
+            flex-wrap: wrap;
+            padding: var(--spacer-sm) var(--spacer-sm)
+        }
+    }
+
+    .header[data-v-44017492] .sf-header__navigation {
+        display: block
+    }
+
+    .sf-header__action[data-v-44017492] {
+        margin: 0
+    }
+
+    .sf-header__icons[data-v-44017492] {
+        display: flex;
+        gap: 1em;
+        order: 5
+    }
+
+    @media (min-width: 1024px) {
+        .sf-header__icons[data-v-44017492] {
+            flex-basis: auto
+        }
+    }
+
+    .logo-link[data-v-44017492] {
+        display: block;
+        flex-shrink: 0;
+        min-width: 50%;
+        order: 0
+    }
+
+    @media (min-width: 1024px) {
+        .logo-link[data-v-44017492] {
+            min-width: 0;
+            order: 0
+        }
+    }
+
+    .menu[data-v-44017492] {
+        flex-grow: 1;
+        max-width: 800px;
+        order: 10
+    }
+
+    @media (min-width: 1024px) {
+        .menu[data-v-44017492] {
+            order: 0
+        }
+    }
+
+    .cart-badge[data-v-44017492] {
+        bottom: 40%;
+        left: 40%;
+        position: absolute
+    }
+
+    .cart-badge.is-flashing[data-v-44017492] {
+        animation: flash-data-v-44017492 1.5s ease-in-out;
+        transform-origin: right center
+    }
+
+    @keyframes flash-data-v-44017492 {
+        0% {
+            transform: scale(100%)
+        }
+        30% {
+            transform: scale(180%)
+        }
+        to {
+            transform: scale(100%)
+        }
+    }
+
+    .header-banner[data-v-44017492] {
+        background-color: #f7d557;
+        font-size: 1.125rem;
+        padding: var(--spacer-sm);
+        text-align: center
+    }
+
+    .header-banner a[data-v-44017492] {
+        color: inherit;
+        -webkit-text-decoration: underline;
+        text-decoration: underline
+    }
+
+    .display-none {
+        display: none
+    }
+
+    .sf-button {
+        --link-color: var(--button-color, var(--c-light-variant));
+        --button-box-shadow-opacity: 0;
+        align-items: center;
+        background: var(--button-background, var(--c-primary));
+        background-position: 50%;
+        border: var(--button-border, var(--button-border-style, solid) var(--button-border-color, var(--c-primary)));
+        border-radius: 0;
+        border-radius: var(--button-border-radius, 0);
+        border-width: 0;
+        border-width: var(--button-border-width, 0);
+        box-sizing: border-box;
+        color: var(--button-color, var(--c-light-variant));
+        cursor: pointer;
+        cursor: var(--button-cursor, pointer);
+        display: flex;
+        display: var(--button-display, flex);
+        font: var(--button-font, var(--button-font-weight, var(--font-weight--semibold)) var(--button-font-size, var(--font-size--base))/1.2 var(--button-font-family, var(--font-family--secondary)));
+        font: var(--button-font, var(--button-font-weight, var(--font-weight--semibold)) var(--button-font-size, var(--font-size--base))/var(--button-font-line-height, 1.2) var(--button-font-family, var(--font-family--secondary)));
+        height: var(--button-size, var(--button-height));
+        justify-content: center;
+        padding: var(--button-padding, var(--spacer-sm) var(--spacer-base));
+        position: relative;
+        -webkit-text-decoration: var(--button-text-decoration);
+        text-decoration: var(--button-text-decoration);
+        text-transform: uppercase;
+        text-transform: var(--button-text-transform, uppercase);
+        transition: background .8s;
+        transition: var(--button-transition, background .8s);
+        white-space: nowrap;
+        white-space: var(--button-wrap, nowrap);
+        width: var(--button-size, var(--button-width))
+    }
+
+    .sf-button:before {
+        border-radius: inherit;
+        box-shadow: var(--button-box-shadow, 4px 12px 24px 0 var(--button-box-shadow-color, var(--c-gray)));
+        box-shadow: var(--button-box-shadow, var(--button-box-shadow-h-offset, 4px) var(--button-box-shadow-v-offset, 12px) var(--button-box-shadow-blur, 24px) var(--button-box-shadow-spread, 0) var(--button-box-shadow-color, var(--c-gray)));
+        content: "";
+        height: 100%;
+        left: 0;
+        opacity: var(--button-box-shadow-opacity);
+        position: absolute;
+        top: 0;
+        transition: opacity .2s ease-in-out, box-shadow .2s ease-in-out;
+        transition: var(--button-box-shadow-transition, opacity var(--button-box-shadow-transition-opacity-duration, .2s) var(--button-box-shadow-transition-opacity-timing-function, ease-in-out), box-shadow var(--button-box-shadow-transition-box-shadow-duration, .2s) var(--button-box-shadow-transition-box-shadow-timing-function, ease-in-out));
+        width: 100%;
+        will-change: opacity, box-shadow;
+        z-index: -1
+    }
+
+    .sf-button.color-primary {
+        --button-background: var(--c-primary)
+    }
+
+    .sf-button.color-primary:hover {
+        --button-background: var(--c-primary) radial-gradient(circle, transparent 1%, var(--c-primary-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-primary:active {
+        --button-background: var(--c-primary) radial-gradient(circle, transparent 40%, var(--c-primary-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-secondary {
+        --button-background: var(--c-secondary)
+    }
+
+    .sf-button.color-secondary:hover {
+        --button-background: var(--c-secondary) radial-gradient(circle, transparent 1%, var(--c-secondary-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-secondary:active {
+        --button-background: var(--c-secondary) radial-gradient(circle, transparent 40%, var(--c-secondary-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-light {
+        --button-background: var(--c-light)
+    }
+
+    .sf-button.color-light:hover {
+        --button-background: var(--c-light) radial-gradient(circle, transparent 1%, var(--c-light-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-light:active {
+        --button-background: var(--c-light) radial-gradient(circle, transparent 40%, var(--c-light-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-info {
+        --button-background: var(--c-info)
+    }
+
+    .sf-button.color-info:hover {
+        --button-background: var(--c-info) radial-gradient(circle, transparent 1%, var(--c-info-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-info:active {
+        --button-background: var(--c-info) radial-gradient(circle, transparent 40%, var(--c-info-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-success {
+        --button-background: var(--c-success)
+    }
+
+    .sf-button.color-success:hover {
+        --button-background: var(--c-success) radial-gradient(circle, transparent 1%, var(--c-success-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-success:active {
+        --button-background: var(--c-success) radial-gradient(circle, transparent 40%, var(--c-success-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-warning {
+        --button-background: var(--c-warning)
+    }
+
+    .sf-button.color-warning:hover {
+        --button-background: var(--c-warning) radial-gradient(circle, transparent 1%, var(--c-warning-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-warning:active {
+        --button-background: var(--c-warning) radial-gradient(circle, transparent 40%, var(--c-warning-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-danger {
+        --button-background: var(--c-danger)
+    }
+
+    .sf-button.color-danger:hover {
+        --button-background: var(--c-danger) radial-gradient(circle, transparent 1%, var(--c-danger-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-danger:active {
+        --button-background: var(--c-danger) radial-gradient(circle, transparent 40%, var(--c-danger-variant) 1%) center/15000%
+    }
+
+    .sf-button.color-light {
+        color: var(--c-gray)
+    }
+
+    .sf-button.color-light:hover {
+        --button-background: var(--c-light) radial-gradient(circle, transparent 1%, var(--c-text-disabled) 1%) center/15000%
+    }
+
+    .sf-button.color-light:active {
+        --button-background: var(--c-light) radial-gradient(circle, transparent 40%, var(--c-text-disabled) 1%) center/15000%
+    }
+
+    .sf-button:hover {
+        --button-box-shadow-opacity: 0.25;
+        --button-background: var(--c-primary) radial-gradient(circle, transparent 1%, var(--c-primary-variant) 1%) center/15000%
+    }
+
+    .sf-button:active {
+        --button-box-shadow: none;
+        --button-background: var(--c-primary) radial-gradient(circle, transparent 40%, var(--c-primary-variant) 1%) center/15000%;
+        --button-transition: background 0s;
+        --button-text-decoration: underline;
+        background-size: 100%
+    }
+
+    .sf-button--pure {
+        --button-padding: 0;
+        --button-background: transparent;
+        --button-color: var(--c-text);
+        --button-text-transform: none;
+        --button-wrap: normal;
+        --button-box-shadow: none
+    }
+
+    .sf-button--pure:active, .sf-button--pure:hover {
+        --button-background: transparent;
+        --button-text-decoration: none
+    }
+
+    .sf-button--full-width {
+        --button-width: 100%
+    }
+
+    .sf-button--text {
+        --button-border-width: 0;
+        --button-padding: 0;
+        --button-background: transparent;
+        --button-color: var(--c-text);
+        --button-text-transform: none;
+        --button-text-decoration: underline;
+        --button-font-size: var(--font-size--sm);
+        --button-font-weight: var(--font-weight--medium);
+        --button-box-shadow: none;
+        display: inline
+    }
+
+    .sf-button--text:hover {
+        --button-background: transparent;
+        --button-color: var(--c-primary)
+    }
+
+    .sf-button--text:active {
+        --button-color: var(--c-gray)
+    }
+
+    .sf-button--text.color-primary {
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-primary:hover {
+        --button-color: var(--c-primary)
+    }
+
+    .sf-button--text.color-primary:active {
+        --button-color: var(--c-gray);
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-secondary {
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-secondary:hover {
+        --button-color: var(--c-secondary)
+    }
+
+    .sf-button--text.color-secondary:active {
+        --button-color: var(--c-gray);
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-light {
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-light:hover {
+        --button-color: var(--c-light)
+    }
+
+    .sf-button--text.color-light:active {
+        --button-color: var(--c-gray);
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-info {
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-info:hover {
+        --button-color: var(--c-info)
+    }
+
+    .sf-button--text.color-info:active {
+        --button-color: var(--c-gray);
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-success {
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-success:hover {
+        --button-color: var(--c-success)
+    }
+
+    .sf-button--text.color-success:active {
+        --button-color: var(--c-gray);
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-warning {
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-warning:hover {
+        --button-color: var(--c-warning)
+    }
+
+    .sf-button--text.color-warning:active {
+        --button-color: var(--c-gray);
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-danger {
+        --button-background: transparent
+    }
+
+    .sf-button--text.color-danger:hover {
+        --button-color: var(--c-danger)
+    }
+
+    .sf-button--text.color-danger:active {
+        --button-color: var(--c-gray);
+        --button-background: transparent
+    }
+
+    .sf-button.is-disabled--button, .sf-button.is-disabled--button:active, .sf-button.is-disabled--button:hover {
+        --button-color: var(--c-text-disabled);
+        --button-border-color: transparent;
+        --button-background: var(--c-light);
+        --button-box-shadow: none;
+        cursor: default;
+        pointer-events: none
+    }
+
+    .sf-button.is-disabled--button.sf-button--text, .sf-button.is-disabled--button:active.sf-button--text, .sf-button.is-disabled--button:hover.sf-button--text {
+        --button-background: transparent;
+        --button-color: var(--c-gray-variant)
+    }
+
+    .sf-button--underlined {
+        --button-border-width: 0 0 1px 0;
+        --button-border-color: var(--c-light);
+        --button-background: transparent;
+        --button-color: var(--c-text-muted);
+        --button-box-shadow: none
+    }
+
+    .sf-button--underlined:active {
+        --button-background: var(--c-gray-variant);
+        --button-color: var(--c-light-variant)
+    }
+
+    .sf-button--underlined:hover {
+        --button-background: var(--c-gray-variant);
+        --button-color: var(--c-white)
+    }
+
+    .sf-button--underlined.color-primary {
+        --button-background: transparent
+    }
+
+    .sf-button--underlined.color-primary:active {
+        --button-background: var(--c-primary);
+        --button-border-width: 0 0 1px 0;
+        --button-border-color: var(--c-light)
+    }
+
+    .sf-button--underlined.color-secondary {
+        --button-background: transparent
+    }
+
+    .sf-button--underlined.color-secondary:active {
+        --button-background: var(--c-secondary);
+        --button-border-width: 0 0 1px 0;
+        --button-border-color: var(--c-light)
+    }
+
+    .sf-button--underlined.color-light {
+        --button-background: transparent
+    }
+
+    .sf-button--underlined.color-light:active {
+        --button-background: var(--c-light);
+        --button-border-width: 0 0 1px 0;
+        --button-border-color: var(--c-light)
+    }
+
+    .sf-button--underlined.color-info {
+        --button-background: transparent
+    }
+
+    .sf-button--underlined.color-info:active {
+        --button-background: var(--c-info);
+        --button-border-width: 0 0 1px 0;
+        --button-border-color: var(--c-light)
+    }
+
+    .sf-button--underlined.color-success {
+        --button-background: transparent
+    }
+
+    .sf-button--underlined.color-success:active {
+        --button-background: var(--c-success);
+        --button-border-width: 0 0 1px 0;
+        --button-border-color: var(--c-light)
+    }
+
+    .sf-button--underlined.color-warning {
+        --button-background: transparent
+    }
+
+    .sf-button--underlined.color-warning:active {
+        --button-background: var(--c-warning);
+        --button-border-width: 0 0 1px 0;
+        --button-border-color: var(--c-light)
+    }
+
+    .sf-button--underlined.color-danger {
+        --button-background: transparent
+    }
+
+    .sf-button--underlined.color-danger:active {
+        --button-background: var(--c-danger);
+        --button-border-width: 0 0 1px 0;
+        --button-border-color: var(--c-light)
+    }
+
+    @media (min-width: 1024px) {
+        .sf-button {
+            --button-padding: var(--spacer-sm) var(--spacer-lg)
+        }
+
+        .sf-button--pure, .sf-button--text {
+            --button-padding: 0
+        }
+    }
+
+    .sf-link {
+        --button-width: var(--spacer-3xl)
+    }
+
+    .sf-link.is-disabled--link, .sf-link.is-disabled--link:hover {
+        --button-box-shadow: none;
+        --button-border-color: transparent;
+        --button-background: var(--c-light);
+        cursor: default;
+        pointer-events: none
+    }
+
+    .sf-link.is-disabled--link.sf-button, .sf-link.is-disabled--link:hover.sf-button {
+        --button-color: var(--c-text-disabled)
+    }
+
+    .sf-link.is-disabled--link.sf-button--text, .sf-link.is-disabled--link:hover.sf-button--text {
+        --button-background: transparent;
+        --link-color: var(--c-gray-variant)
+    }
+
+    .sf-link.sf-button--full-width {
+        --button-width: 100%
+    }
+
+    .display-none[data-v-052dbf52] {
+        display: none
+    }
+
+    nav[data-v-052dbf52] {
+        align-items: center;
+        justify-content: space-between;
+        width: 100%
+    }
+
+    nav[data-v-052dbf52], ul[data-v-052dbf52] {
+        display: flex
+    }
+
+    ul[data-v-052dbf52] {
+        justify-content: space-around
+    }
+
+    @media (max-width: 1023px) {
+        ul[data-v-052dbf52] {
+            font-size: max(.65em, min(3vw, 1em));
+            padding-left: 0
+        }
+    }
+
+    li[data-v-052dbf52] {
+        display: inline-block
+    }
+
+    .menu-link[data-v-052dbf52] {
+        color: inherit;
+        padding: .5em;
+        -webkit-text-decoration: none;
+        text-decoration: none
+    }
+
+    @media (min-width: 1024px) {
+        .menu-link[data-v-052dbf52] {
+            padding: 1em
+        }
+    }
+
+    a[data-v-052dbf52]:hover {
+        -webkit-text-decoration: underline;
+        text-decoration: underline
+    }
+
+    .display-none[data-v-682a864a] {
+        display: none
+    }
+
+    .svg-image[data-v-682a864a] {
+        align-items: center;
+        display: inline-flex
+    }
+
+    .svg-image svg[data-v-682a864a] {
+        fill: currentColor
+    }
+
+    .display-none[data-v-ca60e46a] {
+        display: none
+    }
+
+    .breadcrumbs[data-v-ca60e46a] {
+        --breadcrumb-color: var(--c-link);
+        --breadcrumbs-list-item-before-color: var(--breadcrumb-color);
+        font-size: .85em;
+        padding-bottom: .5em;
+        padding-top: .5em
+    }
+
+    .affix-breadcrumbs[data-v-ca60e46a] {
+        color: #fff;
+        left: 0;
+        opacity: .5;
+        padding-left: .75em;
+        padding-right: .75em;
+        position: absolute;
+        right: 0;
+        top: .25em;
+        transition: opacity .15s .3s;
+        z-index: 25
+    }
+
+    .has-hero.breadcrumbs[data-v-ca60e46a] {
+        --breadcrumb-color: #fff
+    }
+
+    .breadcrumbs[data-v-ca60e46a]:hover {
+        opacity: 1
+    }
+
+    .sf-breadcrumbs__breadcrumb[data-v-ca60e46a], .sf-breadcrumbs__breadcrumb.current[data-v-ca60e46a], .sf-breadcrumbs__breadcrumb[data-v-ca60e46a]:hover {
+        color: var(--breadcrumb-color)
+    }
+
+    .display-none {
+        display: none
+    }
+
+    .sf-breadcrumbs__list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0
+    }
+
+    .sf-breadcrumbs__list-item:not(:last-child):after {
+        color: var(--breadcrumbs-list-item-before-color, var(--c-text-muted));
+        content: "|";
+        content: var(--breadcrumbs-list-item-seperator, "|");
+        padding: var(--breadcrumbs-list-item-before-padding, 0 var(--spacer-sm))
+    }
+
+    .sf-breadcrumbs__breadcrumb {
+        --link-color: var(--c-text-muted);
+        --link-text-decoration: none;
+        font: var(--breadcrumbs-font, var(--breadcrumbs-font-weight, var(--font-weight--normal)) var(--breadcrumbs-font-size, var(--font-size--xs))/1.6 var(--breadcrumbs-font-family, var(--font-family--secondary)));
+        font: var(--breadcrumbs-font, var(--breadcrumbs-font-weight, var(--font-weight--normal)) var(--breadcrumbs-font-size, var(--font-size--xs))/var(--breadcrumbs-font-line-height, 1.6) var(--breadcrumbs-font-family, var(--font-family--secondary)))
+    }
+
+    .sf-breadcrumbs__breadcrumb:hover {
+        --link-color: var(--c-text)
+    }
+
+    .sf-breadcrumbs__breadcrumb.current {
+        --link-color: var(--c-text);
+        cursor: default
+    }
+
+    @media (min-width: 1024px) {
+        .sf-breadcrumbs {
+            --breadcrumbs-font-size: var(--font-size--sm)
+        }
+    }
+
+    .display-none[data-v-8dca7cee] {
+        display: none
+    }
+
+    .title[data-v-8dca7cee] {
+        margin-bottom: 1.75em
+    }
+
+    .title[data-v-8dca7cee] > * {
+        font-size: clamp(2rem, 2vmin + 1.5rem, 3.5rem);
+        line-height: 1
+    }
+
+    .secondary-text[data-v-8dca7cee] {
+        font-size: clamp(1.125rem, 1vw + 1.125rem, 1.5rem);
+        margin-bottom: 1.75em
+    }
+
+    .btn-primary[data-v-8dca7cee]:not(:hover) {
+        color: inherit
+    }
+
+    .display-none[data-v-e28ac296] {
+        display: none
+    }
+
+    .hero[data-v-e28ac296] {
+        align-items: center;
+        border-radius: 40px 40px 40px 40px;
+        border-radius: var(--top-border-radius, 40px) var(--top-border-radius, 40px) 40px 40px;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 auto var(--spacer-base);
+        max-width: 1440px;
+        min-height: min(450px + 3vmin, 60vh);
+        overflow: hidden;
+        position: relative
+    }
+
+    .image[data-v-e28ac296], .overlay[data-v-e28ac296], img[data-v-e28ac296] {
+        bottom: 0;
+        left: 0;
+        min-height: 100%;
+        min-width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 0
+    }
+
+    .overlay[data-v-e28ac296] {
+        background-color: rgba(13, 5, 44, .5)
+    }
+
+    .contents[data-v-e28ac296] {
+        color: #fff;
+        max-width: max(400px, min(50%, 80vw));
+        position: relative;
+        text-align: left;
+        z-index: 10
+    }
+
+    .contents[data-v-e28ac296] a {
+        color: #fff;
+        -webkit-text-decoration: underline;
+        text-decoration: underline
+    }
+
+    .display-none[data-v-32c3beaa] {
+        display: none
+    }
+
+    .btn-primary[data-v-32c3beaa] {
+        align-items: center;
+        display: inline-flex;
+        gap: .5em;
+        margin-bottom: .5em;
+        margin-top: .5em;
+        -webkit-text-decoration: none !important;
+        text-decoration: none !important
+    }
+
+    .has-image[data-v-32c3beaa] {
+        padding: .8rem 1rem .8rem 2rem
+    }
+
+    .icon[data-v-32c3beaa] {
+        background-color: #fff;
+        border-radius: 20px;
+        height: 30px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        padding: 5px;
+        width: 30px
+    }
+
+    .display-none[data-v-2208d947] {
+        display: none
+    }
+
+    section[data-v-2208d947] {
+        margin-bottom: 2em;
+        margin-top: 1em;
+        max-width: calc(1024px + 4rem)
+    }
+
+    .card-list[data-v-2208d947] {
+        flex-direction: column
+    }
+
+    .card[data-v-2208d947], .card-list[data-v-2208d947] {
+        display: flex;
+        gap: 2em
+    }
+
+    .card[data-v-2208d947] {
+        align-items: center;
+        background-color: rgba(var(--card-color), .1);
+        border: 2px solid var(--black);
+        border-radius: 32px;
+        cursor: pointer;
+        padding: min(1.75em, .75em + 2vmin);
+        transition: box-shadow .1s ease-in-out
+    }
+
+    @media (max-width: 899px) {
+        .card[data-v-2208d947] {
+            font-size: .8em
+        }
+    }
+
+    @media screen and (max-width: 580px) {
+        .card[data-v-2208d947] {
+            flex-direction: column
+        }
+    }
+
+    .card[data-v-2208d947]:hover {
+        box-shadow: 0 3px 8px rgba(0, 0, 0, .3)
+    }
+
+    .card[data-v-2208d947]:nth-child(4n) {
+        --card-color: var(--color-green-rgb)
+    }
+
+    .card[data-v-2208d947]:nth-child(4n+1) {
+        --card-color: var(--color-pink-rgb)
+    }
+
+    .card[data-v-2208d947]:nth-child(4n+2) {
+        --card-color: var(--color-yellow-rgb)
+    }
+
+    .card[data-v-2208d947]:nth-child(4n+3) {
+        --card-color: var(--color-blue-rgb)
+    }
+
+    .feature[data-v-2208d947] {
+        align-items: center;
+        aspect-ratio: 1/1;
+        background-color: rgb(var(--card-color));
+        border-radius: 16px;
+        display: flex;
+        flex: 0 0 210px;
+        justify-content: center;
+        max-width: 100%;
+        overflow: hidden
+    }
+
+    @media screen and (max-width: 580px) {
+        .feature[data-v-2208d947] {
+            aspect-ratio: 2/1
+        }
+    }
+
+    .image[data-v-2208d947] {
+        max-width: 100%
+    }
+
+    .cms-subheading[data-v-2208d947] > h3 {
+        font-family: var(--font-family--secondary);
+        font-weight: 400;
+        margin: 0 0 .5em
+    }
+
+    .cms-subheading[data-v-2208d947] > h4 {
+        font-family: var(--font-family--secondary);
+        font-weight: 400;
+        margin: 0 0 .5em
+    }
+
+    .cms-subheading[data-v-2208d947] > h5 {
+        font-family: var(--font-family--secondary);
+        font-weight: 400;
+        margin: 0 0 .5em
+    }
+
+    .cms-subheading[data-v-2208d947] > h6 {
+        font-family: var(--font-family--secondary);
+        font-weight: 400;
+        margin: 0 0 .5em
+    }
+
+    .subheading[data-v-2208d947] {
+        font-family: var(--font-family--secondary);
+        font-weight: 400;
+        margin: 0 0 .5em
+    }
+
+    .cms-heading[data-v-2208d947] > h2, .heading[data-v-2208d947] {
+        font-size: min(1vmin + 1em, var(--h2-font-size));
+        line-height: 1.2
+    }
+
+    .link[data-v-2208d947] {
+        color: var(--black);
+        font-weight: 700;
+        -webkit-text-decoration: underline;
+        text-decoration: underline;
+        text-underline-offset: 4px
+    }
+
+    .link[data-v-2208d947]:hover {
+        color: var(--c-link)
+    }
+
+    .separator[data-v-2208d947] {
+        padding-left: .5em;
+        padding-right: .5em
+    }
+
+    .display-none[data-v-4f33b266] {
+        display: none
+    }
+
+    .hero[data-v-4f33b266] {
+        align-items: center;
+        background-color: var(--bg-color);
+        border-radius: 40px;
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+        margin: var(--spacer-2xl) auto;
+        max-width: 1440px;
+        min-height: min(450px + 3vmin, 60vh);
+        padding: 1em;
+        position: relative
+    }
+
+    @media (max-width: 1023px) {
+        .hero[data-v-4f33b266] {
+            flex-direction: column
+        }
+    }
+
+    .has-image-on-right[data-v-4f33b266] {
+        flex-direction: row-reverse
+    }
+
+    @media (max-width: 1023px) {
+        .has-image-on-right[data-v-4f33b266] {
+            flex-direction: column
+        }
+    }
+
+    .has-color[data-v-4f33b266] {
+        border: 2px solid #000;
+        color: #fff
+    }
+
+    .image[data-v-4f33b266] {
+        height: 100%;
+        max-width: max(400px, min(50%, 80vw));
+        position: relative;
+        z-index: 0
+    }
+
+    @media (min-width: 1024px) {
+        .image[data-v-4f33b266] {
+            flex: 1 0 480px
+        }
+    }
+
+    img[data-v-4f33b266] {
+        margin-top: calc(-20% - 1em);
+        -o-object-fit: contain;
+        object-fit: contain
+    }
+
+    @media (min-width: 1024px) {
+        img[data-v-4f33b266] {
+            margin-bottom: calc(-20% - 1em)
+        }
+    }
+
+    .has-no-color img[data-v-4f33b266] {
+        margin: 0
+    }
+
+    .contents[data-v-4f33b266] {
+        position: relative;
+        text-align: left;
+        z-index: 10
+    }
+
+    @media (max-width: 1023px) {
+        .contents[data-v-4f33b266] {
+            margin: auto;
+            max-width: max(500px, min(80%, 80vw));
+            text-align: center
+        }
+    }
+
+    .display-none[data-v-3a6f6f91] {
+        display: none
+    }
+
+    .clamped[data-v-3a6f6f91] {
+        padding-bottom: calc(1em + 1vmin);
+        padding-top: calc(1em + 1vmin);
+        text-align: center
+    }
+
+    .heading[data-v-3a6f6f91] {
+        margin-bottom: 1em
+    }
+
+    .gallery[data-v-3a6f6f91] {
+        grid-gap: calc(2% + 1em);
+        align-items: center;
+        display: grid;
+        gap: calc(2% + 1em);
+        grid-auto-rows: minmax(100px, auto);
+        grid-template-columns:repeat(auto-fit, minmax(min(45%, 185px), 1fr));
+        grid-template-columns:repeat(auto-fit, minmax(min(45%, var(--max-width, 185px)), 1fr));
+        justify-content: space-between
+    }
+
+    .gallery-item img[data-v-3a6f6f91] {
+        max-height: 150px;
+        max-height: var(--max-height, 150px);
+        -o-object-fit: contain;
+        object-fit: contain
+    }</style>
+</head>
+<body>
+<noscript data-n-head="ssr" data-hid="gtm-noscript" data-pbody="true">
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9TZRS&" height="0" width="0"
+            style="display:none;visibility:hidden" title="gtm"></iframe>
+</noscript>
+<div data-server-rendered="true" id="__nuxt"><!---->
+    <div id="__layout">
+        <div class="wrap"><!----> <!----> <!---->
+            <section class="sf-modal modal" style="display:none;" data-v-440618a6><!----> <!----></section>
+            <div class="notifications clamped" data-v-36b1e194></div>
+            <div data-fetch-key="data-v-44017492:0" class="header-wrapper" data-v-44017492><!---->
+                <div class="header clamped" data-v-44017492><a href="/" aria-current="page"
+                                                               class="logo-link nuxt-link-exact-active nuxt-link-active"
+                                                               data-v-44017492><img width="192" height="34"
+                                                                                    src="https://swiftotter.cdn.prismic.io/swiftotter/6aadee17-97ee-484a-8a49-c5c3e941db0f_logo-with-otter-white.svg"
+                                                                                    alt="SwiftOtter Logo" class="logo"
+                                                                                    data-v-44017492></a>
+                    <div data-fetch-key="data-v-052dbf52:0" class="menu" data-v-052dbf52 data-v-44017492>
+                        <ul data-v-052dbf52>
+                            <li data-v-052dbf52><a href="/development" class="menu-link" data-v-052dbf52>
+                                Ecommerce
+                            </a></li>
+                            <li data-v-052dbf52><a href="/training" class="menu-link" data-v-052dbf52>
+                                Training
+                            </a></li>
+                            <li data-v-052dbf52><a href="/technical" class="menu-link" data-v-052dbf52>
+                                Knowledge
+                            </a></li>
+                            <li data-v-052dbf52><a href="/contact-us" class="menu-link" data-v-052dbf52>
+                                Contact
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="sf-header__icons" data-v-44017492>
+                        <button type="button" aria-label="Account" data-testid="accountIcon"
+                                class="sf-button--pure sf-header__action sf-button" data-v-44017492 data-v-44017492>
+                            <span aria-label="Account" role="img" class="svg-image sf-header__icon" data-v-682a864a
+                                  data-v-44017492><svg width="20" height="20" data-v-682a864a><use xlink:href="#profile"
+                                                                                                   data-v-682a864a></use></svg></span>
+                        </button>
+                        <span style="display:none;" data-v-44017492><button type="button" aria-label="Wishlist"
+                                                                            data-testid="wishlistIcon"
+                                                                            class="sf-button--pure sf-header__action sf-button"
+                                                                            data-v-44017492 data-v-44017492><span
+                            aria-label="Wishlist" role="img" class="svg-image sf-header__icon sf-header__icon"
+                            data-v-682a864a data-v-44017492><svg width="20" height="20" data-v-682a864a><use
+                            xlink:href="#heart" data-v-682a864a></use></svg></span> <!----></button></span>
+                        <button type="button" aria-label="Toggle cart sidebar"
+                                class="sf-button--pure sf-header__action sf-button" data-v-44017492 data-v-44017492>
+                            <span aria-label="Cart" role="img" class="svg-image sf-header__icon" data-v-682a864a
+                                  data-v-44017492><svg width="20" height="20" data-v-682a864a><use
+                                xlink:href="#empty_cart" data-v-682a864a></use></svg></span> <!----></button>
+                    </div>
+                </div>
+            </div>
+            <div id="layout">
+                <div class="page" data-v-5ec090fc>
+                    <nav aria-label="breadcrumb"
+                         class="has-hero clamped affix-breadcrumbs breadcrumbs desktop-only sf-breadcrumbs"
+                         data-v-ca60e46a data-v-ca60e46a data-v-5ec090fc>
+                        <ol class="sf-breadcrumbs__list"></ol>
+                    </nav>
+                    <div data-v-5ec090fc>
+                        <div data-v-8dca7cee>
+                            <div class="hero section" style="--top-border-radius:0;" data-v-e28ac296 data-v-8dca7cee>
+                                <picture class="image" data-v-e28ac296>
+                                    <source
+                                        srcset="https://images.prismic.io/swiftotter/4368581f-6bb8-4c4d-bb80-5a5082a238a9_image+5+%282%29.png?auto=compress,format&amp;rect=0,7,1440,617&amp;w=600&amp;h=470"
+                                        media="(max-width: 768px)" alt="Training and services" width="600" height="470"
+                                        data-v-e28ac296 data-v-e28ac296>
+                                    <source
+                                        srcset="https://images.prismic.io/swiftotter/4368581f-6bb8-4c4d-bb80-5a5082a238a9_image+5+%282%29.png?auto=compress,format&amp;rect=0,7,1440,617&amp;w=1440&amp;h=490"
+                                        media="(min-width: 769px)" alt="Training and services" width="1440" height="490"
+                                        data-v-e28ac296 data-v-e28ac296>
+                                    <img loading="eager" alt="Training and services" width="1440" height="490"
+                                         src="https://images.prismic.io/swiftotter/4368581f-6bb8-4c4d-bb80-5a5082a238a9_image+5+%282%29.png?auto=compress,format&amp;rect=0,7,1440,617&amp;w=1440&amp;h=490"
+                                         data-v-e28ac296 data-v-e28ac296></picture>
+                                <div class="overlay" data-v-e28ac296></div>
+                                <div class="inside clamped" data-v-e28ac296>
+                                    <div class="contents" data-v-e28ac296>
+                                        <div class="hero-text title" data-v-e28ac296 data-v-8dca7cee><h1>Excellence in
+                                            Ecommerce Experiences—since 2012</h1></div>
+                                        <div class="hero-text secondary-text" data-v-e28ac296 data-v-8dca7cee><p>We
+                                            provide quality development services and training.</p></div>
+                                        <a href="/development" class="btn-primary" data-v-32c3beaa data-v-8dca7cee><span
+                                            data-v-32c3beaa>Learn more</span> <!----></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <section data-slice-type="card_list" data-slice-variation="default" class="clamped"
+                                 data-v-2208d947>
+                            <div class="header" data-v-2208d947 data-v-2208d947></div>
+                            <div class="card-list" data-v-2208d947>
+                                <div role="button" class="card" data-v-2208d947>
+                                    <div class="feature" data-v-2208d947><img loading="lazy" alt="" width="210"
+                                                                              height="210"
+                                                                              src="https://images.prismic.io/swiftotter/1688478105389_AdobeBigCommerce.jpg?auto=format%2Ccompress&amp;rect=1%2C0%2C3998%2C2692&amp;w=310&amp;h=310"
+                                                                              class="image" data-v-2208d947
+                                                                              data-v-2208d947></div>
+                                    <div class="content" data-v-2208d947><h4 class="subheading" data-v-2208d947>
+                                        Adobe Commerce to BigCommerce Playbook
+                                    </h4>
+                                        <h2 class="heading" data-v-2208d947>
+                                            Migrate from Adobe Commerce to BigCommerce (free 43-page condensed ebook)
+                                        </h2>
+                                        <div class="copy" data-v-2208d947 data-v-2208d947><p>Quickly understand the the
+                                            process of migrating from Magento 2 to BigCommerce and how it will affect
+                                            your ecommerce experience.</p></div>
+                                        <a href="/development/bigcommerce/adobe-commerce-to-big-commerce-playbook"
+                                           class="link" data-v-2208d947>
+                                            View more
+                                        </a> <!----></div>
+                                </div>
+                            </div>
+                        </section>
+                        <div data-v-8dca7cee>
+                            <div class="section hero has-image-on-right has-no-color"
+                                 style="--bg-color:var(--color-transparent);" data-v-4f33b266 data-v-8dca7cee>
+                                <div class="image" data-v-4f33b266><img loading="lazy" alt="" width="480" height="480"
+                                                                        src="https://images.prismic.io/swiftotter/e186531e-2546-4a8e-8c8b-8fafd313120d_Home+Page+Image+%281%29.png?auto=compress,format&amp;rect=0,4,2397,2397&amp;w=480&amp;h=480"
+                                                                        data-v-4f33b266 data-v-4f33b266></div>
+                                <div class="inside" data-v-4f33b266>
+                                    <div class="contents" data-v-4f33b266>
+                                        <div class="hero-text title" data-v-4f33b266 data-v-8dca7cee><h1>We build and
+                                            customize ecommerce websites.</h1></div>
+                                        <div class="hero-text secondary-text" data-v-4f33b266 data-v-8dca7cee><p><a
+                                            href="/development">We work with the industry&#39;s best developers—the ones
+                                            who are incredibly proficient to solve problems quickly and effectively.</a>
+                                            Fast and dependable support. Straight-forward advice.</p></div>
+                                        <a href="/contact-us" class="btn-primary" data-v-32c3beaa data-v-8dca7cee><span
+                                            data-v-32c3beaa>Start a Conversation</span> <!----></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <section class="clamped" data-v-3a6f6f91>
+                            <div class="heading" data-v-3a6f6f91 data-v-3a6f6f91><h2>Our partnerships</h2></div>
+                            <div class="gallery" style="--max-width:500px;--max-height:375px;" data-v-3a6f6f91>
+                                <div class="gallery-item" data-v-3a6f6f91><a href="/development/platforms/bigcommerce"
+                                                                             data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/884d25a7-844b-4507-b649-a0b549d9b3b2_Certified+BigCommerce+Partner+Logo.png?auto=compress,format"
+                                    alt="Company Logo" width="500" height="375" loading="eager" data-v-3a6f6f91></a>
+                                </div>
+                                <div class="gallery-item" data-v-3a6f6f91><a
+                                    href="/development/platforms/adobe-commerce-magento" data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/df0eb4cd-e52a-4574-bb5b-5ae1c9aba040_Certified+Adobe+Partner+Logo.png?auto=compress,format"
+                                    alt="Company Logo" width="500" height="375" loading="eager" data-v-3a6f6f91></a>
+                                </div>
+                            </div>
+                        </section>
+                        <section data-slice-type="card_list" data-slice-variation="default" class="clamped"
+                                 data-v-2208d947>
+                            <div class="header" data-v-2208d947 data-v-2208d947></div>
+                            <div class="card-list" data-v-2208d947>
+                                <div role="button" class="card" data-v-2208d947>
+                                    <div class="feature" data-v-2208d947><img loading="lazy" alt="" width="210"
+                                                                              height="210"
+                                                                              src="https://images.prismic.io/swiftotter/e206835d-6de0-4cc3-816a-92b98fe214ab_jeff-ackley-YwDo_HwORXs-unsplash.jpg?auto=compress,format&amp;rect=988,0,2547,2547&amp;w=310&amp;h=310"
+                                                                              class="image" data-v-2208d947
+                                                                              data-v-2208d947></div>
+                                    <div class="content" data-v-2208d947><h4 class="subheading" data-v-2208d947>
+
+                                    </h4>
+                                        <h2 class="heading" data-v-2208d947>
+                                            SwiftOtter + LifeWater: Otters love Water
+                                        </h2>
+                                        <div class="copy" data-v-2208d947 data-v-2208d947><p>We give at least 10% of our
+                                            net profit to LifeWater, providing sustainable water to people across the
+                                            world.</p></div>
+                                        <a href="/technical/we-give-back" class="link" data-v-2208d947>
+                                            View more
+                                        </a> <!----></div>
+                                </div>
+                            </div>
+                        </section>
+                        <div data-v-8dca7cee>
+                            <div background_color="Blue" class="section hero has-image-on-left has-no-color"
+                                 style="--bg-color:var(--color-transparent);" data-v-4f33b266 data-v-8dca7cee>
+                                <div class="image" data-v-4f33b266><img loading="lazy" alt="" width="480" height="480"
+                                                                        src="https://images.prismic.io/swiftotter/03f68ed9-4c38-48ea-a1ef-80ae08c2aadf_brave-dev-image-2x.png?auto=compress,format&amp;rect=0,0,1216,1216&amp;w=480&amp;h=480"
+                                                                        data-v-4f33b266 data-v-4f33b266></div>
+                                <div class="inside" data-v-4f33b266>
+                                    <div class="contents" data-v-4f33b266>
+                                        <div class="hero-text title" data-v-4f33b266 data-v-8dca7cee><h1>Here&#39;s to
+                                            you, brave ecommerce developer.</h1></div>
+                                        <div class="hero-text secondary-text" data-v-4f33b266 data-v-8dca7cee><p>Improve
+                                            your skills and become a rockstar developer.</p></div>
+                                        <a href="/training" class="btn-primary" data-v-32c3beaa data-v-8dca7cee><span
+                                            data-v-32c3beaa>View Training Courses</span> <!----></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <section class="clamped" data-v-3a6f6f91>
+                            <div class="heading" data-v-3a6f6f91 data-v-3a6f6f91><h2>Brands that trust SwiftOtter</h2>
+                            </div>
+                            <div class="gallery" data-v-3a6f6f91>
+                                <div class="gallery-item" data-v-3a6f6f91><a href="https://gpknives.com/"
+                                                                             rel="nofollow noreferrer noopener"
+                                                                             data-v-3a6f6f91 data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/8303756e-52b7-487b-a29a-469131deb4f6_gpknives-logo.png?auto=compress,format"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></a>
+                                </div>
+                                <div class="gallery-item" data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/2672840e-1786-417c-a23c-fb035df4a977_nedley-logo.png?auto=compress,format"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></div>
+                                <div class="gallery-item" data-v-3a6f6f91><img
+                                    src="https://swiftotter.cdn.prismic.io/swiftotter/c45297a7-0f4e-49ee-96ae-c7e21b414d48_srf-logo.svg"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></div>
+                                <div class="gallery-item" data-v-3a6f6f91><img
+                                    src="https://swiftotter.cdn.prismic.io/swiftotter/8c78386f-b28c-474f-a3b9-a97a99415e39_marlowwhite-logo.svg"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></div>
+                                <div class="gallery-item" data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/eef1200f-d631-415e-8676-29a87583c4a4_classicparts-logo.png?auto=compress,format"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></div>
+                                <div class="gallery-item" data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/d1354498-ff62-4fef-bf5c-0ecba9cbe0f8_etech-logo.png?auto=compress,format"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></div>
+                                <div class="gallery-item" data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/78ebd9f3-bcc0-4a5e-bc72-cebc4cca0dfa_ssi-logo.png?auto=compress,format"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></div>
+                                <div class="gallery-item" data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/a44b2dc7-82d9-42a7-bdb3-c46e1b9681dc_apex.png?auto=compress,format"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></div>
+                                <div class="gallery-item" data-v-3a6f6f91><a href="https://egrandstand.com/"
+                                                                             rel="nofollow noreferrer noopener"
+                                                                             data-v-3a6f6f91 data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/058c42ed-2a51-4afb-8d7d-a17f87305c08_grandstand.png?auto=compress,format"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></a>
+                                </div>
+                                <div class="gallery-item" data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/593e27f2-567e-4da9-8394-3f40cffafc77_pleasant-hill-logo.png?auto=compress,format"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></div>
+                                <div class="gallery-item" data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/20b74ceb-e116-49cd-9be3-cf39537e675e_sbc-logo.png?auto=compress,format"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></div>
+                                <div class="gallery-item" data-v-3a6f6f91><img
+                                    src="https://images.prismic.io/swiftotter/15691eeb-0ab3-4dd1-98df-915793a3471c_sti-logo.png?auto=compress,format"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></div>
+                                <div class="gallery-item" data-v-3a6f6f91><img
+                                    src="https://swiftotter.cdn.prismic.io/swiftotter/24742fb8-bc63-46b7-b9fc-50b30c910c05_Wacom_logo.svg"
+                                    alt="Company Logo" width="200" height="200" loading="eager" data-v-3a6f6f91></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div> <!----></div>
+    </div>
+</div>
+<script>window.__NUXT__ = (function (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z) {
+    x[0] = {
+        link_label: [{type: g, text: "Ecommerce", spans: []}],
+        url: l,
+        link: {
+            id: o,
+            type: e,
+            tags: [p, h],
+            lang: f,
+            slug: q,
+            first_publication_date: r,
+            last_publication_date: s,
+            uid: l,
+            url: t,
+            link_type: c,
+            isBroken: b
+        }
+    };
+    x[1] = {
+        link_label: [{type: g, text: "Training", spans: []}],
+        url: w,
+        link: {
+            id: P,
+            type: e,
+            tags: [h],
+            lang: f,
+            slug: Q,
+            first_publication_date: R,
+            last_publication_date: S,
+            uid: w,
+            url: T,
+            link_type: c,
+            isBroken: b
+        }
+    };
+    x[2] = {
+        link_label: [{type: g, text: "Knowledge", spans: []}],
+        url: Y,
+        link: {
+            id: "Y88cdhEAACQAtO-1",
+            type: e,
+            tags: [h],
+            lang: f,
+            slug: "knowledge",
+            first_publication_date: "2023-01-23T23:48:09+0000",
+            last_publication_date: "2023-02-14T19:49:18+0000",
+            uid: Y,
+            url: "\u002Ftechnical",
+            link_type: c,
+            isBroken: b
+        }
+    };
+    x[3] = {
+        link_label: [{type: g, text: "Contact", spans: []}],
+        url: "contact",
+        link: {
+            id: E,
+            type: e,
+            tags: [],
+            lang: f,
+            slug: F,
+            first_publication_date: G,
+            last_publication_date: H,
+            uid: I,
+            url: J,
+            link_type: c,
+            isBroken: b
+        }
+    };
+    y.dimensions = {width: 240, height: 35};
+    y.alt = "SwiftOtter Logo";
+    y.copyright = a;
+    y.url = "https:\u002F\u002Fswiftotter.cdn.prismic.io\u002Fswiftotter\u002F6aadee17-97ee-484a-8a49-c5c3e941db0f_logo-with-otter-white.svg";
+    W.link_type = c;
+    return {
+        layout: i,
+        data: [{
+            content: {
+                id: "YyJChxEAACQAUEUn",
+                uid: "home",
+                url: "\u002Fhome",
+                type: e,
+                href: "https:\u002F\u002Fswiftotter.cdn.prismic.io\u002Fapi\u002Fv2\u002Fdocuments\u002Fsearch?ref=ZPpNYRIAACEAfT1D&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YyJChxEAACQAUEUn%22%29+%5D%5D",
+                tags: [h],
+                first_publication_date: "2022-09-14T21:07:25+0000",
+                last_publication_date: "2023-07-08T15:55:31+0000",
+                slugs: ["excellence-in-ecommerce-experiencessince-2012", "excellence-in-ecommerce-engineering-since-2012", "engineering-excellent-ecommerce-since-2012", "we-build-ecommerce-experiences.", "we-build-and-audit-ecommerce-websites.", "we-build-andauditecommerce-websites."],
+                linked_documents: [],
+                lang: f,
+                alternate_languages: [],
+                data: {
+                    title: z,
+                    summary: [{
+                        type: g,
+                        text: "Empowering merchants to be successful. Work with Magento-certified developers with years of experience building highly-customized Adobe Commerce, Magento and BigCommerce applications. Let us assist you in taking your website to the next level.",
+                        spans: []
+                    }],
+                    slices: [{
+                        variation: i,
+                        version: k,
+                        items: [{}],
+                        primary: {
+                            feature_text: [{
+                                type: n,
+                                text: "Excellence in Ecommerce Experiences—since 2012",
+                                spans: []
+                            }],
+                            secondary_text: [{
+                                type: g,
+                                text: "We provide quality development services and training.",
+                                spans: []
+                            }],
+                            image: {
+                                dimensions: {width: 2800, height: j},
+                                alt: "Training and services",
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F4368581f-6bb8-4c4d-bb80-5a5082a238a9_image+5+%282%29.png?auto=compress,format&rect=0,7,1440,617&w=2800&h=1200",
+                                small: {
+                                    dimensions: {width: j, height: 1400},
+                                    alt: "Computer",
+                                    copyright: a,
+                                    url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F9864d4e5-5555-4dfd-a612-5d168cac77ea_LQ-nikolay-tarashchenko-u76CN5rZeOU-unsplash.jpg?auto=compress,format&rect=1283,0,3429,4001&w=1200&h=1400"
+                                }
+                            },
+                            link_text: [{type: g, text: "Learn more", spans: []}],
+                            link: {
+                                id: o,
+                                type: e,
+                                tags: [p, h],
+                                lang: f,
+                                slug: q,
+                                first_publication_date: r,
+                                last_publication_date: s,
+                                uid: l,
+                                url: t,
+                                link_type: c,
+                                isBroken: b
+                            },
+                            link_icon: {},
+                            roundTopCorners: a,
+                            reference: a,
+                            menu_title: a
+                        },
+                        id: "hero_banner$79415cbc-a54e-4e56-9331-19e4c2e1f90f",
+                        slice_type: u,
+                        slice_label: a
+                    }, {
+                        variation: i,
+                        version: A,
+                        items: [{
+                            page_link: {
+                                id: "ZJs88xEAACIAaA_B",
+                                type: e,
+                                tags: ["pdf"],
+                                lang: f,
+                                slug: "migrate-from-magento-2-to-bigcommerce",
+                                first_publication_date: "2023-06-27T19:48:15+0000",
+                                last_publication_date: "2023-08-16T15:04:51+0000",
+                                uid: "adobe-commerce-to-big-commerce-playbook",
+                                url: "\u002Fdevelopment\u002Fbigcommerce\u002Fadobe-commerce-to-big-commerce-playbook",
+                                data: {
+                                    title: "Migrate from Adobe Commerce to BigCommerce (free 43-page condensed ebook)",
+                                    image: {
+                                        dimensions: {width: B, height: 404},
+                                        alt: a,
+                                        copyright: a,
+                                        url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F1688478105389_AdobeBigCommerce.jpg?auto=format%2Ccompress&rect=1%2C0%2C3998%2C2692&w=600&h=404"
+                                    },
+                                    subtitle: "Adobe Commerce to BigCommerce Playbook",
+                                    summary: [{
+                                        type: g,
+                                        text: "Quickly understand the the process of migrating from Magento 2 to BigCommerce and how it will affect your ecommerce experience.",
+                                        spans: []
+                                    }]
+                                },
+                                link_type: c,
+                                isBroken: b
+                            },
+                            thumbnail: {},
+                            heading: [],
+                            sub_heading: [],
+                            description: [],
+                            primary_link: {link_type: d},
+                            primary_link_text: a,
+                            secondary_link: {link_type: d},
+                            secondary_link_text: a
+                        }],
+                        primary: {header: [], reference: a},
+                        id: "card_list$a857b85e-34ad-41ab-8644-03a1ad263192",
+                        slice_type: C,
+                        slice_label: a
+                    }, {
+                        variation: D,
+                        version: k,
+                        items: [{}],
+                        primary: {
+                            feature_text: [{
+                                type: n,
+                                text: "We build and customize ecommerce websites.",
+                                spans: []
+                            }],
+                            secondary_text: [{
+                                type: g,
+                                text: "We work with the industry's best developers—the ones who are incredibly proficient to solve problems quickly and effectively. Fast and dependable support. Straight-forward advice.",
+                                spans: [{
+                                    start: v,
+                                    end: 125,
+                                    type: "hyperlink",
+                                    data: {
+                                        id: o,
+                                        type: e,
+                                        tags: [p, h],
+                                        lang: f,
+                                        slug: q,
+                                        first_publication_date: r,
+                                        last_publication_date: s,
+                                        uid: l,
+                                        url: t,
+                                        link_type: c,
+                                        isBroken: b
+                                    }
+                                }]
+                            }],
+                            image: {
+                                dimensions: {width: j, height: j},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002Fe186531e-2546-4a8e-8c8b-8fafd313120d_Home+Page+Image+%281%29.png?auto=compress,format&rect=0,4,2397,2397&w=1200&h=1200"
+                            },
+                            link_text: [{type: g, text: "Start a Conversation", spans: []}],
+                            link_icon: {},
+                            background_color: a,
+                            image_on_right: m,
+                            reference: a,
+                            menu_title: a,
+                            link: {
+                                id: E,
+                                type: e,
+                                tags: [],
+                                lang: f,
+                                slug: F,
+                                first_publication_date: G,
+                                last_publication_date: H,
+                                uid: I,
+                                url: J,
+                                link_type: c,
+                                isBroken: b
+                            }
+                        },
+                        id: "hero_banner$86c5dbc9-7c12-44ef-8d8a-d20aec16798e",
+                        slice_type: u,
+                        slice_label: a
+                    }, {
+                        variation: i,
+                        version: k,
+                        items: [{
+                            image: {
+                                dimensions: {width: K, height: L},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F884d25a7-844b-4507-b649-a0b549d9b3b2_Certified+BigCommerce+Partner+Logo.png?auto=compress,format"
+                            },
+                            link: {
+                                id: "ZFa1NhEAACEAqDpa",
+                                type: e,
+                                tags: [h],
+                                lang: f,
+                                slug: "swiftotter-and-bigcommerce",
+                                first_publication_date: "2023-05-06T20:14:49+0000",
+                                last_publication_date: "2023-07-14T20:09:14+0000",
+                                uid: "bigcommerce",
+                                url: "\u002Fdevelopment\u002Fplatforms\u002Fbigcommerce",
+                                link_type: c,
+                                isBroken: b
+                            }
+                        }, {
+                            image: {
+                                dimensions: {width: K, height: L},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002Fdf0eb4cd-e52a-4574-bb5b-5ae1c9aba040_Certified+Adobe+Partner+Logo.png?auto=compress,format"
+                            },
+                            link: {
+                                id: "ZFa08REAACIAqDkm",
+                                type: e,
+                                tags: ["platform"],
+                                lang: f,
+                                slug: "swiftotter-and-adobe-commerce-magento-2",
+                                first_publication_date: "2023-05-06T20:13:40+0000",
+                                last_publication_date: "2023-08-04T17:21:47+0000",
+                                uid: "adobe-commerce-magento",
+                                url: "\u002Fdevelopment\u002Fplatforms\u002Fadobe-commerce-magento",
+                                link_type: c,
+                                isBroken: b
+                            }
+                        }],
+                        primary: {
+                            title: [{type: M, text: "Our partnerships", spans: []}],
+                            max_width: 500,
+                            max_height: 375,
+                            reference: a,
+                            menu_title: a,
+                            lazy_load: a,
+                            no_follow: b
+                        },
+                        id: "image_grid$d08332c3-8056-4e62-bf58-d07ea61341b5",
+                        slice_type: N,
+                        slice_label: a
+                    }, {
+                        variation: i,
+                        version: A,
+                        items: [{
+                            page_link: {
+                                id: "Y5DZiBEAACAANKse",
+                                type: e,
+                                tags: [],
+                                lang: f,
+                                slug: "swiftotter--lifewater",
+                                first_publication_date: "2022-12-07T18:20:59+0000",
+                                last_publication_date: "2023-07-03T15:58:35+0000",
+                                uid: "we-give-back",
+                                url: "\u002Ftechnical\u002Fwe-give-back",
+                                data: {
+                                    title: "SwiftOtter + LifeWater: Otters love Water",
+                                    image: {
+                                        dimensions: {width: B, height: 400},
+                                        alt: a,
+                                        copyright: a,
+                                        url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F18fe9c93-2741-4f4f-b2b0-7abd82eb2c52_nathan-dumlao-kdxqbavebwi-unsplash.jpeg?auto=compress,format&rect=0,0,490,327&w=600&h=400"
+                                    },
+                                    summary: [{
+                                        type: g,
+                                        text: "We give at least 10% of our net profit to LifeWater, providing sustainable water to people across the world.",
+                                        spans: []
+                                    }]
+                                },
+                                link_type: c,
+                                isBroken: b
+                            },
+                            thumbnail: {
+                                dimensions: {width: O, height: O},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002Fe206835d-6de0-4cc3-816a-92b98fe214ab_jeff-ackley-YwDo_HwORXs-unsplash.jpg?auto=compress,format&rect=988,0,2547,2547&w=420&h=420"
+                            },
+                            heading: [],
+                            sub_heading: [],
+                            description: [],
+                            primary_link: {link_type: d},
+                            primary_link_text: a,
+                            secondary_link: {link_type: d},
+                            secondary_link_text: a
+                        }],
+                        primary: {header: [], reference: a},
+                        id: "card_list$72cf35df-fe51-4b88-aa58-e21bed6b5582",
+                        slice_type: C,
+                        slice_label: a
+                    }, {
+                        variation: D,
+                        version: k,
+                        items: [{}],
+                        primary: {
+                            feature_text: [{
+                                type: n,
+                                text: "Here's to you, brave ecommerce developer.",
+                                spans: []
+                            }],
+                            secondary_text: [{
+                                type: g,
+                                text: "Improve your skills and become a rockstar developer.",
+                                spans: []
+                            }],
+                            image: {
+                                dimensions: {width: j, height: j},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F03f68ed9-4c38-48ea-a1ef-80ae08c2aadf_brave-dev-image-2x.png?auto=compress,format&rect=0,0,1216,1216&w=1200&h=1200"
+                            },
+                            link_text: [{type: g, text: "View Training Courses", spans: []}],
+                            link_icon: {},
+                            background_color: "Blue",
+                            image_on_right: a,
+                            reference: a,
+                            menu_title: a,
+                            link: {
+                                id: P,
+                                type: e,
+                                tags: [h],
+                                lang: f,
+                                slug: Q,
+                                first_publication_date: R,
+                                last_publication_date: S,
+                                uid: w,
+                                url: T,
+                                link_type: c,
+                                isBroken: b
+                            }
+                        },
+                        id: "hero_banner$a1b02535-7353-4283-8f8f-7194e33f0d06",
+                        slice_type: u,
+                        slice_label: a
+                    }, {
+                        variation: i,
+                        version: k,
+                        items: [{
+                            image: {
+                                dimensions: {width: 840, height: 152},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F8303756e-52b7-487b-a29a-469131deb4f6_gpknives-logo.png?auto=compress,format"
+                            }, link: {link_type: U, url: "https:\u002F\u002Fgpknives.com\u002F"}
+                        }, {
+                            image: {
+                                dimensions: {width: 532, height: 196},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F2672840e-1786-417c-a23c-fb035df4a977_nedley-logo.png?auto=compress,format"
+                            }, link: {link_type: d}
+                        }, {
+                            image: {
+                                dimensions: {width: 300, height: 93},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fswiftotter.cdn.prismic.io\u002Fswiftotter\u002Fc45297a7-0f4e-49ee-96ae-c7e21b414d48_srf-logo.svg"
+                            }, link: {link_type: d}
+                        }, {
+                            image: {
+                                dimensions: {width: 278, height: 37},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fswiftotter.cdn.prismic.io\u002Fswiftotter\u002F8c78386f-b28c-474f-a3b9-a97a99415e39_marlowwhite-logo.svg"
+                            }, link: {link_type: d}
+                        }, {
+                            image: {
+                                dimensions: {width: 246, height: V},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002Feef1200f-d631-415e-8676-29a87583c4a4_classicparts-logo.png?auto=compress,format"
+                            }, link: {link_type: d}
+                        }, {
+                            image: {
+                                dimensions: {width: 558, height: V},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002Fd1354498-ff62-4fef-bf5c-0ecba9cbe0f8_etech-logo.png?auto=compress,format"
+                            }, link: {link_type: d}
+                        }, {
+                            image: {
+                                dimensions: {width: 490, height: 176},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F78ebd9f3-bcc0-4a5e-bc72-cebc4cca0dfa_ssi-logo.png?auto=compress,format"
+                            }, link: {link_type: d}
+                        }, {
+                            image: {
+                                dimensions: {width: 638, height: 530},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002Fa44b2dc7-82d9-42a7-bdb3-c46e1b9681dc_apex.png?auto=compress,format"
+                            }, link: {link_type: d}
+                        }, {
+                            image: {
+                                dimensions: {width: 308, height: 30},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F058c42ed-2a51-4afb-8d7d-a17f87305c08_grandstand.png?auto=compress,format"
+                            }, link: {link_type: U, url: "https:\u002F\u002Fegrandstand.com\u002F"}
+                        }, {
+                            image: {
+                                dimensions: {width: 622, height: 126},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F593e27f2-567e-4da9-8394-3f40cffafc77_pleasant-hill-logo.png?auto=compress,format"
+                            }, link: {link_type: d}
+                        }, {
+                            image: {
+                                dimensions: {width: 478, height: 166},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F20b74ceb-e116-49cd-9be3-cf39537e675e_sbc-logo.png?auto=compress,format"
+                            }, link: {link_type: d}
+                        }, {
+                            image: {
+                                dimensions: {width: 274, height: 136},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fimages.prismic.io\u002Fswiftotter\u002F15691eeb-0ab3-4dd1-98df-915793a3471c_sti-logo.png?auto=compress,format"
+                            }, link: {link_type: d}
+                        }, {
+                            image: {
+                                dimensions: {width: 1024, height: 181},
+                                alt: a,
+                                copyright: a,
+                                url: "https:\u002F\u002Fswiftotter.cdn.prismic.io\u002Fswiftotter\u002F24742fb8-bc63-46b7-b9fc-50b30c910c05_Wacom_logo.svg"
+                            }, link: {link_type: d}
+                        }],
+                        primary: {
+                            title: [{type: M, text: "Brands that trust SwiftOtter", spans: []}],
+                            max_width: a,
+                            max_height: a,
+                            reference: a,
+                            menu_title: a,
+                            lazy_load: a,
+                            no_follow: m
+                        },
+                        id: "image_grid$19a72f4f-ea29-486a-a9a3-b0f00fd1b929",
+                        slice_type: N,
+                        slice_label: a
+                    }],
+                    image: {},
+                    published_override: a,
+                    main_category: {link_type: c},
+                    sub_category: W
+                }
+            }, loading: b, error: X, title: z, category: {link_type: c}, sub_category: W
+        }],
+        fetch: {"data-v-44017492:0": {menu: x, logo: y}, "data-v-052dbf52:0": {menu: x, logo: y}},
+        error: a,
+        serverRendered: m,
+        routePath: Z,
+        config: {
+            middlewareUrl: "https:\u002F\u002Fswiftotter.com\u002Fapi\u002F",
+            gtm: {id: "GTM-T9TZRS"},
+            isRecaptcha: m,
+            _app: {basePath: Z, assetsPath: "\u002F_nuxt\u002F", cdnURL: a}
+        },
+        globalRefs: {},
+        __i18n: {langs: {}},
+        pinia: {
+            customer: {user: a, isLoggedIn: b},
+            cart: {cart: {id: X, is_virtual: b, total_quantity: v, shipping_addresses: []}},
+            wishlist: {wishlist: {items_count: v}},
+            cms: {menu: {logo: y, menu_items: x}, footer: []}
+        }
+    }
+}(null, false, "Document", "Any", "page", "en-us", "paragraph", "landing-page", "default", 1200, "sktwi1xtmkfgx8626", "development", true, "heading1", "YyJDFBEAACQAUEdx", "agency", "we-design-and-implement-ecommerce.", "2022-09-14T21:09:51+0000", "2023-07-08T15:53:12+0000", "\u002Fdevelopment", "hero_banner", 0, "training", Array(4), {}, "SwiftOtter: Magento and BigCommerce development for online merchants", "initial", 600, "card_list", "sideBySide", "Yyxt_REAACQAfZrW", "get-in-touch-with-swiftotter", "2022-09-22T14:15:30+0000", "2022-12-14T16:58:44+0000", "contact-us", "\u002Fcontact-us", 1080, 810, "heading2", "image_grid", 420, "Y7CqoREAACkAMgj7", "adobe-commerce--magento-2-training-and-certification", "2022-12-31T21:33:35+0000", "2023-03-27T17:59:04+0000", "\u002Ftraining", "Web", 222, {}, "", "technical", "\u002F"));</script>
+<script>!function () {
+    var e = document, t = e.createElement("script");
+    if (!("noModule" in t) && "onbeforeload" in t) {
+        var n = !1;
+        e.addEventListener("beforeload", function (e) {
+            if (e.target === t) n = !0; else if (!e.target.hasAttribute("nomodule") || !n) return;
+            e.preventDefault()
+        }, !0), t.type = "module", t.src = ".", e.head.appendChild(t), t.remove()
+    }
+}();</script>
+<script nomodule src="/_nuxt/cb20120.js" defer async></script>
+<script type="module" src="/_nuxt/3dd19ef.modern.js" defer async></script>
+<script nomodule src="/_nuxt/128d2ca.js" defer async></script>
+<script type="module" src="/_nuxt/0bb58d7.modern.js" defer async></script>
+<script nomodule src="/_nuxt/16ee437.js" defer async></script>
+<script type="module" src="/_nuxt/1425c68.modern.js" defer async></script>
+<script nomodule src="/_nuxt/f4c9b85.js" defer async></script>
+<script nomodule src="/_nuxt/49f5c4b.js" defer async></script>
+<script type="module" src="/_nuxt/396d4eb.modern.js" defer async></script>
+<script nomodule src="/_nuxt/6f5f0d4.js" defer async></script>
+<script type="module" src="/_nuxt/4e85986.modern.js" defer async></script>
+<script nomodule src="/_nuxt/fe3917e.js" defer async></script>
+<script type="module" src="/_nuxt/4480451.modern.js" defer async></script>
+<script nomodule src="/_nuxt/8f07745.js" defer async></script>
+<script type="module" src="/_nuxt/1bb81dc.modern.js" defer async></script>
+<script nomodule src="/_nuxt/acb31a3.js" defer async></script>
+<script type="module" src="/_nuxt/e129fda.modern.js" defer async></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854"
+        integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg=="
+        data-cf-beacon='{"rayId":"806272a33d7482ff","version":"2023.8.0","r":1,"token":"a9eb71658a184b878dee72221a42c9fe","si":100}'
+        crossorigin="anonymous"></script>
+</body>
+</html>

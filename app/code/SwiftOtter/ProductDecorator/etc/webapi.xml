@@ -8,4 +8,11 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+    <route url="/V1/locations" method="GET">
+        <service class="SwiftOtter\ProductDecorator\Api\LocationRepositoryInterface"
+                 method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
 </routes>

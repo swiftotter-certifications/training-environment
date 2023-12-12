@@ -15,6 +15,7 @@ use SwiftOtter\Utils\Action\FindParentConfigurableForSimple;
 
 class LocationPrintMethod extends AbstractDb
 {
+    const TABLE = 'swiftotter_productdecorator_location_printmethod';
     /** @var \SwiftOtter\Utils\Action\FindParentConfigurableForSimple */
     private $findParentConfigurableForSimple;
 
@@ -29,7 +30,7 @@ class LocationPrintMethod extends AbstractDb
 
     protected function _construct()
     {
-        $this->_init('swiftotter_productdecorator_location_printmethod', 'id');
+        $this->_init(self::TABLE, 'id');
     }
 
     public function getById(int $id)
@@ -119,7 +120,7 @@ class LocationPrintMethod extends AbstractDb
         $connection = $this->getConnection();
         $select = $connection->select();
         $select->from(
-            ['main_table' => $this->getTable('swiftotter_productdecorator_location_printmethod')],
+            ['main_table' => $this->getTable(self::TABLE)],
             ['location_id']
         );
         $select->joinInner(

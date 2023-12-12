@@ -32,6 +32,7 @@ class Router implements RouterInterface
 
     public function match(RequestInterface $request)
     {
+        //mywebsite.com/giftcard/CODE12345
         preg_match('/\/giftcard\/([A-Z0-9]+)\//i', $request->getPathInfo(), $matches);
         if (!count($matches)) {
             return null;
@@ -48,6 +49,7 @@ class Router implements RouterInterface
             return null;
         }
 
+        // mywebsite.com/giftcards/apply/index/code/CODE12345
         $request->setPathInfo('giftcards/apply/index');
         $params = $request->getParams();
         $params['code'] = $giftCard->getCode();

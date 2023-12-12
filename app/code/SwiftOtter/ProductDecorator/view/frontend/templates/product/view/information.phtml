@@ -1,0 +1,10 @@
+<?php
+declare(strict_types=1);
+/**
+ * @by SwiftOtter, Inc. 8/6/21
+ * @website https://swiftotter.com
+ **/
+?>
+<span><?= __('This is a customization tool and is designed for XYZ.') ?></span>
+<?php /** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */ ?>
+<?= $secureRenderer->renderTag('script', [], '', false) ?>

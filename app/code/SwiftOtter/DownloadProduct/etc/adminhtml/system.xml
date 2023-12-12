@@ -12,15 +12,5 @@
                 </field>
             </group>
         </section>
-        <section id="catalog">
-            <group id="frontend_purchase" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Frontend Purchase</label>
-                <attribute type="expanded">1</attribute>
-                <field id="share_notification_email" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Share Notification Email Template</label>
-                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
-                </field>
-            </group>
-        </section>
     </system>
 </config>

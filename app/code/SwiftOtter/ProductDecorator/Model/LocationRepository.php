@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace SwiftOtter\ProductDecorator\Model;
 
+use Magento\Framework\Api\SearchResultsInterface;
 use SwiftOtter\ProductDecorator\Api\Data\LocationInterface;
 use SwiftOtter\ProductDecorator\Api\Data\LocationSearchResultsInterface;
 use SwiftOtter\ProductDecorator\Api\Data\LocationSearchResultsInterfaceFactory;

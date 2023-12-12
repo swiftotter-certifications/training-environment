@@ -10,4 +10,6 @@ namespace SwiftOtter\Teaching;
 class Attributes
 {
     const ALT_SKU = 'alt_sku';
+
+    public const OTTER_SKU = 'otter_sku';
 }

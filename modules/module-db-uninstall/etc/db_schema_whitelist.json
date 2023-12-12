@@ -1,0 +1,10 @@
+{
+    "table_to_uninstall": {
+        "column": {
+            "alt_sku": true
+        },
+        "index": {
+            "CATALOG_PRODUCT_ENTITY_ALT_SKU": true
+        }
+    }
+}

@@ -2,10 +2,15 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="product.info.addtocart" template="SwiftOtter_ProductDecorator::product/view/addtocart.phtml">
+        <referenceBlock name="product.info.addtocart"
+                        template="SwiftOtter_ProductDecorator::product/view/addtocart.phtml">
             <arguments>
                 <argument xsi:type="object" name="config_renderer">SwiftOtter\ProductDecorator\ViewModel\ConfigRenderer</argument>
             </arguments>
+            <block name="product.info.addtocart.details"
+                   ifconfig="catalog/frontend_purchase/enable_info_details"
+                   template="SwiftOtter_ProductDecorator::product/view/information.phtml">
+            </block>
         </referenceBlock>
         <referenceBlock name="product.info.addtocart.additional" template="SwiftOtter_ProductDecorator::product/view/addtocart.phtml">
             <arguments>

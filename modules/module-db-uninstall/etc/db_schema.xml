@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="table_to_uninstall">
+        <column xsi:type="varchar" length="40" name="alt_sku" nullable="true" comment="Alt SKU"/>
+
+        <index referenceId="CATALOG_PRODUCT_ENTITY_ALT_SKU" indexType="btree">
+            <column name="alt_sku"/>
+        </index>
+    </table>
+</schema>

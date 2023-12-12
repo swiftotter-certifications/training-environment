@@ -43,5 +43,78 @@
             "PALLET_ORDER_ITEM_PALLET_ID_PALLET_ID": true,
             "PRIMARY": true
         }
+    },
+    "handling_fee": {
+        "column": {
+            "id": true,
+            "base_total": true,
+            "total": true,
+            "base_invoiced": true,
+            "invoiced": true,
+            "base_credited": true,
+            "credited": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "handling_fee_quote_item": {
+        "column": {
+            "id": true,
+            "quote_item_id": true,
+            "handling_fee_id": true
+        },
+        "index": {
+            "HANDLING_FEE_QUOTE_ITEM_QUOTE_ITEM_ID": true
+        },
+        "constraint": {
+            "HANDLING_FEE_QUOTE_ITEM_QUOTE_ITEM_ID_QUOTE_ITEM_ITEM_ID": true,
+            "HANDLING_FEE_QUOTE_ITEM_HANDLING_FEE_ID_HANDLING_FEE_ID": true,
+            "PRIMARY": true
+        }
+    },
+    "handling_fee_order_item": {
+        "column": {
+            "id": true,
+            "order_item_id": true,
+            "handling_fee_id": true
+        },
+        "index": {
+            "HANDLING_FEE_ORDER_ITEM_ORDER_ITEM_ID": true,
+            "HANDLING_FEE_ORDER_ITEM_HANDLING_FEE_ID": true
+        },
+        "constraint": {
+            "HANDLING_FEE_ORDER_ITEM_ORDER_ITEM_ID_SALES_ORDER_ITEM_ITEM_ID": true,
+            "HANDLING_FEE_ORDER_ITEM_HANDLING_FEE_ID_HANDLING_FEE_ID": true,
+            "PRIMARY": true
+        }
+    },
+    "quote": {
+        "column": {
+            "handling_fee_amount": true,
+            "base_handling_fee_amount": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "handling_fee_amount": true,
+            "base_handling_fee_amount": true,
+            "invoiced_handling_fee_amount": true,
+            "base_invoiced_handling_fee_amount": true,
+            "credited_handling_fee_amount": true,
+            "base_credited_handling_fee_amount": true
+        }
+    },
+    "sales_invoice": {
+        "column": {
+            "handling_fee_amount": true,
+            "base_handling_fee_amount": true
+        }
+    },
+    "sales_creditmemo": {
+        "column": {
+            "handling_fee_amount": true,
+            "base_handling_fee_amount": true
+        }
     }
 }

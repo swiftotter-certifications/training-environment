@@ -73,10 +73,12 @@
             "id": true,
             "name": true,
             "client_id": true,
-            "is_deleted": true
+            "is_deleted": true,
+            "cart_id": true
         },
         "constraint": {
-            "PRIMARY": true
+            "PRIMARY": true,
+            "SWIFTOTTER_PRODUCTDECORATOR_PRINT_SPEC_CART_ID_QUOTE_ENTITY_ID": true
         }
     },
     "swiftotter_productdecorator_print_spec_location": {
